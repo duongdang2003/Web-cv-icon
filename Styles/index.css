@@ -10,3 +10,26 @@ html,body{
     position: relative;
     font-family: 'Courier New', Courier, monospace;
 }
+#wrapBody{
+    width:100%;
+    height:100%;
+}
+.sectionBody{
+    width:100%;
+    height:100%;
+}
+#chinhsua{
+    height:35%;
+    width:100%;
+    background-color: beige;
+}
+#CV{
+    height:auto;
+    /* thoe kho giay A4 */
+    width:80%; 
+    height:100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: aquamarine;
+}
