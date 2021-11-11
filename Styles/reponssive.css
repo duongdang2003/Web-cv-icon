@@ -1,0 +1,13 @@
+/*
+    break-point:
+
+    destop: >950px; 
+    mobile: <950px 
+    */
+
+/* destop */
+@media (min-width: 950px) {
+}
+/* mobile */
+@media (max-width: 950px) {
+}
