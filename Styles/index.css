@@ -8,28 +8,55 @@ html,body{
     height:100%;
     width:100%;
     position: relative;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', Courier, monospace;
 }
 #wrapBody{
     width:100%;
     height:100%;
 }
-.sectionBody{
-    width:100%;
-    height:100%;
+.header{
+    width:95%;
+    height:20%;
+    font-size: 30px;
+    border: 1px solid black;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
-#chinhsua{
-    height:35%;
-    width:100%;
-    background-color: beige;
+.body{
+    width: 95%;
+    height: 50%;
+    border: 1px solid black;
+    margin: auto;
+    height: fit-content;
+    display: flex;
 }
-#CV{
-    height:auto;
-    /* thoe kho giay A4 */
-    width:80%; 
-    height:100%;
+.body .information {
+    border: 1px solid black;
+    width: 30%;
+    height: fit-content;
+    margin: 10px;
+}
+.body .information div {
+    width: 100%;
+    height: 50px;
+    border: 1px solid red;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.body .CV {
+    border: 1px solid black;
+    width: 70%;
+    height: fit-content;
+    margin: 10px;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: aquamarine;
 }
+.body .CV img {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
