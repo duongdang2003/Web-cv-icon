@@ -75,8 +75,7 @@ html,body{
     background-image: url("/images/no_avatar.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 0;  
-    padding-bottom: calc(20% - 2px);
+    height: 186px;  
     border: 1px dashed #333;
 }
 #ava:hover{
@@ -86,14 +85,13 @@ html,body{
 #name{
     width: 50%; 
     background-color: rgb(71, 141, 92);
-    height: 0;
-    padding-bottom: 20%;
+    height: 186px;
 }
 #info{
     width: 30%; 
     background-color: rgb(128, 141, 71);
-    height: 0;
-    padding-bottom: 20%;
+    height: 186px;
+
 }
 .modal{
     display: none;

@@ -35,19 +35,19 @@ function addElement() {
 }
 
 //                                khoa 👇
-
+var saveFile=[];
 document.getElementById("files").onchange = function () {
   var reader = new FileReader();
 
   reader.onload = function (e) {
     // get loaded data and render thumbnail.
     document.getElementById("imageCV").src = e.target.result;
+    saveFile.push(e.target.result);
   };
 
   // read the image file as a data URL.
   reader.readAsDataURL(this.files[0]);
 };
-//
 
 document.getElementById("ava").onclick = function () {
   document.getElementById("OCModal").classList.add("OpenModal");
@@ -67,4 +67,9 @@ function cancleFile() {
   document.getElementById("files").value = "";
   document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
   document.getElementById("OCModal").classList.remove("OpenModal");
+}
+function addFile(){
+  var src = saveFile;
+  console.log(src);
+  document.getElementById("ava").src= src;
 }
