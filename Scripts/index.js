@@ -35,7 +35,7 @@ var clock = setInterval(() => {
 
 };
 
-//                                phan download CV 👆
+//                                khoa 👇
 
 document.getElementById("files").onchange = function () {
   var reader = new FileReader();
