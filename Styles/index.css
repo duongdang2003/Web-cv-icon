@@ -48,7 +48,7 @@ html,body{
     cursor: pointer;
 }
 .body .CV {
-    border: 1px solid black;
+    border: 2px solid black;
     width: 70%;
     height: fit-content;
     margin: 10px;
@@ -59,5 +59,83 @@ html,body{
     position: relative;
     width: 100%;
     height: 600px;
+}
+
+#headerCV{
+    position: relative;
+    width: 100%;
+    /* height: 100px; */
+    /* background-color: darkcyan; */
+    display: flex;
+    padding: 24px;
+}
+#ava{
+    width: 20%; 
+    /* height: 180px; */
+    background-image: url("/images/no_avatar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 0;  
+    padding-bottom: calc(20% - 2px);
+    border: 1px dashed #333;
+}
+#ava:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+#name{
+    width: 50%; 
+    background-color: rgb(71, 141, 92);
+    height: 0;
+    padding-bottom: 20%;
+}
+#info{
+    width: 30%; 
+    background-color: rgb(128, 141, 71);
+    height: 0;
+    padding-bottom: 20%;
+}
+.modal{
+    display: none;
+}
+.OpenModal{
+    display: block;
+}
+#opaModal{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    opacity: 0.5;
+}
+#chinhsuaAva{
+    position: absolute;
+    top: 40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    height: 40%;
+    width: 40%;
+    background-color:rgb(139, 139, 139);
+}
+#modalHead{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(120, 167, 92);
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+#modalHead i{
+    position: absolute;
+    right: 0;
+    top:0;
+    height: 40px;
+    line-height:40px;
+    width:7%;
+}
+#modalHead i:hover{
+    cursor: pointer;
+    background-color: rgb(81, 197, 100);
 }
 

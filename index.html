@@ -5,16 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aury</title>
-    <link rel="stylesheet" href="./Styles/index.css">
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./Styles/index.css" />
     <!-- Roboto font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
     <!-- html2pd -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
-</head>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
   <body>
     <div id="wrapBody">
-
       <div class="header">
         <h1 id="logo">Aury</h1>
         <div>Quick CV creator</div>
@@ -34,9 +41,25 @@
             <div></div>
         </div> 
         <div class="CV">
+          <div id="headerCV">
+            <div onclick="taianh()" id="ava"></div>
+            <div id="name"></div>
+            <div id="info"></div>
+          </div>
         </div>
       </div>
-
+      <!--           modal -->
+      <div class="modal" id="OCModal">
+        <div id="opaModal"></div>
+        <div id="chinhsuaAva">
+          <div id="modalHead">
+            CHỈNH SỬA ẢNH ĐẠI DIỆN
+            <i class="fas fa-times" id="js-closeModalAva"></i>
+          </div>
+          <input type="file" id="files" />
+          <img id="image" />
+        </div>
+      </div>
     </div>
   </body>
   <script src="./Scripts/index.js"></script>
