@@ -138,4 +138,11 @@ html,body{
     cursor: pointer;
     background-color: rgb(81, 197, 100);
 }
-
+#imageCV{
+    position: absolute;
+    background-size: cover;
+    height: calc(100% - 40px);
+    width:auto;
+    max-width: 300px;
+    border: 1px solid black;
+}

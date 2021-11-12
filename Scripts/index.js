@@ -42,12 +42,13 @@ document.getElementById("files").onchange = function () {
 
   reader.onload = function (e) {
       // get loaded data and render thumbnail.
-      document.getElementById("image").src = e.target.result;
+      document.getElementById("imageCV").src = e.target.result;
   };
 
   // read the image file as a data URL.
   reader.readAsDataURL(this.files[0]);
 };
+//                                               
 
 document.getElementById("ava").onclick = function () {
   document.getElementById("OCModal").classList.add("OpenModal");
