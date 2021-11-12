@@ -30,16 +30,20 @@
       <!-- Body -->
       <div class="body">
         <div class="information">
-            <div onclick="download()">Download using html2pdf</div>
-            <div>
-              <label for="">Name</label>
-              <input type="text" name="" id="">
-              <span onclick="addElement()" style="border: 1px solid blue; padding: 10px">+</span>
-            </div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div> 
+          <div onclick="download()">Download using html2pdf</div>
+          <div>
+            <label for="">Name</label>
+            <input type="text" name="" id="" />
+            <span
+              onclick="addElement()"
+              style="border: 1px solid blue; padding: 10px"
+              >+</span
+            >
+          </div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <div class="CV">
           <div id="headerCV">
             <div onclick="taianh()" id="ava"></div>
@@ -56,8 +60,26 @@
             CHỈNH SỬA ẢNH ĐẠI DIỆN
             <i class="fas fa-times" id="js-closeModalAva"></i>
           </div>
-          <input type="file" id="files" />
-          <img id="imageCV" src="" alt="khoa">
+          <div id="bodyModal">
+            <div id="leftbody">
+              <form action="">
+                <!-- <label for="files"></label> -->
+                <input
+                  type="file"
+                  id="files"
+                  accept=".jpg, .png"
+                  name="files"
+                  multiple 
+                />
+              </form>
+              <div id="butToggleAva">
+                <button onclick="deleteFile" class="sectionButava">XÓA</button>
+                <button onclick="cancleFile" class="sectionButava">HỦY</button>
+                <button onclick="addFile" class="sectionButava" id="butLarge">SỬ DỤNG</button>
+              </div>
+            </div>
+            <div id="rightbody"><img id="imageCV" src="./Images/no_avatar.jpg" alt=" " /></div>
+          </div>
         </div>
       </div>
     </div>
