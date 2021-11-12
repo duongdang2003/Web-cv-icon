@@ -71,9 +71,16 @@ html,body{
 #ava{
     width: 20%; 
     /* height: 180px; */
-    background-color: darkcyan;   
-    height: 0;
-    padding-bottom: 20%;
+    background-image: url("/images/no_avatar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 0;  
+    padding-bottom: calc(20% - 2px);
+    border: 1px dashed #333;
+}
+#ava:hover{
+    cursor: pointer;
+    opacity: 0.8;
 }
 #name{
     width: 50%; 
