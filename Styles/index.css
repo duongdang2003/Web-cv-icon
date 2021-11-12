@@ -94,4 +94,19 @@ html,body{
     height: 0;
     padding-bottom: 20%;
 }
+#chinhsuaAva{
+    position: absolute;
+    top: 40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    height: 40%;
+    width: 40%;
+    background-color:red;
+}
+#modalHead{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(120, 167, 92);
+    padding: 10px 0;
+}
 
