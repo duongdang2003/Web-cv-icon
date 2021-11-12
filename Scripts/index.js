@@ -10,3 +10,5 @@ function download(){
       };
     html2pdf().set(opt).from(element).save();
 }
+//                                phan download CV 👆
+
