@@ -48,7 +48,7 @@ html,body{
     cursor: pointer;
 }
 .body .CV {
-    border: 1px solid black;
+    border: 2px solid black;
     width: 70%;
     height: fit-content;
     margin: 10px;
@@ -58,5 +58,33 @@ html,body{
     position: relative;
     width: 100%;
     height: 600px;
+}
+
+#headerCV{
+    position: relative;
+    width: 100%;
+    /* height: 100px; */
+    /* background-color: darkcyan; */
+    display: flex;
+    padding: 24px;
+}
+#ava{
+    width: 20%; 
+    /* height: 180px; */
+    background-color: darkcyan;   
+    height: 0;
+    padding-bottom: 20%;
+}
+#name{
+    width: 50%; 
+    background-color: rgb(71, 141, 92);
+    height: 0;
+    padding-bottom: 20%;
+}
+#info{
+    width: 30%; 
+    background-color: rgb(128, 141, 71);
+    height: 0;
+    padding-bottom: 20%;
 }
 
