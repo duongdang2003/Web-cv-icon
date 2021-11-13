@@ -19,7 +19,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    
   </head>
   <body>
     <div id="wrapBody">
@@ -30,41 +29,70 @@
 
       <!-- Body -->
       <div id="editContent">
-        
+          <div class="sectionEdit" id="font">
+            <i class="fas fa-font"></i>
+            <select name="font" id="">
+              <option value="Roboto">Roboto</option>
+              <option value="OpenSansLight">Open Sans Light</option>
+              <option value="Arial">Arial</option>
+            </select>
+          </div>
+          <div class="sectionEdit" id="size">
+            <i class="fas fa-text-height"></i>
+            <div>Small</div>
+            <div>Medium</div>
+            <div>Large</div>
+          </div>
+          <div class="sectionEdit" id="color">
+
+          </div>
+          <div class="sectionEdit" id="status">
+            <i class="fas fa-bold"></i>
+            <i class="fas fa-italic"></i>
+            <i class="fas fa-underline"></i>
+          </div>
+          <div class="sectionEdit" id="align">
+            <i class="fas fa-align-right"></i>
+            <i class="fas fa-align-center"></i>
+            <i class="fas fa-align-left"></i>
+          </div>
       </div>
       <!--                          chon font, co chu, mau sac,.... -->
 
       <div class="body">
         <div class="information">
-            <div onclick="download()">
-              <i class="fas fa-download"></i>
+          <div onclick="download()">
+            <i class="fas fa-download"></i>
+          </div>
+          <div onclick="displayAvailable()" id="available">
+            Các mẫu CV hiện có
+            <i class="fas fa-chevron-down"></i>
+            <i style="display: none" class="fas fa-chevron-up"></i>
+            <div>
+              <div>Chung</div>
+              <div>Kỹ thuật - công nghệ</div>
+              <div>Y dược</div>
+              <div>Kinh doanh</div>
+              <div>Xây dựng</div>
             </div>
-            <div onclick="displayAvailable()" id="available">
-              Các mẫu CV hiện có
-              <i class="fas fa-chevron-down"></i>
-              <i style="display: none;" class="fas fa-chevron-up"></i>
-              <div>
-                <div>Chung</div>
-                <div>Kỹ thuật - công nghệ</div>
-                <div>Y dược</div>
-                <div>Kinh doanh</div>
-                <div>Xây dựng</div>
-              </div>
-            </div>
-            
-            <div id="project" style="user-select: none;">Dự án
-              <i class="fas fa-plus-circle"></i>
-            </div>
-            <div id="language" style="user-select: none;">Ngôn ngữ
-              <i class="fas fa-plus-circle"></i>
-            </div>
-            <div id="anotherInfor" style="user-select: none;">Thông tin khác
-              <i class="fas fa-plus-circle"></i>
-            </div>
-        </div> 
+          </div>
+
+          <div id="project" style="user-select: none">
+            Dự án
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div id="language" style="user-select: none">
+            Ngôn ngữ
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div id="anotherInfor" style="user-select: none">
+            Thông tin khác
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
         <div class="CV">
           <div id="headerCV">
-            <image id="ava" src="./images/no_avatar.jpg"/>
+            <image id="ava" src="./images/no_avatar.jpg" />
             <div id="name"></div>
             <div id="info"></div>
           </div>
@@ -87,16 +115,28 @@
                   id="files"
                   accept=".jpg, .png"
                   name="files"
-                  multiple 
+                  multiple
                 />
               </form>
               <div id="butToggleAva">
-                <button onclick="deleteFile()" class="sectionButava" >XÓA</button>
-                <button onclick="cancleFile()" class="sectionButava" >HỦY</button>
-                <button onclick="addFile()" class="sectionButava" id="js-addFile">SỬ DỤNG</button>
+                <button onclick="deleteFile()" class="sectionButava">
+                  XÓA
+                </button>
+                <button onclick="cancleFile()" class="sectionButava">
+                  HỦY
+                </button>
+                <button
+                  onclick="addFile()"
+                  class="sectionButava"
+                  id="js-addFile"
+                >
+                  SỬ DỤNG
+                </button>
               </div>
             </div>
-            <div id="rightbody"><img id="imageCV" src="./Images/no_avatar.jpg" alt=" " /></div>
+            <div id="rightbody">
+              <img id="imageCV" src="./Images/no_avatar.jpg" alt=" " />
+            </div>
           </div>
         </div>
       </div>

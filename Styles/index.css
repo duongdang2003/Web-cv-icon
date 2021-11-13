@@ -171,6 +171,8 @@ html,body{
     height: 45%;
     width: 40%;
     background-color:rgb(139, 139, 139);
+    box-shadow:0px 0px 10px rgb(255, 255, 255) ;
+    border-radius: 6px;
 }
 #modalHead{
     width: 100%;
@@ -179,6 +181,8 @@ html,body{
     height: 40px;
     line-height: 40px;
     position: relative;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 #modalHead i{
     position: absolute;
@@ -246,11 +250,22 @@ form[action=""] input[type="file"]{
     text-align: center;
 }
 #editContent{
+    position: relative;
     width: 95%;
     height:60px;
     margin: auto;
     margin-bottom: 10px;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(201, 145, 178);
     box-shadow: 0px 5px 5px rgba(122, 122, 122, 0.562);
     border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.sectionEdit{
+    height:76%;
+    width: 10%;
+    background-color:#ECE4DB;
+    border-radius: 4px;
+    box-shadow: 5px 0px 5px rgba(122, 122, 122, 0.562);
 }
