@@ -19,6 +19,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    
   </head>
   <body>
     <div id="wrapBody">
@@ -30,20 +31,32 @@
       <!-- Body -->
       <div class="body">
         <div class="information">
-          <div onclick="download()">Download using html2pdf</div>
-          <div>
-            <label for="">Name</label>
-            <input type="text" name="" id="" />
-            <span
-              onclick="addElement()"
-              style="border: 1px solid blue; padding: 10px"
-              >+</span
-            >
-          </div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+            <div onclick="download()">
+              <i class="fas fa-download"></i>
+            </div>
+            <div onclick="displayAvailable()" id="available">
+              Các mẫu CV hiện có
+              <i class="fas fa-chevron-down"></i>
+              <i style="display: none;" class="fas fa-chevron-up"></i>
+              <div>
+                <div>Chung</div>
+                <div>Kỹ thuật - công nghệ</div>
+                <div>Y dược</div>
+                <div>Kinh doanh</div>
+                <div>Xây dựng</div>
+              </div>
+            </div>
+            
+            <div id="project" style="user-select: none;">Dự án
+              <i class="fas fa-plus-circle"></i>
+            </div>
+            <div id="language" style="user-select: none;">Ngôn ngữ
+              <i class="fas fa-plus-circle"></i>
+            </div>
+            <div id="anotherInfor" style="user-select: none;">Thông tin khác
+              <i class="fas fa-plus-circle"></i>
+            </div>
+        </div> 
         <div class="CV">
           <div id="headerCV">
             <image id="ava" src="./images/no_avatar.jpg"/>

@@ -1,38 +1,62 @@
-var cv = document.querySelector(".CV");
-function download() {
-  const element = document.querySelector(".CV");
-  var opt = {
-    margin: 1,
-    filename: "CV.pdf",
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 3 /*, width: 2580*/ },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-  };
-  html2pdf().set(opt).from(element).save();
+let cv = document.querySelector(".CV");
+let availableDisplay = true;
+// Download 
+function download(){
+    const element = document.querySelector(".CV");
+    var opt = {
+        margin:       1,
+        filename:     'CV.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 3 /*, width: 2580*/},
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+    html2pdf().set(opt).from(element).save();
 }
 
-function addElement() {
-  var div = document.createElement("input");
-  var input = document.querySelector(".information input");
-  div.style.width = "fit-content";
-  div.style.height = "fit-content";
-  div.style.border = "1px solid black";
-  div.style.color = "black";
-  div.style.margin = "10px";
-  div.style.padding = "10px";
-  div.innerHTML = input.value;
-  cv.appendChild(div);
-  div.value = input.value;
-  var clock = setInterval(() => {
-    setTimeout(() => {
-      if (input === document.activeElement) {
-        div.value = input.value;
-      } else if (div === document.activeElement) {
-        input.value = div.value;
-      }
-    }, 100);
+// Direct change on CV
+function addElement(){
+let subInput = document.createElement("input");
+let input = document.querySelector(".information input");
+subInput.style.width = "fit-content";
+subInput.style.height = "fit-content";
+subInput.style.border = "1px solid black";
+subInput.style.color = "black";
+subInput.style.margin = "10px";
+subInput.style.padding = "10px";
+subInput.innerHTML = input.value;
+cv.appendChild(subInput);
+subInput.value = input.value;
+var clock = setInterval(() => {
+  setTimeout(() => {
+    if (input === document.activeElement) {
+        subInput.value = input.value;
+  } else if(subInput === document.activeElement){
+        input.value = subInput.value;
+  }
   }, 100);
+}, 100);
+
+};
+
+function displayAvailable() {
+  let available = document.querySelector("#available > div");
+  let arrowDown = document.querySelector("#available i:first-child")
+  let arrowUp = document.querySelector("#available i:nth-child(2)");
+  if(availableDisplay === true){
+    available.style.display = "grid";
+    availableDisplay = false;
+    arrowUp.style.display = "block";
+    arrowDown.style.display = "none";
+  } else {
+    available.style.display = "none";
+    arrowUp.style.display = "none";
+    arrowDown.style.display = "block";
+    availableDisplay = true;
+  }
 }
+
+
+//                                phan download CV 👆
 
 //                                khoa 👇
 var saveFile=[];
