@@ -70,6 +70,9 @@ function cancleFile() {
 }
 function addFile(){
   var src = saveFile;
+  saveFile = [];
   console.log(src);
   document.getElementById("ava").src= src;
+  document.getElementById("ava").style.border = "1px solid black";
+  document.getElementById("OCModal").classList.remove("OpenModal");
 }
