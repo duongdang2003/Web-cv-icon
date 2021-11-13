@@ -34,9 +34,10 @@
             <div onclick="download()">
               <i class="fas fa-download"></i>
             </div>
-            <div onclick="display()" id="available">
+            <div onclick="displayAvailable()" id="available">
               Các mẫu CV hiện có
               <i class="fas fa-chevron-down"></i>
+              <i style="display: none;" class="fas fa-chevron-up"></i>
               <div>
                 <div>Chung</div>
                 <div>Kỹ thuật - công nghệ</div>
@@ -46,13 +47,13 @@
               </div>
             </div>
             
-            <div id="project">Dự án
+            <div id="project" style="user-select: none;">Dự án
               <i class="fas fa-plus-circle"></i>
             </div>
-            <div id="language">Ngôn ngữ
+            <div id="language" style="user-select: none;">Ngôn ngữ
               <i class="fas fa-plus-circle"></i>
             </div>
-            <div id="anotherInfor">Thông tin khác
+            <div id="anotherInfor" style="user-select: none;">Thông tin khác
               <i class="fas fa-plus-circle"></i>
             </div>
         </div> 

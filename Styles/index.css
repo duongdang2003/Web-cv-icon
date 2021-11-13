@@ -51,11 +51,11 @@ html,body{
     font-size: 20px;
     margin-left: 75%;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 .body .information > div {
     width: 90%;
     height: fit-content;
-    cursor: pointer;
     position: relative;
     font-size: 20px;
     padding: 15px;
@@ -69,12 +69,14 @@ html,body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    user-select: none;
 }
 #available i{
     position: absolute;
     right: 10px;
     top: 15px;
     font-size: 30px;
+    cursor: pointer;
 }
 #available > div {
     display: none;
@@ -90,6 +92,7 @@ html,body{
     position: absolute;
     right: 10px;
     font-size: 25px;
+    cursor: pointer;
 }
  
 #available > div div {
@@ -98,8 +101,7 @@ html,body{
     padding: 5px;
     border-radius: 5px;
     border: 2px solid #c26b32;
-    border-collapse: collapse;
-
+    cursor: pointer;
 }
 .body .CV {
     width: 70%;

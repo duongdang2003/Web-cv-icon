@@ -1,5 +1,5 @@
-var cv = document.querySelector(".CV");
-
+let cv = document.querySelector(".CV");
+let availableDisplay = true;
 // Download 
 function download(){
     const element = document.querySelector(".CV");
@@ -38,9 +38,21 @@ var clock = setInterval(() => {
 
 };
 
-function display() {
+function displayAvailable() {
   let available = document.querySelector("#available > div");
-  available.style.display = "grid";
+  let arrowDown = document.querySelector("#available i:first-child")
+  let arrowUp = document.querySelector("#available i:nth-child(2)");
+  if(availableDisplay === true){
+    available.style.display = "grid";
+    availableDisplay = false;
+    arrowUp.style.display = "block";
+    arrowDown.style.display = "none";
+  } else {
+    available.style.display = "none";
+    arrowUp.style.display = "none";
+    arrowDown.style.display = "block";
+    availableDisplay = true;
+  }
 }
 
 
