@@ -1,4 +1,6 @@
 var cv = document.querySelector(".CV");
+
+// Download 
 function download(){
     const element = document.querySelector(".CV");
     var opt = {
@@ -11,29 +13,36 @@ function download(){
     html2pdf().set(opt).from(element).save();
 }
 
+// Direct change on CV
 function addElement(){
-var div = document.createElement("input");
-var input = document.querySelector(".information input");
-div.style.width = "fit-content";
-div.style.height = "fit-content";
-div.style.border = "1px solid black";
-div.style.color = "black";
-div.style.margin = "10px";
-div.style.padding = "10px";
-div.innerHTML = input.value;
-cv.appendChild(div);
-div.value = input.value;
+let subInput = document.createElement("input");
+let input = document.querySelector(".information input");
+subInput.style.width = "fit-content";
+subInput.style.height = "fit-content";
+subInput.style.border = "1px solid black";
+subInput.style.color = "black";
+subInput.style.margin = "10px";
+subInput.style.padding = "10px";
+subInput.innerHTML = input.value;
+cv.appendChild(subInput);
+subInput.value = input.value;
 var clock = setInterval(() => {
   setTimeout(() => {
     if (input === document.activeElement) {
-        div.value = input.value;
-  } else if(div === document.activeElement){
-        input.value = div.value;
+        subInput.value = input.value;
+  } else if(subInput === document.activeElement){
+        input.value = subInput.value;
   }
   }, 100);
 }, 100);
 
 };
+
+function display() {
+  let available = document.querySelector("#available > div");
+  available.style.display = "grid";
+}
+
 
 //                                phan download CV 👆
 
