@@ -173,6 +173,7 @@ html,body{
     background-color:rgb(139, 139, 139);
     box-shadow:0px 0px 10px rgb(255, 255, 255) ;
     border-radius: 6px;
+    animation: slide 0.6s ease;
 }
 #modalHead{
     width: 100%;
@@ -269,3 +270,14 @@ form[action=""] input[type="file"]{
     border-radius: 4px;
     box-shadow: 5px 0px 5px rgba(122, 122, 122, 0.562);
 }
+
+
+                           /* keyframe */
+        @keyframes slide{
+            from {
+                top: 0;
+            }
+            to {
+                top:40%;
+            }
+        }
