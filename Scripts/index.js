@@ -46,12 +46,15 @@ function display() {
 
 //                                phan download CV 👆
 
+//                                khoa 👇
+var saveFile=[];
 document.getElementById("files").onchange = function () {
   var reader = new FileReader();
 
   reader.onload = function (e) {
-      // get loaded data and render thumbnail.
-      document.getElementById("image").src = e.target.result;
+    // get loaded data and render thumbnail.
+    document.getElementById("imageCV").src = e.target.result;
+    saveFile.push(e.target.result);
   };
 
   // read the image file as a data URL.
@@ -60,10 +63,25 @@ document.getElementById("files").onchange = function () {
 
 document.getElementById("ava").onclick = function () {
   document.getElementById("OCModal").classList.add("OpenModal");
-}
+};
 document.getElementById("js-closeModalAva").onclick = function () {
   document.getElementById("OCModal").classList.remove("OpenModal");
-}
+};
 document.getElementById("opaModal").onclick = function () {
   document.getElementById("OCModal").classList.remove("OpenModal");
+};
+
+function deleteFile() {
+  document.getElementById("files").value = "";
+  document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
+}
+function cancleFile() {
+  document.getElementById("files").value = "";
+  document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
+  document.getElementById("OCModal").classList.remove("OpenModal");
+}
+function addFile(){
+  var src = saveFile;
+  console.log(src);
+  document.getElementById("ava").src= src;
 }

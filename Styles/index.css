@@ -129,8 +129,7 @@ html,body{
     background-image: url("/images/no_avatar.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 0;  
-    padding-bottom: calc(20% - 2px);
+    height: 186px;  
     border: 1px dashed #333;
 }
 #ava:hover{
@@ -140,14 +139,13 @@ html,body{
 #name{
     width: 50%; 
     background-color: rgb(71, 141, 92);
-    height: 0;
-    padding-bottom: 20%;
+    height: 186px;
 }
 #info{
     width: 30%; 
     background-color: rgb(128, 141, 71);
-    height: 0;
-    padding-bottom: 20%;
+    height: 186px;
+
 }
 .modal{
     display: none;
@@ -168,7 +166,7 @@ html,body{
     top: 40%;
     left:50%;
     transform:translate(-50%,-50%);
-    height: 40%;
+    height: 45%;
     width: 40%;
     background-color:rgb(139, 139, 139);
 }
@@ -192,4 +190,56 @@ html,body{
     cursor: pointer;
     background-color: rgb(81, 197, 100);
 }
-
+#bodyModal{
+    width: 100%;
+    height: calc(100% - 40px);
+    line-height: calc(100% - 40px);
+    display: flex;
+}
+form[action=""]{
+    display: inline;
+}
+form[action=""] input[type="file"]{
+    font-size:16px;
+}
+#imageCV{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-size:cover;
+    height: calc(100% - 40px);
+    /* width:auto; */
+    min-width: 170px;
+    min-height: 180px;
+    max-width: 190px;
+    max-height: 200px;
+    border: 1px solid black;
+}
+#leftbody{
+    flex-basis: 50%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+#butToggleAva .sectionButava{
+    outline: none;
+    height: 32px;
+    width: 64px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color:aquamarine;
+}
+#butToggleAva .sectionButava:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+#js-addFile{
+    width:80px !important;
+    padding: 0 5px;
+}
+#rightbody{
+    flex-basis: 50%;
+    text-align: center;
+}
