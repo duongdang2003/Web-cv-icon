@@ -340,7 +340,32 @@ form[action=""] input[type="file"]{
 #sizeEdit #showFont:hover{
     cursor:text;
 }
-
+#editContent #color{
+  width: 4%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#editContent #color:hover{
+    cursor: pointer;
+    background-color: #ddd;
+}
+#color #imageColor{
+    height:5%;
+    width:100%;
+}
+#color #textColor{
+    font-size:150%;
+    font-weight:600;
+}
+#color #imageColor div{
+    background-image: url(../Images/fontClor.png);
+    background-repeat: repeat;
+    background-size: contain;
+    height:100%;
+    width:40%;
+    margin:auto;
+}
 
 
                            /* keyframe */
