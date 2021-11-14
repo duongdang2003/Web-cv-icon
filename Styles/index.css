@@ -282,6 +282,7 @@ form[action=""] input[type="file"]{
     background-color:#ece1db;
     border-radius: 4px;
     box-shadow: 5px 0px 5px rgba(122, 122, 122, 0.562);
+    position: relative;
 }
 #editContent #font{
     width: initial;
@@ -371,6 +372,19 @@ form[action=""] input[type="file"]{
     height:100%;
     width:40%;
     margin:auto;
+}
+#size #listFontSize{
+    position: absolute;
+    right: 0;
+    top: 100%;
+    /* transform: translateX(-50%); */
+    z-index: 2;
+    overflow-y:scroll;
+    width: 76%;
+    height: 1000%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px #333;
+    border-radius: 5px;
 }
 
 
