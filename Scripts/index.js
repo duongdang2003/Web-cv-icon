@@ -105,7 +105,13 @@ function cancleFile() {
   document.getElementById("OCModal").classList.remove("OpenModal");
 }
 function addFile(){
-  var src = saveFile;
+  var src;
+    src = saveFile;
+  saveFile = [];
   console.log(src);
   document.getElementById("ava").src= src;
+  document.getElementById("ava").style.border = "1px solid black";
+  document.getElementById("OCModal").classList.remove("OpenModal");
+  document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
+  document.getElementById("files").value = "";
 }

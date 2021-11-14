@@ -177,6 +177,9 @@ html,body{
     height: 45%;
     width: 40%;
     background-color:rgb(139, 139, 139);
+    box-shadow:0px 0px 10px rgb(255, 255, 255) ;
+    border-radius: 6px;
+    animation: slide 0.6s ease;
 }
 #modalHead{
     width: 100%;
@@ -185,6 +188,8 @@ html,body{
     height: 40px;
     line-height: 40px;
     position: relative;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 #modalHead i{
     position: absolute;
@@ -248,6 +253,61 @@ form[action=""] input[type="file"]{
     padding: 0 5px;
 }
 #rightbody{
+    position: relative;
     flex-basis: 50%;
     text-align: center;
 }
+#rightbody div{
+    position: absolute;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
+}
+#editContent{
+    position: relative;
+    width: 95%;
+    height:60px;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: rgb(201, 145, 178);
+    box-shadow: 0px 5px 5px rgba(122, 122, 122, 0.562);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.sectionEdit{
+    height:76%;
+    width: 11%;
+    background-color:#ECE4DB;
+    border-radius: 4px;
+    box-shadow: 5px 0px 5px rgba(122, 122, 122, 0.562);
+}
+#editContent #font{
+    width: initial;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:0 5px;
+}
+#font i{
+    margin:0 5px;
+    font-size: 120%;
+}
+#font #seclectFont{
+    font-size:120%;
+    outline: none;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 5px;
+}
+
+
+                           /* keyframe */
+        @keyframes slide{
+            from {
+                top: 0;
+            }
+            to {
+                top:40%;
+            }
+        }
