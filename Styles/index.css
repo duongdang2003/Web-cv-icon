@@ -39,6 +39,7 @@ html,body{
     margin: auto;
     height: fit-content;
     display: flex;
+    justify-content:space-between;
 }
 .body .information {
     /* border: 1px solid black; */
@@ -110,7 +111,7 @@ html,body{
     cursor: pointer;
 }
 .body .CV {
-    width: 70%;
+    width: 58%;
     height: fit-content;
     margin: 10px;
     position: relative;
@@ -387,6 +388,7 @@ form[action=""] input[type="file"]{
     box-shadow: 0px 0px 10px #333;
     border-radius: 5px;
     display:none;
+    animation: appear .35s ease;
 }
 #listFontSize #listUl {
     padding: 10px 0;
@@ -412,5 +414,13 @@ form[action=""] input[type="file"]{
             }
             to {
                 top:40%;
+            }
+        }
+        @keyframes appear{
+            from {
+                opacity:0.5;
+            }
+            to {
+                opacity:1;
             }
         }
