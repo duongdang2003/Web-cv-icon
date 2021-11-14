@@ -134,3 +134,22 @@ document.addEventListener("click", function (e) {
     trys = 0;
   }
 });
+//                 cỡ chữ
+var dynamicSize = 16
+document.getElementById("leftSize").addEventListener("click", function(){
+  if (dynamicSize > 2) dynamicSize--;
+  showFont.innerText = dynamicSize;
+})
+document.getElementById("rightSize").addEventListener("click", function(){
+  if (dynamicSize <800) dynamicSize++;
+  showFont.innerText = dynamicSize;
+})
+var listLi = document.querySelectorAll("#listUl li");
+listFont.addEventListener("click", function(e){
+  listLi.forEach(function(a,b){
+    if (e.target.value == a.value){
+      dynamicSize =a.value;
+      showFont.innerText = dynamicSize;
+    }
+  })
+})
