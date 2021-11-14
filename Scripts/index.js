@@ -17,7 +17,7 @@ function download(){
 function addProject(){
   let wrapDiv = document.createElement("div");
   let projectName = document.createElement('h3');
-  let project = document.createElement("textarea");
+  let project = document.createElement("input");
   let title = document.createElement("h1");
   title.innerHTML = "Dự án";
   title.style.margin = "0 10px 20px 10px";
