@@ -247,8 +247,15 @@ form[action=""] input[type="file"]{
     padding: 0 5px;
 }
 #rightbody{
+    position: relative;
     flex-basis: 50%;
     text-align: center;
+}
+#rightbody div{
+    position: absolute;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
 }
 #editContent{
     position: relative;
@@ -265,10 +272,27 @@ form[action=""] input[type="file"]{
 }
 .sectionEdit{
     height:76%;
-    width: 10%;
+    width: 11%;
     background-color:#ECE4DB;
     border-radius: 4px;
     box-shadow: 5px 0px 5px rgba(122, 122, 122, 0.562);
+}
+#editContent #font{
+    width: initial;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding:0 5px;
+}
+#font i{
+    margin:0 5px;
+    font-size: 120%;
+}
+#font #seclectFont{
+    font-size:120%;
+    outline: none;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 5px;
 }
 
 
