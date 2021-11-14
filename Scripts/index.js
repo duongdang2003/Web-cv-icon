@@ -1,10 +1,11 @@
 let cv = document.querySelector(".CV");
 let availableDisplay = true;
+let page = 1;
 // Download 
 function download(){
     const element = document.querySelector(".CV");
     var opt = {
-        margin:       1,
+        margin:       -1,
         filename:     'CV.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 3 /*, width: 2580*/},
@@ -47,7 +48,6 @@ function addProject(){
   wrapDiv.appendChild(title);
   wrapDiv.appendChild(projectName)
   wrapDiv.appendChild(project);
-  console.log(project.style)
 };
 
 function displayAvailable() {
@@ -67,6 +67,31 @@ function displayAvailable() {
   }
 }
 
+
+// Add break
+let constWidth = 793.70078740157;
+let constHeight = 880.5196850394
+let scale = 210/297;
+setInterval(() => {
+  console.log(cv.offsetWidth , cv.offsetHeight, page);
+  if(cv.offsetWidth / cv.offsetHeight <= constWidth/(constHeight*page) 
+
+  && cv.offsetHeight >= constWidth*page ){
+    
+      console.log((cv.offsetWidth)*constHeight/constWidth)*page;
+        ruler = document.createElement("p");
+        ruler.innerHTML = `---------- Trang ${page} ----------`;
+        ruler.style.position = "absolute";
+        ruler.style.top = `${(1*(cv.offsetWidth)*constHeight)/constWidth}px`;
+        ruler.style.left = "-30%";
+        cv.appendChild(ruler);
+        console.log("--------------------------")
+        
+    page++;
+  }
+}, 100);
+
+console.log(1*(cv.offsetWidth)*constHeight/constWidth);
 
 //                                phan download CV 👆
 
