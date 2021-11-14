@@ -1,0 +1,1 @@
+dynamicSize là cỡ chữ động để gán vô các text trong CV
