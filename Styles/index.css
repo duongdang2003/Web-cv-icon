@@ -274,16 +274,26 @@ form[action=""] input[type="file"]{
     box-shadow: 0px 5px 5px rgba(122, 122, 122, 0.562);
     border-radius: 10px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+}
+.fixEditContent{
+    position: fixed !important;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    z-index: 2;
+    animation: appear .4s ease;
 }
 .sectionEdit{
     height:76%;
     width: 11%;
     background-color:#ece1db;
-    border-radius: 4px;
     box-shadow: 5px 0px 5px rgba(122, 122, 122, 0.562);
     position: relative;
+}
+.sectionEdit + .sectionEdit {
+    border-left: 1px solid #a3a3a3;
 }
 #editContent #font{
     width: initial;
@@ -291,6 +301,8 @@ form[action=""] input[type="file"]{
     align-items: center;
     justify-content: space-evenly;
     padding:0 5px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 #font i{
     margin:0 5px;
@@ -301,6 +313,10 @@ form[action=""] input[type="file"]{
     outline: none;
     border: 1px solid rgb(151, 151, 151);
     border-radius: 5px;
+}
+#align{
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 #editContent #size{
     display:flex;

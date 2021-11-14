@@ -160,8 +160,8 @@ document.addEventListener("click", function (e) {
     trys = 0;
   }
 });
-//                 cỡ chữ
-var dynamicSize = 16
+//                                             cỡ chữ
+var dynamicSize = 16;
 document.getElementById("leftSize").addEventListener("click", function(){
   if (dynamicSize > 2) dynamicSize--;
   showFont.innerText = dynamicSize;
@@ -179,3 +179,22 @@ listFont.addEventListener("click", function(e){
     }
   })
 })
+//                                             mặc định   nếu có chỉnh thì chỉnh trên cái dòng phía dưới
+showFont.innerText = dynamicSize
+
+//                                     bắt sự kiên scroll
+function onScroll() {
+  window.addEventListener("scroll", callbackFunc);
+  function callbackFunc() {
+    var y = window.scrollY;
+    if (y >= 200) {
+      document.getElementById("editContent").classList.add("fixEditContent");
+    } else {
+      document.getElementById("editContent").classList.remove("fixEditContent");
+    }
+  }
+}
+
+window.onload = function() {
+  onScroll();
+};
