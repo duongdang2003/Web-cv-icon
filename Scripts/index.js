@@ -14,28 +14,40 @@ function download(){
 }
 
 // Direct change on CV
-function addElement(){
-let subInput = document.createElement("input");
-let input = document.querySelector(".information input");
-subInput.style.width = "fit-content";
-subInput.style.height = "fit-content";
-subInput.style.border = "1px solid black";
-subInput.style.color = "black";
-subInput.style.margin = "10px";
-subInput.style.padding = "10px";
-subInput.innerHTML = input.value;
-cv.appendChild(subInput);
-subInput.value = input.value;
-var clock = setInterval(() => {
-  setTimeout(() => {
-    if (input === document.activeElement) {
-        subInput.value = input.value;
-  } else if(subInput === document.activeElement){
-        input.value = subInput.value;
-  }
-  }, 100);
-}, 100);
-
+function addProject(){
+  let wrapDiv = document.createElement("div");
+  let projectName = document.createElement('h3');
+  let project = document.createElement("textarea");
+  let title = document.createElement("h1");
+  title.innerHTML = "Dự án";
+  title.style.margin = "0 10px 20px 10px";
+  wrapDiv.style.width = "95%";
+  wrapDiv.style.height = "fit-content";
+  wrapDiv.style.border = "2px solid black";
+  wrapDiv.style.margin = "auto 10px";
+  project.style.padding = "5px";
+  wrapDiv.setAttribute("id","wrapDiv");
+  wrapDiv.addEventListener("mouseover", function(){
+    wrapDiv.style.border = "2px dashed black";
+  })
+  wrapDiv.addEventListener("mouseout", function(){
+    wrapDiv.style.border = "2px solid black";
+  })
+  projectName.innerHTML = "Tên dự án:";
+  projectName.style.paddingLeft = "10px";
+  project.style.width = "98%";
+  project.style.height = "fit-content";
+  project.style.border = "1px solid #F8EDEB";
+  project.style.margin = "5px 10px 10px 10px";
+  project.style.padding = "10px";
+  project.style.fontSize = "15px"
+  project.style.wordBreak  = "normal";
+  // project.style.resize = "none";
+  cv.appendChild(wrapDiv);
+  wrapDiv.appendChild(title);
+  wrapDiv.appendChild(projectName)
+  wrapDiv.appendChild(project);
+  console.log(project.style)
 };
 
 function displayAvailable() {

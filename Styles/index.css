@@ -29,6 +29,9 @@ html,body{
     background-color: #2f2a33;
     color: #e8e8e7;
 }
+.setting {
+    border: 1px solid black;
+}
 .body{
     width: 95%;
     height: 50%;
@@ -94,7 +97,10 @@ html,body{
     font-size: 25px;
     cursor: pointer;
 }
- 
+#project:hover i, #language:hover i, #anotherInfor:hover i {
+    transform: rotate(180deg);
+    transition: 1s;
+}
 #available > div div {
     background-color: #F8EDEB;
     color: #2f2f2f;
