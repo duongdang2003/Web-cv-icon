@@ -22,11 +22,13 @@
   </head>
   <body>
     <div id="wrapBody">
+      <!-- header -->
       <div class="header">
         <h1 id="logo">Aury</h1>
         <div>Quick CV creator</div>
       </div>
-
+      <!-- settings -->
+     
       <!-- Body -->
       <div id="editContent">
         <div title="Phông chữ" class="sectionEdit" id="font">
@@ -64,35 +66,36 @@
 
       <div class="body">
         <div class="information">
-          <div onclick="download()">
-            <i class="fas fa-download"></i>
-          </div>
-          <div onclick="displayAvailable()" id="available">
-            Các mẫu CV hiện có
-            <i class="fas fa-chevron-down"></i>
-            <i style="display: none" class="fas fa-chevron-up"></i>
-            <div>
-              <div>Chung</div>
-              <div>Kỹ thuật - công nghệ</div>
-              <div>Y dược</div>
-              <div>Kinh doanh</div>
-              <div>Xây dựng</div>
+            <div onclick="download()">
+              <i class="fas fa-download"></i>
+            </div>
+            <div onclick="displayAvailable()" id="available">
+              Các mẫu CV hiện có
+              <i class="fas fa-chevron-down"></i>
+              <i style="display: none;" class="fas fa-chevron-up"></i>
+              <div>
+                <div>Chung</div>
+                <div>Kỹ thuật - công nghệ</div>
+                <div>Y dược</div>
+                <div>Kinh doanh</div>
+                <div>Xây dựng</div>
+              </div>
+            </div>
+            
+            <div id="project" onclick="addProject()" style="user-select: none">Dự án
+              <i class="fas fa-plus-circle"></i>
+            </div>
+            <div id="language" style="user-select: none;">Ngôn ngữ
+              <i class="fas fa-plus-circle"></i>
+            </div>
+            <div id="project" style="user-select: none">Mạng xã hội
+              <i class="fas fa-plus-circle"></i>
+            </div>
+            <div id="anotherInfor" style="user-select: none;">Thông tin khác
+              <i class="fas fa-plus-circle"></i>
             </div>
           </div>
-
-          <div id="project" style="user-select: none">
-            Dự án
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div id="language" style="user-select: none">
-            Ngôn ngữ
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          <div id="anotherInfor" style="user-select: none">
-            Thông tin khác
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
+        
         <div class="CV">
           <div id="headerCV">
             <image id="ava" src="./images/no_avatar.jpg" />
@@ -145,7 +148,7 @@
         </div>
       </div>
     </div>
-    <h1>haha gay</h1>
+  </div>
   </body>
   <script src="./Scripts/index.js"></script>
 </html>
