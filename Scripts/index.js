@@ -97,10 +97,6 @@ setInterval(() => {
 console.log((1 * cv.offsetWidth * constHeight) / constWidth);
 
 //                                phan download CV 👆
-alignSection.addEventListener("click", whatAlign())
-function whatAlign(e) { 
-  alert(e.target);
-}
 
 
 
