@@ -526,7 +526,7 @@ form #color-search {
 
 #tableColor #basicColor {
   background-color: #ffffff;
-  height: 50%;
+  height: 40%;
   width: 90%;
   padding: 10px 0;
 }
@@ -541,7 +541,7 @@ form #color-search {
   width: 42px;
   height: 42px;
   display: inline-block;
-  margin: 10px 0;
+  margin: 5px 0;
   border-radius: 4px;
   border: 1px solid rgba(187, 187, 187, 0.753);
   transition: all 0.2s ease;
@@ -564,8 +564,12 @@ form #color-search {
   margin-left: 0px;
 }
 #tableColor #advanColor {
-  height: 20%;
+  height: 30%;
   width: 100%;
+}
+#advanColor .btn_advanColor{
+  width:25%;
+  height: 20%;
 }
 
 /* keyframe */
