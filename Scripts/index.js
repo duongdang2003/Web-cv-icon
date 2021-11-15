@@ -22,9 +22,10 @@ function download(){
 function addProject() {
   let wrapDiv = document.createElement("div");
   let projectName = document.createElement("h3");
-  let project = document.createElement("input");
+  let project = document.createElement("textarea");
   let title = document.createElement("h1");
   title.innerHTML = "Dự án";
+  title.style.color = "black";
   title.style.margin = "0 10px 20px 10px";
   wrapDiv.style.width = "95%";
   wrapDiv.style.height = "fit-content";
@@ -33,20 +34,22 @@ function addProject() {
   project.style.padding = "5px";
   wrapDiv.setAttribute("id", "wrapDiv");
   wrapDiv.addEventListener("mouseover", function () {
-    wrapDiv.style.border = "2px dashed black";
+  wrapDiv.style.border = "2px dashed black";
   });
   wrapDiv.addEventListener("mouseout", function () {
     wrapDiv.style.border = "2px solid black";
   });
   projectName.innerHTML = "Tên dự án:";
+  projectName.style.color = "black";
   projectName.style.paddingLeft = "10px";
   project.style.width = "98%";
-  project.style.height = "fit-content";
+  project.style.height = "30px";
   project.style.border = "1px solid #F8EDEB";
   project.style.margin = "5px 10px 10px 10px";
   project.style.padding = "10px";
   project.style.fontSize = "15px";
   project.style.wordBreak = "normal";
+  project.setAttribute("class", "test");
   // project.style.resize = "none";
   cv.appendChild(wrapDiv);
   wrapDiv.appendChild(title);
@@ -96,11 +99,36 @@ setInterval(() => {
 
 console.log((1 * cv.offsetWidth * constHeight) / constWidth);
 
+//SETTING
+// align
+let right = document.getElementById("dynamicAlignRight");
+let left = document.getElementById("dynamicAlignLeft");
+let center = document.getElementById("dynamicAlignCenter");
+left.style.color = "black";
+center.style.color = "rgb(148, 148, 148)";
+right.style.color = "rgb(148, 148, 148)";
+cv.style.textAlign = "left";
+alignSection.addEventListener("click", function(e){
+let test = document.querySelectorAll(".test");
+
+  if(e.target.getAttribute("id") === 'dynamicAlignRight'){
+      right.style.color = "black";
+      left.style.color = "rgb(148, 148, 148)";
+      center.style.color = "rgb(148, 148, 148)";
+      test[0].style.textAlign = "right";
+    } else if(e.target.getAttribute("id") === 'dynamicAlignCenter'){
+      center.style.color = "black";
+      left.style.color = "rgb(148, 148, 148)";
+      right.style.color = "rgb(148, 148, 148)";
+    } else if(e.target.getAttribute("id") === 'dynamicAlignLeft'){
+      left.style.color = "black";
+      center.style.color = "rgb(148, 148, 148)";
+      right.style.color = "rgb(148, 148, 148)";
+    }
+})
+
+
 //                                phan download CV 👆
-alignSection.addEventListener("click", whatAlign())
-function whatAlign(e) { 
-  alert(e.target);
-}
 
 
 
