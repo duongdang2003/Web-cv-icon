@@ -1,11 +1,15 @@
 let cv = document.querySelector(".CV");
 let availableDisplay = true;
 let page = 1;
+let dynamicAlignRight = document.getElementById("dynamicAlignRight");
+let dynamicAlignCenter = document.getElementById("dynamicAlignCenter");
+let dynamicAlignLeft = document.getElementById("dynamicAlignRight");
+let alignSection = document.getElementById("align");
 // Download 
 function download(){
     const element = document.querySelector(".CV");
     var opt = {
-        margin:       -1,
+        margin:       0,
         filename:     'CV.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 3},
@@ -49,7 +53,7 @@ function addProject() {
   wrapDiv.appendChild(projectName);
   wrapDiv.appendChild(project);
 };
-
+// display available
 function displayAvailable() {
   let available = document.querySelector("#available > div");
   let arrowDown = document.querySelector("#available i:first-child");
@@ -82,7 +86,7 @@ setInterval(() => {
         ruler = document.createElement("p");
         ruler.innerHTML = `---------- Trang ${page} ----------`;
         ruler.style.position = "absolute";
-        ruler.style.top = `${(1*(cv.offsetWidth)*constHeight)/constWidth}px`;
+        ruler.style.top = `${((1*(cv.offsetWidth)*constHeight)/constWidth)*page}px`;
         ruler.style.left = "-30%";
         cv.appendChild(ruler);
         console.log("--------------------------")
@@ -94,6 +98,13 @@ setInterval(() => {
 console.log(1*(cv.offsetWidth)*constHeight/constWidth);
 
 //                                phan download CV 👆
+alignSection.addEventListener("click", whatAlign())
+function whatAlign(e) { 
+  alert(e.target);
+}
+
+
+
 
 //                                khoa 👇
 var saveFile = [];

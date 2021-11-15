@@ -28,6 +28,20 @@ html,body{
     margin-bottom: 20px;
     background-color: #2f2a33;
     color: #e8e8e7;
+    /* background: url(/Images/headerBackground.jpg); */
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.header img {
+    position: absolute;
+    width: 750px;
+    height: 400px;
+    top: -100%;
+}
+.header div {
+    position: absolute;
+    bottom: 5px;
 }
 .setting {
     border: 1px solid black;
@@ -113,10 +127,11 @@ html,body{
 .body .CV {
     width: 70%;
     height: fit-content;
-    margin: 10px;
+    margin-top: 10px;
     position: relative;
     box-shadow: 8px 8px 15px rgb(53, 53, 53);
     background-color: white;
+    padding: 0;
 }
 .body .CV img {
     position: relative;
