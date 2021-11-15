@@ -1,34 +1,47 @@
-/* reset CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+                /* reset CSS */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
 }
-html,
-body {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  font-family: "Roboto", Courier, monospace;
-  /* background: linear-gradient(to right,#6495a6, #a6bcd8, #e8e8e7);*/
-  background-color: #f8edeb;
+html,body{
+    height:100%;
+    width:100%;
+    position: relative;
+    font-family: 'Roboto', Courier, monospace;
+    /* background: linear-gradient(to right,#6495a6, #a6bcd8, #e8e8e7);*/
+    background-color: #F8EDEB;
+} 
+#wrapBody{
+    width:100%;
+    height:100%;
 }
-#wrapBody {
-  width: 100%;
-  height: 100%;
+.header{
+    width:100%;
+    height:20%;
+    font-size: 30px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: #2f2a33;
+    color: #e8e8e7;
+    /* background: url(/Images/headerBackground.jpg); */
+    background-size: cover;
+    background-position: center center;
+    position: relative;
 }
-.header {
-  width: 100%;
-  height: 20%;
-  font-size: 30px;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  background-color: #2f2a33;
-  color: #e8e8e7;
+.header img {
+    position: absolute;
+    width: 750px;
+    height: 400px;
+    top: -100%;
+}
+.header div {
+    position: absolute;
+    bottom: 5px;
 }
 .setting {
   border: 1px solid black;
@@ -116,12 +129,13 @@ body {
   cursor: pointer;
 }
 .body .CV {
-  width: 70%;
-  height: fit-content;
-  margin: 10px;
-  position: relative;
-  box-shadow: 8px 8px 15px rgb(53, 53, 53);
-  background-color: white;
+    width: 70%;
+    height: fit-content;
+    margin-top: 10px;
+    position: relative;
+    box-shadow: 8px 8px 15px rgb(53, 53, 53);
+    background-color: white;
+    padding: 0;
 }
 .body .CV img {
   position: relative;
