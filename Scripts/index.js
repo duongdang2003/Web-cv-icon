@@ -71,31 +71,30 @@ function displayAvailable() {
   }
 }
 
-
 // Add break
 let constWidth = 793.70078740157;
-let constHeight = 880.5196850394
-let scale = 210/297;
+let constHeight = 880.5196850394;
+let scale = 210 / 297;
 setInterval(() => {
-  console.log(cv.offsetWidth , cv.offsetHeight, page);
-  if(cv.offsetWidth / cv.offsetHeight <= constWidth/(constHeight*page) 
+  console.log(cv.offsetWidth, cv.offsetHeight, page);
+  if (
+    cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
+    cv.offsetHeight >= constWidth * page
+  ) {
+    console.log((cv.offsetWidth * constHeight) / constWidth) * page;
+    ruler = document.createElement("p");
+    ruler.innerHTML = `---------- Trang ${page} ----------`;
+    ruler.style.position = "absolute";
+    ruler.style.top = `${(1 * cv.offsetWidth * constHeight) / constWidth}px`;
+    ruler.style.left = "-30%";
+    cv.appendChild(ruler);
+    console.log("--------------------------");
 
-  && cv.offsetHeight >= constWidth*page ){
-    
-      console.log((cv.offsetWidth)*constHeight/constWidth)*page;
-        ruler = document.createElement("p");
-        ruler.innerHTML = `---------- Trang ${page} ----------`;
-        ruler.style.position = "absolute";
-        ruler.style.top = `${((1*(cv.offsetWidth)*constHeight)/constWidth)*page}px`;
-        ruler.style.left = "-30%";
-        cv.appendChild(ruler);
-        console.log("--------------------------")
-        
     page++;
   }
 }, 100);
 
-console.log(1*(cv.offsetWidth)*constHeight/constWidth);
+console.log((1 * cv.offsetWidth * constHeight) / constWidth);
 
 //                                phan download CV 👆
 alignSection.addEventListener("click", whatAlign())
@@ -171,22 +170,75 @@ document.addEventListener("click", function (e) {
     trys = 0;
   }
 });
-//                 cỡ chữ
-var dynamicSize = 16
-document.getElementById("leftSize").addEventListener("click", function(){
+//                                             cỡ chữ
+var dynamicSize = 16;
+document.getElementById("leftSize").addEventListener("click", function () {
   if (dynamicSize > 2) dynamicSize--;
   showFont.innerText = dynamicSize;
-})
-document.getElementById("rightSize").addEventListener("click", function(){
-  if (dynamicSize <800) dynamicSize++;
+});
+document.getElementById("rightSize").addEventListener("click", function () {
+  if (dynamicSize < 800) dynamicSize++;
   showFont.innerText = dynamicSize;
-})
+});
 var listLi = document.querySelectorAll("#listUl li");
-listFont.addEventListener("click", function(e){
-  listLi.forEach(function(a,b){
-    if (e.target.value == a.value){
-      dynamicSize =a.value;
+listFont.addEventListener("click", function (e) {
+  listLi.forEach(function (a, b) {
+    if (e.target.value == a.value) {
+      dynamicSize = a.value;
       showFont.innerText = dynamicSize;
     }
-  })
-})
+  });
+});
+//                                             mặc định   nếu có chỉnh thì chỉnh trên cái dòng phía dưới
+showFont.innerText = dynamicSize;
+
+//                                     bắt sự kiên scroll
+function onScroll() {
+  window.addEventListener("scroll", callbackFunc);
+  function callbackFunc() {
+    var y = window.scrollY;
+    if (y >= 200) {
+      document.getElementById("editContent").classList.add("fixEditContent");
+    } else {
+      document.getElementById("editContent").classList.remove("fixEditContent");
+    }
+  }
+}
+window.onload = function () {
+  onScroll();
+};
+//                          table color
+var tryTable = 0,
+    tableColor =document.getElementById("tableColor");
+document.getElementById("color").addEventListener("click", function () {
+  if (tryTable == 0) {
+    tableColor.classList.add("openTableColor");
+    tableColor.classList.remove("closeTableColor");
+    setTimeout(function () {
+      tryTable = 1;
+    }, 400);
+  } else if (tryTable == 1) {
+    setTimeout(function () {
+      tableColor.classList.remove("openTableColor");
+      tryTable = 0;
+    }, 400);
+    tableColor.classList.add("closeTableColor");
+  }
+});
+document.body.onclick = function (e) {
+  if (tryTable == 1 && e.clientX/window.innerWidth*100>25) {
+    setTimeout(function () {
+      tableColor.classList.remove("openTableColor");
+      tryTable = 0;
+    }, 400);
+    tableColor.classList.add("closeTableColor");
+  }
+}
+
+var demoDynamicColor,dynamicColor;
+var inputColor = document.getElementById("color-search"),
+  userColor = document.getElementById("useColor");
+inputColor.oninput = function (e){
+  demoDynamicColor =e.target.value;
+  document.getElementById("demoColor").style.color = e.target.value;
+}
