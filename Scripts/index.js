@@ -223,3 +223,11 @@ document.body.onclick = function (e) {
     tableColor.classList.add("closeTableColor");
   }
 }
+
+var demoDynamicColor,dynamicColor;
+var inputColor = document.getElementById("color-search"),
+  userColor = document.getElementById("useColor");
+inputColor.oninput = function (e){
+  demoDynamicColor =e.target.value;
+  document.getElementById("demoColor").style.color = e.target.value;
+}

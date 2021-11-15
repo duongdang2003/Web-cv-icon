@@ -291,10 +291,11 @@ form[action=""] input[type="file"] {
 }
 .sectionEdit {
   height: 76%;
-  width: 11%;
+  width: 12%;
   background-color: #ece1db;
   box-shadow: 5px 0px 5px rgba(122, 122, 122, 0.562);
   position: relative;
+  padding: 0 10px;
 }
 .sectionEdit + .sectionEdit {
   border-left: 1px solid #a3a3a3;
@@ -441,6 +442,7 @@ form[action=""] input[type="file"] {
   background-color: #ddd;
   display: none;
   flex-wrap: wrap;
+  box-shadow: 1px 0px 10px #333;
 }
 .closeTableColor{
     animation: closeTableColorA .41s ease !important;
@@ -450,12 +452,18 @@ form[action=""] input[type="file"] {
     animation: openTableColorA .41s ease;
 }
 #tableColor #inputColor {
-  background-color: rgb(126, 59, 59);
+  background-color: #2f2a33;
   flex-grow: 1;
   height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+}
+#inputColor #demoColor {
+  font-weight: bold;
+  font-size:150%;
+  font-family:'Courier New', Courier, monospace;
 }
 #inputColor form {
   width: 100%;
@@ -483,9 +491,24 @@ form #color-search{
     float: right;
     text-transform: uppercase;
   }
+#inputColor #useColor{
+  width: 35%;
+  height: 50px;
+  background-color: #ddd;
+  text-align: center;
+  line-height: 50px;
+  border: 1px solid #333;
+  opacity: 0.6;
+  border-radius: 4px;
+  padding:0 5px;
+}
+#inputColor #useColor:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
 
 #tableColor #basicColor {
-  background-color: rgb(133, 200, 255);
+  background-color: #f6f6f6;
   height: 60%;
   width:100%;
 }
