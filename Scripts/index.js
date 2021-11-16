@@ -145,8 +145,9 @@ setInterval(() => {
 // align
 let activeElement;
 setInterval(() => {
-  if(document.activeElement.tagName !== "BODY"){
+  if(document.activeElement.tagName !== "BODY" && document.activeElement.tagName !== "BUTTON" && document.activeElement.tagName == "DIV"){
   activeElement = document.activeElement;
+  console.log(activeElement)
 }
 }, 100);
 
@@ -329,7 +330,7 @@ inputColor.oninput = function (e){
 
 //                     khoa -> đăng 
 document.getElementById("useThisColor").onclick = function(){
-  document.querySelectorAll(".test")[0].style.color = dynamicColor;
+  activeElement.style.color = dynamicColor;
 
 }
 
