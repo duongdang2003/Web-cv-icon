@@ -502,7 +502,7 @@ form #color-search {
 }
 ::placeholder {
   color: #ddd;
-  font-size: 15px;
+  font-size: 15px !important;
   float: right;
   text-transform: uppercase;
 }
@@ -547,8 +547,8 @@ form #color-search {
   transition: all 0.2s ease;
 }
 #flexBasicColor .sectionBasicColors:hover{
-  border: 2px solid rgb(255, 255, 255);
-  outline: 3px solid rgb(184, 0, 184);
+  border: 2px solid rgb(255, 255, 255) !important;
+  outline: 3px solid rgb(184, 0, 184) !important;
 }
 
 #flexBasicColor .sectionBasicColors + .sectionBasicColors {

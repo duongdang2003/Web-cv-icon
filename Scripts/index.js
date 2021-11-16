@@ -99,7 +99,7 @@ let constWidth = 793.70078740157;
 let constHeight = 880.5196850394;
 let scale = 210 / 297;
 setInterval(() => {
-  console.log(cv.offsetWidth, cv.offsetHeight, page);
+  // console.log(cv.offsetWidth, cv.offsetHeight, page);
   if (
     cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
     cv.offsetHeight >= constWidth * page
@@ -111,13 +111,13 @@ setInterval(() => {
     ruler.style.top = `${(1 * cv.offsetWidth * constHeight) / constWidth}px`;
     ruler.style.left = "-30%";
     cv.appendChild(ruler);
-    console.log("--------------------------");
+    // console.log("--------------------------");
 
     page++;
   }
 }, 100);
 
-console.log((1 * cv.offsetWidth * constHeight) / constWidth);
+// console.log((1 * cv.offsetWidth * constHeight) / constWidth);
 
 //SETTING
 // align
@@ -282,11 +282,36 @@ document.body.onclick = function (e) {
     tableColor.classList.add("closeTableColor");
   }
 }
-
-var demoDynamicColor,dynamicColor;
+//           choice color
+var dynamicColor = "black";
 var inputColor = document.getElementById("color-search"),
   userColor = document.getElementById("useColor");
 inputColor.oninput = function (e){
-  demoDynamicColor =e.target.value;
+  dynamicColor =e.target.value;
   document.getElementById("demoColor").style.color = e.target.value;
+  console.log(dynamicColor)
+}
+
+//                     khoa -> đăng 
+document.getElementById("useThisColor").onclick = function(){
+  document.querySelectorAll(".test")[0].style.color = dynamicColor;
+
+}
+
+  saveColorDefaults();
+  function saveColorDefaults(){
+    tableColor.onclick = function(e){
+    if (tryTable==1){
+      document.querySelectorAll(".sectionBasicColors").forEach(function(a){
+        if (a == e.target){
+            a.style.border = "2px solid rgb(255, 255, 255)";
+            a.style.outline = "3px solid rgb(184, 0, 184)";
+            dynamicColor = a.style.backgroundColor;
+        } else {
+          a.style.border = "1px solid rgba(187, 187, 187, 0.753)";
+          a.style.outline = "none";
+        }
+      })
+    }
+  }
 }
