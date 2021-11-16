@@ -485,7 +485,7 @@ form[action=""] input[type="file"] {
   text-align: center;
 }
 form #color-search {
-  width: 200px;
+  width: 250px;
   box-sizing: border-box;
   border: 1px solid #aaa;
   border-radius: 4px;
@@ -502,24 +502,26 @@ form #color-search {
 }
 ::placeholder {
   color: #ddd;
-  font-size: 16px;
+  font-size: 15px;
   float: right;
   text-transform: uppercase;
 }
 #inputColor #useColor {
   width: 40%;
   height: 50px;
-  background-color: #ddd;
+  background:linear-gradient(to left,white,rgb(240, 129, 171),purple,#8c52ff,#5552ff,#38b6ff,#008037,#ffde59,#ff914d,#ff1616,black);
   text-align: center;
   line-height: 50px;
   border: 1px solid #333;
-  opacity: 0.6;
+  opacity: 1;
   border-radius: 4px;
   padding: 0 5px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 #inputColor #useColor:hover {
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 0.6;
 }
 
 #tableColor #basicColor {
@@ -564,10 +566,24 @@ form #color-search {
 #tableColor #advanColor {
   height: 30%;
   width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 #advanColor .btn_advanColor{
   width:25%;
   height: 20%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: medium;
+  outline:none;
+  border:1px solid rgba(136, 136, 136, 0.596);
+  border-radius: 4px;
+  background: linear-gradient(to bottom right,rgb(240, 129, 171),rgb(226, 199, 123));
+}
+#advanColor .btn_advanColor:hover{
+  outline:2px solid purple;
+  border:1px solid white;
+  cursor: pointer;
 }
 
 /* keyframe */
