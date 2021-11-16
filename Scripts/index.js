@@ -5,6 +5,7 @@ let dynamicAlignRight = document.getElementById("dynamicAlignRight");
 let dynamicAlignCenter = document.getElementById("dynamicAlignCenter");
 let dynamicAlignLeft = document.getElementById("dynamicAlignRight");
 let alignSection = document.getElementById("align");
+
 // Download 
 function download(){
     const element = document.querySelector(".CV");
@@ -18,20 +19,24 @@ function download(){
     html2pdf().set(opt).from(element).save();
 }
 
+
+
 // Direct change on CV
 function addProject() {
   let wrapDiv = document.createElement("div");
   let projectName = document.createElement("h3");
-  let project = document.createElement("textarea");
+  let project = document.createElement("div");
   let title = document.createElement("h1");
+  let projectDiscription = document.createElement("h3");
+  let discription = document.createElement("div");
   title.innerHTML = "Dự án";
   title.style.color = "black";
   title.style.margin = "0 10px 20px 10px";
   wrapDiv.style.width = "95%";
   wrapDiv.style.height = "fit-content";
   wrapDiv.style.border = "2px solid black";
-  wrapDiv.style.margin = "auto 10px";
-  project.style.padding = "5px";
+  wrapDiv.style.margin = "10px";
+  wrapDiv.style.padding = "5px";
   wrapDiv.setAttribute("id", "wrapDiv");
   wrapDiv.addEventListener("mouseover", function () {
   wrapDiv.style.border = "2px dashed black";
@@ -42,19 +47,34 @@ function addProject() {
   projectName.innerHTML = "Tên dự án:";
   projectName.style.color = "black";
   projectName.style.paddingLeft = "10px";
+  project.setAttribute("contenteditable", "true");
   project.style.width = "98%";
-  project.style.height = "30px";
+  project.style.height = "fit-content";
   project.style.border = "1px solid #F8EDEB";
   project.style.margin = "5px 10px 10px 10px";
   project.style.padding = "10px";
   project.style.fontSize = "15px";
-  project.style.wordBreak = "normal";
+  project.style.color = "black";
   project.setAttribute("class", "test");
   // project.style.resize = "none";
+  projectDiscription.innerHTML = "Mô tả dự án";
+  projectDiscription.style.color = "black";
+  projectDiscription.style.paddingLeft = "10px";
+  discription.setAttribute("contenteditable", "true");
+  discription.style.width = "98%";
+  discription.style.height = "fit-content";
+  discription.style.border = "1px solid #F8EDEB";
+  discription.style.margin = "5px 10px 10px 10px";
+  discription.style.padding = "10px";
+  discription.style.fontSize = "15px";
+  discription.style.color = "black";
+
   cv.appendChild(wrapDiv);
   wrapDiv.appendChild(title);
   wrapDiv.appendChild(projectName);
   wrapDiv.appendChild(project);
+  wrapDiv.appendChild(projectDiscription);
+  wrapDiv.appendChild(discription);
 };
 // display available
 function displayAvailable() {
