@@ -22,6 +22,8 @@ function download(){
 
 
 // Direct change on CV
+let deleteElement;
+
 function addProject() {
   let wrapDiv = document.createElement("div");
   let projectName = document.createElement("h3");
@@ -29,6 +31,7 @@ function addProject() {
   let title = document.createElement("h1");
   let projectDiscription = document.createElement("h3");
   let discription = document.createElement("div");
+  let deleteButton = document.createElement("div");
   title.innerHTML = "Dự án";
   title.style.color = "black";
   title.style.margin = "0 10px 20px 10px";
@@ -37,12 +40,16 @@ function addProject() {
   wrapDiv.style.border = "2px solid black";
   wrapDiv.style.margin = "10px";
   wrapDiv.style.padding = "5px";
+  wrapDiv.style.position = "relative";
   wrapDiv.setAttribute("class", "wrapDiv");
   wrapDiv.addEventListener("mouseover", function () {
   wrapDiv.style.border = "2px dashed black";
   });
-  wrapDiv.addEventListener("mouseout", function () {
+  wrapDiv.addEventListener("mouseout", function (e) {
     wrapDiv.style.border = "2px solid black";
+    if(e.target.getAttribute("class") === "wrapDiv"){
+    deleteElement = e.target;
+    }
   });
   projectName.innerHTML = "Tên dự án:";
   projectName.style.color = "black";
@@ -56,7 +63,7 @@ function addProject() {
   project.style.fontSize = "15px";
   project.style.color = "black";
   project.setAttribute("class", "test");
-  // project.style.resize = "none";
+
   projectDiscription.innerHTML = "Mô tả dự án:";
   projectDiscription.style.color = "black";
   projectDiscription.style.paddingLeft = "10px";
@@ -69,12 +76,27 @@ function addProject() {
   discription.style.fontSize = "15px";
   discription.style.color = "black";
 
+  deleteButton.style.position = "absolute";
+  deleteButton.style.width = "20px";
+  deleteButton.style.height = "20px";
+  deleteButton.style.border = "2px solid black";
+  deleteButton.style.top = "-20px";
+  deleteButton.style.right= "-2px";
+  deleteButton.innerText = "X";
+  deleteButton.style.textAlign = "center";
+  deleteButton.style.color = "black";
+  deleteButton.style.cursor = "pointer"
+  deleteButton.addEventListener("click", function(){
+  deleteElement.remove()
+  })
+
   cv.appendChild(wrapDiv);
   wrapDiv.appendChild(title);
   wrapDiv.appendChild(projectName);
   wrapDiv.appendChild(project);
   wrapDiv.appendChild(projectDiscription);
   wrapDiv.appendChild(discription);
+  wrapDiv.appendChild(deleteButton);
 };
 // display available
 function displayAvailable() {
@@ -136,22 +158,27 @@ center.style.color = "rgb(148, 148, 148)";
 right.style.color = "rgb(148, 148, 148)";
 cv.style.textAlign = "left";
 alignSection.addEventListener("click", function(e){
-let test = document.querySelectorAll(".test");
   if(e.target.getAttribute("id") === 'dynamicAlignRight'){
       right.style.color = "black";
       left.style.color = "rgb(148, 148, 148)";
       center.style.color = "rgb(148, 148, 148)";
+      if(activeElement != undefined){
       activeElement.style.textAlign = "right";
+      }
     } else if(e.target.getAttribute("id") === 'dynamicAlignCenter'){
       center.style.color = "black";
       left.style.color = "rgb(148, 148, 148)";
       right.style.color = "rgb(148, 148, 148)";
-      activeElement.style.textAlign = "center";
+      if(activeElement != undefined){
+        activeElement.style.textAlign = "center";
+      }
     } else if(e.target.getAttribute("id") === 'dynamicAlignLeft'){
       left.style.color = "black";
       center.style.color = "rgb(148, 148, 148)";
       right.style.color = "rgb(148, 148, 148)";
-      activeElement.style.textAlign = "left";
+      if(activeElement != undefined){
+        activeElement.style.textAlign = "left";
+      }
     }
 })
 
