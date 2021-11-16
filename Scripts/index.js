@@ -37,7 +37,7 @@ function addProject() {
   wrapDiv.style.border = "2px solid black";
   wrapDiv.style.margin = "10px";
   wrapDiv.style.padding = "5px";
-  wrapDiv.setAttribute("id", "wrapDiv");
+  wrapDiv.setAttribute("class", "wrapDiv");
   wrapDiv.addEventListener("mouseover", function () {
   wrapDiv.style.border = "2px dashed black";
   });
@@ -57,7 +57,7 @@ function addProject() {
   project.style.color = "black";
   project.setAttribute("class", "test");
   // project.style.resize = "none";
-  projectDiscription.innerHTML = "Mô tả dự án";
+  projectDiscription.innerHTML = "Mô tả dự án:";
   projectDiscription.style.color = "black";
   projectDiscription.style.paddingLeft = "10px";
   discription.setAttribute("contenteditable", "true");
@@ -121,6 +121,13 @@ console.log((1 * cv.offsetWidth * constHeight) / constWidth);
 
 //SETTING
 // align
+let activeElement;
+setInterval(() => {
+  if(document.activeElement.tagName !== "BODY"){
+  activeElement = document.activeElement;
+}
+}, 100);
+
 let right = document.getElementById("dynamicAlignRight");
 let left = document.getElementById("dynamicAlignLeft");
 let center = document.getElementById("dynamicAlignCenter");
@@ -130,20 +137,21 @@ right.style.color = "rgb(148, 148, 148)";
 cv.style.textAlign = "left";
 alignSection.addEventListener("click", function(e){
 let test = document.querySelectorAll(".test");
-
   if(e.target.getAttribute("id") === 'dynamicAlignRight'){
       right.style.color = "black";
       left.style.color = "rgb(148, 148, 148)";
       center.style.color = "rgb(148, 148, 148)";
-      test[0].style.textAlign = "right";
+      activeElement.style.textAlign = "right";
     } else if(e.target.getAttribute("id") === 'dynamicAlignCenter'){
       center.style.color = "black";
       left.style.color = "rgb(148, 148, 148)";
       right.style.color = "rgb(148, 148, 148)";
+      activeElement.style.textAlign = "center";
     } else if(e.target.getAttribute("id") === 'dynamicAlignLeft'){
       left.style.color = "black";
       center.style.color = "rgb(148, 148, 148)";
       right.style.color = "rgb(148, 148, 148)";
+      activeElement.style.textAlign = "left";
     }
 })
 
