@@ -315,10 +315,12 @@ var dynamicSize = 16;
 document.getElementById("leftSize").addEventListener("click", function () {
 	if (dynamicSize > 2) dynamicSize--;
 	showFont.innerText = dynamicSize;
+  activeElement.style.fontSize = dynamicSize+"px";
 });
 document.getElementById("rightSize").addEventListener("click", function () {
 	if (dynamicSize < 800) dynamicSize++;
 	showFont.innerText = dynamicSize;
+  activeElement.style.fontSize = dynamicSize+"px";
 });
 var listLi = document.querySelectorAll("#listUl li");
 listFont.addEventListener("click", function (e) {
@@ -326,7 +328,8 @@ listFont.addEventListener("click", function (e) {
 		if (e.target.value == a.value) {
 			dynamicSize = a.value;
 			showFont.innerText = dynamicSize;
-		}
+  activeElement.style.fontSize = dynamicSize+"px";
+}
 	});
 });
 //                                             mặc định   nếu có chỉnh thì chỉnh trên cái dòng phía dưới
@@ -387,10 +390,10 @@ inputColor.oninput = function (e) {
 //                     khoa -> đăng
 document.getElementById("useThisColor").onclick = function () {
 	activeElement.style.color = dynamicColor;
-
+};
 	saveColorDefaults();
 	function saveColorDefaults() {
-		tableColor.onclick = function (e) {
+		document.getElementById("basicColor").onclick = function (e) {
 			if (tryTable == 1) {
 				document.querySelectorAll(".sectionBasicColors").forEach(function (a) {
 					if (a == e.target) {
@@ -405,4 +408,4 @@ document.getElementById("useThisColor").onclick = function () {
 			}
 		};
 	}
-};
+

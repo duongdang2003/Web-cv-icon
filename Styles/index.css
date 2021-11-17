@@ -25,6 +25,7 @@ body {
 	height: 75%;
 	position: absolute;
 	border: 1px solid transparent;
+	overflow:hidden;
 }
 .editableDiv:hover {
 	border: 1px solid rgb(102, 102, 102);
