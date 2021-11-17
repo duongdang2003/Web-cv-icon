@@ -164,5 +164,5 @@
 .thediv_khoaduadang{
   height: 100%;
   background-color: red;
-  padding:1rem;
+  padding:calc(1rem + 4px);
 }
