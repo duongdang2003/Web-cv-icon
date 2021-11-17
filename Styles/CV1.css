@@ -31,7 +31,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 224px;
-	border: 2px solid rgb(255, 4, 4);
+	border: 2px solid #591d86;
 	margin: 24px;
 }
 #ava:hover {
@@ -76,7 +76,7 @@
 }
 .sectionInfo {
 	width: 100%;
-	height: 25%;
+	min-height: 25%;
 	flex: 1;
 }
 .sectionInfoTitle {
@@ -87,17 +87,20 @@
 	padding: 6px 10px;
 	background-color: #333;
 	position: relative;
+	color: #fff;
 }
 .sectionInfoTitle::after {
-	content: "";
+	content: " ";
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	outline: 1px solid purple;
+	background-color: purple;
+	transform: translateY(-100%);
 }
 .sectionInfoTitle::before {
-	content: "";
+	content: " ";
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -120,12 +123,13 @@
 #headleftCV {
 	width: 100%;
 	height: 15%;
-	background-color: #591d86;
-	margin: 9% 0;
+	background-color: rgb(170, 9, 170);
+	margin: 9% 0 5% 0;
 	padding-left: 5%;
 	display: flex;
 	justify-content: space-evenly;
 	flex-direction: column;
+	color: #ffffff;
 }
 #tieude > h1 {
 	font-size: 64px;
@@ -133,4 +137,36 @@
 }
 #tieudephu > h1 {
 	text-transform: capitalize;
+}
+
+#bodyLeftCV {
+	min-height: 80%;
+	width: 100%;
+	height: fit-content;
+	padding-left: 5%;
+}
+.sectionBodyLeftCV {
+	height: fit-content;
+	width: 100%;
+	min-height: 20%;
+	height: fit-content;
+}
+.sectionTitleBodyLeftCV {
+	display: block;
+}
+.sectionTitleBodyLeftCV h1 {
+	margin-left: 1rem;
+	color: #000000;
+	padding: 4px;
+	text-transform: uppercase;
+}
+.sectionTitleBodyLeftCV hr {
+	border-color: #000000;
+	background-color: #000000;
+}
+/* khoa dua dang */
+.thediv_khoaduadang {
+	height: 100%;
+	background-color: red;
+	padding: calc(1rem + 4px);
 }

@@ -152,7 +152,6 @@ setInterval(() => {
 		document.activeElement.tagName == "DIV"
 	) {
 		activeElement = document.activeElement;
-		console.log(activeElement);
 	}
 }, 100);
 
@@ -189,8 +188,10 @@ alignSection.addEventListener("click", function (e) {
 });
 
 // ADD SKILL
+let skillCount = 0;
 let skill = document.querySelector("#kiNang");
 let skillButton = document.querySelector("#addSkill");
+let nothing = document.querySelector("#nothing");
 skill.addEventListener("mouseover", function () {
 	skillButton.style.display = "block";
 });
@@ -198,10 +199,50 @@ skill.addEventListener("mouseout", function () {
 	skillButton.style.display = "none";
 });
 function addSkill() {
-	let skillName = document.createElement("h3");
-	let skillLevel = document.createElement("");
-}
+	let skillName = document.createElement("input");
+	let skillLevel = document.createElement("div");
 
+	skillName.setAttribute("contenteditable", "true");
+	skillName.innerHTML = "Tên kỹ năng";
+	skillName.style.color = "white";
+	skillName.style.border = "none";
+	skillName.style.backgroundColor = "transparent";
+	skillName.style.marginTop = "5px";
+	skillName.style.padding = "5px";
+	skillName.style.width = "90%";
+	skillName.placeholder = "Ten ky nang";
+	skillName.placeholderPosition = "absolute";
+	skillName.placeholderLeft = "0";
+	skillLevel.style.display = "flex";
+	console.log(skillName.placeholder);
+	skillLevel.addEventListener("click", function (e) {
+		if (e.target.hasAttribute("index") === true) {
+			index = parseInt(e.target.getAttribute("index"));
+
+			divParent = e.target.parentElement;
+			arrayLevel = divParent.childNodes;
+			for (let i = 0; i <= 9; i++) {
+				if (i <= index && arrayLevel[i].getAttribute("index") != null) {
+					arrayLevel[i].style.backgroundColor = "rgb(170, 9, 170)";
+				} else if (arrayLevel[i].getAttribute("index") != null) {
+					arrayLevel[i].style.backgroundColor = "white";
+				}
+			}
+		}
+	});
+	nothing.appendChild(skillName);
+	nothing.appendChild(skillLevel);
+	for (let i = 0; i <= 9; i++) {
+		let level = document.createElement("div");
+		level.style.width = "15px";
+		level.style.height = "15px";
+		level.style.margin = "3px";
+		level.style.backgroundColor = "white";
+		level.style.borderRadius = "2px";
+		level.setAttribute("index", i);
+		skillLevel.appendChild(level);
+	}
+}
 //                                phan download CV 👆
 
 //                                khoa 👇
