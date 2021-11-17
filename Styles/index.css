@@ -157,7 +157,7 @@ html,body{
 #modalHead {
   width: 100%;
   text-align: center;
-  background-color: rgb(120, 167, 92);
+  background-color: rgb(170, 9, 170);
   height: 40px;
   line-height: 40px;
   position: relative;
@@ -174,7 +174,7 @@ html,body{
 }
 #modalHead i:hover {
   cursor: pointer;
-  background-color: rgb(81, 197, 100);
+  background-color: rgb(240, 48, 48);
 }
 #bodyModal {
   width: 100%;
