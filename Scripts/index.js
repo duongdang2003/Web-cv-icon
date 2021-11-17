@@ -408,4 +408,38 @@ document.getElementById("useThisColor").onclick = function () {
 			}
 		};
 	}
+//                                   font size 
+document.querySelector("#seclectFont").onclick = function (){
+  activeElement.style.fontFamily = this.value;
+  console.log(this.value)
+}
 
+//              style status
+let bold = document.getElementById("bold");
+let italic = document.getElementById("italic");
+let underline = document.getElementById("underline");
+// cv.style.textAlign = "left";
+document.getElementById("status").addEventListener("click", function (e) {
+	if (e.target.getAttribute("id") === "bold") {
+		bold.style.color = "black";
+		italic.style.color = "rgb(148, 148, 148)";
+		underline.style.color = "rgb(148, 148, 148)";
+		if (activeElement != undefined) {
+			activeElement.style.fontStyle = "bold";
+		}
+	} else if (e.target.getAttribute("id") === "italic") {
+		italic.style.color = "black";
+		bold.style.color = "rgb(148, 148, 148)";
+		underline.style.color = "rgb(148, 148, 148)";
+		if (activeElement != undefined) {
+			activeElement.style.fontStyle = "italic";
+		}
+	} else if (e.target.getAttribute("id") === "underline") {
+		underline.style.color = "black";
+		italic.style.color = "rgb(148, 148, 148)";
+		bold.style.color = "rgb(148, 148, 148)";
+		if (activeElement != undefined) {
+			activeElement.style.fontStyle = "left";
+		}
+	}
+});
