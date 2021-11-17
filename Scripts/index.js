@@ -12,7 +12,7 @@ function download() {
 	var opt = {
 		margin: 0,
 		filename: "CV.pdf",
-		image: { type: "jpeg", quality: 0.98 },
+		image: { type: "jpeg", quality: 1 },
 		html2canvas: { scale: 3 },
 		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
 	};
@@ -146,8 +146,13 @@ setInterval(() => {
 // align
 let activeElement;
 setInterval(() => {
-	if (document.activeElement.tagName !== "BODY") {
+	if (
+		document.activeElement.tagName !== "BODY" &&
+		document.activeElement.tagName !== "BUTTON" &&
+		document.activeElement.tagName == "DIV"
+	) {
 		activeElement = document.activeElement;
+		console.log(activeElement);
 	}
 }, 100);
 
@@ -182,6 +187,20 @@ alignSection.addEventListener("click", function (e) {
 		}
 	}
 });
+
+// ADD SKILL
+let skill = document.querySelector("#kiNang");
+let skillButton = document.querySelector("#addSkill");
+skill.addEventListener("mouseover", function () {
+	skillButton.style.display = "block";
+});
+skill.addEventListener("mouseout", function () {
+	skillButton.style.display = "none";
+});
+function addSkill() {
+	let skillName = document.createElement("h3");
+	let skillLevel = document.createElement("");
+}
 
 //                                phan download CV 👆
 
@@ -326,23 +345,23 @@ inputColor.oninput = function (e) {
 
 //                     khoa -> đăng
 document.getElementById("useThisColor").onclick = function () {
-	document.querySelectorAll(".test")[0].style.color = dynamicColor;
-};
+	activeElement.style.color = dynamicColor;
 
-saveColorDefaults();
-function saveColorDefaults() {
-	tableColor.onclick = function (e) {
-		if (tryTable == 1) {
-			document.querySelectorAll(".sectionBasicColors").forEach(function (a) {
-				if (a == e.target) {
-					a.style.border = "2px solid rgb(255, 255, 255)";
-					a.style.outline = "3px solid rgb(184, 0, 184)";
-					dynamicColor = a.style.backgroundColor;
-				} else {
-					a.style.border = "1px solid rgba(187, 187, 187, 0.753)";
-					a.style.outline = "none";
-				}
-			});
-		}
-	};
-}
+	saveColorDefaults();
+	function saveColorDefaults() {
+		tableColor.onclick = function (e) {
+			if (tryTable == 1) {
+				document.querySelectorAll(".sectionBasicColors").forEach(function (a) {
+					if (a == e.target) {
+						a.style.border = "2px solid rgb(255, 255, 255)";
+						a.style.outline = "3px solid rgb(184, 0, 184)";
+						dynamicColor = a.style.backgroundColor;
+					} else {
+						a.style.border = "1px solid rgba(187, 187, 187, 0.753)";
+						a.style.outline = "none";
+					}
+				});
+			}
+		};
+	}
+};

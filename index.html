@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./Styles/index.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="icon" href="./Images/icon.png">
+    <link rel="stylesheet" href="./Styles/CV1.css">
     <!-- Roboto font -->
     <link
       rel="stylesheet"
@@ -133,13 +134,70 @@
             </div>
           </div>
         
+
+
         <div class="CV">
-          <div id="headerCV">
-            <image id="ava" src="./Images/no_avatar.jpg" />
-            <div id="name"></div>
-            <div id="info"></div>
-          </div>
+          <span id="leftCV">
+            <img id="ava" src="./Images/no_avatar.jpg" />
+            <div class="sectionTitleLeftCV1" id="hocVan">
+              <div class="titleLeftCVsection"><h3>Học vấn </h3><hr>
+                <div class="editableDiv" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="sectionTitleLeftCV1" id="chungChi">
+              <div class="titleLeftCVsection"><h3>Chứng chỉ</h3> <hr>
+                <div class="editableDiv" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="sectionTitleLeftCV1" id="kiNang">
+              <div class="titleLeftCVsection"><h3>Kĩ năng</h3> <hr>
+                  <div id="addSkill" onclick="addSkill()">+</div>
+              </div>
+            </div>
+            <div class="sectionTitleLeftCV1 C2" id="thongTin">
+              <!-- khoa đưa đăng                                 mấy cái nội dung nhỏ trong mục email, sdt đồ á 
+                ông tự thêm tự tạo vô để chỉnh mà section nha cho thêm xóa cho dễ xong r để tui css lại cho nó là đc, 
+                ông cứ làm nó hoạt
+              động thoi rồi qua cái khác làm-->
+              <div class="sectionInfo">
+                <h3 class="sectionInfoTitle">số điện thoại</h3>
+                <!-- khoa đưa đăng -->
+              </div>
+              <div class="sectionInfo">
+                <h3 class="sectionInfoTitle">Email</h3>
+                <!-- khoa đưa đăng -->
+              </div>
+              <div class="sectionInfo">
+                <h3 class="sectionInfoTitle">mạng xã hội</h3>
+                <!-- khoa đưa đăng -->
+              </div>
+              <div class="sectionInfo">
+                <h3 class="sectionInfoTitle">địa chỉ</h3>
+                <!-- khoa đưa đăng -->
+              </div>
+            </div>
+          </span>
+          <!--                    RIGHT CVVVVVVVVVVVVVVVVVV -->
+          <span id="rightCV">
+            <div id="headleftCV">
+              <div id="tieude">
+                <!-- khoa đưa đăng -->
+                <h1>fullstack</h1>
+              </div>
+              <div id="tieudephu">
+                <!-- khoa đưa đăng -->
+                <h1>web developer</h1>
+              </div>
+            </div>
+            <div id="bodyLeftCV">
+
+            </div>
+          </span>
         </div>
+
+
+
+
       </div>
       <!--           modal -->
       <div class="modal" id="OCModal">
