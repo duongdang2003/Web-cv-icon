@@ -533,28 +533,14 @@ document.querySelector("#seclectFont").onclick = function () {
 let bold = document.getElementById("bold");
 let italic = document.getElementById("italic");
 let underline = document.getElementById("underline");
+let statuss = document.querySelectorAll("#status i");
+let sta =["boldjs","italicjs","underlinejs"];
 // cv.style.textAlign = "left";
 document.getElementById("status").addEventListener("click", function (e) {
-	if (e.target.getAttribute("id") === "bold") {
-		bold.style.color = "black";
-		italic.style.color = "rgb(148, 148, 148)";
-		underline.style.color = "rgb(148, 148, 148)";
-		if (activeElement != undefined) {
-			activeElement.style.fontStyle = "bold";
+	statuss.forEach(function (a,b){
+		if (e.target == a){
+			e.target.classList.toggle("addBlackStatus");
+			activeElement.classList.toggle(sta[b])
 		}
-	} else if (e.target.getAttribute("id") === "italic") {
-		italic.style.color = "black";
-		bold.style.color = "rgb(148, 148, 148)";
-		underline.style.color = "rgb(148, 148, 148)";
-		if (activeElement != undefined) {
-			activeElement.style.fontStyle = "italic";
-		}
-	} else if (e.target.getAttribute("id") === "underline") {
-		underline.style.color = "black";
-		italic.style.color = "rgb(148, 148, 148)";
-		bold.style.color = "rgb(148, 148, 148)";
-		if (activeElement != undefined) {
-			activeElement.style.fontStyle = "left";
-		}
-	}
+	})
 });
