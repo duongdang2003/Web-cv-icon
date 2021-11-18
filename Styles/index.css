@@ -334,6 +334,18 @@ form[action=""] input[type="file"] {
 	align-items: center;
 	color: rgb(148, 148, 148);
 }
+#status .addBlackStatus{
+	color: #000000;
+}
+.boldjs{
+	font-weight: 600;
+}
+.italicjs{
+	font-style: italic;
+}
+.underlinejs{
+	text-decoration: underline;
+}
 #status i:hover {
 	background-color: #ddd;
 	cursor: pointer;
