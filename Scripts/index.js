@@ -21,18 +21,13 @@ function download() {
 
 // Direct change on CV
 let deleteElement;
-
 function addProject() {
 	let wrapDiv = document.createElement("div");
 	let projectName = document.createElement("h3");
 	let project = document.createElement("div");
-	let title = document.createElement("h1");
 	let projectDiscription = document.createElement("h3");
 	let discription = document.createElement("div");
 	let deleteButton = document.createElement("div");
-	title.innerHTML = "Dự án";
-	title.style.color = "black";
-	title.style.margin = "0 10px 20px 10px";
 	wrapDiv.style.width = "95%";
 	wrapDiv.style.height = "fit-content";
 	wrapDiv.style.border = "2px solid black";
@@ -91,8 +86,7 @@ function addProject() {
 		deleteElement.remove();
 	});
 
-	cv.appendChild(wrapDiv);
-	wrapDiv.appendChild(title);
+	document.querySelector(".sectionTitleBodyLeftCV #duan").appendChild(wrapDiv);
 	wrapDiv.appendChild(projectName);
 	wrapDiv.appendChild(project);
 	wrapDiv.appendChild(projectDiscription);

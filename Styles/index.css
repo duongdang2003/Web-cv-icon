@@ -25,7 +25,7 @@ body {
 	height: 75%;
 	position: absolute;
 	border: 1px solid transparent;
-	overflow:hidden;
+	/* overflow:hidden; */
 }
 .editableDiv:hover {
 	border: 1px solid rgb(102, 102, 102);
@@ -149,6 +149,15 @@ body {
 	cursor: pointer;
 	margin: 5px;
 	display: none;
+}
+#addButton {
+	border: 1px solid black;
+	color: black;
+	width: fit-content;
+	padding: 1px 5px;
+	cursor: pointer;
+	margin: 5px;
+	display: block;
 }
 /* tai anh */
 .modal {
@@ -310,7 +319,7 @@ form[action=""] input[type="file"] {
 	border-radius: 5px;
 }
 
-#status{
+#status {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
