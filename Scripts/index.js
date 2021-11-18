@@ -117,6 +117,33 @@ function displayAvailable() {
 	}
 }
 
+function deleteButtonFunction(a) {
+	let deleteButton = document.createElement("div");
+	deleteButton.style.position = "absolute";
+	deleteButton.style.width = "30px";
+	deleteButton.style.height = "20px";
+	deleteButton.style.top = "-20px";
+	deleteButton.style.right = "-2px";
+	deleteButton.innerText = "X";
+	deleteButton.style.textAlign = "center";
+	deleteButton.style.color = "white";
+	deleteButton.style.backgroundColor = "red";
+	deleteButton.style.cursor = "pointer";
+	deleteButton.style.display = "block";
+	a.appendChild(deleteButton);
+	deleteButton.addEventListener("click", function () {
+		a.remove();
+	});
+	a.addEventListener("mouseover", function () {
+		deleteButton.style.display = "block";
+		a.style.border = "1px dashed white";
+	});
+	a.addEventListener("mouseout", function () {
+		deleteButton.style.display = "none";
+		a.style.border = "none";
+	});
+}
+
 // Add break
 let constWidth = 793.70078740157;
 let constHeight = 880.5196850394;
@@ -147,9 +174,10 @@ setInterval(() => {
 let activeElement;
 setInterval(() => {
 	if (
-		document.activeElement.tagName !== "BODY" &&
-		document.activeElement.tagName !== "BUTTON" &&
-		document.activeElement.tagName == "DIV"
+		(document.activeElement.tagName !== "BODY" &&
+			document.activeElement.tagName !== "BUTTON" &&
+			document.activeElement.tagName == "DIV") ||
+		document.activeElement.getAttribute("class") === "editableInput"
 	) {
 		activeElement = document.activeElement;
 	}
@@ -201,20 +229,20 @@ skill.addEventListener("mouseout", function () {
 function addSkill() {
 	let skillName = document.createElement("input");
 	let skillLevel = document.createElement("div");
+	let skillWrap = document.createElement("div");
 
 	skillName.setAttribute("contenteditable", "true");
-	skillName.innerHTML = "Tên kỹ năng";
 	skillName.style.color = "white";
 	skillName.style.border = "none";
 	skillName.style.backgroundColor = "transparent";
 	skillName.style.marginTop = "5px";
 	skillName.style.padding = "5px";
 	skillName.style.width = "90%";
-	skillName.placeholder = "Ten ky nang";
-	skillName.placeholderPosition = "absolute";
-	skillName.placeholderLeft = "0";
+	skillName.placeholder = "Tên kỹ năng";
+	skillName.setAttribute("class", "editableInput");
 	skillLevel.style.display = "flex";
-	console.log(skillName.placeholder);
+	skillWrap.style.position = "relative";
+	skillWrap.style.margin = "2px";
 	skillLevel.addEventListener("click", function (e) {
 		if (e.target.hasAttribute("index") === true) {
 			index = parseInt(e.target.getAttribute("index"));
@@ -230,8 +258,10 @@ function addSkill() {
 			}
 		}
 	});
-	nothing.appendChild(skillName);
-	nothing.appendChild(skillLevel);
+	nothing.appendChild(skillWrap);
+	skillWrap.appendChild(skillName);
+	skillWrap.appendChild(skillLevel);
+	deleteButtonFunction(skillWrap);
 	for (let i = 0; i <= 9; i++) {
 		let level = document.createElement("div");
 		level.style.width = "15px";
@@ -315,12 +345,12 @@ var dynamicSize = 16;
 document.getElementById("leftSize").addEventListener("click", function () {
 	if (dynamicSize > 2) dynamicSize--;
 	showFont.innerText = dynamicSize;
-  activeElement.style.fontSize = dynamicSize+"px";
+	activeElement.style.fontSize = dynamicSize + "px";
 });
 document.getElementById("rightSize").addEventListener("click", function () {
 	if (dynamicSize < 800) dynamicSize++;
 	showFont.innerText = dynamicSize;
-  activeElement.style.fontSize = dynamicSize+"px";
+	activeElement.style.fontSize = dynamicSize + "px";
 });
 var listLi = document.querySelectorAll("#listUl li");
 listFont.addEventListener("click", function (e) {
@@ -328,8 +358,8 @@ listFont.addEventListener("click", function (e) {
 		if (e.target.value == a.value) {
 			dynamicSize = a.value;
 			showFont.innerText = dynamicSize;
-  activeElement.style.fontSize = dynamicSize+"px";
-}
+			activeElement.style.fontSize = dynamicSize + "px";
+		}
 	});
 });
 //                                             mặc định   nếu có chỉnh thì chỉnh trên cái dòng phía dưới
@@ -391,28 +421,28 @@ inputColor.oninput = function (e) {
 document.getElementById("useThisColor").onclick = function () {
 	activeElement.style.color = dynamicColor;
 };
-	saveColorDefaults();
-	function saveColorDefaults() {
-		document.getElementById("basicColor").onclick = function (e) {
-			if (tryTable == 1) {
-				document.querySelectorAll(".sectionBasicColors").forEach(function (a) {
-					if (a == e.target) {
-						a.style.border = "2px solid rgb(255, 255, 255)";
-						a.style.outline = "3px solid rgb(184, 0, 184)";
-						dynamicColor = a.style.backgroundColor;
-					} else {
-						a.style.border = "1px solid rgba(187, 187, 187, 0.753)";
-						a.style.outline = "none";
-					}
-				});
-			}
-		};
-	}
-//                                   font size 
-document.querySelector("#seclectFont").onclick = function (){
-  activeElement.style.fontFamily = this.value;
-  console.log(this.value)
+saveColorDefaults();
+function saveColorDefaults() {
+	document.getElementById("basicColor").onclick = function (e) {
+		if (tryTable == 1) {
+			document.querySelectorAll(".sectionBasicColors").forEach(function (a) {
+				if (a == e.target) {
+					a.style.border = "2px solid rgb(255, 255, 255)";
+					a.style.outline = "3px solid rgb(184, 0, 184)";
+					dynamicColor = a.style.backgroundColor;
+				} else {
+					a.style.border = "1px solid rgba(187, 187, 187, 0.753)";
+					a.style.outline = "none";
+				}
+			});
+		}
+	};
 }
+//                                   font size
+document.querySelector("#seclectFont").onclick = function () {
+	activeElement.style.fontFamily = this.value;
+	console.log(this.value);
+};
 
 //              style status
 let bold = document.getElementById("bold");
