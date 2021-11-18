@@ -267,6 +267,97 @@ function addSkill() {
 		skillLevel.appendChild(level);
 	}
 }
+
+// ADD SOCIAL NETWORK
+function addSocialNetwork() {
+	let wrapDiv = document.createElement("div");
+	let icon = document.createElement("div");
+	let socialNetworkLink = document.createElement("div");
+	wrapDiv.style.display = "flex";
+	wrapDiv.style.marginTop = "10px";
+	icon.style.width = "25%";
+	icon.setAttribute("contenteditable", "true");
+	icon.setAttribute("name", "iconSocialNetwork");
+	icon.style.padding = "5px";
+	icon.style.marginLeft = "-15%";
+	icon.style.textAlign = "right";
+	icon.style.fontSize = "15px";
+	icon.style.border = "none";
+	icon.innerHTML = "Tên MXH";
+	icon.style.color = "white";
+	socialNetworkLink.style.color = "white";
+	socialNetworkLink.style.padding = "5px";
+	socialNetworkLink.innerHTML = "Link";
+	socialNetworkLink.setAttribute("contenteditable", "true");
+	socialNetworkLink.style.width = "80%";
+	document.getElementById("mangxahoi").appendChild(wrapDiv);
+	wrapDiv.appendChild(icon);
+	wrapDiv.appendChild(socialNetworkLink);
+}
+document.getElementById("mangxahoi").addEventListener("click", function () {
+	console.log(activeElement);
+	if (
+		activeElement.innerHTML === "Tên MXH" ||
+		activeElement.innerHTML === "Link"
+	) {
+		activeElement.innerHTML = "";
+	}
+});
+document.getElementById("mangxahoi").addEventListener("focusout", function () {
+	if (
+		activeElement.innerHTML === "" &&
+		activeElement.getAttribute("name", "iconSocialNetwork")
+	) {
+		activeElement.innerHTML = "Tên MXH";
+	} else if (activeElement === "") {
+		activeElement.innerHTML = "Link";
+	}
+	if (
+		activeElement.getAttribute("name") === "iconSocialNetwork" &&
+		activeElement.innerHTML != ""
+	) {
+		value = activeElement.innerHTML;
+		console.log(value);
+
+		switch (value) {
+			case "Facebook":
+			case "facebook":
+				activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
+				activeElement.style.fontSize = "20px";
+				break;
+			case "Instagram":
+			case "instagram":
+				activeElement.innerHTML = `<i class="fab fa-instagram"></i>`;
+				activeElement.style.fontSize = "20px";
+				break;
+			case "Github":
+			case "github":
+				activeElement.innerHTML = `<i class="fab fa-github"></i>`;
+				activeElement.style.fontSize = "20px";
+				break;
+			case "Twitter":
+			case "twitter":
+				activeElement.innerHTML = `<i class="fab fa-twitter"></i>`;
+				activeElement.style.fontSize = "20px";
+				break;
+			case "Linkedin":
+			case "linkedin":
+				activeElement.innerHTML = `<i class="fab fa-linkedin-in"></i>`;
+				activeElement.style.fontSize = "20px";
+				break;
+			case "Youtube":
+			case "youtube":
+				activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
+				activeElement.style.fontSize = "20px";
+				break;
+			default:
+				activeElement.innerHTML = `<i class="fas fa-link"></i>`;
+				activeElement.style.fontSize = "20px";
+				break;
+		}
+	}
+});
+
 //                                phan download CV 👆
 
 //                                khoa 👇
