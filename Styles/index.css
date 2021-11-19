@@ -19,11 +19,18 @@ body {
 }
 .editableDiv {
 	color: white;
-	margin-top: 10px;
 	width: 95%;
 	padding: 5px;
 	height: 75%;
 	position: absolute;
+	border: 1px solid transparent;
+	/* overflow:hidden; */
+}
+.editableDiv2 {
+	color: white;
+	margin-top: 10px;
+	width: 95%;
+	padding: 5px;
 	border: 1px solid transparent;
 	/* overflow:hidden; */
 }
@@ -334,16 +341,16 @@ form[action=""] input[type="file"] {
 	align-items: center;
 	color: rgb(148, 148, 148);
 }
-#status .addBlackStatus{
+#status .addBlackStatus {
 	color: #000000;
 }
-.boldjs{
+.boldjs {
 	font-weight: 600;
 }
-.italicjs{
+.italicjs {
 	font-style: italic;
 }
-.underlinejs{
+.underlinejs {
 	text-decoration: underline;
 }
 #status i:hover {
