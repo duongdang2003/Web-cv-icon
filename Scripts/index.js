@@ -21,6 +21,13 @@ function download() {
 
 // Direct change on CV
 let deleteElement;
+let projectButton = document.querySelector("#duanTitle");
+projectButton.addEventListener("mouseover", function () {
+	document.querySelector("#duan + #addButton").style.display = "block";
+});
+projectButton.addEventListener("mouseout", function () {
+	document.querySelector("#duan + #addButton").style.display = "none";
+});
 function addProject() {
 	let wrapDiv = document.createElement("div");
 	let projectName = document.createElement("h3");
@@ -28,6 +35,7 @@ function addProject() {
 	let projectDiscription = document.createElement("h3");
 	let discription = document.createElement("div");
 	let deleteButton = document.createElement("div");
+
 	wrapDiv.style.width = "95%";
 	wrapDiv.style.height = "fit-content";
 	wrapDiv.style.border = "2px solid black";
@@ -143,20 +151,18 @@ let constWidth = 793.70078740157;
 let constHeight = 880.5196850394;
 let scale = 210 / 297;
 setInterval(() => {
-	// console.log(cv.offsetWidth, cv.offsetHeight, page);
+	console.log(cv.offsetWidth, cv.offsetHeight, page);
 	if (
 		cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
 		cv.offsetHeight >= constWidth * page
 	) {
-		console.log((cv.offsetWidth * constHeight) / constWidth) * page;
+		// console.log((cv.offsetWidth * constHeight) / constWidth) * page;
 		ruler = document.createElement("p");
 		ruler.innerHTML = `---------- Trang ${page} ----------`;
 		ruler.style.position = "absolute";
 		ruler.style.top = `${(1 * cv.offsetWidth * constHeight) / constWidth}px`;
 		ruler.style.left = "-30%";
 		cv.appendChild(ruler);
-		// console.log("--------------------------");
-
 		page++;
 	}
 }, 100);
@@ -180,15 +186,18 @@ setInterval(() => {
 let right = document.getElementById("dynamicAlignRight");
 let left = document.getElementById("dynamicAlignLeft");
 let center = document.getElementById("dynamicAlignCenter");
+let justify = document.getElementById("dynamicAlignJustify");
 left.style.color = "black";
 center.style.color = "rgb(148, 148, 148)";
 right.style.color = "rgb(148, 148, 148)";
+justify.style.color = "rgb(148, 148, 148)";
 cv.style.textAlign = "left";
 alignSection.addEventListener("click", function (e) {
 	if (e.target.getAttribute("id") === "dynamicAlignRight") {
 		right.style.color = "black";
 		left.style.color = "rgb(148, 148, 148)";
 		center.style.color = "rgb(148, 148, 148)";
+		justify.style.color = "rgb(148, 148, 148)";
 		if (activeElement != undefined) {
 			activeElement.style.textAlign = "right";
 		}
@@ -196,6 +205,7 @@ alignSection.addEventListener("click", function (e) {
 		center.style.color = "black";
 		left.style.color = "rgb(148, 148, 148)";
 		right.style.color = "rgb(148, 148, 148)";
+		justify.style.color = "rgb(148, 148, 148)";
 		if (activeElement != undefined) {
 			activeElement.style.textAlign = "center";
 		}
@@ -203,8 +213,17 @@ alignSection.addEventListener("click", function (e) {
 		left.style.color = "black";
 		center.style.color = "rgb(148, 148, 148)";
 		right.style.color = "rgb(148, 148, 148)";
+		justify.style.color = "rgb(148, 148, 148)";
 		if (activeElement != undefined) {
 			activeElement.style.textAlign = "left";
+		}
+	} else if (e.target.getAttribute("id") === "dynamicAlignJustify") {
+		justify.style.color = "black";
+		center.style.color = "rgb(148, 148, 148)";
+		right.style.color = "rgb(148, 148, 148)";
+		left.style.color = "rgb(148, 148, 148)";
+		if (activeElement != undefined) {
+			activeElement.style.textAlign = "justify";
 		}
 	}
 });
@@ -269,27 +288,41 @@ function addSkill() {
 }
 
 // ADD SOCIAL NETWORK
+let socialNetwork = document.querySelector("#socialNetwork");
+socialNetwork.addEventListener("mouseover", function () {
+	document.querySelector("#socialNetwork #addButton").style.display = "block";
+});
+socialNetwork.addEventListener("mouseout", function () {
+	document.querySelector("#socialNetwork #addButton").style.display = "none";
+});
+
 function addSocialNetwork() {
 	let wrapDiv = document.createElement("div");
 	let icon = document.createElement("div");
 	let socialNetworkLink = document.createElement("div");
+
 	wrapDiv.style.display = "flex";
+	deleteButtonFunction(wrapDiv);
 	wrapDiv.style.marginTop = "10px";
-	icon.style.width = "25%";
+	wrapDiv.style.position = "relative";
+	wrapDiv.style.marginLeft = "-15%";
+	icon.style.width = "23%";
 	icon.setAttribute("contenteditable", "true");
 	icon.setAttribute("name", "iconSocialNetwork");
 	icon.style.padding = "5px";
-	icon.style.marginLeft = "-15%";
+	icon.style.marginLeft = "0";
 	icon.style.textAlign = "right";
 	icon.style.fontSize = "15px";
 	icon.style.border = "none";
 	icon.innerHTML = "Tên MXH";
 	icon.style.color = "white";
+	icon.spellcheck = "false";
 	socialNetworkLink.style.color = "white";
 	socialNetworkLink.style.padding = "5px";
 	socialNetworkLink.innerHTML = "Link";
 	socialNetworkLink.setAttribute("contenteditable", "true");
-	socialNetworkLink.style.width = "80%";
+	socialNetworkLink.spellcheck = "false";
+	socialNetworkLink.style.width = "70%";
 	document.getElementById("mangxahoi").appendChild(wrapDiv);
 	wrapDiv.appendChild(icon);
 	wrapDiv.appendChild(socialNetworkLink);
@@ -317,7 +350,6 @@ document.getElementById("mangxahoi").addEventListener("focusout", function () {
 		activeElement.innerHTML != ""
 	) {
 		value = activeElement.innerHTML;
-		console.log(value);
 
 		switch (value) {
 			case "Facebook":
@@ -534,13 +566,13 @@ let bold = document.getElementById("bold");
 let italic = document.getElementById("italic");
 let underline = document.getElementById("underline");
 let statuss = document.querySelectorAll("#status i");
-let sta =["boldjs","italicjs","underlinejs"];
+let sta = ["boldjs", "italicjs", "underlinejs"];
 // cv.style.textAlign = "left";
 document.getElementById("status").addEventListener("click", function (e) {
-	statuss.forEach(function (a,b){
-		if (e.target == a){
+	statuss.forEach(function (a, b) {
+		if (e.target == a) {
 			e.target.classList.toggle("addBlackStatus");
-			activeElement.classList.toggle(sta[b])
+			activeElement.classList.toggle(sta[b]);
 		}
-	})
+	});
 });

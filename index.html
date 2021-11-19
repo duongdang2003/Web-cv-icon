@@ -104,6 +104,7 @@
           <i id="dynamicAlignLeft"class="fas fa-align-left"></i>
           <i id="dynamicAlignCenter"class="fas fa-align-center"></i>
           <i id="dynamicAlignRight" class="fas fa-align-right"></i>
+          <i id="dynamicAlignJustify" class="fas fa-align-justify"></i>
         </div>
       </div>
       <!--                          chon font, co chu, mau sac,.... -->
@@ -169,20 +170,20 @@
               động thoi rồi qua cái khác làm-->
               <div class="sectionInfo">
                 <h3 class="sectionInfoTitle">số điện thoại</h3>
-                <div style="height: 10%" class="editableDiv" contenteditable="true"></div>
+                <div style="height: 10%;" class="editableDiv2" contenteditable="true"></div>
               </div>
               <div class="sectionInfo">
                 <h3 class="sectionInfoTitle">Email</h3>
-                <div style="height: 10%" class="editableDiv" contenteditable="true"></div>
+                <div style="height: 10%" class="editableDiv2" contenteditable="true"></div>
               </div>
-              <div class="sectionInfo">
+              <div class="sectionInfo" id="socialNetwork">
                 <h3 class="sectionInfoTitle">mạng xã hội</h3>
-                <div id="mangxahoi"></div>
+                <div id="mangxahoi" style="width: 100%; height: 100%;"></div>
                 <div id="addButton" style="color: white; border: 1px solid white;" onclick="addSocialNetwork()">+</div>
               </div>
               <div class="sectionInfo">
                 <h3 class="sectionInfoTitle">địa chỉ</h3>
-                <div style="height: 10%" class="editableDiv" contenteditable="true"></div>
+                <div style="height: 10%" class="editableDiv2" contenteditable="true"></div>
               </div>
             </div>
           </span>
@@ -205,7 +206,7 @@
                   <h1>Mục đích</h1>
                   <hr>
                 </div>
-                <div style="height: 10%; color: black;" class="editableDiv" contenteditable="true"></div>
+                <div style="color: black;" class="editableDiv2" contenteditable="true"></div>
                 
               </div>
               <div class="sectionBodyLeftCV">
@@ -213,10 +214,10 @@
                   <h1>kinh nghiệm làm việc</h1>
                   <hr>
                 </div>
-                <div style="height: 10%; color: black;" class="editableDiv" contenteditable="true"></div>
+                <div style="color: black;" class="editableDiv2" contenteditable="true"></div>
               </div>
-              <div class="sectionBodyLeftCV">
-                <div class="sectionTitleBodyLeftCV">
+              <div class="sectionBodyLeftCV" id="duanTitle" style="padding-bottom: 50px;">
+                <div class="sectionTitleBodyLeftCV" >
                   <h1>dự án</h1>
                   <hr>
                   <div id="duan"></div>
@@ -228,7 +229,7 @@
                   <h1>giải thưởng</h1>
                   <hr>
                 </div>
-                <div style="height: 10%; color: black;" class="editableDiv" contenteditable="true"></div>
+                <div style="color: black;" class="editableDiv2" contenteditable="true"></div>
               </div>
 
               <!-- khoa đưa đăng thẻ div bao mấy thẻ con động-->
@@ -237,17 +238,11 @@
                   <h1>thông tin khác</h1>
                   <hr>
                 </div>
-                <div style="height: 10%; color: black;" class="editableDiv" contenteditable="true"></div>
-                
+                <div style="color: black;" class="editableDiv" contenteditable="true"></div>
               </div>
             </div>
           </span>
         </div>
-        </div>
-
-
-
-
       </div>
       <!--           modal -->
       <div class="modal" id="OCModal">
