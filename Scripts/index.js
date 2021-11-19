@@ -163,7 +163,7 @@ setInterval(() => {
 		ruler.innerHTML = `---------- Trang ${page} ----------`;
 		ruler.style.position = "absolute";
 		ruler.style.top = `${(1 * cv.offsetWidth * constHeight) / constWidth}px`;
-		ruler.style.left = "-30%";
+		ruler.style.left = "-20%";
 		cv.appendChild(ruler);
 		page++;
 	}
@@ -313,7 +313,7 @@ function addSocialNetwork() {
 	wrapDiv.style.marginTop = "10px";
 	wrapDiv.style.position = "relative";
 	wrapDiv.style.marginLeft = "-15%";
-	icon.style.width = "23%";
+	icon.style.width = "27%";
 	icon.setAttribute("contenteditable", "true");
 	icon.setAttribute("name", "iconSocialNetwork");
 	icon.style.padding = "5px";
@@ -566,7 +566,7 @@ function saveColorDefaults() {
 }
 //                                   font family
 document.querySelector("#seclectFont").onclick = function () {
-	if (activeElementContainNull == null){
+	if (activeElementContainNull == null) {
 		document.querySelector(".CV").style.fontFamily = this.value;
 	} else {
 		activeElement.style.fontFamily = this.value;
