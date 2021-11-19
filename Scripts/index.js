@@ -175,6 +175,8 @@ setInterval(() => {
 // align
 let activeElement;
 let activeElementContainNull;
+let activeElement2;
+let tempActiveElement;
 setInterval(() => {
 	if (
 		(document.activeElement.tagName !== "BODY" &&
@@ -184,10 +186,74 @@ setInterval(() => {
 	) {
 		activeElement = document.activeElement;
 		activeElementContainNull = document.activeElement;
+		if (tempActiveElement != document.activeElement) {
+			activeElement2 = document.activeElement;
+			tempActiveElement = activeElement2;
+		}
+		if (activeElement.style.textAlign === "left") {
+			left.style.color = "black";
+			center.style.color = "rgb(148, 148, 148)";
+			right.style.color = "rgb(148, 148, 148)";
+			justify.style.color = "rgb(148, 148, 148)";
+		} else if (activeElement.style.textAlign === "right") {
+			right.style.color = "black";
+			left.style.color = "rgb(148, 148, 148)";
+			center.style.color = "rgb(148, 148, 148)";
+			justify.style.color = "rgb(148, 148, 148)";
+		} else if (activeElement.style.textAlign === "center") {
+			center.style.color = "black";
+			left.style.color = "rgb(148, 148, 148)";
+			right.style.color = "rgb(148, 148, 148)";
+			justify.style.color = "rgb(148, 148, 148)";
+		} else if (activeElement.style.textAlign === "justify") {
+			justify.style.color = "black";
+			center.style.color = "rgb(148, 148, 148)";
+			right.style.color = "rgb(148, 148, 148)";
+			left.style.color = "rgb(148, 148, 148)";
+		} else {
+			left.style.color = "rgb(148, 148, 148)";
+			center.style.color = "rgb(148, 148, 148)";
+			right.style.color = "rgb(148, 148, 148)";
+			left.style.color = "rgb(148, 148, 148)";
+		}
+
+		if (activeElement.style.fontWeight === "bold") {
+			bold.style.color = "black";
+			italic.style.color = "rgb(148, 148, 148)";
+			underline.style.color = "rgb(148, 148, 148)";
+		}
+		if (activeElement.style.fontStyle === "italic") {
+			italic.style.color = "black";
+			bold.style.color = "rgb(148, 148, 148)";
+			underline.style.color = "rgb(148, 148, 148)";
+		}
+		if (activeElement.style.textDecoration === "underline") {
+			underline.style.color = "black";
+			bold.style.color = "rgb(148, 148, 148)";
+			italic.style.color = "rgb(148, 148, 148)";
+		}
 	} else if (document.activeElement.tagName === "BODY") {
 		activeElementContainNull = null;
 	}
-	// console.log(activeElementContainNull);
+	if (activeElement.getAttribute("class") != undefined) {
+		textStatus = activeElement.getAttribute("class");
+		if (textStatus.indexOf("boldjs") != -1) {
+			bold.style.color = "black";
+		} else {
+			bold.style.color = "rgb(148, 148, 148)";
+		}
+		if (textStatus.indexOf("italicjs") != -1) {
+			italic.style.color = "black";
+		} else {
+			italic.style.color = "rgb(148, 148, 148)";
+		}
+		if (textStatus.indexOf("underlinejs") != -1) {
+			underline.style.color = "black";
+		} else {
+			underline.style.color = "rgb(148, 148, 148)";
+		}
+		console.log(activeElement.getAttribute("class"));
+	}
 }, 100);
 
 let right = document.getElementById("dynamicAlignRight");

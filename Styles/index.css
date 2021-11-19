@@ -78,7 +78,6 @@ body {
 	height: fit-content;
 	display: flex;
 	justify-content: space-between;
-	color: rgb(148, 148, 148);
 	position: relative;
 }
 .body .information {
