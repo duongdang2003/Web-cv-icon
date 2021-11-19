@@ -589,3 +589,7 @@ document.getElementById("status").addEventListener("click", function (e) {
 		}
 	});
 });
+// setInterval(function () {
+// 	console.log(activeElement)
+// 	console.log(activeElementContainNull)
+// },1000)
