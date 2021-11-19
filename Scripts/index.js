@@ -22,7 +22,6 @@ function download() {
 // Direct change on CV
 let deleteElement;
 let projectButton = document.querySelector("#duanTitle");
-console.log(document.querySelector("#duan #addButton"));
 projectButton.addEventListener("mouseover", function () {
 	document.querySelector("#duan + #addButton").style.display = "block";
 });
@@ -152,20 +151,18 @@ let constWidth = 793.70078740157;
 let constHeight = 880.5196850394;
 let scale = 210 / 297;
 setInterval(() => {
-	// console.log(cv.offsetWidth, cv.offsetHeight, page);
+	console.log(cv.offsetWidth, cv.offsetHeight, page);
 	if (
 		cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
 		cv.offsetHeight >= constWidth * page
 	) {
-		console.log((cv.offsetWidth * constHeight) / constWidth) * page;
+		// console.log((cv.offsetWidth * constHeight) / constWidth) * page;
 		ruler = document.createElement("p");
 		ruler.innerHTML = `---------- Trang ${page} ----------`;
 		ruler.style.position = "absolute";
 		ruler.style.top = `${(1 * cv.offsetWidth * constHeight) / constWidth}px`;
 		ruler.style.left = "-30%";
 		cv.appendChild(ruler);
-		// console.log("--------------------------");
-
 		page++;
 	}
 }, 100);
@@ -292,7 +289,6 @@ function addSkill() {
 
 // ADD SOCIAL NETWORK
 let socialNetwork = document.querySelector("#socialNetwork");
-// console.log(document.querySelector);
 socialNetwork.addEventListener("mouseover", function () {
 	document.querySelector("#socialNetwork #addButton").style.display = "block";
 });
@@ -354,7 +350,6 @@ document.getElementById("mangxahoi").addEventListener("focusout", function () {
 		activeElement.innerHTML != ""
 	) {
 		value = activeElement.innerHTML;
-		console.log(value);
 
 		switch (value) {
 			case "Facebook":
