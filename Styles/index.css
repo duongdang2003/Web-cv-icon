@@ -77,9 +77,10 @@ body {
 	color: rgb(148, 148, 148);
 }
 .body .information {
-	width: 30%;
+	width: 40%;
 	height: fit-content;
 	margin: 10px;
+	position: relative;
 }
 .body .information > div:first-child {
 	width: 15%;

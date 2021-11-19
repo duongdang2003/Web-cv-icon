@@ -1,5 +1,5 @@
 .body .CV {
-	width: 70%;
+	width: 800px;/*cho gần đúng với tỉ lệ khi lưu về*/
 	height: fit-content;
 	min-height: 1024px;
 	margin-top: 10px;
