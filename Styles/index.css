@@ -79,7 +79,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	color: rgb(148, 148, 148);
-	position: relative;
+	/* position: relative; */
 }
 .body .information {
 	width: 40%;
@@ -175,6 +175,7 @@ body {
 /* tai anh */
 .modal {
 	display: none;
+	/* position:rela	 */
 }
 .OpenModal {
 	display: block !important;
@@ -182,6 +183,7 @@ body {
 #opaModal {
 	position: fixed;
 	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background-color: #333;
@@ -198,6 +200,7 @@ body {
 	box-shadow: 0px 0px 10px rgb(255, 255, 255);
 	border-radius: 6px;
 	animation: slide 0.6s ease;
+	color: black;
 }
 #modalHead {
 	width: 100%;
@@ -357,7 +360,7 @@ form[action=""] input[type="file"] {
 	color: #000000;
 }
 .boldjs {
-	font-weight: 600;
+	font-weight: bold;
 }
 .italicjs {
 	font-style: italic;
@@ -605,18 +608,20 @@ form #color-search {
 	padding: 10px 0;
 }
 #flexBasicColor .sectionBasicColors {
-	content: "";
+	content: " ";
 	width: 42px;
 	height: 42px;
 	display: inline-block;
 	margin: 5px 0;
 	border-radius: 4px;
-	border: 1px solid rgba(187, 187, 187, 0.753);
+	border: 1px solid rgba(187, 187, 187, 0.753) !important;
 	transition: all 0.2s ease;
+	padding:0;
 }
 #flexBasicColor .sectionBasicColors:hover {
 	border: 2px solid rgb(255, 255, 255) !important;
 	outline: 3px solid rgb(184, 0, 184) !important;
+	cursor: pointer;
 }
 
 #flexBasicColor .sectionBasicColors + .sectionBasicColors {
@@ -657,6 +662,68 @@ form #color-search {
 	outline: 2px solid purple;
 	border: 1px solid white;
 	cursor: pointer;
+}
+
+.pickr-container{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	outline: none;
+	margin-left: 0 !important;
+}
+.pickr-container:hover{
+	outline: 2px solid rgb(29, 80, 32) !important;
+	border: none !important;
+}
+.pickr{
+	background: linear-gradient(
+		to bottom right,
+		#ff1616,
+		#ff914d,
+		#ffde59,
+		#008037 ,
+		#5271ff,
+		#8c52ff,
+		#5e17eb
+		) !important;
+	outline: none;
+	border: none;
+	border-radius: 4px;
+	height:100%;
+	width: 100%;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	padding: 0;
+}
+.pickr button{
+	width:2.1rem !important;
+	height:2.1rem !important;
+	--pcr-color: #fff !important;
+	background-size: 90% !important;
+	transform:rotateZ(45deg);
+}
+.pickr .pcr-button::before {
+    position: relative;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0 !important;
+    background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
+    background-size: 0.5em;
+    border-radius: 0.15em;
+}
+.pickr .pcr-button::after {
+	position: relative;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    transition: background 0.3s;
+    background: var(--pcr-color);
+    border-radius: 0.15em;
 }
 
 /* keyframe */

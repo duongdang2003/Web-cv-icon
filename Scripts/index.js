@@ -496,10 +496,10 @@ function onScroll() {
 		var y = window.scrollY;
 		if (y >= 200) {
 			document.getElementById("editContent").classList.add("fixEditContent");
-			document.querySelector(".information").classList.add("fixInformation");
+			// document.querySelector(".information").classList.add("fixInformation");
 		} else {
 			document.getElementById("editContent").classList.remove("fixEditContent");
-			document.querySelector(".information").classList.remove("fixInformation");
+			// document.querySelector(".information").classList.remove("fixInformation");
 		}
 	}
 }
@@ -589,7 +589,5 @@ document.getElementById("status").addEventListener("click", function (e) {
 		}
 	});
 });
-// setInterval(function () {
-// 	console.log(activeElement)
-// 	console.log(activeElementContainNull)
-// },1000)
+
+
