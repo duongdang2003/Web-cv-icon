@@ -564,7 +564,7 @@ function saveColorDefaults() {
 }
 //                                   font size
 document.querySelector("#seclectFont").onclick = function () {
-	document.querySelector(".CV").style.fontFamily = this.value;
+	activeElement.style.fontFamily = this.value;
 	console.log(this.value);
 };
 
