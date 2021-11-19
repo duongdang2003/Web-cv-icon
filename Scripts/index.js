@@ -187,7 +187,7 @@ setInterval(() => {
 	} else if (document.activeElement.tagName === "BODY") {
 		activeElementContainNull = null;
 	}
-	console.log(activeElementContainNull);
+	// console.log(activeElementContainNull);
 }, 100);
 
 let right = document.getElementById("dynamicAlignRight");
@@ -496,8 +496,10 @@ function onScroll() {
 		var y = window.scrollY;
 		if (y >= 200) {
 			document.getElementById("editContent").classList.add("fixEditContent");
+			document.querySelector(".information").classList.add("fixInformation");
 		} else {
 			document.getElementById("editContent").classList.remove("fixEditContent");
+			document.querySelector(".information").classList.remove("fixInformation");
 		}
 	}
 }
@@ -562,9 +564,13 @@ function saveColorDefaults() {
 		}
 	};
 }
-//                                   font size
+//                                   font family
 document.querySelector("#seclectFont").onclick = function () {
-	activeElement.style.fontFamily = this.value;
+	if (activeElementContainNull == null){
+		document.querySelector(".CV").style.fontFamily = this.value;
+	} else {
+		activeElement.style.fontFamily = this.value;
+	}
 	console.log(this.value);
 };
 
@@ -583,3 +589,7 @@ document.getElementById("status").addEventListener("click", function (e) {
 		}
 	});
 });
+// setInterval(function () {
+// 	console.log(activeElement)
+// 	console.log(activeElementContainNull)
+// },1000)

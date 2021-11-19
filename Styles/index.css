@@ -79,11 +79,13 @@ body {
 	display: flex;
 	justify-content: space-between;
 	color: rgb(148, 148, 148);
+	position: relative;
 }
 .body .information {
-	width: 30%;
+	width: 40%;
 	height: fit-content;
 	margin: 10px;
+	position: relative;
 }
 .body .information > div:first-child {
 	width: 15%;
@@ -297,7 +299,13 @@ form[action=""] input[type="file"] {
 	left: 50%;
 	transform: translateX(-50%) !important;
 	z-index: 2;
-	animation: appear 0.4s ease;
+	animation: appear 0.8s ease;
+}
+.fixInformation{
+	position: fixed !important;
+	top: 10%;
+	z-index: 2;
+	animation: appear 0.8s ease;
 }
 .sectionEdit {
 	height: 76%;
