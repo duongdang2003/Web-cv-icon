@@ -496,8 +496,10 @@ function onScroll() {
 		var y = window.scrollY;
 		if (y >= 200) {
 			document.getElementById("editContent").classList.add("fixEditContent");
+			document.querySelector(".information").classList.add("fixInformation");
 		} else {
 			document.getElementById("editContent").classList.remove("fixEditContent");
+			document.querySelector(".information").classList.remove("fixInformation");
 		}
 	}
 }

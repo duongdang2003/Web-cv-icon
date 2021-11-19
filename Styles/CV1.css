@@ -3,7 +3,8 @@
 	height: fit-content;
 	min-height: 1024px;
 	margin-top: 10px;
-	position: relative;
+	position: absolute;
+	right: 0;
 	box-shadow: 8px 8px 15px rgb(53, 53, 53);
 	background-color: white;
 	/* padding: 10px; */
