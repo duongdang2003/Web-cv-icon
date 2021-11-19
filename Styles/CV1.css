@@ -7,6 +7,11 @@
 	box-shadow: 8px 8px 15px rgb(53, 53, 53);
 	background-color: white;
 	/* padding: 10px; */
+	/* display: grid; */
+	/* grid-template-columns: 35% 65%; */
+	/* grid-template-columns: [first] 35% [line2] 65%[end]; */
+}
+#wrapCanvas{
 	display: grid;
 	grid-template-columns: 35% 65%;
 }
@@ -20,6 +25,7 @@
 	top: 0;
 	left: 0;
 	width:100%;
+	/* max-width: 35%; */
 	/* width: 35%; */
 	height: fit-content;
 	min-height:100%;
@@ -29,7 +35,7 @@
 	flex-direction: column;
 	align-items: center;
 	overflow: hidden;
-	margin: 0;
+	margin: 0;	
 }
 #ava {
 	width: 200px;
@@ -46,8 +52,8 @@
 }
 .sectionTitleLeftCV1 {
 	width: 85%;
-	min-height: 145px;
-	align-self: right;
+	/* min-height: 145px; */
+	/* align-self: right; */
 	background-color: transparent;
 	margin-left: 15%;
 	text-align: left;
@@ -117,21 +123,11 @@
 }
 /*                             leftCV */
 #rightCV {
-	/* position: relative;
-	right:0;
-	width: 100%;
-	min-height: 100%;
-	background-color: #ffffff;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	margin: 0;  */
-
 	position: relative;
 	top:0;
 	right: 0;
 	width: 100%;
+	/* max-width: 65%; */
 	/* width: 65%; */
 	height: fit-content;
 	min-height:100%;
