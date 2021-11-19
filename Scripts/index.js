@@ -21,6 +21,14 @@ function download() {
 
 // Direct change on CV
 let deleteElement;
+let projectButton = document.querySelector("#duanTitle");
+console.log(document.querySelector("#duan #addButton"));
+projectButton.addEventListener("mouseover", function () {
+	document.querySelector("#duan + #addButton").style.display = "block";
+});
+projectButton.addEventListener("mouseout", function () {
+	document.querySelector("#duan + #addButton").style.display = "none";
+});
 function addProject() {
 	let wrapDiv = document.createElement("div");
 	let projectName = document.createElement("h3");
@@ -28,6 +36,7 @@ function addProject() {
 	let projectDiscription = document.createElement("h3");
 	let discription = document.createElement("div");
 	let deleteButton = document.createElement("div");
+
 	wrapDiv.style.width = "95%";
 	wrapDiv.style.height = "fit-content";
 	wrapDiv.style.border = "2px solid black";
@@ -184,6 +193,7 @@ let justify = document.getElementById("dynamicAlignJustify");
 left.style.color = "black";
 center.style.color = "rgb(148, 148, 148)";
 right.style.color = "rgb(148, 148, 148)";
+justify.style.color = "rgb(148, 148, 148)";
 cv.style.textAlign = "left";
 alignSection.addEventListener("click", function (e) {
 	if (e.target.getAttribute("id") === "dynamicAlignRight") {
@@ -210,7 +220,14 @@ alignSection.addEventListener("click", function (e) {
 		if (activeElement != undefined) {
 			activeElement.style.textAlign = "left";
 		}
-	} else if (e.target.getAttribute("id") === "dynamicAlign") {
+	} else if (e.target.getAttribute("id") === "dynamicAlignJustify") {
+		justify.style.color = "black";
+		center.style.color = "rgb(148, 148, 148)";
+		right.style.color = "rgb(148, 148, 148)";
+		left.style.color = "rgb(148, 148, 148)";
+		if (activeElement != undefined) {
+			activeElement.style.textAlign = "justify";
+		}
 	}
 });
 
