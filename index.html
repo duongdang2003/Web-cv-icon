@@ -1,338 +1,538 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Auri</title>
-    <link rel="stylesheet" href="./css/all.min.css" />
-    <link rel="stylesheet" href="./Styles/index.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="icon" href="./Images/icon.png">
-    <link rel="stylesheet" href="./Styles/CV1.css">
-    <!-- Roboto font -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto"
-    />
-    <!-- Open sans font -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" 
-    rel="stylesheet">
-    
-    
-    <!-- html2pd -->
-    <!-- <script
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Auri</title>
+		<link rel="stylesheet" href="./css/all.min.css" />
+		<link rel="stylesheet" href="./Styles/index.css" />
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+		/>
+		<link rel="icon" href="./Images/icon.png" />
+		<link rel="stylesheet" href="./Styles/CV1.css" />
+		<!-- Roboto font -->
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Roboto"
+		/>
+		<!-- Open sans font -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- html2pd -->
+		<!-- <script
       src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
       integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script> -->
-    <script 
-      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" 
-      integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" 
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer">
-    </script>
-  </head>
-  <body>
-    <div id="wrapBody">
-      <!-- header -->
-      <div class="header">
-        <h1 id="logo"></h1>
-        <img src="Images/headerBackground-transparent.png" alt="">
-        <div>Quick CV creator</div>
-      </div>
-      <!-- settings -->
-     
-      <!-- Body -->
-      <div id="editContent">
-        <div title="Phông chữ" class="sectionEdit" id="font">
-          <i class="fas fa-font"></i>
-          <select name="font" id="seclectFont">
-            <option value="Roboto">Roboto</option>
-            <option value="open sans-serif">Open sans-serif</option>
-            <option value="open sans-ser">Open sans-ser</option>
-            <option value="Arial">Arial</option>
-          </select>
-        </div>
-        <div class="sectionEdit" id="size">
-          <i class="fas fa-text-height"></i>
-          <div id="sizeEdit">
-            <div title="Giảm cỡ chữ" class="sectionSizeEdit" id="leftSize"><i class="fas fa-chevron-left"></i></div>
-            <div title="Cỡ chữ" class="sectionSizeEdit" id="showFont"></div>
-            <div title="Tăng cỡ chữ" class="sectionSizeEdit" id="rightSize"><i class="fas fa-chevron-right"></i></div>
-          </div>
-          <div id="listFontSize">
-            <ul id="listUl">
-              <li value="6">6</li>
-              <li value="8" >8</li>
-              <li value="10" >10</li>
-              <li value="12" >12</li>
-              <li value="14" >14</li>
-              <li value="16" >16</li>
-              <li value="18" >18</li>
-              <li value="21" >21</li>
-              <li value="24" >24</li>
-              <li value="28" >28</li>
-              <li value="32" >32</li>
-              <li value="36" >36</li>
-              <li value="42" >42</li>
-              <li value="48" >48</li>
-              <li value="56" >56</li>
-              <li value="64" >64</li>
-              <li value="72" >72</li>
-              <li value="80" >80</li>
-              <li value="88" >88</li>
-              <li value="96" >96</li>
-              <li value="104" >104</li>
-              <li value="120" >120</li>
-              <li value="144" >144</li>
-            </ul>
-          </div>
-        </div>
-        <div class="sectionEdit" id="color">
-          <div id="textColor">A</div>
-          <div id="imageColor"><div></div></div>
-          
-        </div>
-        <div class="sectionEdit" id="status">
-          <i id="bold" class="fas fa-bold"></i>
-          <i id="italic" class="fas fa-italic"></i>
-          <i id="underline" class="fas fa-underline"></i>
-        </div>
-        <div class="sectionEdit" id="align">
-          <i id="dynamicAlignLeft"class="fas fa-align-left"></i>
-          <i id="dynamicAlignCenter"class="fas fa-align-center"></i>
-          <i id="dynamicAlignRight" class="fas fa-align-right"></i>
-          <i id="dynamicAlignJustify" class="fas fa-align-justify"></i>
-        </div>
-      </div>
-      <!--                          chon font, co chu, mau sac,.... -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
+			integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+	</head>
+	<body>
+		<div id="wrapBody">
+			<!-- header -->
+			<div class="header">
+				<h1 id="logo"></h1>
+				<img src="Images/headerBackground-transparent.png" alt="" />
+				<div>Quick CV creator</div>
+			</div>
+			<!-- settings -->
 
-      <div class="body">
-        <div class="information">
-            <div id="download" onclick="download()">
-              <i class="fas fa-download"></i>
-            </div>
-            <div onclick="displayAvailable()" id="available">
-              Các mẫu CV hiện có
-              <i class="fas fa-chevron-down"></i>
-              <i style="display: none;" class="fas fa-chevron-up"></i>
-              <div>
-                <div>Chung</div>
-                <div>Kỹ thuật - công nghệ</div>
-                <div>Y dược</div>
-                <div>Kinh doanh</div>
-                <div>Xây dựng</div>
-              </div>
-            </div>
-            
-            <div id="project" onclick="addProject()" style="user-select: none">Dự án
-              <i class="fas fa-plus-circle"></i>
-            </div>
-            <div id="language" style="user-select: none;">Ngôn ngữ
-              <i class="fas fa-plus-circle"></i>
-            </div>
-            <div id="project" style="user-select: none">Mạng xã hội
-              <i class="fas fa-plus-circle"></i>
-            </div>
-            <div id="anotherInfor" style="user-select: none;">Thông tin khác
-              <i class="fas fa-plus-circle"></i>
-            </div>
-          </div>
-        
+			<!-- Body -->
+			<div id="editContent">
+				<div title="Phông chữ" class="sectionEdit" id="font">
+					<i class="fas fa-font"></i>
+					<select name="font" id="seclectFont">
+						<option value="Roboto">Roboto</option>
+						<option value="open sans-serif">Open sans-serif</option>
+						<option value="open sans-ser">Open sans-ser</option>
+						<option value="Arial">Arial</option>
+					</select>
+				</div>
+				<div class="sectionEdit" id="size">
+					<i class="fas fa-text-height"></i>
+					<div id="sizeEdit">
+						<div title="Giảm cỡ chữ" class="sectionSizeEdit" id="leftSize">
+							<i class="fas fa-chevron-left"></i>
+						</div>
+						<div title="Cỡ chữ" class="sectionSizeEdit" id="showFont"></div>
+						<div title="Tăng cỡ chữ" class="sectionSizeEdit" id="rightSize">
+							<i class="fas fa-chevron-right"></i>
+						</div>
+					</div>
+					<div id="listFontSize">
+						<ul id="listUl">
+							<li value="6">6</li>
+							<li value="8">8</li>
+							<li value="10">10</li>
+							<li value="12">12</li>
+							<li value="14">14</li>
+							<li value="16">16</li>
+							<li value="18">18</li>
+							<li value="21">21</li>
+							<li value="24">24</li>
+							<li value="28">28</li>
+							<li value="32">32</li>
+							<li value="36">36</li>
+							<li value="42">42</li>
+							<li value="48">48</li>
+							<li value="56">56</li>
+							<li value="64">64</li>
+							<li value="72">72</li>
+							<li value="80">80</li>
+							<li value="88">88</li>
+							<li value="96">96</li>
+							<li value="104">104</li>
+							<li value="120">120</li>
+							<li value="144">144</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sectionEdit" id="color">
+					<div id="textColor">A</div>
+					<div id="imageColor"><div></div></div>
+				</div>
+				<div class="sectionEdit" id="status">
+					<i id="bold" class="fas fa-bold"></i>
+					<i id="italic" class="fas fa-italic"></i>
+					<i id="underline" class="fas fa-underline"></i>
+				</div>
+				<div class="sectionEdit" id="align">
+					<i id="dynamicAlignLeft" class="fas fa-align-left"></i>
+					<i id="dynamicAlignCenter" class="fas fa-align-center"></i>
+					<i id="dynamicAlignRight" class="fas fa-align-right"></i>
+					<i id="dynamicAlignJustify" class="fas fa-align-justify"></i>
+				</div>
+			</div>
+			<!--                          chon font, co chu, mau sac,.... -->
 
+			<div class="body">
+				<div class="information">
+					<div id="download" onclick="download()">
+						<i class="fas fa-download"></i>
+					</div>
+					<div onclick="displayAvailable()" id="available">
+						Các mẫu CV hiện có
+						<i class="fas fa-chevron-down"></i>
+						<i style="display: none" class="fas fa-chevron-up"></i>
+						<div>
+							<div>Chung</div>
+							<div>Kỹ thuật - công nghệ</div>
+							<div>Y dược</div>
+							<div>Kinh doanh</div>
+							<div>Xây dựng</div>
+						</div>
+					</div>
 
-        <div class="CV">
-          <div id="wrapCanvas">
-          <span id="leftCV">
-            <img id="ava" src="./Images/no_avatar.jpg" />
-            <div class="sectionTitleLeftCV1" id="hocVan">
-              <div class="titleLeftCVsection"><h3>Học vấn </h3><hr>
-                <div class="editableDiv" contenteditable="true"></div>
-              </div>
-            </div>
-            <div class="sectionTitleLeftCV1" id="chungChi">
-              <div class="titleLeftCVsection"><h3>Chứng chỉ</h3> <hr>
-                <div class="editableDiv" contenteditable="true"></div>
-              </div>
-            </div>
-            <div class="sectionTitleLeftCV1" id="kiNang">
-              <div class="titleLeftCVsection"><h3>Kĩ năng</h3> <hr>
-                <span id="nothing"></span>  
-                <div id="addSkill" onclick="addSkill()">+</div>
-              </div>
-            </div>
-            <div class="sectionTitleLeftCV1 C2" id="thongTin">
-              <!-- khoa đưa đăng                                 mấy cái nội dung nhỏ trong mục email, sdt đồ á 
+					<div id="project" onclick="addProject()" style="user-select: none">
+						Dự án
+						<i class="fas fa-plus-circle"></i>
+					</div>
+					<div id="language" style="user-select: none">
+						Ngôn ngữ
+						<i class="fas fa-plus-circle"></i>
+					</div>
+					<div id="project" style="user-select: none">
+						Mạng xã hội
+						<i class="fas fa-plus-circle"></i>
+					</div>
+					<div id="anotherInfor" style="user-select: none">
+						Thông tin khác
+						<i class="fas fa-plus-circle"></i>
+					</div>
+				</div>
+
+				<div class="CV">
+					<div id="wrapCanvas">
+						<span id="leftCV">
+							<img id="ava" src="./Images/no_avatar.jpg" />
+							<div class="sectionTitleLeftCV1" id="hocVan">
+								<div class="titleLeftCVsection">
+									<h3>Học vấn</h3>
+									<hr />
+									<div class="editableDiv" contenteditable="true"></div>
+								</div>
+							</div>
+							<div class="sectionTitleLeftCV1" id="chungChi">
+								<div class="titleLeftCVsection">
+									<h3>Chứng chỉ</h3>
+									<hr />
+									<div class="editableDiv" contenteditable="true"></div>
+								</div>
+							</div>
+							<div class="sectionTitleLeftCV1" id="kiNang">
+								<div class="titleLeftCVsection">
+									<h3>Kĩ năng</h3>
+									<hr />
+									<span id="nothing"></span>
+									<div id="addSkill" onclick="addSkill()">+</div>
+								</div>
+							</div>
+							<div class="sectionTitleLeftCV1 C2" id="thongTin">
+								<!-- khoa đưa đăng                                 mấy cái nội dung nhỏ trong mục email, sdt đồ á 
                 ông tự thêm tự tạo vô để chỉnh mà section nha cho thêm xóa cho dễ xong r để tui css lại cho nó là đc, 
                 ông cứ làm nó hoạt
               động thoi rồi qua cái khác làm-->
-              <div class="sectionInfo">
-                <h3 class="sectionInfoTitle">số điện thoại</h3>
-                <div style="height: 10%;" class="editableDiv2" contenteditable="true"></div>
-              </div>
-              <div class="sectionInfo">
-                <h3 class="sectionInfoTitle">Email</h3>
-                <div style="height: 10%" class="editableDiv2" contenteditable="true"></div>
-              </div>
-              <div class="sectionInfo" id="socialNetwork">
-                <h3 class="sectionInfoTitle">mạng xã hội</h3>
-                <div id="mangxahoi" style="width: 100%; height: 100%;"></div>
-                <div id="addButton" style="color: white; border: 1px solid white;" onclick="addSocialNetwork()">+</div>
-              </div>
-              <div class="sectionInfo">
-                <h3 class="sectionInfoTitle">địa chỉ</h3>
-                <div style="height: 10%" class="editableDiv2" contenteditable="true"></div>
-              </div>
-            </div>
-          </span>
-          <!--                    RIGHT CVVVVVVVVVVVVVVVVVV -->
-          <span id="rightCV">
-            <div id="headleftCV">
-              <div id="tieude">
-                <!-- khoa đưa đăng -->
-                <h1>fullstack</h1>
-              </div>
-              <div id="tieudephu">
-                <!-- khoa đưa đăng -->
-                <h1>web developer</h1>
-              </div>
-            </div>
-            <div id="bodyLeftCV">
-              <!-- khoa đưa đăng này tui tạo khung thôi nữa ông tự thêm phần linh động cho nó-->
-              <div class="sectionBodyLeftCV">
-                <div class="sectionTitleBodyLeftCV">
-                  <h1>Mục đích</h1>
-                  <hr>
-                </div>
-                <div style="color: black;" class="editableDiv2" contenteditable="true"></div>
-                
-              </div>
-              <div class="sectionBodyLeftCV">
-                <div class="sectionTitleBodyLeftCV">
-                  <h1>kinh nghiệm làm việc</h1>
-                  <hr>
-                </div>
-                <div style="color: black;" class="editableDiv2" contenteditable="true"></div>
-              </div>
-              <div class="sectionBodyLeftCV" id="duanTitle" style="padding-bottom: 50px;">
-                <div class="sectionTitleBodyLeftCV" >
-                  <h1>dự án</h1>
-                  <hr>
-                  <div id="duan"></div>
-                  <div id="addButton" onclick="addProject()">+</div>
-                </div>
-              </div>
-              <div class="sectionBodyLeftCV">
-                <div class="sectionTitleBodyLeftCV">
-                  <h1>giải thưởng</h1>
-                  <hr>
-                </div>
-                <div style="color: black;" class="editableDiv2" contenteditable="true"></div>
-              </div>
+								<div class="sectionInfo">
+									<h3 class="sectionInfoTitle">số điện thoại</h3>
+									<div
+										style="height: 10%"
+										class="editableDiv2"
+										contenteditable="true"
+									></div>
+								</div>
+								<div class="sectionInfo">
+									<h3 class="sectionInfoTitle">Email</h3>
+									<div
+										style="height: 10%"
+										class="editableDiv2"
+										contenteditable="true"
+									></div>
+								</div>
+								<div class="sectionInfo" id="socialNetwork">
+									<h3 class="sectionInfoTitle">mạng xã hội</h3>
+									<div id="mangxahoi" style="width: 100%; height: 100%"></div>
+									<div
+										id="addButton"
+										style="color: white; border: 1px solid white"
+										onclick="addSocialNetwork()"
+									>
+										+
+									</div>
+								</div>
+								<div class="sectionInfo">
+									<h3 class="sectionInfoTitle">địa chỉ</h3>
+									<div
+										style="height: 10%"
+										class="editableDiv2"
+										contenteditable="true"
+									></div>
+								</div>
+							</div>
+						</span>
+						<!--                    RIGHT CVVVVVVVVVVVVVVVVVV -->
+						<span id="rightCV">
+							<div id="headleftCV">
+								<div id="tieude">
+									<!-- khoa đưa đăng -->
+									<h1>fullstack</h1>
+								</div>
+								<div id="tieudephu">
+									<!-- khoa đưa đăng -->
+									<h1>web developer</h1>
+								</div>
+							</div>
+							<div id="bodyLeftCV">
+								<!-- khoa đưa đăng này tui tạo khung thôi nữa ông tự thêm phần linh động cho nó-->
+								<div class="sectionBodyLeftCV">
+									<div class="sectionTitleBodyLeftCV">
+										<h1>Mục đích</h1>
+										<hr />
+									</div>
+									<div
+										style="color: black"
+										class="editableDiv2"
+										contenteditable="true"
+									></div>
+								</div>
+								<div class="sectionBodyLeftCV">
+									<div class="sectionTitleBodyLeftCV">
+										<h1>kinh nghiệm làm việc</h1>
+										<hr />
+									</div>
+									<div
+										style="color: black"
+										class="editableDiv2"
+										contenteditable="true"
+									></div>
+								</div>
+								<div
+									class="sectionBodyLeftCV"
+									id="duanTitle"
+									style="padding-bottom: 50px"
+								>
+									<div class="sectionTitleBodyLeftCV">
+										<h1>dự án</h1>
+										<hr />
+										<div id="duan"></div>
+										<div id="addButton" onclick="addProject()">+</div>
+									</div>
+								</div>
+								<div class="sectionBodyLeftCV">
+									<div class="sectionTitleBodyLeftCV">
+										<h1>giải thưởng</h1>
+										<hr />
+									</div>
+									<div
+										style="color: black"
+										class="editableDiv2"
+										contenteditable="true"
+									></div>
+								</div>
 
-              <!-- khoa đưa đăng thẻ div bao mấy thẻ con động-->
-              <div class="sectionBodyLeftCV">
-                <div class="sectionTitleBodyLeftCV">
-                  <h1>thông tin khác</h1>
-                  <hr>
-                </div>
-                <div style="color: black;" class="editableDiv" contenteditable="true"></div>
-              </div>
-            </div>
-          </span>
-        </div>
-      </div>
-      <!--           modal -->
-      <div class="modal" id="OCModal">
-        <div id="opaModal"></div>
-        <div id="chinhsuaAva">
-          <div id="modalHead">
-            CHỈNH SỬA ẢNH ĐẠI DIỆN
-            <i class="fas fa-times" id="js-closeModalAva"></i>
-          </div>
-          <div id="bodyModal">
-            <div id="leftbody">
-              <form action="">
-                <!-- <label for="files"></label> -->
-                <input
-                  type="file"
-                  id="files"
-                  accept=".jpg, .png"
-                  name="files"
-                  multiple
-                />
-              </form>
-              <div id="butToggleAva">
-                <button onclick="deleteFile()" class="sectionButava">
-                  XÓA
-                </button>
-                <button onclick="cancleFile()" class="sectionButava">
-                  HỦY
-                </button>
-                <button
-                  onclick="addFile()"
-                  class="sectionButava"
-                  id="js-addFile"
-                >
-                  SỬ DỤNG
-                </button>
-              </div>
-            </div>
-            <div id="rightbody">
-              <div>Xem trước</div>
-              <img id="imageCV" src="./Images/no_avatar.jpg" alt=" " />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+								<!-- khoa đưa đăng thẻ div bao mấy thẻ con động-->
+								<div class="sectionBodyLeftCV">
+									<div class="sectionTitleBodyLeftCV">
+										<h1>thông tin khác</h1>
+										<hr />
+									</div>
+									<div
+										style="color: black"
+										class="editableDiv2"
+										contenteditable="true"
+									></div>
+								</div>
+							</div>
+						</span>
+					</div>
+				</div>
+				<!--           modal -->
+				<div class="modal" id="OCModal">
+					<div id="opaModal"></div>
+					<div id="chinhsuaAva">
+						<div id="modalHead">
+							CHỈNH SỬA ẢNH ĐẠI DIỆN
+							<i class="fas fa-times" id="js-closeModalAva"></i>
+						</div>
+						<div id="bodyModal">
+							<div id="leftbody">
+								<form action="">
+									<!-- <label for="files"></label> -->
+									<input
+										type="file"
+										id="files"
+										accept=".jpg, .png"
+										name="files"
+										multiple
+									/>
+								</form>
+								<div id="butToggleAva">
+									<button onclick="deleteFile()" class="sectionButava">
+										XÓA
+									</button>
+									<button onclick="cancleFile()" class="sectionButava">
+										HỦY
+									</button>
+									<button
+										onclick="addFile()"
+										class="sectionButava"
+										id="js-addFile"
+									>
+										SỬ DỤNG
+									</button>
+								</div>
+							</div>
+							<div id="rightbody">
+								<div>Xem trước</div>
+								<img id="imageCV" src="./Images/no_avatar.jpg" alt=" " />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-                          <!-- bảng màu chỉnh absolut nên sẽ không ảnh hướng mấy th khác -->
-    <div id="tableColor">
-      <div id="inputColor">
-        <div id="demoColor">Màu hiện ở đây</div>
-        <form action="">
-          <input id="color-search" type="text" placeholder="nhập tên hoặc mã màu &#xf002;" style="font-family:Arial, FontAwesome">
-        </form>
-        <div id="useColor"> <a target="_blank" style="text-decoration: none;color:black;width:100%;height:100%;display:block;" href="https://blogchiasekienthuc.com/thu-thuat-hay/bang-ma-mau-day-du-nhat.html"> Xem mã màu</a></div>
-      </div>
-      <div id="basicColor">
-        <span style="font-family:Open Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;font-weight: 600;font-size: 0.8rem;color: rgba(14,19,24,.7);">Màu mặc định</span>
-        <div id="flexBasicColor">
-          <div class="sectionBasicColors" style="background-color:#000000;" value="#000000" title="Đen #000000"></div>
-          <div class="sectionBasicColors" style="background-color:#545454;" value="#545454" title="Xám đậm #545454"></div>
-          <div class="sectionBasicColors" style="background-color:#737373;" value="#737373" title="Xám #737373"></div>
-          <div class="sectionBasicColors" style="background-color:#a6a6a6;" value="#a6a6a6" title="Xám #a6a6a6"></div>
-          <div class="sectionBasicColors" style="background-color:#d9d9d9;" value="#d9d9d9" title="Xám nhạt #d9d9d9"></div>
-          <div class="sectionBasicColors" style="background-color:#ffffff;" value="#ffffff" title="Trắng #ffffff"></div>
-          <div class="sectionBasicColors" style="background-color:#ff1616;" value="#ff1616" title="Đỏ #ff1616"></div>
-          <div class="sectionBasicColors" style="background-color:#ff5757;" value="#ff5757" title="Đỏ san hô #ff5757"></div>
-          <div class="sectionBasicColors" style="background-color:#ff66c4;" value="#ff66c4" title="Hồng #ff66c4"></div>
-          <div class="sectionBasicColors" style="background-color:#cb6ce6;" value="#cb6ce6" title="Hồng sẫm #cb6ce6"></div>
-          <div class="sectionBasicColors" style="background-color:#8c52ff;" value="#8c52ff" title="Tía #8c52ff"></div>
-          <div class="sectionBasicColors" style="background-color:#5e17eb;" value="#5e17eb" title="Tím #5e17eb"></div>
-          <div class="sectionBasicColors" style="background-color:#03989e;" value="#03989e" title="Ngọc lam thẫm #03989e"></div>
-          <div class="sectionBasicColors" style="background-color:#00c2cb;" value="#00c2cb" title="Xanh nước biển #00c2cb"></div>
-          <div class="sectionBasicColors" style="background-color:#5ce1e6;" value="#5ce1e6" title="Xanh ngọc lam #5ce1e6"></div>
-          <div class="sectionBasicColors" style="background-color:#38b6ff;" value="#38b6ff" title="Lam nhạt #38b6ff"></div>
-          <div class="sectionBasicColors" style="background-color:#5271ff;" value="#5271ff" title="Xanh lam đậm #5271ff"></div>
-          <div class="sectionBasicColors" style="background-color:#004aad;" value="#004aad" title="Xanh cobalt #004aad"></div>
-          <div class="sectionBasicColors" style="background-color:#008037;" value="#008037" title="Lục #008037"></div>
-          <div class="sectionBasicColors" style="background-color:#7ed957;" value="#7ed957" title="Xanh lá #7ed957"></div>
-          <div class="sectionBasicColors" style="background-color:#c9e265;" value="#c9e265" title="Vàng chanh #c9e265"></div>
-          <div class="sectionBasicColors" style="background-color:#ffde59;" value="#ffde59" title="Vàng #ffde59"></div>
-          <div class="sectionBasicColors" style="background-color:#ffbd59;" value="#ffbd59" title="Hồng đào #ffbd59"></div>
-          <div class="sectionBasicColors" style="background-color:#ff914d;" value="#ff914d" title="Cam #ff914d"></div>
-        </div>
-      </div>
-      <div id="advanColor">
-        <button id="useThisColor" class="btn_advanColor">Sử Dụng</button>
-        <button class="btn_advanColor">Chỉnh Nền</button>
-      </div>
-    </div>
-  </body>
-  <script src="./Scripts/index.js"></script>
+		<!-- bảng màu chỉnh absolut nên sẽ không ảnh hướng mấy th khác -->
+		<div id="tableColor">
+			<div id="inputColor">
+				<div id="demoColor">Màu hiện ở đây</div>
+				<form action="">
+					<input
+						id="color-search"
+						type="text"
+						placeholder="nhập tên hoặc mã màu &#xf002;"
+						style="font-family: Arial, FontAwesome"
+					/>
+				</form>
+				<div id="useColor">
+					<a
+						target="_blank"
+						style="
+							text-decoration: none;
+							color: black;
+							width: 100%;
+							height: 100%;
+							display: block;
+						"
+						href="https://blogchiasekienthuc.com/thu-thuat-hay/bang-ma-mau-day-du-nhat.html"
+					>
+						Xem mã màu</a
+					>
+				</div>
+			</div>
+			<div id="basicColor">
+				<span
+					style="
+						font-family: Open Sans, -apple-system, BlinkMacSystemFont, Segoe UI,
+							Helvetica, Arial, sans-serif;
+						font-weight: 600;
+						font-size: 0.8rem;
+						color: rgba(14, 19, 24, 0.7);
+					"
+					>Màu mặc định</span
+				>
+				<div id="flexBasicColor">
+					<div
+						class="sectionBasicColors"
+						style="background-color: #000000"
+						value="#000000"
+						title="Đen #000000"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #545454"
+						value="#545454"
+						title="Xám đậm #545454"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #737373"
+						value="#737373"
+						title="Xám #737373"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #a6a6a6"
+						value="#a6a6a6"
+						title="Xám #a6a6a6"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #d9d9d9"
+						value="#d9d9d9"
+						title="Xám nhạt #d9d9d9"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #ffffff"
+						value="#ffffff"
+						title="Trắng #ffffff"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #ff1616"
+						value="#ff1616"
+						title="Đỏ #ff1616"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #ff5757"
+						value="#ff5757"
+						title="Đỏ san hô #ff5757"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #ff66c4"
+						value="#ff66c4"
+						title="Hồng #ff66c4"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #cb6ce6"
+						value="#cb6ce6"
+						title="Hồng sẫm #cb6ce6"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #8c52ff"
+						value="#8c52ff"
+						title="Tía #8c52ff"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #5e17eb"
+						value="#5e17eb"
+						title="Tím #5e17eb"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #03989e"
+						value="#03989e"
+						title="Ngọc lam thẫm #03989e"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #00c2cb"
+						value="#00c2cb"
+						title="Xanh nước biển #00c2cb"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #5ce1e6"
+						value="#5ce1e6"
+						title="Xanh ngọc lam #5ce1e6"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #38b6ff"
+						value="#38b6ff"
+						title="Lam nhạt #38b6ff"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #5271ff"
+						value="#5271ff"
+						title="Xanh lam đậm #5271ff"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #004aad"
+						value="#004aad"
+						title="Xanh cobalt #004aad"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #008037"
+						value="#008037"
+						title="Lục #008037"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #7ed957"
+						value="#7ed957"
+						title="Xanh lá #7ed957"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #c9e265"
+						value="#c9e265"
+						title="Vàng chanh #c9e265"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #ffde59"
+						value="#ffde59"
+						title="Vàng #ffde59"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #ffbd59"
+						value="#ffbd59"
+						title="Hồng đào #ffbd59"
+					></div>
+					<div
+						class="sectionBasicColors"
+						style="background-color: #ff914d"
+						value="#ff914d"
+						title="Cam #ff914d"
+					></div>
+				</div>
+			</div>
+			<div id="advanColor">
+				<button id="useThisColor" class="btn_advanColor">Sử Dụng</button>
+				<button class="btn_advanColor">Chỉnh Nền</button>
+			</div>
+		</div>
+	</body>
+	<script src="./Scripts/index.js"></script>
 </html>

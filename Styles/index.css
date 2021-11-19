@@ -32,7 +32,11 @@ body {
 	width: 95%;
 	padding: 5px;
 	border: 1px solid transparent;
+	min-height: 150px;
 	/* overflow:hidden; */
+}
+.editableDiv2:hover {
+	border: 1px dashed rgb(102, 102, 102);
 }
 .editableDiv:hover {
 	border: 1px solid rgb(102, 102, 102);
