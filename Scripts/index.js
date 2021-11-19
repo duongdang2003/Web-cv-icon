@@ -38,7 +38,8 @@ function addProject() {
 
 	wrapDiv.style.width = "95%";
 	wrapDiv.style.height = "fit-content";
-	wrapDiv.style.border = "2px solid black";
+	wrapDiv.style.border = "2px solid transparent";
+	wrapDiv.style.borderBottom = "2px solid black";
 	wrapDiv.style.margin = "10px";
 	wrapDiv.style.padding = "5px";
 	wrapDiv.style.position = "relative";
@@ -48,7 +49,8 @@ function addProject() {
 		deleteButton.style.display = "block";
 	});
 	wrapDiv.addEventListener("mouseout", function (e) {
-		wrapDiv.style.border = "2px solid black";
+		wrapDiv.style.border = "2px solid transparent";
+		wrapDiv.style.borderBottom = "2px solid black";
 		deleteButton.style.display = "none";
 		if (e.target.getAttribute("class") === "wrapDiv") {
 			deleteElement = e.target;
@@ -172,6 +174,7 @@ setInterval(() => {
 //SETTING
 // align
 let activeElement;
+let activeElementContainNull;
 setInterval(() => {
 	if (
 		(document.activeElement.tagName !== "BODY" &&
@@ -180,7 +183,11 @@ setInterval(() => {
 		document.activeElement.getAttribute("class") === "editableInput"
 	) {
 		activeElement = document.activeElement;
+		activeElementContainNull = document.activeElement;
+	} else if (document.activeElement.tagName === "BODY") {
+		activeElementContainNull = null;
 	}
+	console.log(activeElementContainNull);
 }, 100);
 
 let right = document.getElementById("dynamicAlignRight");
