@@ -52,7 +52,7 @@
 }
 .sectionTitleLeftCV1 {
 	width: 85%;
-	/* min-height: 145px; */
+	min-height: 145px;
 	/* align-self: right; */
 	background-color: transparent;
 	margin-left: 15%;
