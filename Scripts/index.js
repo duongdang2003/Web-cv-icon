@@ -484,7 +484,7 @@ document.getElementById("files").onchange = function () {
 	reader.readAsDataURL(this.files[0]);
 };
 
-document.getElementById("ava").onclick = function () {
+document.querySelectorAll(".ava")[1].onclick = function () {
 	document.getElementById("OCModal").classList.add("OpenModal");
 };
 document.getElementById("js-closeModalAva").onclick = function () {
@@ -508,8 +508,8 @@ function addFile() {
 	src = saveFile;
 	saveFile = [];
 	console.log(src);
-	document.getElementById("ava").src = src;
-	document.getElementById("ava").style.border = "1px solid black";
+	document.querySelectorAll(".ava")[1].src = src;
+	document.querySelectorAll(".ava")[1].style.border = "1px solid black";
 	document.getElementById("OCModal").classList.remove("OpenModal");
 	document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
 	document.getElementById("files").value = "";
@@ -619,7 +619,7 @@ document.getElementById("useThisColor").onclick = function () {
 };
 saveColorDefaults();
 function saveColorDefaults() {
-	document.getElementById("basicColor").onclick = function (e) {
+	document.querySelectorAll(".basicColor")[1].onclick = function (e) {
 		if (tryTable == 1) {
 			document.querySelectorAll(".sectionBasicColors").forEach(function (a) {
 				if (a == e.target) {
@@ -633,7 +633,24 @@ function saveColorDefaults() {
 			});
 		}
 	};
+
+	document.querySelectorAll(".basicColor")[0].onclick = function (e) {
+		if (tryTable == 0) {
+			document.querySelectorAll(".sectionBasicColors2").forEach(function (a) {
+				if (a == e.target) {
+					a.style.border = "2px solid rgb(255, 255, 255)";
+					a.style.outline = "3px solid rgb(184, 0, 184)";
+					dynamicColor = a.style.backgroundColor;
+				} else {
+					a.style.border = "1px solid rgba(187, 187, 187, 0.753)";
+					a.style.outline = "none";
+				}
+			});
+		}
+	};
 }
+
+
 //                                   font family
 document.querySelector("#seclectFont").onclick = function () {
 	if (activeElementContainNull == null) {
@@ -660,22 +677,4 @@ document.getElementById("status").addEventListener("click", function (e) {
 	});
 });
 
-var nenTitle = document.getElementById("headleftCV"),
-leftCV = document.getElementById("leftCV"),trynen=0,tryleftCV=0;
-leftCV.addEventListener("click", function (e){
-	tryleftCV =1;
-	trynen=0
-})
-nenTitle.addEventListener("click", function (e){
-	tryleftCV =0;
-	trynen=1;
-})
 
-var chinhsuanen =document.querySelector("#editBackground")
-chinhsuanen.onclick = function (){
-	if (tryleftCV ==1){
-		leftCV.style.backgroundColor = dynamicColor;
-	} else if (trynen == 1){
-		nenTitle.style.backgroundColor = dynamicColor;
-	}
-}

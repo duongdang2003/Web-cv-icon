@@ -12,16 +12,16 @@
 	/* grid-template-columns: 35% 65%; */
 	/* grid-template-columns: [first] 35% [line2] 65%[end]; */
 }
-#wrapCanvas{
+.wrapCanvas{
 	display: grid;
 	grid-template-columns: 35% 65%;
 }
-.body .CV img {
+/* .body .CV img {
 	position: relative;
 	width: 100%;
 	height: 600px;
-}
-#leftCV {
+} */
+.leftCV {
 	position: relative;
 	top: 0;
 	left: 0;
@@ -38,7 +38,8 @@
 	overflow: hidden;
 	margin: 0;	
 }
-#ava {
+.ava {
+	position: relative;
 	width: 200px;
 	background-image: url("/images/no_avatar.jpg");
 	background-repeat: no-repeat;
@@ -47,7 +48,7 @@
 	border: 2px solid #591d86;
 	margin: 24px;
 }
-#ava:hover {
+.ava:hover {
 	cursor: pointer;
 	opacity: 0.8;
 }
@@ -125,7 +126,7 @@
 	background-color: rgb(170, 9, 170);
 }
 /*                             leftCV */
-#rightCV {
+.rightCV {
 	position: relative;
 	top:0;
 	right: 0;
@@ -141,7 +142,7 @@
 	align-items: center;
 	margin: 0;
 }
-#headleftCV {
+.headleftCV {
 	width: 100%;
 	height: 15%;
 	background-color: rgb(170, 9, 170);
@@ -153,19 +154,15 @@
 	color: #ffffff;
 	padding: 5%;
 }
-#headleftCV:hover{
-	cursor: pointer;
-	opacity: 0.9;
-}
-#tieude > h1 {
+.tieude > h1 {
 	font-size: 64px;
 	text-transform: uppercase;
 }
-#tieudephu > h1 {
+.tieudephu > h1 {
 	text-transform: capitalize;
 }
 
-#bodyLeftCV {
+.bodyLeftCV {
 	min-height: 80%;
 	width: 100%;
 	height: fit-content;

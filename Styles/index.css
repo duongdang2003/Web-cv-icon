@@ -189,7 +189,7 @@ body {
 	opacity: 0.5;
 }
 #chinhsuaAva {
-	position: absolute;
+	position: fixed;
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -557,7 +557,7 @@ form #color-search {
 	border-color: rgb(211, 13, 13);
 	opacity: 1;
 }
-::placeholder {
+#color-search::placeholder {
 	color: #ddd;
 	font-size: 15px !important;
 	float: right;
@@ -594,19 +594,19 @@ form #color-search {
 	opacity: 0.6;
 }
 
-#tableColor #basicColor {
+#tableColor .basicColor {
 	background-color: #ffffff;
 	height: 40%;
 	width: 90%;
 	padding: 10px 0;
 }
-#basicColor #flexBasicColor {
+.basicColor .flexBasicColor {
 	width: 100%;
 	height: calc(100% - 16.8px);
 	background-color: #ffffff;
 	padding: 10px 0;
 }
-#flexBasicColor .sectionBasicColors {
+.flexBasicColor .sectionBasicColors {
 	content: " ";
 	width: 42px;
 	height: 42px;
@@ -617,22 +617,22 @@ form #color-search {
 	transition: all 0.2s ease;
 	padding:0;
 }
-#flexBasicColor .sectionBasicColors:hover {
+
+.flexBasicColor .sectionBasicColors:hover {
 	border: 2px solid rgb(255, 255, 255) !important;
 	outline: 3px solid rgb(184, 0, 184) !important;
 	cursor: pointer;
 }
-
-#flexBasicColor .sectionBasicColors + .sectionBasicColors {
+.flexBasicColor .sectionBasicColors + .sectionBasicColors {
 	margin-left: 6.7px;
 }
-#flexBasicColor .sectionBasicColors:nth-child(7) {
+.flexBasicColor .sectionBasicColors:nth-child(7) {
 	margin-left: 0px;
 }
-#flexBasicColor .sectionBasicColors:nth-child(13) {
+.flexBasicColor .sectionBasicColors:nth-child(13) {
 	margin-left: 0px;
 }
-#flexBasicColor .sectionBasicColors:nth-child(19) {
+.flexBasicColor .sectionBasicColors:nth-child(19) {
 	margin-left: 0px;
 }
 #tableColor #advanColor {
@@ -705,26 +705,11 @@ form #color-search {
 }
 .pickr .pcr-button::before {
     position: relative;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0 !important;
-    background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path fill="white" d="M1,0H2V1H1V0ZM0,1H1V2H0V1Z"/><path fill="gray" d="M0,0H1V1H0V0ZM1,1H2V2H1V1Z"/></svg>');
-    background-size: 0.5em;
-    border-radius: 0.15em;
 }
 .pickr .pcr-button::after {
 	position: relative;
-    content: '';
-    top: 0;
-    left: 0;
-    height: 0;
-    width: 0;
-    transition: background 0.3s;
-    background: var(--pcr-color);
-    border-radius: 0.15em;
 }
+
 
 /* keyframe */
 @keyframes slide {
