@@ -68,6 +68,7 @@ function addProject() {
 	project.style.fontSize = "15px";
 	project.style.color = "black";
 	project.setAttribute("class", "test");
+	project.setAttribute("spellcheck", "false");
 
 	projectDiscription.innerHTML = "Mô tả dự án:";
 	projectDiscription.style.color = "black";
@@ -80,6 +81,8 @@ function addProject() {
 	discription.style.padding = "10px";
 	discription.style.fontSize = "15px";
 	discription.style.color = "black";
+	discription.setAttribute("class", "test");
+	discription.setAttribute("spellcheck", "false");
 
 	deleteButton.style.position = "absolute";
 	deleteButton.style.width = "30px";
@@ -324,6 +327,7 @@ function addSkill() {
 	skillName.style.width = "90%";
 	skillName.placeholder = "Tên kỹ năng";
 	skillName.setAttribute("class", "editableInput");
+	skillName.setAttribute("spellcheck", "false");
 	skillLevel.style.display = "flex";
 	skillWrap.style.position = "relative";
 	skillWrap.style.margin = "2px";
@@ -388,19 +392,20 @@ function addSocialNetwork() {
 	icon.style.border = "none";
 	icon.innerHTML = "Tên MXH";
 	icon.style.color = "white";
-	icon.spellcheck = "false";
+	icon.setAttribute("spellcheck", "false");
+	icon.setAttribute("class", "test");
 	socialNetworkLink.style.color = "white";
 	socialNetworkLink.style.padding = "5px";
 	socialNetworkLink.innerHTML = "Link";
 	socialNetworkLink.setAttribute("contenteditable", "true");
-	socialNetworkLink.spellcheck = "false";
+	socialNetworkLink.setAttribute("spellcheck", "false");
+	socialNetworkLink.setAttribute("class", "test");
 	socialNetworkLink.style.width = "70%";
 	document.getElementById("mangxahoi").appendChild(wrapDiv);
 	wrapDiv.appendChild(icon);
 	wrapDiv.appendChild(socialNetworkLink);
 }
 document.getElementById("mangxahoi").addEventListener("click", function () {
-	console.log(activeElement);
 	if (
 		activeElement.innerHTML === "Tên MXH" ||
 		activeElement.innerHTML === "Link"
