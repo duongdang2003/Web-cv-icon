@@ -74,8 +74,8 @@ body .body #miniCV{
     border: 3px dashed rgb(0, 255, 0);
 }
 .miniSectionInfoTitle:hover{
-    background-color:#fc0202;
-    border: 1px dashed white;
+    background-color:#fc0202 !important;
+    border: 1px dashed white !important;
 }
 #MiniRightCV_js:hover{
     cursor: pointer;
