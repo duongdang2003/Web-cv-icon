@@ -32,7 +32,7 @@ body {
 	width: 95%;
 	padding: 5px;
 	border: 1px solid transparent;
-	min-height: 150px;
+	min-height: 100px;
 	/* overflow:hidden; */
 }
 .editableDiv2:hover {
