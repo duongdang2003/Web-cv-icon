@@ -394,6 +394,7 @@ function addSocialNetwork() {
 	icon.style.color = "white";
 	icon.setAttribute("spellcheck", "false");
 	icon.setAttribute("class", "test");
+	socialNetworkLink.setAttribute("name", "socialNetworkLink");
 	socialNetworkLink.style.color = "white";
 	socialNetworkLink.style.padding = "5px";
 	socialNetworkLink.innerHTML = "Link";
@@ -416,10 +417,13 @@ document.getElementById("mangxahoi").addEventListener("click", function () {
 document.getElementById("mangxahoi").addEventListener("focusout", function () {
 	if (
 		activeElement.innerHTML === "" &&
-		activeElement.getAttribute("name", "iconSocialNetwork")
+		activeElement.getAttribute("name") === "iconSocialNetwork"
 	) {
 		activeElement.innerHTML = "Tên MXH";
-	} else if (activeElement === "") {
+	} else if (
+		activeElement === ""
+		// activeElement.getAttribute("name") === "socialNetworkLink"
+	) {
 		activeElement.innerHTML = "Link";
 	}
 	if (
@@ -467,6 +471,65 @@ document.getElementById("mangxahoi").addEventListener("focusout", function () {
 	}
 });
 
+function addAnotherInfor() {
+	let wrapDiv = document.createElement("div");
+	wrapDiv.style.marginTop = "10px";
+	document.getElementById("thongtinkhac").appendChild(wrapDiv);
+	let titleAI = document.createElement("input");
+	titleAI.placeholder = "Tiêu đề thông tin";
+	titleAI.style.padding = "5px";
+	titleAI.style.width = "80%";
+	titleAI.style.border = "1px solid #F8EDEB";
+	titleAI.style.fontSize = "1.17em";
+	titleAI.style.fontWeight = "bold";
+	titleAI.style.margin = "10px";
+	let detail = document.createElement("input");
+	detail.placeholder = "Chi tiết thông tin";
+	detail.style.padding = "5px";
+	detail.style.width = "95%";
+	detail.style.border = "1px solid #F8EDEB";
+	detail.style.fontSize = "17px";
+
+	titleAI.setAttribute("contenteditable", "true");
+	titleAI.style.width = "93%";
+	titleAI.style.height = "fit-content";
+	titleAI.style.border = "1px solid #F8EDEB";
+	titleAI.style.margin = "5px 10px 10px 10px";
+	titleAI.style.padding = "10px";
+	titleAI.style.fontSize = "15px";
+	titleAI.style.color = "black";
+	titleAI.setAttribute("class", "test");
+	titleAI.setAttribute("spellcheck", "false");
+
+	detail.placeholder = "Chi tiết thông tin";
+	detail.style.width = "93%";
+	detail.style.height = "fit-content";
+	detail.style.border = "1px solid #F8EDEB";
+	detail.style.margin = "5px 10px 10px 10px";
+	detail.style.padding = "10px";
+	detail.style.fontSize = "15px";
+	detail.style.color = "black";
+	detail.setAttribute("class", "test");
+	detail.setAttribute("spellcheck", "false");
+
+	let ruler = document.createElement("hr");
+	wrapDiv.appendChild(titleAI);
+	wrapDiv.appendChild(detail);
+	wrapDiv.appendChild(ruler);
+}
+
+function addIndex() {
+	let bigDiv = document.getElementById("divOfAddIndex");
+	let wrapDiv = document.createElement("div");
+	let title = document.createElement("div");
+	title.setAttribute("contenteditable", true);
+	title.style.padding = "4px";
+	title.style.fontSize = "180%";
+	title.style.fontWeight = "bold";
+	title.innerHTML = "";
+	bigDiv.appendChild(wrapDiv);
+	wrapDiv.appendChild(title);
+}
 //                                phan download CV 👆
 
 //                                khoa 👇
@@ -664,3 +727,14 @@ document.getElementById("status").addEventListener("click", function (e) {
 // 	console.log(activeElement)
 // 	console.log(activeElementContainNull)
 // },1000)
+
+// Code luu du lieu save lai de xem dung xóa nha
+
+// function load() {
+// 	saveValue = localStorage.getItem("saveValue");
+// 	document.getElementById("saveField").value = saveValue;
+// }
+// function save() {
+// 	saveValue = document.getElementById("saveField").value;
+// 	localStorage.setItem("saveValue", saveValue);
+// }

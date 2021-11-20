@@ -554,7 +554,7 @@ form #color-search {
 	border-color: rgb(211, 13, 13);
 	opacity: 1;
 }
-::placeholder {
+#color-search::placeholder {
 	color: #ddd;
 	font-size: 15px !important;
 	float: right;

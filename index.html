@@ -138,15 +138,19 @@
 						Dự án
 						<i class="fas fa-plus-circle"></i>
 					</div>
-					<div id="language" style="user-select: none">
-						Ngôn ngữ
+					<div id="language" onclick="addIndex()" style="user-select: none">
+						Thêm mục
 						<i class="fas fa-plus-circle"></i>
 					</div>
 					<div id="project" style="user-select: none">
 						Mạng xã hội
 						<i class="fas fa-plus-circle"></i>
 					</div>
-					<div id="anotherInfor" style="user-select: none">
+					<div
+						id="anotherInfor"
+						onclick="addAnotherInfor()"
+						style="user-select: none"
+					>
 						Thông tin khác
 						<i class="fas fa-plus-circle"></i>
 					</div>
@@ -165,6 +169,7 @@
 										class="editableDiv2"
 										contenteditable="true"
 										spellcheck="false"
+										o
 									></div>
 								</div>
 							</div>
@@ -311,19 +316,14 @@
 										spellcheck="false"
 									></div>
 								</div>
-
+								<div id="divOfAddIndex"></div>
 								<!-- khoa đưa đăng thẻ div bao mấy thẻ con động-->
 								<div class="sectionBodyLeftCV">
 									<div class="sectionTitleBodyLeftCV">
 										<h1>thông tin khác</h1>
 										<hr />
 									</div>
-									<div
-										style="color: black"
-										class="editableDiv2"
-										contenteditable="true"
-										spellcheck="false"
-									></div>
+									<div id="thongtinkhac"></div>
 								</div>
 							</div>
 						</span>
