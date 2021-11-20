@@ -656,4 +656,22 @@ document.getElementById("status").addEventListener("click", function (e) {
 	});
 });
 
+var nenTitle = document.getElementById("headleftCV"),
+leftCV = document.getElementById("leftCV"),trynen=0,tryleftCV=0;
+leftCV.addEventListener("click", function (e){
+	tryleftCV =1;
+	trynen=0
+})
+nenTitle.addEventListener("click", function (e){
+	tryleftCV =0;
+	trynen=1;
+})
 
+var chinhsuanen =document.querySelector("#editBackground")
+chinhsuanen.onclick = function (){
+	if (tryleftCV ==1){
+		leftCV.style.backgroundColor = dynamicColor;
+	} else if (trynen == 1){
+		nenTitle.style.backgroundColor = dynamicColor;
+	}
+}

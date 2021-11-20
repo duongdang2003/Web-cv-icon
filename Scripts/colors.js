@@ -39,7 +39,12 @@ const pickr = Pickr.create({
 });
 
 pickr.on('change', (color, source, instance) => {
-  console.log(color.toRGBA().toString());
-  console.log(activeElement)
-  activeElement.style.color =color.toRGBA().toString();
+  dynamicColor = color.toRGBA().toString();
+  activeElementContainNull.style.color =color.toRGBA().toString();
+  console.log(dynamicColor)
+	// if (tryleftCV ==1){
+	// 	leftCV.style.backgroundColor = color.toRGBA().toString();
+	// } else if (trynen == 1){
+	// 	nenTitle.style.backgroundColor = color.toRGBA().toString();
+	// }
 })

@@ -153,6 +153,10 @@
 	color: #ffffff;
 	padding: 5%;
 }
+#headleftCV:hover{
+	cursor: pointer;
+	opacity: 0.9;
+}
 #tieude > h1 {
 	font-size: 64px;
 	text-transform: uppercase;
