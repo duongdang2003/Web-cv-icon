@@ -68,6 +68,7 @@ function addProject() {
 	project.style.fontSize = "15px";
 	project.style.color = "black";
 	project.setAttribute("class", "test");
+	project.setAttribute("spellcheck", "false");
 
 	projectDiscription.innerHTML = "Mô tả dự án:";
 	projectDiscription.style.color = "black";
@@ -80,6 +81,8 @@ function addProject() {
 	discription.style.padding = "10px";
 	discription.style.fontSize = "15px";
 	discription.style.color = "black";
+	discription.setAttribute("class", "test");
+	discription.setAttribute("spellcheck", "false");
 
 	deleteButton.style.position = "absolute";
 	deleteButton.style.width = "30px";
@@ -149,8 +152,8 @@ function deleteButtonFunction(a) {
 }
 
 // Add break
-let constWidth = 793.70078740157;
-let constHeight = 880.5196850394;
+let constWidth = 800; //793.70078740157;
+let constHeight = 1111;
 let scale = 210 / 297;
 setInterval(() => {
 	console.log(cv.offsetWidth, cv.offsetHeight, page);
@@ -162,7 +165,9 @@ setInterval(() => {
 		ruler = document.createElement("p");
 		ruler.innerHTML = `---------- Trang ${page} ----------`;
 		ruler.style.position = "absolute";
-		ruler.style.top = `${(1 * cv.offsetWidth * constHeight) / constWidth}px`;
+		ruler.style.top = `${
+			((1 * cv.offsetWidth * constHeight) / constWidth) * page
+		}px`;
 		ruler.style.left = "-20%";
 		cv.appendChild(ruler);
 		page++;
@@ -173,7 +178,7 @@ setInterval(() => {
 
 //SETTING
 // align
-let activeElement;
+let activeElement = document.getElementById("socialNetwork");
 let activeElementContainNull;
 let activeElement2;
 let tempActiveElement;
@@ -186,6 +191,10 @@ setInterval(() => {
 	) {
 		activeElement = document.activeElement;
 		activeElementContainNull = document.activeElement;
+		italic.style.pointerEvents = "auto";
+		bold.style.pointerEvents = "auto";
+		italic.style.cursor = "pointer";
+		bold.style.cursor = "pointer";
 		if (tempActiveElement != document.activeElement) {
 			activeElement2 = document.activeElement;
 			tempActiveElement = activeElement2;
@@ -210,36 +219,21 @@ setInterval(() => {
 			center.style.color = "rgb(148, 148, 148)";
 			right.style.color = "rgb(148, 148, 148)";
 			left.style.color = "rgb(148, 148, 148)";
-		} else {
-			left.style.color = "rgb(148, 148, 148)";
+		} else if (activeElement.style.textAlign === null) {
+			left.style.color = "black";
 			center.style.color = "rgb(148, 148, 148)";
 			right.style.color = "rgb(148, 148, 148)";
 			left.style.color = "rgb(148, 148, 148)";
 		}
-
-		if (activeElement.style.fontWeight === "bold") {
-			bold.style.color = "black";
-			italic.style.color = "rgb(148, 148, 148)";
-			underline.style.color = "rgb(148, 148, 148)";
-		}
-		if (activeElement.style.fontStyle === "italic") {
-			italic.style.color = "black";
-			bold.style.color = "rgb(148, 148, 148)";
-			underline.style.color = "rgb(148, 148, 148)";
-		}
-		if (activeElement.style.textDecoration === "underline") {
-			underline.style.color = "black";
-			bold.style.color = "rgb(148, 148, 148)";
-			italic.style.color = "rgb(148, 148, 148)";
-		}
 	} else if (document.activeElement.tagName === "BODY") {
 		activeElementContainNull = null;
 	}
-	if (activeElement.getAttribute("class") != undefined) {
+	if (activeElement.getAttribute("class") !== "") {
 		textStatus = activeElement.getAttribute("class");
 		if (textStatus.indexOf("boldjs") != -1) {
 			bold.style.color = "black";
 		} else {
+			italic.style.color = "rgb(148, 148, 148)";
 			bold.style.color = "rgb(148, 148, 148)";
 		}
 		if (textStatus.indexOf("italicjs") != -1) {
@@ -252,7 +246,14 @@ setInterval(() => {
 		} else {
 			underline.style.color = "rgb(148, 148, 148)";
 		}
-		console.log(activeElement.getAttribute("class"));
+	}
+	if (activeElement.getAttribute("name") === "onlyAllowU") {
+		italic.style.color = "rgb(148, 148, 148)";
+		bold.style.color = "rgb(148, 148, 148)";
+		italic.style.pointerEvents = "none";
+		bold.style.pointerEvents = "none";
+		// italic.style.cursor = "not-allowed";
+		// bold.style.cursor = "not-allowed";
 	}
 }, 100);
 
@@ -326,6 +327,7 @@ function addSkill() {
 	skillName.style.width = "90%";
 	skillName.placeholder = "Tên kỹ năng";
 	skillName.setAttribute("class", "editableInput");
+	skillName.setAttribute("spellcheck", "false");
 	skillLevel.style.display = "flex";
 	skillWrap.style.position = "relative";
 	skillWrap.style.margin = "2px";
@@ -337,7 +339,9 @@ function addSkill() {
 			arrayLevel = divParent.childNodes;
 			for (let i = 0; i <= 9; i++) {
 				if (i <= index && arrayLevel[i].getAttribute("index") != null) {
-					arrayLevel[i].style.backgroundColor = "rgb(170, 9, 170)";
+					arrayLevel[i].style.backgroundColor = window.getComputedStyle(
+						document.querySelector("#headleftCV")
+					).backgroundColor;
 				} else if (arrayLevel[i].getAttribute("index") != null) {
 					arrayLevel[i].style.backgroundColor = "white";
 				}
@@ -359,7 +363,6 @@ function addSkill() {
 		skillLevel.appendChild(level);
 	}
 }
-
 // ADD SOCIAL NETWORK
 let socialNetwork = document.querySelector("#socialNetwork");
 socialNetwork.addEventListener("mouseover", function () {
@@ -389,19 +392,20 @@ function addSocialNetwork() {
 	icon.style.border = "none";
 	icon.innerHTML = "Tên MXH";
 	icon.style.color = "white";
-	icon.spellcheck = "false";
+	icon.setAttribute("spellcheck", "false");
+	icon.setAttribute("class", "test");
 	socialNetworkLink.style.color = "white";
 	socialNetworkLink.style.padding = "5px";
 	socialNetworkLink.innerHTML = "Link";
 	socialNetworkLink.setAttribute("contenteditable", "true");
-	socialNetworkLink.spellcheck = "false";
+	socialNetworkLink.setAttribute("spellcheck", "false");
+	socialNetworkLink.setAttribute("class", "test");
 	socialNetworkLink.style.width = "70%";
 	document.getElementById("mangxahoi").appendChild(wrapDiv);
 	wrapDiv.appendChild(icon);
 	wrapDiv.appendChild(socialNetworkLink);
 }
 document.getElementById("mangxahoi").addEventListener("click", function () {
-	console.log(activeElement);
 	if (
 		activeElement.innerHTML === "Tên MXH" ||
 		activeElement.innerHTML === "Link"
