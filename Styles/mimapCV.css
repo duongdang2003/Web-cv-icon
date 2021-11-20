@@ -80,11 +80,8 @@ body .body #miniCV{
 #MiniRightCV_js:hover{
     cursor: pointer;
     background-color:#ddd;
-    border: 3px dashed rgb(158, 253, 5);
+    border: 3px dashed rgb(253, 5, 100);
 }
-/* #miniHeadleftCV_js:hover{
-    background-color:#fc0202;
-} */
 #miniHeadleftCV_js:hover {
-    border:2px dashed #02ebfc !important;
+    border:3px dashed #02ebfc !important;
 }
