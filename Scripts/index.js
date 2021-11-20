@@ -745,3 +745,5 @@ document.getElementById("miniLeftCV_js").onclick = function (e) {
     }
   });
 };
+
+ 

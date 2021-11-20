@@ -1,3 +1,4 @@
+var rootStyle = document.documentElement.style;
 // Simple example, see optional options for more configuration.
 const pickr = Pickr.create({
   el: '.color-picker',
@@ -81,3 +82,26 @@ const pickr2 = Pickr.create({
       }
   }
 });
+pickr2.on('change', (color, source, instance) => {
+  if (trynenphai ==1){
+    document.querySelectorAll(".rightCV").forEach(function(a){
+      a.style.backgroundColor = color.toRGBA().toString();
+    })
+  } else if (trynentrai ==1 ){
+    document.querySelectorAll(".leftCV").forEach(function(a){
+      a.style.backgroundColor = color.toRGBA().toString();
+    })
+  } else if (tryneninfo==1){
+    document.querySelectorAll(".sectionInfoTitle").forEach(function(a){
+      a.style.backgroundColor = color.toRGBA().toString();
+    })
+  } else if (trytitle==1){
+    document.querySelectorAll(".headleftCV").forEach(function(a){
+      a.style.backgroundColor = color.toRGBA().toString();
+    })
+    document.querySelectorAll(".titleLeftCVsection hr").forEach(function(a){
+      a.style.borderColor = color.toRGBA().toString();
+      rootStyle.setProperty('--pseudo-color', color.toRGBA().toString());
+    })
+  }
+})
