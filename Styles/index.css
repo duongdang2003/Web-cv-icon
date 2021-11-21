@@ -78,7 +78,7 @@ body {
 	height: fit-content;
 	display: flex;
 	justify-content: space-between;
-	position: relative;
+	/* position: relative; */
 }
 .body .information {
 	width: 40%;
@@ -174,6 +174,7 @@ body {
 /* tai anh */
 .modal {
 	display: none;
+	/* position:rela	 */
 }
 .OpenModal {
 	display: block !important;
@@ -181,13 +182,14 @@ body {
 #opaModal {
 	position: fixed;
 	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background-color: #333;
 	opacity: 0.5;
 }
 #chinhsuaAva {
-	position: absolute;
+	position: fixed;
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -197,6 +199,7 @@ body {
 	box-shadow: 0px 0px 10px rgb(255, 255, 255);
 	border-radius: 6px;
 	animation: slide 0.6s ease;
+	color: black;
 }
 #modalHead {
 	width: 100%;
@@ -356,7 +359,7 @@ form[action=""] input[type="file"] {
 	color: #000000;
 }
 .boldjs {
-	font-weight: 600;
+	font-weight: bold;
 }
 .italicjs {
 	font-style: italic;
@@ -591,43 +594,45 @@ form #color-search {
 	opacity: 0.6;
 }
 
-#tableColor #basicColor {
+#tableColor .basicColor {
 	background-color: #ffffff;
 	height: 40%;
 	width: 90%;
 	padding: 10px 0;
 }
-#basicColor #flexBasicColor {
+.basicColor .flexBasicColor {
 	width: 100%;
 	height: calc(100% - 16.8px);
 	background-color: #ffffff;
 	padding: 10px 0;
 }
-#flexBasicColor .sectionBasicColors {
-	content: "";
+.flexBasicColor .sectionBasicColors {
+	content: " ";
 	width: 42px;
 	height: 42px;
 	display: inline-block;
 	margin: 5px 0;
 	border-radius: 4px;
-	border: 1px solid rgba(187, 187, 187, 0.753);
+	border: 1px solid rgba(187, 187, 187, 0.753) !important;
 	transition: all 0.2s ease;
-}
-#flexBasicColor .sectionBasicColors:hover {
-	border: 2px solid rgb(255, 255, 255) !important;
-	outline: 3px solid rgb(184, 0, 184) !important;
+	padding:0;
 }
 
-#flexBasicColor .sectionBasicColors + .sectionBasicColors {
+.flexBasicColor .sectionBasicColors:hover {
+	border: 2px solid rgb(255, 255, 255) !important;
+	outline: 3px solid rgb(184, 0, 184) !important;
+	cursor: pointer;
+}
+.flexBasicColor .sectionBasicColors + .sectionBasicColors {
 	margin-left: 6.7px;
 }
-#flexBasicColor .sectionBasicColors:nth-child(7) {
+.flexBasicColor .sectionBasicColors:nth-child(7) {
 	margin-left: 0px;
 }
-#flexBasicColor .sectionBasicColors:nth-child(13) {
+.flexBasicColor .sectionBasicColors:nth-child(13) {
 	margin-left: 0px;
 }
-#flexBasicColor .sectionBasicColors:nth-child(19) {
+.flexBasicColor .sectionBasicColors:nth-child(19) {
 	margin-left: 0px;
 }
 #tableColor #advanColor {
@@ -638,7 +643,7 @@ form #color-search {
 	align-items: center;
 }
 #advanColor .btn_advanColor {
-	width: 25%;
+	width: 33%;
 	height: 20%;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -651,12 +656,60 @@ form #color-search {
 		rgb(240, 129, 171),
 		rgb(226, 199, 123)
 	);
+	padding: 0.2rem;
 }
 #advanColor .btn_advanColor:hover {
 	outline: 2px solid purple;
 	border: 1px solid white;
 	cursor: pointer;
 }
+
+.pickr-container{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	outline: none;
+	margin-left: 0 !important;
+}
+.pickr-container:hover{
+	outline: 2px solid rgb(29, 80, 32) !important;
+	border: none !important;
+}
+.pickr{
+	background: linear-gradient(
+		to bottom right,
+		#ff1616,
+		#ff914d,
+		#ffde59,
+		#008037 ,
+		#5271ff,
+		#8c52ff,
+		#5e17eb
+		) !important;
+	outline: none;
+	border: none;
+	border-radius: 4px;
+	height:100%;
+	width: 100%;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	padding: 0;
+}
+.pickr button{
+	width:2.1rem !important;
+	height:2.1rem !important;
+	--pcr-color: #fff !important;
+	background-size: 90% !important;
+	transform:rotateZ(45deg);
+}
+.pickr .pcr-button::before {
+    position: relative;
+}
+.pickr .pcr-button::after {
+	position: relative;
+}
+
 
 /* keyframe */
 @keyframes slide {

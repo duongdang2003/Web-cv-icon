@@ -314,7 +314,7 @@ skill.addEventListener("mouseout", function () {
 	skillButton.style.display = "none";
 });
 function addSkill() {
-	let skillName = document.createElement("input");
+	let skillName = document.createElement("div");
 	let skillLevel = document.createElement("div");
 	let skillWrap = document.createElement("div");
 
@@ -328,6 +328,7 @@ function addSkill() {
 	skillName.placeholder = "Tên kỹ năng";
 	skillName.setAttribute("class", "editableInput");
 	skillName.setAttribute("spellcheck", "false");
+	skillName.style.fontSize = "17px";
 	skillLevel.style.display = "flex";
 	skillWrap.style.position = "relative";
 	skillWrap.style.margin = "2px";
@@ -340,7 +341,7 @@ function addSkill() {
 			for (let i = 0; i <= 9; i++) {
 				if (i <= index && arrayLevel[i].getAttribute("index") != null) {
 					arrayLevel[i].style.backgroundColor = window.getComputedStyle(
-						document.querySelector("#headleftCV")
+						document.querySelectorAll(".headleftCV")[0]
 					).backgroundColor;
 				} else if (arrayLevel[i].getAttribute("index") != null) {
 					arrayLevel[i].style.backgroundColor = "white";
@@ -547,7 +548,7 @@ document.getElementById("files").onchange = function () {
 	reader.readAsDataURL(this.files[0]);
 };
 
-document.getElementById("ava").onclick = function () {
+document.querySelectorAll(".ava")[1].onclick = function () {
 	document.getElementById("OCModal").classList.add("OpenModal");
 };
 document.getElementById("js-closeModalAva").onclick = function () {
@@ -571,8 +572,8 @@ function addFile() {
 	src = saveFile;
 	saveFile = [];
 	console.log(src);
-	document.getElementById("ava").src = src;
-	document.getElementById("ava").style.border = "1px solid black";
+	document.querySelectorAll(".ava")[1].src = src;
+	document.querySelectorAll(".ava")[1].style.border = "1px solid black";
 	document.getElementById("OCModal").classList.remove("OpenModal");
 	document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
 	document.getElementById("files").value = "";
@@ -629,10 +630,10 @@ function onScroll() {
 		var y = window.scrollY;
 		if (y >= 200) {
 			document.getElementById("editContent").classList.add("fixEditContent");
-			document.querySelector(".information").classList.add("fixInformation");
+			// document.querySelector(".information").classList.add("fixInformation");
 		} else {
 			document.getElementById("editContent").classList.remove("fixEditContent");
-			document.querySelector(".information").classList.remove("fixInformation");
+			// document.querySelector(".information").classList.remove("fixInformation");
 		}
 	}
 }
@@ -682,7 +683,7 @@ document.getElementById("useThisColor").onclick = function () {
 };
 saveColorDefaults();
 function saveColorDefaults() {
-	document.getElementById("basicColor").onclick = function (e) {
+	document.querySelectorAll(".basicColor")[1].onclick = function (e) {
 		if (tryTable == 1) {
 			document.querySelectorAll(".sectionBasicColors").forEach(function (a) {
 				if (a == e.target) {
@@ -696,7 +697,23 @@ function saveColorDefaults() {
 			});
 		}
 	};
+
+	document.querySelectorAll(".basicColor")[0].onclick = function (e) {
+		if (tryTable == 0) {
+			document.querySelectorAll(".sectionBasicColors2").forEach(function (a) {
+				if (a == e.target) {
+					a.style.border = "2px solid rgb(255, 255, 255)";
+					a.style.outline = "3px solid rgb(184, 0, 184)";
+					dynamicColor = a.style.backgroundColor;
+				} else {
+					a.style.border = "1px solid rgba(187, 187, 187, 0.753)";
+					a.style.outline = "none";
+				}
+			});
+		}
+	};
 }
+
 //                                   font family
 document.querySelector("#seclectFont").onclick = function () {
 	if (activeElementContainNull == null) {
@@ -722,6 +739,88 @@ document.getElementById("status").addEventListener("click", function (e) {
 		}
 	});
 });
+
+function save() {
+	localStorage.setItem(
+		"education",
+		document.querySelector('div[key="education"]').outerHTML
+	);
+	localStorage.setItem(
+		"certificate",
+		document.querySelector('div[key="certificate"]').outerHTML
+	);
+	localStorage.setItem(
+		"phone number",
+		document.querySelector('div[key="phoneNumber"]').outerHTML
+	);
+	localStorage.setItem(
+		"email",
+		document.querySelector('div[key="email"]').outerHTML
+	);
+	localStorage.setItem(
+		"address",
+		document.querySelector('div[key="address"]').outerHTML
+	);
+	localStorage.setItem(
+		"purpose",
+		document.querySelector('div[key="purpose"]').outerHTML
+	);
+	localStorage.setItem(
+		"experience",
+		document.querySelector('div[key="experience"]').outerHTML
+	);
+	localStorage.setItem(
+		"activity",
+		document.querySelector('div[key="activity"]').outerHTML
+	);
+	localStorage.setItem(
+		"skill",
+		document.querySelector('span[key="skill"]').outerHTML
+	);
+	localStorage.setItem(
+		"social network",
+		document.querySelector('div[key="socialNetwork"]').outerHTML
+	);
+	localStorage.setItem(
+		"project",
+		document.querySelector('div[key="project"]').outerHTML
+	);
+	localStorage.setItem(
+		"title",
+		document.querySelector('div[key="title"]').outerHTML
+	);
+	localStorage.setItem(
+		"sub title",
+		document.querySelector('div[key="subTitle"]').outerHTML
+	);
+}
+
+function load() {
+	document.querySelector('div[key="education"]').outerHTML =
+		localStorage.getItem("education");
+	document.querySelector('div[key="certificate"]').outerHTML =
+		localStorage.getItem("certificate");
+	document.querySelector('div[key="phoneNumber"]').outerHTML =
+		localStorage.getItem("phone number");
+	document.querySelector('div[key="email"]').outerHTML =
+		localStorage.getItem("email");
+	document.querySelector('div[key="address"]').outerHTML =
+		localStorage.getItem("address");
+	document.querySelector('div[key="purpose"]').outerHTML =
+		localStorage.getItem("purpose");
+	document.querySelector('div[key="experience"]').outerHTML =
+		localStorage.getItem("experience");
+	document.querySelector('div[key="activity"]').outerHTML =
+		localStorage.getItem("activity");
+	document.querySelector('span[key="skill"]').outerHTML =
+		localStorage.getItem("skill");
+	document.querySelector('div[key="project"]').outerHTML =
+		localStorage.getItem("project");
+	document.querySelector('div[key="title"]').outerHTML =
+		localStorage.getItem("title");
+	document.querySelector('div[key="subTitle"]').outerHTML =
+		localStorage.getItem("sub title");
+}
 
 // setInterval(function () {
 // 	console.log(activeElement)

@@ -5,14 +5,20 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Auri</title>
-		<link rel="stylesheet" href="./css/all.min.css" />
-		<link rel="stylesheet" href="./Styles/index.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"
+		/>
+
 		<link
 			rel="stylesheet"
 			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
 		/>
+		<link rel="stylesheet" href="./css/all.min.css" />
+		<link rel="stylesheet" href="./Styles/index.css" />
 		<link rel="icon" href="./Images/icon.png" />
 		<link rel="stylesheet" href="./Styles/CV1.css" />
+		<link rel="stylesheet" href="./Styles/mimapCV.css" />
 		<!-- Roboto font -->
 		<link
 			rel="stylesheet"
@@ -121,6 +127,12 @@
 					<div id="download" onclick="download()">
 						<i class="fas fa-download"></i>
 					</div>
+					<div id="save" onclick="save()" style="cursor: pointer">
+						<i class="fas fa-save"></i>
+					</div>
+					<div id="load" onclick="load()" style="cursor: pointer">
+						<i class="fas fa-spinner"></i>
+					</div>
 					<div onclick="displayAvailable()" id="available">
 						Các mẫu CV hiện có
 						<i class="fas fa-chevron-down"></i>
@@ -154,12 +166,279 @@
 						Thông tin khác
 						<i class="fas fa-plus-circle"></i>
 					</div>
+					<div id="chinhmaunen">
+						<span id="minimapColor">
+							<!-- MINI CV -->
+							<div id="leftMiniColor">
+								<div>MiniMap Background</div>
+								<div id="miniCV">
+									<div class="wrapCanvas">
+										<span class="leftCV" id="miniLeftCV_js">
+											<img class="ava" src="./Images/no_avatar.jpg" />
+											<div class="sectionTitleLeftCV1">
+												<div class="titleLeftCVsection">
+													<h3>Học vấn</h3>
+													<hr />
+												</div>
+											</div>
+											<div class="sectionTitleLeftCV1">
+												<div class="titleLeftCVsection">
+													<h3>Chứng chỉ</h3>
+													<hr />
+												</div>
+											</div>
+											<div class="sectionTitleLeftCV1">
+												<div class="titleLeftCVsection">
+													<h3>Kĩ năng</h3>
+													<hr />
+												</div>
+											</div>
+											<div class="sectionTitleLeftCV1 C2">
+												<div class="sectionInfo">
+													<h3 class="sectionInfoTitle miniSectionInfoTitle">
+														số điện thoại
+													</h3>
+												</div>
+												<div class="sectionInfo">
+													<h3 class="sectionInfoTitle miniSectionInfoTitle">
+														Email
+													</h3>
+												</div>
+												<div class="sectionInfo">
+													<h3 class="sectionInfoTitle miniSectionInfoTitle">
+														mạng xã hội
+													</h3>
+												</div>
+												<div class="sectionInfo">
+													<h3 class="sectionInfoTitle miniSectionInfoTitle">
+														địa chỉ
+													</h3>
+												</div>
+											</div>
+										</span>
+										<!--                    RIGHT CVVVVVVVVVVVVVVVVVV -->
+										<span class="rightCV" id="MiniRightCV_js">
+											<div class="headleftCV" id="miniHeadleftCV_js">
+												<div class="tieude">
+													<h1>Tiêu đề</h1>
+												</div>
+												<div class="tieudephu">
+													<h1>tiêu đề phụ</h1>
+												</div>
+											</div>
+											<div class="bodyLeftCV">
+												<div class="sectionBodyLeftCV" style="height: 150px">
+													<div class="sectionTitleBodyLeftCV">
+														<h1>Mục đích</h1>
+														<hr />
+													</div>
+												</div>
+												<div class="sectionBodyLeftCV" style="height: 150px">
+													<div class="sectionTitleBodyLeftCV">
+														<h1>kinh nghiệm làm việc</h1>
+														<hr />
+													</div>
+												</div>
+												<div class="sectionBodyLeftCV" style="height: 100px">
+													<div class="sectionTitleBodyLeftCV">
+														<h1>dự án</h1>
+														<hr />
+													</div>
+												</div>
+												<div class="sectionBodyLeftCV" style="height: 150px">
+													<div class="sectionTitleBodyLeftCV">
+														<h1>giải thưởng</h1>
+														<hr />
+													</div>
+												</div>
+
+												<!-- khoa đưa đăng thẻ div bao mấy thẻ con động-->
+												<div class="sectionBodyLeftCV" style="height: 150px">
+													<div class="sectionTitleBodyLeftCV">
+														<h1>thông tin khác</h1>
+														<hr />
+													</div>
+												</div>
+											</div>
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- END MINI CV -->
+						</span>
+						<span id="editColorBackground">
+							<div class="basicColor miniBasicColor">
+								<span
+									style="
+										font-family: Open Sans, -apple-system, BlinkMacSystemFont,
+											Segoe UI, Helvetica, Arial, sans-serif;
+										font-weight: 600;
+										font-size: 0.8rem;
+										color: rgba(14, 19, 24, 0.7);
+									"
+									>Chọn màu nền</span
+								>
+								<div class="flexBasicColor miniFlexBasicColor">
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #000000"
+										value="#000000"
+										title="Đen #000000"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #545454"
+										value="#545454"
+										title="Xám đậm #545454"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #737373"
+										value="#737373"
+										title="Xám #737373"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #a6a6a6"
+										value="#a6a6a6"
+										title="Xám #a6a6a6"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #d9d9d9"
+										value="#d9d9d9"
+										title="Xám nhạt #d9d9d9"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #ffffff"
+										value="#ffffff"
+										title="Trắng #ffffff"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #ff1616"
+										value="#ff1616"
+										title="Đỏ #ff1616"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #ff5757"
+										value="#ff5757"
+										title="Đỏ san hô #ff5757"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #ff66c4"
+										value="#ff66c4"
+										title="Hồng #ff66c4"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #cb6ce6"
+										value="#cb6ce6"
+										title="Hồng sẫm #cb6ce6"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #8c52ff"
+										value="#8c52ff"
+										title="Tía #8c52ff"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #5e17eb"
+										value="#5e17eb"
+										title="Tím #5e17eb"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #03989e"
+										value="#03989e"
+										title="Ngọc lam thẫm #03989e"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #00c2cb"
+										value="#00c2cb"
+										title="Xanh nước biển #00c2cb"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #5ce1e6"
+										value="#5ce1e6"
+										title="Xanh ngọc lam #5ce1e6"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #38b6ff"
+										value="#38b6ff"
+										title="Lam nhạt #38b6ff"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #5271ff"
+										value="#5271ff"
+										title="Xanh lam đậm #5271ff"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #004aad"
+										value="#004aad"
+										title="Xanh cobalt #004aad"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #008037"
+										value="#008037"
+										title="Lục #008037"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #7ed957"
+										value="#7ed957"
+										title="Xanh lá #7ed957"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #c9e265"
+										value="#c9e265"
+										title="Vàng chanh #c9e265"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #ffde59"
+										value="#ffde59"
+										title="Vàng #ffde59"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #ffbd59"
+										value="#ffbd59"
+										title="Hồng đào #ffbd59"
+									></div>
+									<div
+										class="sectionBasicColors2"
+										style="background-color: #ff914d"
+										value="#ff914d"
+										title="Cam #ff914d"
+									></div>
+									<div
+										class="pickr-container sectionBasicColors2"
+										title="Thêm màu chữ"
+									>
+										<div class="color-picker2"></div>
+									</div>
+								</div>
+							</div>
+						</span>
+					</div>
 				</div>
 
 				<div class="CV">
-					<div id="wrapCanvas">
-						<span id="leftCV">
-							<img id="ava" src="./Images/no_avatar.jpg" />
+					<div class="wrapCanvas">
+						<span class="leftCV">
+							<img class="ava" src="./Images/no_avatar.jpg" />
 							<div class="sectionTitleLeftCV1" id="hocVan">
 								<div class="titleLeftCVsection">
 									<h3>Học vấn</h3>
@@ -169,7 +448,7 @@
 										class="editableDiv2"
 										contenteditable="true"
 										spellcheck="false"
-										o
+										key="education"
 									></div>
 								</div>
 							</div>
@@ -181,6 +460,7 @@
 										spellcheck="false"
 										class="editableDiv2"
 										contenteditable="true"
+										key="certificate"
 									></div>
 								</div>
 							</div>
@@ -188,7 +468,7 @@
 								<div class="titleLeftCVsection">
 									<h3>Kĩ năng</h3>
 									<hr />
-									<span id="nothing"></span>
+									<span id="nothing" key="skill"></span>
 									<div id="addSkill" onclick="addSkill()">+</div>
 								</div>
 							</div>
@@ -204,6 +484,7 @@
 										class="editableDiv"
 										contenteditable="true"
 										spellcheck="false"
+										key="phoneNumber"
 									></div>
 								</div>
 								<div class="sectionInfo">
@@ -213,11 +494,16 @@
 										class="editableDiv"
 										contenteditable="true"
 										spellcheck="false"
+										key="email"
 									></div>
 								</div>
 								<div class="sectionInfo" id="socialNetwork">
 									<h3 class="sectionInfoTitle">mạng xã hội</h3>
-									<div id="mangxahoi" style="width: 100%; height: 100%"></div>
+									<div
+										key="socialNetwork"
+										id="mangxahoi"
+										style="width: 100%; height: 100%"
+									></div>
 									<div
 										id="addButton"
 										style="color: white; border: 1px solid white"
@@ -233,14 +519,15 @@
 										class="editableDiv"
 										contenteditable="true"
 										spellcheck="false"
+										key="address"
 									></div>
 								</div>
 							</div>
 						</span>
 						<!--                    RIGHT CVVVVVVVVVVVVVVVVVV -->
-						<span id="rightCV">
-							<div id="headleftCV">
-								<div id="tieude">
+						<span class="rightCV">
+							<div class="headleftCV">
+								<div class="tieude">
 									<div
 										class="editInput"
 										contenteditable="true"
@@ -251,23 +538,25 @@
 										"
 										spellcheck="false"
 										name="onlyAllowU"
+										key="title"
 									>
 										Fullstack
 									</div>
 								</div>
-								<div id="tieudephu">
+								<div class="tieudephu">
 									<div
 										class="editInput"
 										contenteditable="true"
 										style="font-size: 2em"
 										name="onlyAllowU"
 										spellcheck="false"
+										key="subTitle"
 									>
 										Web Developer
 									</div>
 								</div>
 							</div>
-							<div id="bodyLeftCV">
+							<div class="bodyLeftCV">
 								<!-- khoa đưa đăng này tui tạo khung thôi nữa ông tự thêm phần linh động cho nó-->
 								<div class="sectionBodyLeftCV">
 									<div class="sectionTitleBodyLeftCV">
@@ -278,6 +567,7 @@
 										style="color: black"
 										class="editableDiv2"
 										contenteditable="true"
+										key="purpose"
 									></div>
 								</div>
 								<div class="sectionBodyLeftCV">
@@ -290,6 +580,7 @@
 										class="editableDiv2"
 										contenteditable="true"
 										spellcheck="false"
+										key="experience"
 									></div>
 								</div>
 								<div
@@ -300,13 +591,13 @@
 									<div class="sectionTitleBodyLeftCV">
 										<h1>dự án</h1>
 										<hr />
-										<div id="duan"></div>
+										<div key="project" id="duan"></div>
 										<div id="addButton" onclick="addProject()">+</div>
 									</div>
 								</div>
 								<div class="sectionBodyLeftCV">
 									<div class="sectionTitleBodyLeftCV">
-										<h1>giải thưởng</h1>
+										<h1>hoạt động</h1>
 										<hr />
 									</div>
 									<div
@@ -314,6 +605,7 @@
 										class="editableDiv2"
 										contenteditable="true"
 										spellcheck="false"
+										key="activity"
 									></div>
 								</div>
 								<div id="divOfAddIndex"></div>
@@ -403,7 +695,7 @@
 					>
 				</div>
 			</div>
-			<div id="basicColor">
+			<div class="basicColor">
 				<span
 					style="
 						font-family: Open Sans, -apple-system, BlinkMacSystemFont, Segoe UI,
@@ -414,7 +706,7 @@
 					"
 					>Màu mặc định</span
 				>
-				<div id="flexBasicColor">
+				<div class="flexBasicColor">
 					<div
 						class="sectionBasicColors"
 						style="background-color: #000000"
@@ -559,13 +851,17 @@
 						value="#ff914d"
 						title="Cam #ff914d"
 					></div>
+					<div class="pickr-container sectionBasicColors" title="Thêm màu chữ">
+						<div class="color-picker"></div>
+					</div>
 				</div>
 			</div>
 			<div id="advanColor">
-				<button id="useThisColor" class="btn_advanColor">Sử Dụng</button>
-				<button class="btn_advanColor">Chỉnh Nền</button>
+				<button id="useThisColor" class="btn_advanColor">Sử dụng</button>
 			</div>
 		</div>
 	</body>
+	<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+	<script src="./Scripts/colors.js"></script>
 	<script src="./Scripts/index.js"></script>
 </html>

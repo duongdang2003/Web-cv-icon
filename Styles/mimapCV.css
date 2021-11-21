@@ -1,0 +1,90 @@
+
+#chinhmaunen{
+	width:90%;
+	background-color:#ddd;
+	height:25rem;
+	border: 1px solid rgb(151, 151, 151);
+	display: flex;
+    padding-left: 0 !important;
+}
+#minimapColor{
+	flex:1;
+    width: 50%;
+    position: relative;
+    display:flex;
+}
+#leftMiniColor{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+body .body #miniCV{
+	zoom: 30%;
+    position: relative;
+    width: 800px;/*cho gần đúng với tỉ lệ khi lưu về*/
+	height: fit-content;
+	min-height: 1024px;
+	margin-top: 10px;
+	position: relative;
+	/* right: 0; */
+	box-shadow: 8px 8px 15px rgb(53, 53, 53);
+	background-color: white;
+	/* padding: 10px; */
+	/* display: grid; */
+	/* grid-template-columns: 35% 65%; */
+	/* grid-template-columns: [first] 35% [line2] 65%[end]; */
+}
+#editColorBackground{
+	flex: 1;
+}
+.miniBasicColor{
+	height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sectionBasicColors2{
+	content: " ";
+	width: 42px;
+	height: 42px;
+	display: inline-block;
+	margin: 5px 0;
+	border-radius: 4px;
+	border: 1px solid rgba(187, 187, 187, 0.753) !important;
+	transition: all 0.2s ease;
+	padding:0;
+	zoom: 0.8;
+}
+.sectionBasicColors2:hover {
+	border: 2px solid rgb(255, 255, 255) !important;
+	outline: 3px solid rgb(184, 0, 184) !important;
+	cursor: pointer;
+}
+.miniFlexBasicColor{
+    text-align: center;
+    line-height: 3rem;
+}
+#miniLeftCV_js:hover{
+    cursor: pointer;
+    /* opacity: 0.8; */
+    border: 3px dashed rgb(0, 255, 0);
+}
+.miniSectionInfoTitle:hover{
+    background-color:#fc0202;
+    border: 1px dashed white;
+}
+#MiniRightCV_js:hover{
+    cursor: pointer;
+    background-color:#ddd;
+    border: 3px dashed rgb(158, 253, 5);
+}
+/* #miniHeadleftCV_js:hover{
+    background-color:#fc0202;
+} */
+#miniHeadleftCV_js:hover {
+    border:2px dashed #02ebfc !important;
+}
