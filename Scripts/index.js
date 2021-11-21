@@ -803,9 +803,8 @@ function save() {
 		window.getComputedStyle(document.querySelector(".leftCV")).backgroundColor
 	);
 	localStorage.setItem(
-		"body left color",
-		window.getComputedStyle(document.querySelector(".bodyLeftCV"))
-			.backgroundColor
+		"right color",
+		window.getComputedStyle(document.querySelector(".rightCV")).backgroundColor
 	);
 }
 
@@ -842,12 +841,12 @@ function load() {
 		localStorage.getItem("left color");
 	document.querySelectorAll(".leftCV")[1].style.backgroundColor =
 		localStorage.getItem("left color");
-	document.querySelectorAll(".bodyLeftCV")[0].style.backgroundColor =
-		localStorage.getItem("body left color");
-	document.querySelectorAll(".bodyLeftCV")[1].style.backgroundColor =
-		localStorage.getItem("body left color");
+	document.querySelectorAll(".rightCV")[0].style.backgroundColor =
+		localStorage.getItem("right color");
+	document.querySelectorAll(".rightCV")[1].style.backgroundColor =
+		localStorage.getItem("right color");
 }
-console.log(document.querySelectorAll(".bodyLeftCV"));
+console.log(document.querySelectorAll(".rightCV")[0]);
 
 // setInterval(function () {
 // 	console.log(activeElement)
