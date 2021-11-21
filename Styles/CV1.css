@@ -1,3 +1,6 @@
+:root {
+	--pseudo-color: rgb(170, 9, 170);
+  }
 .body .CV {
 	width: 800px;/*cho gần đúng với tỉ lệ khi lưu về*/
 	height: fit-content;
@@ -123,7 +126,7 @@
 	left: -17.64%;
 	width: 17.64%;
 	text-align: center;
-	background-color: rgb(170, 9, 170);
+	background-color: var(--pseudo-color);
 }
 /*                             leftCV */
 .rightCV {
