@@ -793,6 +793,20 @@ function save() {
 		"sub title",
 		document.querySelector('div[key="subTitle"]').outerHTML
 	);
+	localStorage.setItem(
+		"header left color",
+		window.getComputedStyle(document.querySelector(".headleftCV"))
+			.backgroundColor
+	);
+	localStorage.setItem(
+		"left color",
+		window.getComputedStyle(document.querySelector(".leftCV")).backgroundColor
+	);
+	localStorage.setItem(
+		"body left color",
+		window.getComputedStyle(document.querySelector(".bodyLeftCV"))
+			.backgroundColor
+	);
 }
 
 function load() {
@@ -820,7 +834,20 @@ function load() {
 		localStorage.getItem("title");
 	document.querySelector('div[key="subTitle"]').outerHTML =
 		localStorage.getItem("sub title");
+	document.querySelectorAll(".headleftCV")[0].style.backgroundColor =
+		localStorage.getItem("header left color");
+	document.querySelectorAll(".headleftCV")[1].style.backgroundColor =
+		localStorage.getItem("header left color");
+	document.querySelectorAll(".leftCV")[0].style.backgroundColor =
+		localStorage.getItem("left color");
+	document.querySelectorAll(".leftCV")[1].style.backgroundColor =
+		localStorage.getItem("left color");
+	document.querySelectorAll(".bodyLeftCV")[0].style.backgroundColor =
+		localStorage.getItem("body left color");
+	document.querySelectorAll(".bodyLeftCV")[1].style.backgroundColor =
+		localStorage.getItem("body left color");
 }
+console.log(document.querySelectorAll(".bodyLeftCV"));
 
 // setInterval(function () {
 // 	console.log(activeElement)
