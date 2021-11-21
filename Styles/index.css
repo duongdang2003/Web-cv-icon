@@ -41,6 +41,7 @@ body {
 .editableDiv:hover {
 	border: 1px solid rgb(102, 102, 102);
 }
+
 .header {
 	width: 100%;
 	height: 22%;
@@ -86,7 +87,7 @@ body {
 	margin: 10px;
 	position: relative;
 }
-.body .information > div:first-child {
+/* .body .information > div:first-child {
 	width: 15%;
 	border-radius: 5px;
 	margin-right: 0;
@@ -95,7 +96,7 @@ body {
 	margin-left: 75%;
 	margin-bottom: 5px;
 	cursor: pointer;
-}
+} */
 .body .information > div {
 	width: 90%;
 	height: fit-content;
@@ -107,6 +108,24 @@ body {
 	background-color: #fcd5ce;
 	border-collapse: collapse;
 	margin-top: 1px;
+}
+.information > div:first-child {
+	display: flex;
+	width: fit-content;
+	border: none;
+	background-color: transparent;
+	padding: 0;
+	margin-left: auto;
+	margin-right: 10%;
+}
+.information .data div {
+	width: min-content;
+	text-align: center;
+	font-size: 30px;
+	padding: 10px;
+	background-color: #fcd5ce;
+	margin: 2px 2px 5px 5px;
+	border-radius: 5px;
 }
 #available {
 	display: flex;
@@ -171,6 +190,32 @@ body {
 	margin: 5px;
 	display: none;
 }
+@keyframes saved {
+	50% {
+		transform: scale(1.5);
+	}
+	100% {
+		color: black;
+		transform: scale(1);
+	}
+}
+@keyframes load {
+	50% {
+	}
+	100% {
+		color: black;
+		transform: rotate(360deg);
+	}
+}
+@keyframes download {
+	50% {
+		transform: translateY(10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
 /* tai anh */
 .modal {
 	display: none;
@@ -615,7 +660,7 @@ form #color-search {
 	border-radius: 4px;
 	border: 1px solid rgba(187, 187, 187, 0.753) !important;
 	transition: all 0.2s ease;
-	padding:0;
+	padding: 0;
 }
 
 .flexBasicColor .sectionBasicColors:hover {
@@ -664,52 +709,51 @@ form #color-search {
 	cursor: pointer;
 }
 
-.pickr-container{
+.pickr-container {
 	width: 100%;
 	height: 100%;
 	padding: 0;
 	outline: none;
 	margin-left: 0 !important;
 }
-.pickr-container:hover{
+.pickr-container:hover {
 	outline: 2px solid rgb(29, 80, 32) !important;
 	border: none !important;
 }
-.pickr{
+.pickr {
 	background: linear-gradient(
 		to bottom right,
 		#ff1616,
 		#ff914d,
 		#ffde59,
-		#008037 ,
+		#008037,
 		#5271ff,
 		#8c52ff,
 		#5e17eb
-		) !important;
+	) !important;
 	outline: none;
 	border: none;
 	border-radius: 4px;
-	height:100%;
+	height: 100%;
 	width: 100%;
 	display: flex;
-	justify-content:center;
+	justify-content: center;
 	align-items: center;
 	padding: 0;
 }
-.pickr button{
-	width:2.1rem !important;
-	height:2.1rem !important;
+.pickr button {
+	width: 2.1rem !important;
+	height: 2.1rem !important;
 	--pcr-color: #fff !important;
 	background-size: 90% !important;
-	transform:rotateZ(45deg);
+	transform: rotateZ(45deg);
 }
 .pickr .pcr-button::before {
-    position: relative;
+	position: relative;
 }
 .pickr .pcr-button::after {
 	position: relative;
 }
-
 
 /* keyframe */
 @keyframes slide {
