@@ -17,6 +17,12 @@ function download() {
 		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
 	};
 	html2pdf().set(opt).from(element).save();
+
+	document.querySelector("#download i").style.animation =
+		"download 1s linear 1";
+	setTimeout(function () {
+		document.querySelector("#download i").style.animation = "none";
+	}, 1000);
 }
 
 // Direct change on CV
@@ -806,6 +812,10 @@ function save() {
 		"right color",
 		window.getComputedStyle(document.querySelector(".rightCV")).backgroundColor
 	);
+	document.querySelector("#save i").style.animation = "saved 1s linear 1";
+	setTimeout(function () {
+		document.querySelector("#save i").style.animation = "none";
+	}, 1000);
 }
 
 function load() {
@@ -845,6 +855,10 @@ function load() {
 		localStorage.getItem("right color");
 	document.querySelectorAll(".rightCV")[1].style.backgroundColor =
 		localStorage.getItem("right color");
+	document.querySelector("#load i").style.animation = "load 1s linear 1";
+	setTimeout(function () {
+		document.querySelector("#load i").style.animation = "none";
+	}, 1000);
 }
 console.log(document.querySelectorAll(".rightCV")[0]);
 
