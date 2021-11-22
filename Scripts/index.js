@@ -253,11 +253,19 @@ setInterval(() => {
 		bold.style.color = "rgb(148, 148, 148)";
 		italic.style.pointerEvents = "none";
 		bold.style.pointerEvents = "none";
-		// italic.style.cursor = "not-allowed";
-		// bold.style.cursor = "not-allowed";
 	}
-}, 100);
 
+	document.getElementById("showFont").innerHTML = window
+		.getComputedStyle(activeElement, null)
+		.getPropertyValue("font-size")
+		.replace("px", "");
+	document.getElementById("seclectFont").value = window
+		.getComputedStyle(activeElement, null)
+		.getPropertyValue("font-family")
+		.split(", ")[0]
+		.replace(`"`, "")
+		.replace(`"`, "");
+}, 100);
 let right = document.getElementById("dynamicAlignRight");
 let left = document.getElementById("dynamicAlignLeft");
 let center = document.getElementById("dynamicAlignCenter");
@@ -326,10 +334,10 @@ function addSkill() {
 	skillName.style.marginTop = "5px";
 	skillName.style.padding = "5px";
 	skillName.style.width = "90%";
-	skillName.placeholder = "Tên kỹ năng";
 	skillName.setAttribute("class", "editableInput");
 	skillName.setAttribute("spellcheck", "false");
 	skillName.style.fontSize = "17px";
+	skillName.innerHTML = "Tên kỹ năng";
 	skillLevel.style.display = "flex";
 	skillWrap.style.position = "relative";
 	skillWrap.style.margin = "2px";
@@ -350,6 +358,18 @@ function addSkill() {
 			}
 		}
 	});
+	skillName.addEventListener("click", function (e) {
+		if (e.target.innerHTML == "") {
+			e.target.innerHTML = "Tên kỹ năng";
+		} else if (e.target.innerHTML === "Tên kỹ năng") {
+			e.target.innerHTML = "";
+		}
+		skillName.addEventListener("focusout", function (e) {
+			if (e.target.innerHTML == "") {
+				e.target.innerHTML = "Tên kỹ năng";
+			}
+		});
+	});
 	nothing.appendChild(skillWrap);
 	skillWrap.appendChild(skillName);
 	skillWrap.appendChild(skillLevel);
@@ -362,6 +382,7 @@ function addSkill() {
 		level.style.backgroundColor = "white";
 		level.style.borderRadius = "2px";
 		level.setAttribute("index", i);
+		level.style.cursor = "pointer";
 		skillLevel.appendChild(level);
 	}
 }
@@ -422,9 +443,10 @@ document.getElementById("mangxahoi").addEventListener("focusout", function () {
 		activeElement.getAttribute("name") === "iconSocialNetwork"
 	) {
 		activeElement.innerHTML = "Tên MXH";
-	} else if (
-		activeElement === ""
-		// activeElement.getAttribute("name") === "socialNetworkLink"
+	}
+	if (
+		activeElement.innerHTML === "" &&
+		activeElement.getAttribute("name") === "socialNetworkLink"
 	) {
 		activeElement.innerHTML = "Link";
 	}
@@ -809,47 +831,60 @@ function save() {
 		"right color",
 		window.getComputedStyle(document.querySelector(".rightCV")).backgroundColor
 	);
+	localStorage.setItem("lock load", "false");
+	document.querySelector("#save i").style.animation = "saved 1s linear 1";
+	setTimeout(function () {
+		document.querySelector("#save i").style.animation = "none";
+	}, 1000);
 }
 
 function load() {
-	document.querySelector('div[key="education"]').outerHTML =
-		localStorage.getItem("education");
-	document.querySelector('div[key="certificate"]').outerHTML =
-		localStorage.getItem("certificate");
-	document.querySelector('div[key="phoneNumber"]').outerHTML =
-		localStorage.getItem("phone number");
-	document.querySelector('div[key="email"]').outerHTML =
-		localStorage.getItem("email");
-	document.querySelector('div[key="address"]').outerHTML =
-		localStorage.getItem("address");
-	document.querySelector('div[key="purpose"]').outerHTML =
-		localStorage.getItem("purpose");
-	document.querySelector('div[key="experience"]').outerHTML =
-		localStorage.getItem("experience");
-	document.querySelector('div[key="activity"]').outerHTML =
-		localStorage.getItem("activity");
-	document.querySelector('span[key="skill"]').outerHTML =
-		localStorage.getItem("skill");
-	document.querySelector('div[key="project"]').outerHTML =
-		localStorage.getItem("project");
-	document.querySelector('div[key="title"]').outerHTML =
-		localStorage.getItem("title");
-	document.querySelector('div[key="subTitle"]').outerHTML =
-		localStorage.getItem("sub title");
-	document.querySelectorAll(".headleftCV")[0].style.backgroundColor =
-		localStorage.getItem("header left color");
-	document.querySelectorAll(".headleftCV")[1].style.backgroundColor =
-		localStorage.getItem("header left color");
-	document.querySelectorAll(".leftCV")[0].style.backgroundColor =
-		localStorage.getItem("left color");
-	document.querySelectorAll(".leftCV")[1].style.backgroundColor =
-		localStorage.getItem("left color");
-	document.querySelectorAll(".rightCV")[0].style.backgroundColor =
-		localStorage.getItem("right color");
-	document.querySelectorAll(".rightCV")[1].style.backgroundColor =
-		localStorage.getItem("right color");
+	if (localStorage.getItem("lock load") === "false") {
+		document.getElementById("load").style.cursor = "pointer";
+		document.querySelector('div[key="education"]').outerHTML =
+			localStorage.getItem("education");
+		document.querySelector('div[key="certificate"]').outerHTML =
+			localStorage.getItem("certificate");
+		document.querySelector('div[key="phoneNumber"]').outerHTML =
+			localStorage.getItem("phone number");
+		document.querySelector('div[key="email"]').outerHTML =
+			localStorage.getItem("email");
+		document.querySelector('div[key="address"]').outerHTML =
+			localStorage.getItem("address");
+		document.querySelector('div[key="purpose"]').outerHTML =
+			localStorage.getItem("purpose");
+		document.querySelector('div[key="experience"]').outerHTML =
+			localStorage.getItem("experience");
+		document.querySelector('div[key="activity"]').outerHTML =
+			localStorage.getItem("activity");
+		document.querySelector('span[key="skill"]').outerHTML =
+			localStorage.getItem("skill");
+		document.querySelector('div[key="project"]').outerHTML =
+			localStorage.getItem("project");
+		document.querySelector('div[key="title"]').outerHTML =
+			localStorage.getItem("title");
+		document.querySelector('div[key="subTitle"]').outerHTML =
+			localStorage.getItem("sub title");
+		document.querySelectorAll(".headleftCV")[0].style.backgroundColor =
+			localStorage.getItem("header left color");
+		document.querySelectorAll(".headleftCV")[1].style.backgroundColor =
+			localStorage.getItem("header left color");
+		document.querySelectorAll(".leftCV")[0].style.backgroundColor =
+			localStorage.getItem("left color");
+		document.querySelectorAll(".leftCV")[1].style.backgroundColor =
+			localStorage.getItem("left color");
+		document.querySelectorAll(".rightCV")[0].style.backgroundColor =
+			localStorage.getItem("right color");
+		document.querySelectorAll(".rightCV")[1].style.backgroundColor =
+			localStorage.getItem("right color");
+		document.querySelector("#load i").style.animation = "load 1s linear 1";
+		setTimeout(function () {
+			document.querySelector("#load i").style.animation = "none";
+		}, 1000);
+	} else {
+		document.getElementById("load").style.cursor = "not-allowed";
+	}
 }
-console.log(document.querySelectorAll(".rightCV")[0]);
 
 // setInterval(function () {
 // 	console.log(activeElement)
