@@ -5,7 +5,7 @@ let dynamicAlignRight = document.getElementById("dynamicAlignRight");
 let dynamicAlignCenter = document.getElementById("dynamicAlignCenter");
 let dynamicAlignLeft = document.getElementById("dynamicAlignRight");
 let alignSection = document.getElementById("align");
-let sttCV =2;  // xem coi qua CV mấy
+let sttCV =1;  // xem coi qua CV mấy
 
 // Download
 function download() {
@@ -597,7 +597,7 @@ function addFile() {
 	console.log(src);
 	avatarCVs[sttCV].src = src;
 	if (sttCV ==1){
-		avatarCVs[sttCV].style.border = "1px solid black";
+		avatarCVs[sttCV].style.border = "none";
 	}
 	document.getElementById("OCModal").classList.remove("OpenModal");
 	document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
@@ -1018,4 +1018,136 @@ document.querySelector(".miniFlexBasicColor").onclick = function (e) {
 	});
 };
 }
-chinhnenCV1();
+//                                  chinh nen CV 2
+function chinhnenCV2() {
+	document.getElementById("miniHeadleftCV2_js").onclick = function () {
+		setTimeout(function () {
+			document.getElementById("miniHeadleftCV2_js").style.border =
+				"8px dashed #02ebfc";
+			document.querySelectorAll(".miniCV2 .titleLeftCVsection h3").forEach(function (a){
+				a.style.border = "8px dashed #02ebfc";
+			})
+			document.getElementById("MiniRightCV2_js").style.border = "none";
+			document.getElementById("miniLeftCV2_js").style.border = "none";
+			document.querySelector(".miniCV2 .Miniava").style.border = "3px solid #2ccdd7";
+			document.querySelector(".miniCV2 #thongTin").style.border = "3px solid #2ccdd7";
+			document.querySelectorAll(".miniCV2 .sectionTitleBodyLeftCV hr").forEach(function (a){
+				a.style.border = "1px solid #2ccdd7";
+			})
+			document.querySelectorAll(".miniCV2 .dotLeftCV2").forEach(function (a){
+				a.style.backgroundColor = "#2ccdd7";
+			})
+			trytitle = 1;
+			trynenphai = 0;
+			trynentrai = 0;
+			tryneninfo = 0;
+		}, 100);
+	};
+	document.getElementById("MiniRightCV2_js").onclick = function () {
+			document.getElementById("MiniRightCV2_js").style.border =
+				"8px dashed red";
+			document.querySelectorAll(".miniCV2 .titleLeftCVsection h3").forEach(function (a){
+				a.style.border = "none";
+				a.style.borderLeft = "3px solid #2ccdd7";
+			})
+			document.getElementById("miniHeadleftCV2_js").style.border = "none";
+			document.getElementById("miniLeftCV2_js").style.border = "none";
+			document.querySelector(".miniCV2 .Miniava").style.border = "3px solid #2ccdd7";
+			document.querySelector(".miniCV2 #thongTin").style.border = "3px solid #2ccdd7";
+			document.querySelectorAll(".miniCV2 .sectionTitleBodyLeftCV hr").forEach(function (a){
+				a.style.border = "1px solid #2ccdd7";
+			})
+			document.querySelectorAll(".miniCV2 .dotLeftCV2").forEach(function (a){
+				a.style.backgroundColor = "#2ccdd7";
+			})
+			trytitle = 0;
+			trynenphai = 1;
+			trynentrai = 0;
+			tryneninfo = 0;
+	};
+	document.getElementById("miniLeftCV2_js").onclick = function (e) {
+		if (e.target == document.querySelector(".miniCV2 .Miniava")) {
+			// setTimeout(function () {
+				document.querySelector(".miniCV2 .Miniava").style.border = "8px dashed rgb(255, 0, 0)";
+				document.querySelectorAll(".miniCV2 .titleLeftCVsection h3").forEach(function (a){
+					a.style.border = "none";
+					a.style.borderLeft = "8px dashed rgb(255, 0, 0)";
+				})
+				document.querySelector(".miniCV2 #thongTin").style.border = "8px solid rgb(255, 0, 0)";
+				document.querySelectorAll(".miniCV2 .dotLeftCV2").forEach(function (a){
+					a.style.backgroundColor = "rgb(255, 0, 0)";
+				})
+				document.querySelectorAll(".miniCV2 hr").forEach(function (a){
+					a.style.border = "4px dashed rgb(255, 0, 0)";
+					a.style.backgroundColor = "transparent";
+				})
+				document.getElementById("miniHeadleftCV2_js").style.border = "none";
+				document.getElementById("MiniRightCV2_js").style.border = "none";
+				document.getElementById("miniLeftCV2_js").style.border = "none";
+
+				trytitle = 0;
+				trynenphai = 0;
+				trynentrai = 0;
+				tryneninfo = 1;
+			// },100)
+		} else{
+			document.getElementById("miniLeftCV2_js").style.border =
+			"8px dashed rgb(0, 255, 0)";
+		document.querySelectorAll(".miniCV2 .titleLeftCVsection h3").forEach(function (a){
+			a.style.border = "none";
+			a.style.borderLeft = "3px solid #2ccdd7";
+		})
+		document.getElementById("miniHeadleftCV2_js").style.border = "none";
+		document.getElementById("MiniRightCV2_js").style.border = "none";
+		document.querySelector(".miniCV2 .Miniava").style.border = "3px solid #2ccdd7";
+		document.querySelector(".miniCV2 #thongTin").style.border = "3px solid #2ccdd7";
+		document.querySelectorAll(".miniCV2 .sectionTitleBodyLeftCV hr").forEach(function (a){
+			a.style.border = "1px solid #2ccdd7";
+		})
+		document.querySelectorAll(".miniCV2 .dotLeftCV2").forEach(function (a){
+			a.style.backgroundColor = "#2ccdd7";
+		})
+		trytitle = 0;
+		trynenphai = 0;
+		trynentrai = 1;
+		tryneninfo = 0;
+		}
+};
+
+
+
+	document.querySelector(".miniFlexBasicColor").onclick = function (e) {
+		document.querySelectorAll(".sectionBasicColors2").forEach(function (val) {
+			if (val == e.target) {
+				if (trynenphai == 1) {
+					document.querySelectorAll(".rightCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (trynentrai == 1) {
+					document.querySelectorAll(".leftCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (tryneninfo == 1) {
+					document.querySelectorAll(".sectionInfoTitle").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (trytitle == 1) {
+					document.querySelectorAll(".headleftCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+					document
+						.querySelectorAll(".titleLeftCVsection hr")
+						.forEach(function (a) {
+							a.style.borderColor = val.getAttribute("value");
+							rootStyle.setProperty("--pseudo-color", val.getAttribute("value"));
+						});
+				}
+			}
+		});
+	};
+	}
+	if (sttCV ==0 ){
+		chinhnenCV1();
+	} else if (sttCV ==1){
+		chinhnenCV2();
+	}

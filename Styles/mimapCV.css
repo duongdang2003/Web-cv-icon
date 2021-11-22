@@ -1,4 +1,7 @@
-
+:root {
+	--pseudo-color: rgb(170, 9, 170);
+	--pseudo-borderColor: transparent;
+  }
 #chinhmaunen{
 	width:90%;
 	background-color:#ddd;
@@ -21,7 +24,7 @@
     justify-content: center;
     align-items: center;
 }
-body .body #miniCV{
+body .body .miniCV{
 	zoom: 30%;
     position: relative;
     width: 800px;/*cho gần đúng với tỉ lệ khi lưu về*/
@@ -36,6 +39,9 @@ body .body #miniCV{
 	/* display: grid; */
 	/* grid-template-columns: 35% 65%; */
 	/* grid-template-columns: [first] 35% [line2] 65%[end]; */
+}
+body .body .miniCV1{
+	display:none;
 }
 #editColorBackground{
 	flex: 1;
@@ -87,4 +93,14 @@ body .body #miniCV{
 }
 .addBorderColorForHr{
 	border-color: #02ebfc !important;
+}
+.Miniava{
+	position: relative;
+	width: 200px;
+	background-image: url("/images/no_avatar.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 224px;
+	border: 2px solid #591d86;
+	margin: 24px;
 }

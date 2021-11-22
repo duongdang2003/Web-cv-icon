@@ -1,0 +1,56 @@
+.body .miniCV2 {
+	width: 800px;/*cho gần đúng với tỉ lệ khi lưu về*/
+	height: fit-content;
+	min-height: 1024px;
+	margin-top: 10px;
+	position: relative;
+	/* right: 0; */
+	box-shadow: 8px 8px 15px rgb(53, 53, 53);
+	background-color: white;
+    /* display:none; */
+}
+.miniCV2 .wrapCanvas{
+    height:100%;
+    width: 100%;
+	display: grid;
+	grid-template-columns: 32% 68%;
+    overflow:hidden;
+}
+.miniCV2 .leftCV {
+    background-color: #041818;
+}
+.miniCV2 .Miniava {
+    border: 3px solid #2ccdd7;
+    width: 224px;
+    height: 248px;
+    margin: 14px;
+    margin-bottom: 24px;
+}
+
+#miniLeftCV2_js:hover{
+    border: 3px dashed rgb(0, 255, 0) !important;
+}
+.Miniava:hover{
+    cursor: pointer;
+    border: 3px dashed rgb(255, 0, 0) !important;
+}
+.Miniava:hover ~ .sectionTitleLeftCV1 h3{
+    border-left: 3px dashed rgb(255, 0, 0) !important;
+}
+.Miniava:hover ~.wrapInfo #thongTin{
+    border: 3px dashed rgb(255, 0, 0) !important;
+}
+.Miniava:hover ~.wrapInfo .dotLeftCV2{
+    border: 3px dashed rgb(255, 0, 0) !important;
+}
+#MiniRightCV2_js:hover{
+    border: 3px dashed rgb(253, 5, 100) !important;
+}
+#miniHeadleftCV2_js:hover {
+    cursor: pointer;
+    border:3px dashed #02ebfc !important;
+}
+
+.miniCV2 .sectionBodyLeftCV{
+    height:150px;
+}
