@@ -5,10 +5,11 @@ let dynamicAlignRight = document.getElementById("dynamicAlignRight");
 let dynamicAlignCenter = document.getElementById("dynamicAlignCenter");
 let dynamicAlignLeft = document.getElementById("dynamicAlignRight");
 let alignSection = document.getElementById("align");
+let sttCV =2;  // xem coi qua CV mấy
 
 // Download
 function download() {
-	const element = document.querySelector(".CV");
+	const element = document.querySelector(".CV2"); // chỉnh cái CV2 CV thành dạng string đi đăng body
 	var opt = {
 		margin: 0,
 		filename: "CV.pdf",
@@ -17,12 +18,6 @@ function download() {
 		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
 	};
 	html2pdf().set(opt).from(element).save();
-
-	document.querySelector("#download i").style.animation =
-		"download 1s linear 1";
-	setTimeout(function () {
-		document.querySelector("#download i").style.animation = "none";
-	}, 1000);
 }
 
 // Direct change on CV
@@ -553,8 +548,8 @@ document.getElementById("files").onchange = function () {
 	// read the image file as a data URL.
 	reader.readAsDataURL(this.files[0]);
 };
-
-document.querySelectorAll(".ava")[1].onclick = function () {
+var avatarCVs = document.querySelectorAll(".ava");
+avatarCVs[sttCV].onclick = function () {
 	document.getElementById("OCModal").classList.add("OpenModal");
 };
 document.getElementById("js-closeModalAva").onclick = function () {
@@ -578,8 +573,10 @@ function addFile() {
 	src = saveFile;
 	saveFile = [];
 	console.log(src);
-	document.querySelectorAll(".ava")[1].src = src;
-	document.querySelectorAll(".ava")[1].style.border = "1px solid black";
+	avatarCVs[sttCV].src = src;
+	if (sttCV ==1){
+		avatarCVs[sttCV].style.border = "1px solid black";
+	}
 	document.getElementById("OCModal").classList.remove("OpenModal");
 	document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
 	document.getElementById("files").value = "";
@@ -812,10 +809,6 @@ function save() {
 		"right color",
 		window.getComputedStyle(document.querySelector(".rightCV")).backgroundColor
 	);
-	document.querySelector("#save i").style.animation = "saved 1s linear 1";
-	setTimeout(function () {
-		document.querySelector("#save i").style.animation = "none";
-	}, 1000);
 }
 
 function load() {
@@ -855,10 +848,6 @@ function load() {
 		localStorage.getItem("right color");
 	document.querySelectorAll(".rightCV")[1].style.backgroundColor =
 		localStorage.getItem("right color");
-	document.querySelector("#load i").style.animation = "load 1s linear 1";
-	setTimeout(function () {
-		document.querySelector("#load i").style.animation = "none";
-	}, 1000);
 }
 console.log(document.querySelectorAll(".rightCV")[0]);
 
@@ -877,7 +866,6 @@ console.log(document.querySelectorAll(".rightCV")[0]);
 // 	saveValue = document.getElementById("saveField").value;
 // 	localStorage.setItem("saveValue", saveValue);
 // }
-function chinhnenCV1() {
 	var trynenphai = 0,
 	trynentrai = 0,
 	tryneninfo = 0,
@@ -885,6 +873,7 @@ function chinhnenCV1() {
 let sectionInfoTitle = document.querySelectorAll(
 	".sectionInfoTitle.miniSectionInfoTitle"
 );
+function chinhnenCV1() {
 document.getElementById("miniHeadleftCV_js").onclick = function () {
 	setTimeout(function () {
 		document.getElementById("miniHeadleftCV_js").style.border =
@@ -994,3 +983,4 @@ document.querySelector(".miniFlexBasicColor").onclick = function (e) {
 	});
 };
 }
+chinhnenCV1();

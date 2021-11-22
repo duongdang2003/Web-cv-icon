@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="./Styles/index.css" />
 		<link rel="icon" href="./Images/icon.png" />
 		<link rel="stylesheet" href="./Styles/CV1.css" />
+		<link rel="stylesheet" href="./Styles/CV2.css" />
 		<link rel="stylesheet" href="./Styles/mimapCV.css" />
 		<!-- Roboto font -->
 		<link
@@ -124,16 +125,14 @@
 
 			<div class="body">
 				<div class="information">
-					<div class="data">
-						<div id="download" onclick="download()" style="cursor: pointer">
-							<i class="fas fa-download"></i>
-						</div>
-						<div id="save" onclick="save()" style="cursor: pointer">
-							<i class="fas fa-save"></i>
-						</div>
-						<div id="load" onclick="load()" style="cursor: pointer">
-							<i class="fas fa-spinner"></i>
-						</div>
+					<div id="download" onclick="download()">
+						<i class="fas fa-download"></i>
+					</div>
+					<div id="save" onclick="save()" style="cursor: pointer">
+						<i class="fas fa-save"></i>
+					</div>
+					<div id="load" onclick="load()" style="cursor: pointer">
+						<i class="fas fa-spinner"></i>
 					</div>
 					<div onclick="displayAvailable()" id="available">
 						Các mẫu CV hiện có
@@ -623,6 +622,206 @@
 						</span>
 					</div>
 				</div>
+
+
+				<div class="CV2">
+					<div class="wrapCanvas">
+						<span class="leftCV">
+							<img class="ava" src="./Images/no_avatar.jpg" />
+							<div class="sectionTitleLeftCV1" id="hocVan">
+								<div class="titleLeftCVsection">
+									<h3>Học vấn</h3>
+									<div
+										style="height: 20%"
+										class="editableDiv2"
+										contenteditable="true"
+										spellcheck="false"
+										key="education"
+									></div>
+								</div>
+							</div>
+							<div class="sectionTitleLeftCV1" id="chungChi">
+								<div class="titleLeftCVsection">
+									<h3>Chứng chỉ</h3>
+									<div
+										spellcheck="false"
+										class="editableDiv2"
+										contenteditable="true"
+										key="certificate"
+									></div>
+								</div>
+							</div>
+							<div class="sectionTitleLeftCV1" id="kiNang">
+								<div class="titleLeftCVsection">
+									<h3>Kĩ năng</h3>
+									<span id="nothing" key="skill"></span>
+									<div id="addSkill" onclick="addSkill()">+</div>
+								</div>
+							</div>
+
+							<div class="wrapInfo">
+							<div class="sectionTitleLeftCV1 C2" id="thongTin">
+								 <div class="sectionInfo">
+									<h3 class="sectionInfoTitle">số điện thoại</h3>
+									<div
+										style="height: 10%"
+										class="editableDiv"
+										contenteditable="true"
+										spellcheck="false"
+										key="phoneNumber"
+									></div>
+								</div>
+								<div class="sectionInfo">
+									<h3 class="sectionInfoTitle">Email</h3>
+									<div
+										style="height: 10%"
+										class="editableDiv"
+										contenteditable="true"
+										spellcheck="false"
+										key="email"
+									></div>
+								</div>
+								<div class="sectionInfo" id="socialNetwork">
+									<h3 class="sectionInfoTitle">mạng xã hội</h3>
+									<div
+										key="socialNetwork"
+										id="mangxahoi"
+										style="width: 100%; height: 100%"
+									></div>
+									<div
+										id="addButton"
+										style="color: white; border: 1px solid white"
+										onclick="addSocialNetwork()"
+									>
+										+
+									</div>
+								</div>
+								<div class="sectionInfo">
+									<h3 class="sectionInfoTitle">địa chỉ</h3>
+									<div
+										style="height: 10%"
+										class="editableDiv"
+										contenteditable="true"
+										spellcheck="false"
+										key="address"
+									></div>
+								</div> 
+							</div>
+							<div class="wrapDotCV2">
+								<div class="dotLeftCV2"></div>
+								<div class="dotLeftCV2"></div>
+								<div class="dotLeftCV2"></div>
+							</div>
+						</div>
+						</span>
+						<!--                    RIGHT CVVVVVVVVVVVVVVVVVV -->
+						<span class="rightCV">
+							<div class="headleftCV">
+								<div class="tieude">
+									<div
+										class="editInput"
+										contenteditable="true"
+										style="
+											font-size: 64px;
+											text-transform: uppercase;
+											font-weight: bold;
+										"
+										spellcheck="false"
+										name="onlyAllowU"
+										key="title"
+									>
+										Fullstack
+									</div>
+								</div>
+								<div class="tieudephu">
+									<div
+										class="editInput"
+										contenteditable="true"
+										style="font-size: 2em"
+										name="onlyAllowU"
+										spellcheck="false"
+										key="subTitle"
+									>
+										Web Developer
+									</div>
+								</div>
+								<div class="headRightDots">
+									<div class="twoDotHead"></div>
+									<div class="twoDotHead"></div>
+								</div>
+								<div class="rectangularLarge"></div>
+								<div class="trapezoid"></div>
+								<div class="rectangularSmall"></div>
+								<div class="triangle"></div>
+							</div>
+							<div class="bodyLeftCV">
+								<!-- khoa đưa đăng này tui tạo khung thôi nữa ông tự thêm phần linh động cho nó-->
+								<div class="sectionBodyLeftCV">
+									<div class="sectionTitleBodyLeftCV">
+										<h1>Mục đích</h1>
+										<hr />
+									</div>
+									<div
+										style="color: black"
+										class="editableDiv2"
+										contenteditable="true"
+										key="purpose"
+									></div>
+								</div>
+								<div class="sectionBodyLeftCV">
+									<div class="sectionTitleBodyLeftCV">
+										<h1>kinh nghiệm làm việc</h1>
+										<hr />
+									</div>
+									<div
+										style="color: black"
+										class="editableDiv2"
+										contenteditable="true"
+										spellcheck="false"
+										key="experience"
+									></div>
+								</div>
+								<div
+									class="sectionBodyLeftCV"
+									id="duanTitle"
+									style="padding-bottom: 50px"
+								>
+									<div class="sectionTitleBodyLeftCV">
+										<h1>dự án</h1>
+										<hr />
+										<div key="project" id="duan"></div>
+										<div id="addButton" onclick="addProject()">+</div>
+									</div>
+								</div>
+								<div class="sectionBodyLeftCV">
+									<div class="sectionTitleBodyLeftCV">
+										<h1>hoạt động</h1>
+										<hr />
+									</div>
+									<div
+										style="color: black"
+										class="editableDiv2"
+										contenteditable="true"
+										spellcheck="false"
+										key="activity"
+									></div>
+								</div>
+								<div id="divOfAddIndex"></div>
+								<!-- khoa đưa đăng thẻ div bao mấy thẻ con động-->
+								<div class="sectionBodyLeftCV">
+									<div class="sectionTitleBodyLeftCV">
+										<h1>thông tin khác</h1>
+										<hr />
+									</div>
+									<div id="thongtinkhac"></div>
+								</div>
+							</div>
+						</span>
+					</div>
+				</div>
+
+
+
 				<!--           modal -->
 				<div class="modal" id="OCModal">
 					<div id="opaModal"></div>
