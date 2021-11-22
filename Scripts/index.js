@@ -905,118 +905,129 @@ function load() {
 // }
 function chinhnenCV1() {
 	var trynenphai = 0,
-	trynentrai = 0,
-	tryneninfo = 0,
-	trytitle = 0;
-let sectionInfoTitle = document.querySelectorAll(
-	".sectionInfoTitle.miniSectionInfoTitle"
-);
-document.getElementById("miniHeadleftCV_js").onclick = function () {
-	setTimeout(function () {
-		document.getElementById("miniHeadleftCV_js").style.border =
-			"10px dashed #02ebfc";
-		document.querySelectorAll("#miniLeftCV_js .sectionTitleLeftCV1 hr").forEach(function (a){
-			a.classList.add("addBorderColorForHr");
-		})
-		rootStyle.setProperty("--pseudo-boderColor","#02ebfc" );
-		document.getElementById("MiniRightCV_js").style.border = "none";
+		trynentrai = 0,
+		tryneninfo = 0,
+		trytitle = 0;
+	let sectionInfoTitle = document.querySelectorAll(
+		".sectionInfoTitle.miniSectionInfoTitle"
+	);
+	document.getElementById("miniHeadleftCV_js").onclick = function () {
+		setTimeout(function () {
+			document.getElementById("miniHeadleftCV_js").style.border =
+				"10px dashed #02ebfc";
+			document
+				.querySelectorAll("#miniLeftCV_js .sectionTitleLeftCV1 hr")
+				.forEach(function (a) {
+					a.classList.add("addBorderColorForHr");
+				});
+			rootStyle.setProperty("--pseudo-boderColor", "#02ebfc");
+			document.getElementById("MiniRightCV_js").style.border = "none";
+			document.getElementById("miniLeftCV_js").style.border = "none";
+			sectionInfoTitle.forEach(function (a) {
+				a.style.border = "none";
+				a.style.backgroundColor = "#333";
+			});
+			trytitle = 1;
+			trynenphai = 0;
+			trynentrai = 0;
+			tryneninfo = 0;
+		}, 100);
+	};
+	document.getElementById("MiniRightCV_js").onclick = function () {
+		document.getElementById("MiniRightCV_js").style.border =
+			"10px dashed rgb(253, 5, 100)";
+		document
+			.querySelectorAll("#miniLeftCV_js .sectionTitleLeftCV1 hr")
+			.forEach(function (a) {
+				a.classList.remove("addBorderColorForHr");
+			});
+		rootStyle.setProperty("--pseudo-boderColor", "none");
+		document.getElementById("miniHeadleftCV_js").style.border = "none";
 		document.getElementById("miniLeftCV_js").style.border = "none";
 		sectionInfoTitle.forEach(function (a) {
 			a.style.border = "none";
 			a.style.backgroundColor = "#333";
 		});
-		trytitle = 1;
-		trynenphai = 0;
+		trytitle = 0;
+		trynenphai = 1;
 		trynentrai = 0;
 		tryneninfo = 0;
-	}, 100);
-};
-document.getElementById("MiniRightCV_js").onclick = function () {
-	document.getElementById("MiniRightCV_js").style.border =
-		"10px dashed rgb(253, 5, 100)";
-		document.querySelectorAll("#miniLeftCV_js .sectionTitleLeftCV1 hr").forEach(function (a){
-			a.classList.remove("addBorderColorForHr");
-		})
-		rootStyle.setProperty("--pseudo-boderColor","none" );
-	document.getElementById("miniHeadleftCV_js").style.border = "none";
-	document.getElementById("miniLeftCV_js").style.border = "none";
-	sectionInfoTitle.forEach(function (a) {
-		a.style.border = "none";
-		a.style.backgroundColor = "#333";
-	});
-	trytitle = 0;
-	trynenphai = 1;
-	trynentrai = 0;
-	tryneninfo = 0;
-};
-document.getElementById("miniLeftCV_js").onclick = function (e) {
-	document.getElementById("miniLeftCV_js").style.border =
-		"10px dashed rgb(0, 255, 0)";
-		document.querySelectorAll("#miniLeftCV_js .sectionTitleLeftCV1 hr").forEach(function (a){
-			a.classList.remove("addBorderColorForHr");
-		})
-		rootStyle.setProperty("--pseudo-boderColor","none" );
-	document.getElementById("miniHeadleftCV_js").style.border = "none";
-	document.getElementById("MiniRightCV_js").style.border = "none";
-	sectionInfoTitle.forEach(function (a) {
-		a.style.border = "none";
-		a.style.backgroundColor = "#333";
-	});
-	trytitle = 0;
-	trynenphai = 0;
-	trynentrai = 1;
-	tryneninfo = 0;
+	};
+	document.getElementById("miniLeftCV_js").onclick = function (e) {
+		document.getElementById("miniLeftCV_js").style.border =
+			"10px dashed rgb(0, 255, 0)";
+		document
+			.querySelectorAll("#miniLeftCV_js .sectionTitleLeftCV1 hr")
+			.forEach(function (a) {
+				a.classList.remove("addBorderColorForHr");
+			});
+		rootStyle.setProperty("--pseudo-boderColor", "none");
+		document.getElementById("miniHeadleftCV_js").style.border = "none";
+		document.getElementById("MiniRightCV_js").style.border = "none";
+		sectionInfoTitle.forEach(function (a) {
+			a.style.border = "none";
+			a.style.backgroundColor = "#333";
+		});
+		trytitle = 0;
+		trynenphai = 0;
+		trynentrai = 1;
+		tryneninfo = 0;
 
-	sectionInfoTitle.forEach(function (a) {
-		if (e.target == a) {
-			setTimeout(function () {
-				sectionInfoTitle.forEach(function (a) {
-					a.style.border = "1px dashed white";
-					a.style.backgroundColor = "#fc0202";
-				});
-				document.querySelectorAll("#miniLeftCV_js .sectionTitleLeftCV1 hr").forEach(function (a){
-					a.classList.remove("addBorderColorForHr");
-				})
-				rootStyle.setProperty("--pseudo-boderColor","none" );
-				document.getElementById("miniLeftCV_js").style.border = "none";
-				document.getElementById("miniHeadleftCV_js").style.border = "none";
-				document.getElementById("MiniRightCV_js").style.border = "none";
-				trytitle = 0;
-				trynenphai = 0;
-				trynentrai = 0;
-				tryneninfo = 1;
-			}, 100);
-		}
-	});
-};
-
-document.querySelector(".miniFlexBasicColor").onclick = function (e) {
-	document.querySelectorAll(".sectionBasicColors2").forEach(function (val) {
-		if (val == e.target) {
-			if (trynenphai == 1) {
-				document.querySelectorAll(".rightCV").forEach(function (a) {
-					a.style.backgroundColor = val.getAttribute("value");
-				});
-			} else if (trynentrai == 1) {
-				document.querySelectorAll(".leftCV").forEach(function (a) {
-					a.style.backgroundColor = val.getAttribute("value");
-				});
-			} else if (tryneninfo == 1) {
-				document.querySelectorAll(".sectionInfoTitle").forEach(function (a) {
-					a.style.backgroundColor = val.getAttribute("value");
-				});
-			} else if (trytitle == 1) {
-				document.querySelectorAll(".headleftCV").forEach(function (a) {
-					a.style.backgroundColor = val.getAttribute("value");
-				});
-				document
-					.querySelectorAll(".titleLeftCVsection hr")
-					.forEach(function (a) {
-						a.style.borderColor = val.getAttribute("value");
-						rootStyle.setProperty("--pseudo-color", val.getAttribute("value"));
+		sectionInfoTitle.forEach(function (a) {
+			if (e.target == a) {
+				setTimeout(function () {
+					sectionInfoTitle.forEach(function (a) {
+						a.style.border = "1px dashed white";
+						a.style.backgroundColor = "#fc0202";
 					});
+					document
+						.querySelectorAll("#miniLeftCV_js .sectionTitleLeftCV1 hr")
+						.forEach(function (a) {
+							a.classList.remove("addBorderColorForHr");
+						});
+					rootStyle.setProperty("--pseudo-boderColor", "none");
+					document.getElementById("miniLeftCV_js").style.border = "none";
+					document.getElementById("miniHeadleftCV_js").style.border = "none";
+					document.getElementById("MiniRightCV_js").style.border = "none";
+					trytitle = 0;
+					trynenphai = 0;
+					trynentrai = 0;
+					tryneninfo = 1;
+				}, 100);
 			}
-		}
-	});
-};
+		});
+	};
+
+	document.querySelector(".miniFlexBasicColor").onclick = function (e) {
+		document.querySelectorAll(".sectionBasicColors2").forEach(function (val) {
+			if (val == e.target) {
+				if (trynenphai == 1) {
+					document.querySelectorAll(".rightCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (trynentrai == 1) {
+					document.querySelectorAll(".leftCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (tryneninfo == 1) {
+					document.querySelectorAll(".sectionInfoTitle").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (trytitle == 1) {
+					document.querySelectorAll(".headleftCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+					document
+						.querySelectorAll(".titleLeftCVsection hr")
+						.forEach(function (a) {
+							a.style.borderColor = val.getAttribute("value");
+							rootStyle.setProperty(
+								"--pseudo-color",
+								val.getAttribute("value")
+							);
+						});
+				}
+			}
+		});
+	};
 }
