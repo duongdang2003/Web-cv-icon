@@ -11,10 +11,7 @@
 	/* right: 0; */
 	box-shadow: 8px 8px 15px rgb(53, 53, 53);
 	background-color: white;
-	/* padding: 10px; */
-	/* display: grid; */
-	/* grid-template-columns: 35% 65%; */
-	/* grid-template-columns: [first] 35% [line2] 65%[end]; */
+	display:none;
 }
 .wrapCanvas{
 	display: grid;
