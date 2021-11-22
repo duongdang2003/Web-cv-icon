@@ -1,5 +1,4 @@
 var rootStyle = document.documentElement.style;
-// Simple example, see optional options for more configuration.
 const pickr = Pickr.create({
   el: '.color-picker',
   theme: 'classic', // or 'monolith', or 'nano'

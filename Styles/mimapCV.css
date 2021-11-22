@@ -85,3 +85,6 @@ body .body #miniCV{
 #miniHeadleftCV_js:hover {
     border:3px dashed #02ebfc !important;
 }
+.addBorderColorForHr{
+	border-color: #02ebfc !important;
+}
