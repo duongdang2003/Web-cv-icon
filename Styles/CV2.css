@@ -50,8 +50,8 @@ text-align: center;
     margin-bottom: 10px;
 }
 .CV2 #thongTin::before{
-    /* content: ""; */
-    background-color: transparent;
+    content: "";
+    background-color: #041818;
     position:absolute;
     top: -26px;
     right: -26px;
@@ -68,11 +68,11 @@ text-align: center;
     min-height:100%;
     height:100%;
     padding:14px 8px;
-    border-top-right-radius: 45px;
-    border-bottom-left-radius: 45px;
+    /* border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px; */
 }
 .CV2 #thongTin::after{
-    /* content: ""; */
+    content: "";
     background-color: #041818;
     position:absolute;
     bottom: -26px;

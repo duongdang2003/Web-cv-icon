@@ -8,8 +8,8 @@ let alignSection = document.getElementById("align");
 let sttCV = 0; // xem coi qua CV mấy
 
 // Download
-function download() {
-  const element = document.querySelector(".CV2"); // chỉnh cái CV2 CV thành dạng string đi đăng body
+function download(stringClassCV) {
+  const element = document.querySelector(stringClassCV); // Khỏi chỉnh lại
   var opt = {
     margin: 0,
     filename: "CV.pdf",
@@ -569,40 +569,40 @@ document.getElementById("files").onchange = function () {
   reader.readAsDataURL(this.files[0]);
 };
 var avatarCVs = document.querySelectorAll(".ava");
-themHinhAnhNhieuCV(sttCV)
+themHinhAnhNhieuCV(sttCV);
 function themHinhAnhNhieuCV(sttCV) {
-	avatarCVs[sttCV].onclick = function () {
-		document.getElementById("OCModal").classList.add("OpenModal");
-	  };
-	  document.getElementById("js-closeModalAva").onclick = function () {
-		document.getElementById("OCModal").classList.remove("OpenModal");
-	  };
-	  document.getElementById("opaModal").onclick = function () {
-		document.getElementById("OCModal").classList.remove("OpenModal");
-	  };
-	  
-	  function deleteFile() {
-		document.getElementById("files").value = "";
-		document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
-	  }
-	  function cancleFile() {
-		document.getElementById("files").value = "";
-		document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
-		document.getElementById("OCModal").classList.remove("OpenModal");
-	  }
-	  function addFile() {
-		var src;
-		src = saveFile;
-		saveFile = [];
-		console.log(src);
-		avatarCVs[sttCV].src = src;
-		if (sttCV == 1) {
-		  avatarCVs[sttCV].style.border = "none";
-		}
-		document.getElementById("OCModal").classList.remove("OpenModal");
-		document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
-		document.getElementById("files").value = "";
-	  }
+  avatarCVs[sttCV].onclick = function () {
+    document.getElementById("OCModal").classList.add("OpenModal");
+  };
+  document.getElementById("js-closeModalAva").onclick = function () {
+    document.getElementById("OCModal").classList.remove("OpenModal");
+  };
+  document.getElementById("opaModal").onclick = function () {
+    document.getElementById("OCModal").classList.remove("OpenModal");
+  };
+
+  function deleteFile() {
+    document.getElementById("files").value = "";
+    document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
+  }
+  function cancleFile() {
+    document.getElementById("files").value = "";
+    document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
+    document.getElementById("OCModal").classList.remove("OpenModal");
+  }
+  function addFile() {
+    var src;
+    src = saveFile;
+    saveFile = [];
+    console.log(src);
+    avatarCVs[sttCV].src = src;
+    if (sttCV == 1) {
+      avatarCVs[sttCV].style.border = "none";
+    }
+    document.getElementById("OCModal").classList.remove("OpenModal");
+    document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
+    document.getElementById("files").value = "";
+  }
 }
 
 var listFont = document.getElementById("listFontSize"),
@@ -743,7 +743,7 @@ function saveColorDefaults() {
 //                                   font family
 document.querySelector("#seclectFont").onclick = function () {
   if (activeElementContainNull == null) {
-    document.querySelector(".CV").style.fontFamily = this.value;
+    cv.style.fontFamily = this.value;
   } else {
     activeElement.style.fontFamily = this.value;
   }
@@ -1208,32 +1208,42 @@ function chuyenCV() {
   document.getElementById("CVchung").onclick = function () {
     sttCV = 0;
     setTimeout(function () {
-		kiemtraSTTCV();
-	},100)
+      kiemtraSTTCV();
+    }, 100);
   };
   document.getElementById("CVKTCN").onclick = function () {
     sttCV = 1;
     setTimeout(function () {
-		kiemtraSTTCV();
-	},100)
+      kiemtraSTTCV();
+    }, 100);
   };
 }
 function kiemtraSTTCV() {
   if (sttCV == 0) {
-    document.querySelector(".CV").classList.remove("closeCV2");
+    cv.classList.remove("closeCV2");
     document.querySelector(".CV2.main").classList.add("closeCV2");
     document.querySelector(".miniCV2").classList.add("closeCV2");
     document.querySelector(".miniCV1").classList.remove("closeCV2");
-	chinhnenCV1();
-	themHinhAnhNhieuCV(sttCV)
+    chinhnenCV1();
+    themHinhAnhNhieuCV(sttCV);
   } else if (sttCV == 1) {
-	document.querySelector(".CV2.main").classList.remove("closeCV2");
-    document.querySelector(".CV").classList.add("closeCV2");
+    document.querySelector(".CV2.main").classList.remove("closeCV2");
+    cv.classList.add("closeCV2");
     document.querySelector(".miniCV1").classList.add("closeCV2");
     document.querySelector(".miniCV2").classList.remove("closeCV2");
-	chinhnenCV2();
-	themHinhAnhNhieuCV(sttCV)
+    chinhnenCV2();
+    themHinhAnhNhieuCV(sttCV);
   }
 }
 chinhnenCV1();
 chuyenCV();
+
+document.getElementById("download").onclick = function () {
+  if (sttCV == 0) {
+    let stringClassCV = ".CV";
+    download(stringClassCV);
+  } else if (sttCV == 1) {
+    let stringClassCV = ".CV2.main";
+    download(stringClassCV);
+  }
+};
