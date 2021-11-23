@@ -5,9 +5,11 @@ let dynamicAlignRight = document.getElementById("dynamicAlignRight");
 let dynamicAlignCenter = document.getElementById("dynamicAlignCenter");
 let dynamicAlignLeft = document.getElementById("dynamicAlignRight");
 let alignSection = document.getElementById("align");
+let sttCV = 2; // xem coi qua CV mấy
+
 // Download
 function download() {
-	const element = document.querySelector(".CV");
+	const element = document.querySelector(".CV2"); // chỉnh cái CV2 CV thành dạng string đi đăng body
 	var opt = {
 		margin: 0,
 		filename: "CV.pdf",
@@ -16,14 +18,7 @@ function download() {
 		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
 	};
 	html2pdf().set(opt).from(element).save();
-
-	document.querySelector("#download i").style.animation =
-		"download 1s linear 1";
-	setTimeout(function () {
-		document.querySelector("#download i").style.animation = "none";
-	}, 1000);
 }
-
 // Direct change on CV
 let deleteElement;
 let projectButton = document.querySelector("#duanTitle");
@@ -141,14 +136,16 @@ function deleteButtonFunction(a) {
 	deleteButton.style.color = "white";
 	deleteButton.style.backgroundColor = "red";
 	deleteButton.style.cursor = "pointer";
-	deleteButton.style.display = "block";
+	deleteButton.style.display = "none";
+	deleteButton.style.zIndex = "9999";
+	a.style.position = "relative";
 	a.appendChild(deleteButton);
 	deleteButton.addEventListener("click", function () {
 		a.remove();
 	});
 	a.addEventListener("mouseover", function () {
 		deleteButton.style.display = "block";
-		a.style.border = "1px dashed white";
+		a.style.border = "1px dashed black";
 	});
 	a.addEventListener("mouseout", function () {
 		deleteButton.style.display = "none";
@@ -157,7 +154,7 @@ function deleteButtonFunction(a) {
 }
 
 // Add break
-let constWidth = 800; //793.70078740157;
+let constWidth = 800;
 let constHeight = 1111;
 let scale = 210 / 297;
 setInterval(() => {
@@ -178,9 +175,7 @@ setInterval(() => {
 		page++;
 	}
 }, 100);
-
-// console.log((1 * cv.offsetWidth * constHeight) / constWidth);
-
+function isOverlap(el) {}
 //SETTING
 // align
 let activeElement = document.getElementById("socialNetwork");
@@ -224,16 +219,19 @@ setInterval(() => {
 			center.style.color = "rgb(148, 148, 148)";
 			right.style.color = "rgb(148, 148, 148)";
 			left.style.color = "rgb(148, 148, 148)";
-		} else if (activeElement.style.textAlign === null) {
+		} else if (activeElement.style.textAlign === "") {
 			left.style.color = "black";
 			center.style.color = "rgb(148, 148, 148)";
 			right.style.color = "rgb(148, 148, 148)";
-			left.style.color = "rgb(148, 148, 148)";
+			justify.style.color = "rgb(148, 148, 148)";
 		}
 	} else if (document.activeElement.tagName === "BODY") {
 		activeElementContainNull = null;
 	}
-	if (activeElement.getAttribute("class") !== "") {
+	if (
+		activeElement.getAttribute("class") !== "" ||
+		activeElement.getAttribute("class") !== null
+	) {
 		textStatus = activeElement.getAttribute("class");
 		if (textStatus.indexOf("boldjs") != -1) {
 			bold.style.color = "black";
@@ -332,7 +330,7 @@ function addSkill() {
 	let skillWrap = document.createElement("div");
 
 	skillName.setAttribute("contenteditable", "true");
-	skillName.style.color = "white";
+	skillName.style.color = "grey";
 	skillName.style.border = "none";
 	skillName.style.backgroundColor = "transparent";
 	skillName.style.marginTop = "5px";
@@ -365,12 +363,15 @@ function addSkill() {
 	skillName.addEventListener("click", function (e) {
 		if (e.target.innerHTML == "") {
 			e.target.innerHTML = "Tên kỹ năng";
+			e.target.style.color = "grey";
 		} else if (e.target.innerHTML === "Tên kỹ năng") {
 			e.target.innerHTML = "";
+			e.target.style.color = "white";
 		}
 		skillName.addEventListener("focusout", function (e) {
 			if (e.target.innerHTML == "") {
 				e.target.innerHTML = "Tên kỹ năng";
+				e.target.style.color = "grey";
 			}
 		});
 	});
@@ -418,11 +419,11 @@ function addSocialNetwork() {
 	icon.style.fontSize = "15px";
 	icon.style.border = "none";
 	icon.innerHTML = "Tên MXH";
-	icon.style.color = "white";
+	icon.style.color = "grey";
 	icon.setAttribute("spellcheck", "false");
 	icon.setAttribute("class", "test");
 	socialNetworkLink.setAttribute("name", "socialNetworkLink");
-	socialNetworkLink.style.color = "white";
+	socialNetworkLink.style.color = "grey";
 	socialNetworkLink.style.padding = "5px";
 	socialNetworkLink.innerHTML = "Link";
 	socialNetworkLink.setAttribute("contenteditable", "true");
@@ -439,6 +440,7 @@ document.getElementById("mangxahoi").addEventListener("click", function () {
 		activeElement.innerHTML === "Link"
 	) {
 		activeElement.innerHTML = "";
+		activeElement.style.color = "white";
 	}
 });
 document.getElementById("mangxahoi").addEventListener("focusout", function () {
@@ -447,18 +449,21 @@ document.getElementById("mangxahoi").addEventListener("focusout", function () {
 		activeElement.getAttribute("name") === "iconSocialNetwork"
 	) {
 		activeElement.innerHTML = "Tên MXH";
+		activeElement.style.color = "grey";
 	}
 	if (
 		activeElement.innerHTML === "" &&
 		activeElement.getAttribute("name") === "socialNetworkLink"
 	) {
 		activeElement.innerHTML = "Link";
+		activeElement.style.color = "grey";
 	}
 	if (
 		activeElement.getAttribute("name") === "iconSocialNetwork" &&
 		activeElement.innerHTML != ""
 	) {
 		value = activeElement.innerHTML;
+		activeElement.style.color = "white";
 
 		switch (value) {
 			case "Facebook":
@@ -502,21 +507,11 @@ document.getElementById("mangxahoi").addEventListener("focusout", function () {
 function addAnotherInfor() {
 	let wrapDiv = document.createElement("div");
 	wrapDiv.style.marginTop = "10px";
+	wrapDiv.setAttribute("id", "test2");
+	wrapDiv.style.border = "1px solid transparent";
 	document.getElementById("thongtinkhac").appendChild(wrapDiv);
-	let titleAI = document.createElement("input");
-	titleAI.placeholder = "Tiêu đề thông tin";
-	titleAI.style.padding = "5px";
-	titleAI.style.width = "80%";
-	titleAI.style.border = "1px solid #F8EDEB";
-	titleAI.style.fontSize = "1.17em";
-	titleAI.style.fontWeight = "bold";
-	titleAI.style.margin = "10px";
-	let detail = document.createElement("input");
-	detail.placeholder = "Chi tiết thông tin";
-	detail.style.padding = "5px";
-	detail.style.width = "95%";
-	detail.style.border = "1px solid #F8EDEB";
-	detail.style.fontSize = "17px";
+	let titleAI = document.createElement("div");
+	let detail = document.createElement("div");
 
 	titleAI.setAttribute("contenteditable", "true");
 	titleAI.style.width = "93%";
@@ -524,40 +519,115 @@ function addAnotherInfor() {
 	titleAI.style.border = "1px solid #F8EDEB";
 	titleAI.style.margin = "5px 10px 10px 10px";
 	titleAI.style.padding = "10px";
-	titleAI.style.fontSize = "15px";
-	titleAI.style.color = "black";
-	titleAI.setAttribute("class", "test");
+	titleAI.style.fontSize = "1.17em";
+	titleAI.style.color = "grey";
+	titleAI.style.fontWeight = "bold";
+	titleAI.innerHTML = "Tiêu đề thông tin";
+	titleAI.setAttribute("class", "titleAI");
 	titleAI.setAttribute("spellcheck", "false");
 
-	detail.placeholder = "Chi tiết thông tin";
+	detail.contentEditable = true;
 	detail.style.width = "93%";
+	detail.innerHTML = "Chi tiết";
 	detail.style.height = "fit-content";
 	detail.style.border = "1px solid #F8EDEB";
 	detail.style.margin = "5px 10px 10px 10px";
 	detail.style.padding = "10px";
 	detail.style.fontSize = "15px";
-	detail.style.color = "black";
+	detail.style.color = "grey";
 	detail.setAttribute("class", "test");
 	detail.setAttribute("spellcheck", "false");
 
 	let ruler = document.createElement("hr");
+	ruler.style.color = "black";
+	ruler.style.borderColor = "black";
+	ruler.style.backgroundColor = "black";
+	wrapDiv.style.border = "1px solid transparent";
 	wrapDiv.appendChild(titleAI);
 	wrapDiv.appendChild(detail);
 	wrapDiv.appendChild(ruler);
+	deleteButtonFunction(wrapDiv);
 }
-
+document
+	.getElementById("thongtinkhac")
+	.addEventListener("focusin", function (e) {
+		if (
+			e.target.innerHTML === "Tiêu đề thông tin" ||
+			e.target.innerHTML === "Chi tiết"
+		) {
+			e.target.innerHTML = "";
+			e.target.style.color = "black";
+		}
+	});
+document
+	.getElementById("thongtinkhac")
+	.addEventListener("focusout", function (e) {
+		if (
+			e.target.innerHTML === "" &&
+			e.target.getAttribute("class") === "titleAI"
+		) {
+			e.target.innerHTML = "Tiêu đề thông tin";
+			e.target.style.color = "grey";
+		} else if (e.target.innerHTML === "") {
+			e.target.innerHTML = "Chi tiết";
+			e.target.style.color = "grey";
+		}
+	});
 function addIndex() {
 	let bigDiv = document.getElementById("divOfAddIndex");
 	let wrapDiv = document.createElement("div");
 	let title = document.createElement("div");
+	let titleDiscription = document.createElement("div");
+	let ruler = document.createElement("hr");
 	title.setAttribute("contenteditable", true);
 	title.style.padding = "4px";
 	title.style.fontSize = "180%";
 	title.style.fontWeight = "bold";
-	title.innerHTML = "";
+	title.style.textTransform = "uppercase";
+	title.style.width = "95%";
+	title.style.color = "grey";
+	title.innerHTML = "TÊN MỤC";
+	title.setAttribute("spellcheck", "false");
+
+	ruler.style.color = "black";
+	ruler.style.borderColor = "black";
+	ruler.style.backgroundColor = "black";
+	titleDiscription.style.padding = "5px";
+	titleDiscription.style.marginTop = "10px";
+	titleDiscription.contentEditable = "true";
+	titleDiscription.style.width = "95%";
+	titleDiscription.innerHTML = "Mô tả";
+	titleDiscription.style.color = "grey";
+	titleDiscription.setAttribute("spellcheck", "false");
+	titleDiscription.setAttribute("class", "titleDiscription");
 	bigDiv.appendChild(wrapDiv);
+	deleteButtonFunction(wrapDiv);
 	wrapDiv.appendChild(title);
+	wrapDiv.appendChild(ruler);
+	wrapDiv.appendChild(titleDiscription);
 }
+document
+	.getElementById("divOfAddIndex")
+	.addEventListener("focusin", function (e) {
+		if (e.target.innerHTML === "TÊN MỤC" || e.target.innerHTML === "Mô tả") {
+			e.target.innerHTML = "";
+			e.target.style.color = "black";
+		}
+	});
+document
+	.getElementById("divOfAddIndex")
+	.addEventListener("focusout", function (e) {
+		if (
+			e.target.innerHTML === "" &&
+			e.target.getAttribute("class") === "titleDiscription"
+		) {
+			e.target.innerHTML = "Mô tả";
+			e.target.style.color = "grey";
+		} else if (e.target.innerHTML === "") {
+			e.target.innerHTML = "TÊN MỤC";
+			e.target.style.color = "grey";
+		}
+	});
 //                                phan download CV 👆
 
 //                                khoa 👇
@@ -574,8 +644,8 @@ document.getElementById("files").onchange = function () {
 	// read the image file as a data URL.
 	reader.readAsDataURL(this.files[0]);
 };
-
-document.querySelectorAll(".ava")[1].onclick = function () {
+var avatarCVs = document.querySelectorAll(".ava");
+avatarCVs[sttCV].onclick = function () {
 	document.getElementById("OCModal").classList.add("OpenModal");
 };
 document.getElementById("js-closeModalAva").onclick = function () {
@@ -599,8 +669,10 @@ function addFile() {
 	src = saveFile;
 	saveFile = [];
 	console.log(src);
-	document.querySelectorAll(".ava")[1].src = src;
-	document.querySelectorAll(".ava")[1].style.border = "1px solid black";
+	avatarCVs[sttCV].src = src;
+	if (sttCV == 1) {
+		avatarCVs[sttCV].style.border = "1px solid black";
+	}
 	document.getElementById("OCModal").classList.remove("OpenModal");
 	document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
 	document.getElementById("files").value = "";
@@ -833,13 +905,17 @@ function save() {
 		"right color",
 		window.getComputedStyle(document.querySelector(".rightCV")).backgroundColor
 	);
+	localStorage.setItem(
+		"another information",
+		document.querySelector("#thongtinkhac").outerHTML
+	);
 	localStorage.setItem("lock load", "false");
 	document.querySelector("#save i").style.animation = "saved 1s linear 1";
 	setTimeout(function () {
 		document.querySelector("#save i").style.animation = "none";
 	}, 1000);
 }
-
+console.log(document.querySelector("#thongtinkhac"));
 function load() {
 	if (localStorage.getItem("lock load") === "false") {
 		document.getElementById("load").style.cursor = "pointer";
@@ -867,6 +943,9 @@ function load() {
 			localStorage.getItem("title");
 		document.querySelector('div[key="subTitle"]').outerHTML =
 			localStorage.getItem("sub title");
+		document.querySelector("#thongtinkhac").outerHTML = localStorage.getItem(
+			"another information"
+		);
 		document.querySelectorAll(".headleftCV")[0].style.backgroundColor =
 			localStorage.getItem("header left color");
 		document.querySelectorAll(".headleftCV")[1].style.backgroundColor =
@@ -903,14 +982,14 @@ function load() {
 // 	saveValue = document.getElementById("saveField").value;
 // 	localStorage.setItem("saveValue", saveValue);
 // }
+var trynenphai = 0,
+	trynentrai = 0,
+	tryneninfo = 0,
+	trytitle = 0;
+let sectionInfoTitle = document.querySelectorAll(
+	".sectionInfoTitle.miniSectionInfoTitle"
+);
 function chinhnenCV1() {
-	var trynenphai = 0,
-		trynentrai = 0,
-		tryneninfo = 0,
-		trytitle = 0;
-	let sectionInfoTitle = document.querySelectorAll(
-		".sectionInfoTitle.miniSectionInfoTitle"
-	);
 	document.getElementById("miniHeadleftCV_js").onclick = function () {
 		setTimeout(function () {
 			document.getElementById("miniHeadleftCV_js").style.border =
@@ -1031,3 +1110,4 @@ function chinhnenCV1() {
 		});
 	};
 }
+chinhnenCV1();
