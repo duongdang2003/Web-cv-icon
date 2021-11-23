@@ -1243,7 +1243,22 @@ document.getElementById("download").onclick = function () {
     let stringClassCV = ".CV";
     download(stringClassCV);
   } else if (sttCV == 1) {
-    let stringClassCV = ".CV2.main";
-    download(stringClassCV);
+	rootStyle.setProperty("--pseudo-TBLR", "-27px");
+	rootStyle.setProperty("--pseudo-degreeB", "42deg");
+	rootStyle.setProperty("--pseudo-degreeA", "38deg");
+	rootStyle.setProperty("--pseudo-B2", "-30px");
+	rootStyle.setProperty("--pseudo-L2", "-28px");
+
+	setTimeout(() => {
+		let stringClassCV = ".CV2.main";
+		download(stringClassCV);
+	}, 50);
+	setTimeout(() => {
+		rootStyle.setProperty("--pseudo-TBLR", "-26px");
+		rootStyle.setProperty("--pseudo-degreeB", "46deg");
+		rootStyle.setProperty("--pseudo-degreeA", "47deg");
+		rootStyle.setProperty("--pseudo-B2", "-26px");
+		rootStyle.setProperty("--pseudo-L2", "-26px");
+	}, 100);
   }
 };
