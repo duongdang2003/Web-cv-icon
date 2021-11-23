@@ -40,9 +40,9 @@ body .body .miniCV{
 	/* grid-template-columns: 35% 65%; */
 	/* grid-template-columns: [first] 35% [line2] 65%[end]; */
 }
-body .body .miniCV1{
+/* body .body .miniCV1{
 	display:none;
-}
+} */
 #editColorBackground{
 	flex: 1;
 }
