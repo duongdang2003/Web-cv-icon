@@ -569,8 +569,8 @@ document.getElementById("files").onchange = function () {
   reader.readAsDataURL(this.files[0]);
 };
 var avatarCVs = document.querySelectorAll(".ava");
-themHinhAnhNhieuCV()
-function themHinhAnhNhieuCV(){
+themHinhAnhNhieuCV(sttCV)
+function themHinhAnhNhieuCV(sttCV) {
 	avatarCVs[sttCV].onclick = function () {
 		document.getElementById("OCModal").classList.add("OpenModal");
 	  };
@@ -1207,28 +1207,32 @@ function chinhnenCV2() {
 function chuyenCV() {
   document.getElementById("CVchung").onclick = function () {
     sttCV = 0;
-    kiemtraSTTCV();
+    setTimeout(function () {
+		kiemtraSTTCV();
+	},100)
   };
   document.getElementById("CVKTCN").onclick = function () {
     sttCV = 1;
-    kiemtraSTTCV();
+    setTimeout(function () {
+		kiemtraSTTCV();
+	},100)
   };
 }
 function kiemtraSTTCV() {
   if (sttCV == 0) {
-    document.querySelector(".CV").style.display = "block";
+    document.querySelector(".CV").classList.remove("closeCV2");
     document.querySelector(".CV2.main").classList.add("closeCV2");
     document.querySelector(".miniCV2").classList.add("closeCV2");
-    document.querySelector(".miniCV1").style.display = "block";
+    document.querySelector(".miniCV1").classList.remove("closeCV2");
 	chinhnenCV1();
-	themHinhAnhNhieuCV()
+	themHinhAnhNhieuCV(sttCV)
   } else if (sttCV == 1) {
-	document.querySelector(".CV2.main").style.display = "block";
+	document.querySelector(".CV2.main").classList.remove("closeCV2");
     document.querySelector(".CV").classList.add("closeCV2");
     document.querySelector(".miniCV1").classList.add("closeCV2");
-    document.querySelector(".miniCV2").style.display = "block";
+    document.querySelector(".miniCV2").classList.remove("closeCV2");
 	chinhnenCV2();
-	themHinhAnhNhieuCV()
+	themHinhAnhNhieuCV(sttCV)
   }
 }
 chinhnenCV1();
