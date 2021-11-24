@@ -7,7 +7,7 @@
 	/* right: 0; */
 	box-shadow: 8px 8px 15px rgb(53, 53, 53);
 	background-color: white;
-	/* display:none; */
+	/* display: none; */
 }
 .wrapCanvas {
 	display: grid;
