@@ -5,7 +5,7 @@ let dynamicAlignRight = document.getElementById("dynamicAlignRight");
 let dynamicAlignCenter = document.getElementById("dynamicAlignCenter");
 let dynamicAlignLeft = document.getElementById("dynamicAlignRight");
 let alignSection = document.getElementById("align");
-let sttCV = 2; // xem coi qua CV mấy
+let sttCV = 1; // xem coi qua CV mấy
 
 // Download
 function download() {
@@ -312,10 +312,10 @@ alignSection.addEventListener("click", function (e) {
 		}
 	}
 });
-
 // ADD SKILL
 let skillCount = 0;
-let skill = document.querySelector("#kiNang");
+let skill =
+	document.querySelectorAll('div[name="kiNang"]')[parseInt(sttCV) - 1];
 let skillButton = document.querySelector("#addSkill");
 let nothing = document.querySelector("#nothing");
 skill.addEventListener("mouseover", function () {
@@ -395,11 +395,11 @@ function addSkill() {
 let socialNetwork = document.querySelector("#socialNetwork");
 socialNetwork.addEventListener("mouseover", function () {
 	document.querySelector("#socialNetwork #addButton").style.display = "block";
+	console.log("excuted");
 });
 socialNetwork.addEventListener("mouseout", function () {
 	document.querySelector("#socialNetwork #addButton").style.display = "none";
 });
-
 function addSocialNetwork() {
 	let wrapDiv = document.createElement("div");
 	let icon = document.createElement("div");
@@ -430,86 +430,93 @@ function addSocialNetwork() {
 	socialNetworkLink.setAttribute("spellcheck", "false");
 	socialNetworkLink.setAttribute("class", "test");
 	socialNetworkLink.style.width = "70%";
-	document.getElementById("mangxahoi").appendChild(wrapDiv);
+	document
+		.querySelectorAll(".mangxahoi")
+		[parseInt(sttCV) - 1].appendChild(wrapDiv);
 	wrapDiv.appendChild(icon);
 	wrapDiv.appendChild(socialNetworkLink);
 }
-document.getElementById("mangxahoi").addEventListener("click", function () {
-	if (
-		activeElement.innerHTML === "Tên MXH" ||
-		activeElement.innerHTML === "Link"
-	) {
-		activeElement.innerHTML = "";
-		activeElement.style.color = "white";
-	}
-});
-document.getElementById("mangxahoi").addEventListener("focusout", function () {
-	if (
-		activeElement.innerHTML === "" &&
-		activeElement.getAttribute("name") === "iconSocialNetwork"
-	) {
-		activeElement.innerHTML = "Tên MXH";
-		activeElement.style.color = "grey";
-	}
-	if (
-		activeElement.innerHTML === "" &&
-		activeElement.getAttribute("name") === "socialNetworkLink"
-	) {
-		activeElement.innerHTML = "Link";
-		activeElement.style.color = "grey";
-	}
-	if (
-		activeElement.getAttribute("name") === "iconSocialNetwork" &&
-		activeElement.innerHTML != ""
-	) {
-		value = activeElement.innerHTML;
-		activeElement.style.color = "white";
-
-		switch (value) {
-			case "Facebook":
-			case "facebook":
-				activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
-				activeElement.style.fontSize = "20px";
-				break;
-			case "Instagram":
-			case "instagram":
-				activeElement.innerHTML = `<i class="fab fa-instagram"></i>`;
-				activeElement.style.fontSize = "20px";
-				break;
-			case "Github":
-			case "github":
-				activeElement.innerHTML = `<i class="fab fa-github"></i>`;
-				activeElement.style.fontSize = "20px";
-				break;
-			case "Twitter":
-			case "twitter":
-				activeElement.innerHTML = `<i class="fab fa-twitter"></i>`;
-				activeElement.style.fontSize = "20px";
-				break;
-			case "Linkedin":
-			case "linkedin":
-				activeElement.innerHTML = `<i class="fab fa-linkedin-in"></i>`;
-				activeElement.style.fontSize = "20px";
-				break;
-			case "Youtube":
-			case "youtube":
-				activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
-				activeElement.style.fontSize = "20px";
-				break;
-			default:
-				activeElement.innerHTML = `<i class="fas fa-link"></i>`;
-				activeElement.style.fontSize = "20px";
-				break;
+document
+	.querySelectorAll(".mangxahoi")
+	[parseInt(sttCV) - 1].addEventListener("click", function () {
+		if (
+			activeElement.innerHTML === "Tên MXH" ||
+			activeElement.innerHTML === "Link"
+		) {
+			activeElement.innerHTML = "";
+			activeElement.style.color = "white";
 		}
-	}
-});
+	});
+document
+	.querySelectorAll(".mangxahoi")
+	[parseInt(sttCV) - 1].addEventListener("focusout", function () {
+		if (
+			activeElement.innerHTML === "" &&
+			activeElement.getAttribute("name") === "iconSocialNetwork"
+		) {
+			activeElement.innerHTML = "Tên MXH";
+			activeElement.style.color = "grey";
+		}
+		if (
+			activeElement.innerHTML === "" &&
+			activeElement.getAttribute("name") === "socialNetworkLink"
+		) {
+			activeElement.innerHTML = "Link";
+			activeElement.style.color = "grey";
+		}
+		if (
+			activeElement.getAttribute("name") === "iconSocialNetwork" &&
+			activeElement.innerHTML != ""
+		) {
+			value = activeElement.innerHTML;
+			activeElement.style.color = "white";
 
+			switch (value) {
+				case "Facebook":
+				case "facebook":
+					activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Instagram":
+				case "instagram":
+					activeElement.innerHTML = `<i class="fab fa-instagram"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Github":
+				case "github":
+					activeElement.innerHTML = `<i class="fab fa-github"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Twitter":
+				case "twitter":
+					activeElement.innerHTML = `<i class="fab fa-twitter"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Linkedin":
+				case "linkedin":
+					activeElement.innerHTML = `<i class="fab fa-linkedin-in"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Youtube":
+				case "youtube":
+					activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				default:
+					activeElement.innerHTML = `<i class="fas fa-link"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+			}
+		}
+	});
 function addAnotherInfor() {
 	let wrapDiv = document.createElement("div");
 	wrapDiv.style.marginTop = "10px";
 	wrapDiv.setAttribute("id", "test2");
 	wrapDiv.style.border = "1px solid transparent";
-	document.getElementById("thongtinkhac").appendChild(wrapDiv);
+	document
+		.querySelectorAll(".thongtinkhac")
+		[parseInt(sttCV) - 1].appendChild(wrapDiv);
 	let titleAI = document.createElement("div");
 	let detail = document.createElement("div");
 
@@ -549,8 +556,8 @@ function addAnotherInfor() {
 	deleteButtonFunction(wrapDiv);
 }
 document
-	.getElementById("thongtinkhac")
-	.addEventListener("focusin", function (e) {
+	.querySelectorAll(".thongtinkhac")
+	[parseInt(sttCV) - 1].addEventListener("focusin", function (e) {
 		if (
 			e.target.innerHTML === "Tiêu đề thông tin" ||
 			e.target.innerHTML === "Chi tiết"
@@ -560,8 +567,8 @@ document
 		}
 	});
 document
-	.getElementById("thongtinkhac")
-	.addEventListener("focusout", function (e) {
+	.querySelectorAll(".thongtinkhac")
+	[parseInt(sttCV) - 1].addEventListener("focusout", function (e) {
 		if (
 			e.target.innerHTML === "" &&
 			e.target.getAttribute("class") === "titleAI"
@@ -574,7 +581,7 @@ document
 		}
 	});
 function addIndex() {
-	let bigDiv = document.getElementById("divOfAddIndex");
+	let bigDiv = document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV) - 1];
 	let wrapDiv = document.createElement("div");
 	let title = document.createElement("div");
 	let titleDiscription = document.createElement("div");
@@ -607,16 +614,16 @@ function addIndex() {
 	wrapDiv.appendChild(titleDiscription);
 }
 document
-	.getElementById("divOfAddIndex")
-	.addEventListener("focusin", function (e) {
+	.querySelectorAll(".divOfAddIndex")
+	[parseInt(sttCV) - 1].addEventListener("focusin", function (e) {
 		if (e.target.innerHTML === "TÊN MỤC" || e.target.innerHTML === "Mô tả") {
 			e.target.innerHTML = "";
 			e.target.style.color = "black";
 		}
 	});
 document
-	.getElementById("divOfAddIndex")
-	.addEventListener("focusout", function (e) {
+	.querySelectorAll(".divOfAddIndex")
+	[parseInt(sttCV) - 1].addEventListener("focusout", function (e) {
 		if (
 			e.target.innerHTML === "" &&
 			e.target.getAttribute("class") === "titleDiscription"
@@ -671,7 +678,7 @@ function addFile() {
 	console.log(src);
 	avatarCVs[sttCV].src = src;
 	if (sttCV == 1) {
-		avatarCVs[sttCV].style.border = "1px solid black";
+		avatarCVs[sttCV].style.border = "none";
 	}
 	document.getElementById("OCModal").classList.remove("OpenModal");
 	document.getElementById("imageCV").src = "./Images/no_avatar.jpg";
@@ -838,7 +845,7 @@ document.getElementById("status").addEventListener("click", function (e) {
 		}
 	});
 });
-
+console.log(document.querySelectorAll('div[key="education"]'));
 function save() {
 	localStorage.setItem(
 		"education",
@@ -907,7 +914,7 @@ function save() {
 	);
 	localStorage.setItem(
 		"another information",
-		document.querySelector("#thongtinkhac").outerHTML
+		document.querySelectorAll(".thongtinkhac")[parseInt(sttCV) - 1].outerHTML
 	);
 	localStorage.setItem("lock load", "false");
 	document.querySelector("#save i").style.animation = "saved 1s linear 1";
@@ -915,7 +922,6 @@ function save() {
 		document.querySelector("#save i").style.animation = "none";
 	}, 1000);
 }
-console.log(document.querySelector("#thongtinkhac"));
 function load() {
 	if (localStorage.getItem("lock load") === "false") {
 		document.getElementById("load").style.cursor = "pointer";
@@ -943,9 +949,8 @@ function load() {
 			localStorage.getItem("title");
 		document.querySelector('div[key="subTitle"]').outerHTML =
 			localStorage.getItem("sub title");
-		document.querySelector("#thongtinkhac").outerHTML = localStorage.getItem(
-			"another information"
-		);
+		document.querySelectorAll(".thongtinkhac")[parseInt(sttCV) - 1].outerHTML =
+			localStorage.getItem("another information");
 		document.querySelectorAll(".headleftCV")[0].style.backgroundColor =
 			localStorage.getItem("header left color");
 		document.querySelectorAll(".headleftCV")[1].style.backgroundColor =
@@ -1110,4 +1115,158 @@ function chinhnenCV1() {
 		});
 	};
 }
-chinhnenCV1();
+//                                  chinh nen CV 2
+function chinhnenCV2() {
+	document.getElementById("miniHeadleftCV2_js").onclick = function () {
+		setTimeout(function () {
+			document.getElementById("miniHeadleftCV2_js").style.border =
+				"8px dashed #02ebfc";
+			document
+				.querySelectorAll(".miniCV2 .titleLeftCVsection h3")
+				.forEach(function (a) {
+					a.style.border = "8px dashed #02ebfc";
+				});
+			document.getElementById("MiniRightCV2_js").style.border = "none";
+			document.getElementById("miniLeftCV2_js").style.border = "none";
+			document.querySelector(".miniCV2 .Miniava").style.border =
+				"3px solid #2ccdd7";
+			document.querySelector(".miniCV2 #thongTin").style.border =
+				"3px solid #2ccdd7";
+			document
+				.querySelectorAll(".miniCV2 .sectionTitleBodyLeftCV hr")
+				.forEach(function (a) {
+					a.style.border = "1px solid #2ccdd7";
+				});
+			document.querySelectorAll(".miniCV2 .dotLeftCV2").forEach(function (a) {
+				a.style.backgroundColor = "#2ccdd7";
+			});
+			trytitle = 1;
+			trynenphai = 0;
+			trynentrai = 0;
+			tryneninfo = 0;
+		}, 100);
+	};
+	document.getElementById("MiniRightCV2_js").onclick = function () {
+		document.getElementById("MiniRightCV2_js").style.border = "8px dashed red";
+		document
+			.querySelectorAll(".miniCV2 .titleLeftCVsection h3")
+			.forEach(function (a) {
+				a.style.border = "none";
+				a.style.borderLeft = "3px solid #2ccdd7";
+			});
+		document.getElementById("miniHeadleftCV2_js").style.border = "none";
+		document.getElementById("miniLeftCV2_js").style.border = "none";
+		document.querySelector(".miniCV2 .Miniava").style.border =
+			"3px solid #2ccdd7";
+		document.querySelector(".miniCV2 #thongTin").style.border =
+			"3px solid #2ccdd7";
+		document
+			.querySelectorAll(".miniCV2 .sectionTitleBodyLeftCV hr")
+			.forEach(function (a) {
+				a.style.border = "1px solid #2ccdd7";
+			});
+		document.querySelectorAll(".miniCV2 .dotLeftCV2").forEach(function (a) {
+			a.style.backgroundColor = "#2ccdd7";
+		});
+		trytitle = 0;
+		trynenphai = 1;
+		trynentrai = 0;
+		tryneninfo = 0;
+	};
+	document.getElementById("miniLeftCV2_js").onclick = function (e) {
+		if (e.target == document.querySelector(".miniCV2 .Miniava")) {
+			// setTimeout(function () {
+			document.querySelector(".miniCV2 .Miniava").style.border =
+				"8px dashed rgb(255, 0, 0)";
+			document
+				.querySelectorAll(".miniCV2 .titleLeftCVsection h3")
+				.forEach(function (a) {
+					a.style.border = "none";
+					a.style.borderLeft = "8px dashed rgb(255, 0, 0)";
+				});
+			document.querySelector(".miniCV2 #thongTin").style.border =
+				"8px solid rgb(255, 0, 0)";
+			document.querySelectorAll(".miniCV2 .dotLeftCV2").forEach(function (a) {
+				a.style.backgroundColor = "rgb(255, 0, 0)";
+			});
+			document.querySelectorAll(".miniCV2 hr").forEach(function (a) {
+				a.style.border = "4px dashed rgb(255, 0, 0)";
+				a.style.backgroundColor = "transparent";
+			});
+			document.getElementById("miniHeadleftCV2_js").style.border = "none";
+			document.getElementById("MiniRightCV2_js").style.border = "none";
+			document.getElementById("miniLeftCV2_js").style.border = "none";
+
+			trytitle = 0;
+			trynenphai = 0;
+			trynentrai = 0;
+			tryneninfo = 1;
+			// },100)
+		} else {
+			document.getElementById("miniLeftCV2_js").style.border =
+				"8px dashed rgb(0, 255, 0)";
+			document
+				.querySelectorAll(".miniCV2 .titleLeftCVsection h3")
+				.forEach(function (a) {
+					a.style.border = "none";
+					a.style.borderLeft = "3px solid #2ccdd7";
+				});
+			document.getElementById("miniHeadleftCV2_js").style.border = "none";
+			document.getElementById("MiniRightCV2_js").style.border = "none";
+			document.querySelector(".miniCV2 .Miniava").style.border =
+				"3px solid #2ccdd7";
+			document.querySelector(".miniCV2 #thongTin").style.border =
+				"3px solid #2ccdd7";
+			document
+				.querySelectorAll(".miniCV2 .sectionTitleBodyLeftCV hr")
+				.forEach(function (a) {
+					a.style.border = "1px solid #2ccdd7";
+				});
+			document.querySelectorAll(".miniCV2 .dotLeftCV2").forEach(function (a) {
+				a.style.backgroundColor = "#2ccdd7";
+			});
+			trytitle = 0;
+			trynenphai = 0;
+			trynentrai = 1;
+			tryneninfo = 0;
+		}
+	};
+
+	document.querySelector(".miniFlexBasicColor").onclick = function (e) {
+		document.querySelectorAll(".sectionBasicColors2").forEach(function (val) {
+			if (val == e.target) {
+				if (trynenphai == 1) {
+					document.querySelectorAll(".rightCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (trynentrai == 1) {
+					document.querySelectorAll(".leftCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (tryneninfo == 1) {
+					document.querySelectorAll(".sectionInfoTitle").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+				} else if (trytitle == 1) {
+					document.querySelectorAll(".headleftCV").forEach(function (a) {
+						a.style.backgroundColor = val.getAttribute("value");
+					});
+					document
+						.querySelectorAll(".titleLeftCVsection hr")
+						.forEach(function (a) {
+							a.style.borderColor = val.getAttribute("value");
+							rootStyle.setProperty(
+								"--pseudo-color",
+								val.getAttribute("value")
+							);
+						});
+				}
+			}
+		});
+	};
+}
+if (sttCV == 0) {
+	chinhnenCV1();
+} else if (sttCV == 1) {
+	chinhnenCV2();
+}
