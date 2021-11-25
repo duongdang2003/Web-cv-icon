@@ -158,7 +158,7 @@
 					</div>
 					<div id="language" onclick="addIndex()" style="user-select: none">
 						Thêm mục
-						<i class="fas fa-plus-circle"></i>
+						<i class="fas fa-plus-circle"> </i>
 					</div>
 					<div id="project" style="user-select: none">
 						Mạng xã hội
@@ -279,7 +279,7 @@
 													<h3>Học vấn</h3>
 												</div>
 											</div>
-											<div class="sectionTitleLeftCV1" id="chungChi">
+											<div class="sectionTitleLeftCV1">
 												<div class="titleLeftCVsection">
 													<h3>Chứng chỉ</h3>
 												</div>
@@ -565,16 +565,20 @@
 									></div>
 								</div>
 							</div>
-							<div class="sectionTitleLeftCV1" id="chungChi">
+							<div class="sectionTitleLeftCV1" name="chungChi">
 								<div class="titleLeftCVsection">
 									<h3>Chứng chỉ</h3>
 									<hr />
+								</div>
+								<div key="certificate">
+									<div class="certificate"></div>
 									<div
-										spellcheck="false"
-										class="editableDiv2"
-										contenteditable="true"
-										key="certificate"
-									></div>
+										id="addButton"
+										style="color: white; border: 1px solid white"
+										onclick="addCertificate()"
+									>
+										+
+									</div>
 								</div>
 							</div>
 							<div class="sectionTitleLeftCV1" name="kiNang">
@@ -722,7 +726,7 @@
 										key="activity"
 									></div>
 								</div>
-								<div class="divOfAddIndex"></div>
+								<div class="divOfAddIndex" key="divOfAddIndex"></div>
 								<!-- khoa đưa đăng thẻ div bao mấy thẻ con động-->
 								<div class="sectionBodyLeftCV">
 									<div class="sectionTitleBodyLeftCV">
@@ -752,15 +756,12 @@
 									></div>
 								</div>
 							</div>
-							<div class="sectionTitleLeftCV1" id="chungChi">
+							<div class="sectionTitleLeftCV1" name="chungChi">
 								<div class="titleLeftCVsection">
 									<h3>Chứng chỉ</h3>
-									<div
-										spellcheck="false"
-										class="editableDiv2"
-										contenteditable="true"
-										key="certificate"
-									></div>
+									<div key="certificate">
+										<div class="certificate"></div>
+									</div>
 								</div>
 							</div>
 							<div class="sectionTitleLeftCV1" name="kiNang">
@@ -918,7 +919,7 @@
 										key="activity"
 									></div>
 								</div>
-								<div class="divOfAddIndex"></div>
+								<div class="divOfAddIndex" key="divOfAddIndex"></div>
 								<!-- khoa đưa đăng thẻ div bao mấy thẻ con động-->
 								<div class="sectionBodyLeftCV">
 									<div class="sectionTitleBodyLeftCV">

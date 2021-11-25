@@ -3,6 +3,13 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+:root {
+	--calendar-color: invert(100%);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: var(--calendar-color);
 }
 html,
 body {

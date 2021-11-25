@@ -179,6 +179,7 @@ setInterval(() => {
 		page++;
 	}
 }, 100);
+
 function isOverlap(el) {}
 //SETTING
 // align
@@ -233,7 +234,7 @@ setInterval(() => {
 		activeElementContainNull = null;
 	}
 	if (
-		activeElement.getAttribute("class") !== "" ||
+		activeElement.getAttribute("class") !== "" &&
 		activeElement.getAttribute("class") !== null
 	) {
 		textStatus = activeElement.getAttribute("class");
@@ -316,6 +317,7 @@ alignSection.addEventListener("click", function (e) {
 		}
 	}
 });
+
 // ADD SKILL
 console.log(document.querySelectorAll('div[name="kiNang"]')[parseInt(sttCV)]);
 let skillCount = 0;
@@ -588,6 +590,7 @@ function addIndex() {
 	let title = document.createElement("div");
 	let titleDiscription = document.createElement("div");
 	let ruler = document.createElement("hr");
+	wrapDiv.style.marginBottom = "30px";
 	title.setAttribute("contenteditable", true);
 	title.style.padding = "4px";
 	title.style.fontSize = "180%";
@@ -614,6 +617,7 @@ function addIndex() {
 	wrapDiv.appendChild(title);
 	wrapDiv.appendChild(ruler);
 	wrapDiv.appendChild(titleDiscription);
+	document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV)].scrollIntoView();
 }
 document
 	.querySelectorAll(".divOfAddIndex")
@@ -637,6 +641,100 @@ document
 			e.target.style.color = "grey";
 		}
 	});
+
+document
+	.querySelectorAll('div[name="chungChi"]')
+	[parseInt(sttCV)].addEventListener("mouseover", function () {
+		document.querySelectorAll('div[key="certificate"] #addButton')[
+			parseInt(sttCV)
+		].style.display = "block";
+	});
+document
+	.querySelectorAll('div[name="chungChi"]')
+	[parseInt(sttCV)].addEventListener("mouseout", function () {
+		document.querySelectorAll('div[key="certificate"] #addButton')[
+			parseInt(sttCV)
+		].style.display = "none";
+	});
+
+// Add certificate
+
+function addCertificate() {
+	let wrapDiv = document.createElement("div");
+	let certificateName = document.createElement("div");
+	let labelFrom = document.createElement("div");
+	let fromDate = document.createElement("input");
+	let labelTo = document.createElement("div");
+	let toDate = document.createElement("input");
+	let fromWrapper = document.createElement("div");
+	let toWrapper = document.createElement("div");
+
+	wrapDiv.style.marginTop = "10px";
+	wrapDiv.style.marginBottom = "10px";
+	wrapDiv.style.border = "1px solid transparent";
+	certificateName.contentEditable = "true";
+	certificateName.style.width = "90%";
+	certificateName.style.color = "grey";
+	certificateName.spellcheck = "false";
+	certificateName.style.padding = "5px";
+	certificateName.setAttribute("spellcheck", "false");
+	certificateName.innerHTML = "Tên chứng chỉ";
+
+	labelFrom.innerHTML = "Từ";
+	labelFrom.style.color = "grey";
+	labelFrom.style.marginRight = "10px";
+	labelFrom.style.width = "30px";
+	fromWrapper.style.alignItems = "center";
+	fromWrapper.style.justifyContent = "center";
+	fromWrapper.style.marginBottom = "5px";
+
+	fromDate.type = "date";
+	fromDate.style.backgroundColor = "transparent";
+	fromDate.style.color = "white";
+	fromDate.style.padding = "5px";
+	toWrapper.style.alignItems = "center";
+	toWrapper.style.justifyContent = "center";
+	toWrapper.style.marginLeft = "1px";
+	labelTo.innerHTML = "Đến";
+	labelTo.style.color = "grey";
+	labelTo.style.marginRight = "10px";
+	toDate.type = "date";
+	toDate.style.backgroundColor = "transparent";
+	toDate.style.color = "white";
+	toDate.style.padding = "5px";
+	fromWrapper.style.display = "flex";
+	toWrapper.style.display = "flex";
+
+	document
+		.querySelectorAll(".certificate")
+		[parseInt(sttCV)].appendChild(wrapDiv);
+	wrapDiv.appendChild(certificateName);
+	wrapDiv.appendChild(fromWrapper);
+	fromWrapper.appendChild(labelFrom);
+	fromWrapper.appendChild(fromDate);
+	wrapDiv.appendChild(toWrapper);
+	toWrapper.appendChild(labelTo);
+	toWrapper.appendChild(toDate);
+	deleteButtonFunction(wrapDiv);
+	deleteButtonFunction(toWrapper);
+}
+document
+	.querySelectorAll(".certificate")
+	[parseInt(sttCV)].addEventListener("focusin", function (e) {
+		if (e.target.innerHTML === "Tên chứng chỉ") {
+			e.target.innerHTML = "";
+			e.target.style.color = "white";
+		}
+	});
+document
+	.querySelectorAll(".certificate")
+	[parseInt(sttCV)].addEventListener("focusout", function (e) {
+		if (e.target.innerHTML === "" && e.target.tagName !== "INPUT") {
+			e.target.innerHTML = "Tên chứng chỉ";
+			e.target.style.color = "grey";
+		}
+	});
+
 //                                phan download CV 👆
 
 //                                khoa 👇
@@ -844,59 +942,62 @@ document.getElementById("status").addEventListener("click", function (e) {
 		}
 	});
 });
-console.log(document.querySelectorAll('div[key="education"]'));
 function save() {
 	localStorage.setItem(
 		"education",
-		document.querySelector('div[key="education"]').outerHTML
+		document.querySelectorAll('div[key="education"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"certificate",
-		document.querySelector('div[key="certificate"]').outerHTML
+		document.querySelectorAll('div[key="certificate"]')[parseInt(sttCV)]
+			.outerHTML
 	);
 	localStorage.setItem(
 		"phone number",
-		document.querySelector('div[key="phoneNumber"]').outerHTML
+		document.querySelectorAll('div[key="phoneNumber"]')[parseInt(sttCV)]
+			.outerHTML
 	);
 	localStorage.setItem(
 		"email",
-		document.querySelector('div[key="email"]').outerHTML
+		document.querySelectorAll('div[key="email"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"address",
-		document.querySelector('div[key="address"]').outerHTML
+		document.querySelectorAll('div[key="address"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"purpose",
-		document.querySelector('div[key="purpose"]').outerHTML
+		document.querySelectorAll('div[key="purpose"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"experience",
-		document.querySelector('div[key="experience"]').outerHTML
+		document.querySelectorAll('div[key="experience"]')[parseInt(sttCV)]
+			.outerHTML
 	);
 	localStorage.setItem(
 		"activity",
-		document.querySelector('div[key="activity"]').outerHTML
+		document.querySelectorAll('div[key="activity"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"skill",
-		document.querySelector('span[key="skill"]').outerHTML
+		document.querySelectorAll('span[key="skill"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"social network",
-		document.querySelector('div[key="socialNetwork"]').outerHTML
+		document.querySelectorAll('div[key="socialNetwork"]')[parseInt(sttCV)]
+			.outerHTML
 	);
 	localStorage.setItem(
 		"project",
-		document.querySelector('div[key="project"]').outerHTML
+		document.querySelectorAll('div[key="project"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"title",
-		document.querySelector('div[key="title"]').outerHTML
+		document.querySelectorAll('div[key="title"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"sub title",
-		document.querySelector('div[key="subTitle"]').outerHTML
+		document.querySelectorAll('div[key="subTitle"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"header left color",
@@ -915,53 +1016,72 @@ function save() {
 		"another information",
 		document.querySelectorAll(".thongtinkhac")[parseInt(sttCV)].outerHTML
 	);
+	localStorage.setItem(
+		"new index",
+		document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV)].outerHTML
+	);
 	localStorage.setItem("lock load", "false");
 	document.querySelector("#save i").style.animation = "saved 1s linear 1";
 	setTimeout(function () {
 		document.querySelector("#save i").style.animation = "none";
 	}, 1000);
 }
+console.log(document.querySelectorAll(".headleftCV"));
 function load() {
 	if (localStorage.getItem("lock load") === "false") {
 		document.getElementById("load").style.cursor = "pointer";
-		document.querySelector('div[key="education"]').outerHTML =
-			localStorage.getItem("education");
-		document.querySelector('div[key="certificate"]').outerHTML =
-			localStorage.getItem("certificate");
-		document.querySelector('div[key="phoneNumber"]').outerHTML =
-			localStorage.getItem("phone number");
-		document.querySelector('div[key="email"]').outerHTML =
+		document.querySelectorAll('div[key="education"]')[
+			parseInt(sttCV)
+		].outerHTML = localStorage.getItem("education");
+		document.querySelectorAll('div[key="certificate"]')[
+			parseInt(sttCV)
+		].outerHTML = localStorage.getItem("certificate");
+		document.querySelectorAll('div[key="phoneNumber"]')[
+			parseInt(sttCV)
+		].outerHTML = localStorage.getItem("phone number");
+		document.querySelectorAll('div[key="email"]')[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("email");
-		document.querySelector('div[key="address"]').outerHTML =
+		document.querySelectorAll('div[key="address"]')[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("address");
-		document.querySelector('div[key="purpose"]').outerHTML =
+		document.querySelectorAll('div[key="purpose"]')[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("purpose");
-		document.querySelector('div[key="experience"]').outerHTML =
-			localStorage.getItem("experience");
-		document.querySelector('div[key="activity"]').outerHTML =
-			localStorage.getItem("activity");
-		document.querySelector('span[key="skill"]').outerHTML =
+		document.querySelectorAll('div[key="experience"]')[
+			parseInt(sttCV)
+		].outerHTML = localStorage.getItem("experience");
+		document.querySelectorAll('div[key="activity"]')[
+			parseInt(sttCV)
+		].outerHTML = localStorage.getItem("activity");
+		document.querySelectorAll('span[key="skill"]')[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("skill");
-		document.querySelector('div[key="project"]').outerHTML =
+		document.querySelectorAll('div[key="project"]')[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("project");
-		document.querySelector('div[key="title"]').outerHTML =
+		document.querySelectorAll('div[key="title"]')[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("title");
-		document.querySelector('div[key="subTitle"]').outerHTML =
-			localStorage.getItem("sub title");
+		document.querySelectorAll('div[key="subTitle"]')[
+			parseInt(sttCV)
+		].outerHTML = localStorage.getItem("sub title");
 		document.querySelectorAll(".thongtinkhac")[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("another information");
-		document.querySelectorAll(".headleftCV")[0].style.backgroundColor =
-			localStorage.getItem("header left color");
-		document.querySelectorAll(".headleftCV")[1].style.backgroundColor =
-			localStorage.getItem("header left color");
-		document.querySelectorAll(".leftCV")[0].style.backgroundColor =
-			localStorage.getItem("left color");
-		document.querySelectorAll(".leftCV")[1].style.backgroundColor =
-			localStorage.getItem("left color");
-		document.querySelectorAll(".rightCV")[0].style.backgroundColor =
-			localStorage.getItem("right color");
-		document.querySelectorAll(".rightCV")[1].style.backgroundColor =
-			localStorage.getItem("right color");
+		document.querySelectorAll(".headleftCV")[
+			parseInt(sttCV)
+		].style.backgroundColor = localStorage.getItem("header left color");
+		document.querySelectorAll(".headleftCV")[
+			parseInt(sttCV) + 2
+		].style.backgroundColor = localStorage.getItem("header left color");
+		document.querySelectorAll(".leftCV")[
+			parseInt(sttCV)
+		].style.backgroundColor = localStorage.getItem("left color");
+		document.querySelectorAll(".leftCV")[
+			parseInt(sttCV) + 2
+		].style.backgroundColor = localStorage.getItem("left color");
+		document.querySelectorAll(".rightCV")[
+			parseInt(sttCV)
+		].style.backgroundColor = localStorage.getItem("right color");
+		document.querySelectorAll(".rightCV")[
+			parseInt(sttCV) + 2
+		].style.backgroundColor = localStorage.getItem("right color");
+		document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV)].outerHTML =
+			localStorage.getItem("new index");
 		document.querySelector("#load i").style.animation = "load 1s linear 1";
 		setTimeout(function () {
 			document.querySelector("#load i").style.animation = "none";
@@ -970,7 +1090,6 @@ function load() {
 		document.getElementById("load").style.cursor = "not-allowed";
 	}
 }
-
 // setInterval(function () {
 // 	console.log(activeElement)
 // 	console.log(activeElementContainNull)
