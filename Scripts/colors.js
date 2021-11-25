@@ -108,17 +108,18 @@ pickr2.on('change', (color, source, instance) => {
 
       if (trynenphai ==1){
         document.querySelectorAll(".rightCV").forEach(function(a){
-          a.style.backgroundColor = color.toRGBA().toString();
+          rootStyle.setProperty("--color-rightCV", color.toRGBA().toString());
         })
       } else if (trynentrai ==1 ){
         document.querySelectorAll(".leftCV").forEach(function(a){
-          a.style.backgroundColor = color.toRGBA().toString();
+          rootStyle.setProperty("--color-leftCV", color.toRGBA().toString());
         })
       } else if (tryneninfo==1){
 
 				document.querySelectorAll(".CV2 hr").forEach(function (a){
 					a.style.borderColor = color.toRGBA().toString();
 					a.style.backgroundColor = color.toRGBA().toString();
+          rootStyle.setProperty("--peusdoColor-leftCVboder", color.toRGBA().toString());
 				})
         document.querySelector(".CV2 .ava").style.borderColor = color.toRGBA().toString();
         document.querySelector(".miniCV2 .Miniava").style.borderColor = color.toRGBA().toString();

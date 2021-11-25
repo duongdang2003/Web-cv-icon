@@ -37,8 +37,14 @@
 .Miniava:hover ~ .sectionTitleLeftCV1 h3{
     border-left: 3px dashed rgb(255, 0, 0) !important;
 }
-.Miniava:hover ~.wrapInfo #thongTin{
+.Miniava:hover ~.wrapInfo .thongTinCV2{
     border: 3px dashed rgb(255, 0, 0) !important;
+}
+.Miniava:hover ~.wrapInfo .thongTinCV2::after{
+    border-top: 4px dashed rgb(255, 0, 0) !important;
+}
+.Miniava:hover ~.wrapInfo .thongTinCV2::before{
+    border-bottom: 4px dashed rgb(255, 0, 0) !important;
 }
 .Miniava:hover ~.wrapInfo .dotLeftCV2{
     border: 3px dashed rgb(255, 0, 0) !important;

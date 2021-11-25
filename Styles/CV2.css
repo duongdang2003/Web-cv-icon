@@ -4,6 +4,9 @@
 	--pseudo-L2: -26px;
 	--pseudo-degreeB: 46deg;
 	--pseudo-degreeA: 47deg;
+	--color-rightCV: #262626;
+	--color-leftCV: #041818;
+	--peusdoColor-leftCVboder: #2ccdd7;
 }
 .body .CV2 {
 	width: 800px; /*cho gần đúng với tỉ lệ khi lưu về*/
@@ -27,7 +30,7 @@
 	overflow: hidden;
 }
 .CV2 .leftCV {
-	background-color: #041818;
+	background-color: var(--color-leftCV);
 }
 .CV2 .ava {
 	border: 3px solid #2ccdd7;
@@ -57,20 +60,20 @@
 	position: relative;
 	margin-bottom: 10px;
 }
-.CV2 #thongTin::before {
+.CV2 .sectionTitleLeftCV1.C2::before {
 	content: "";
-	background-color: #041818;
+	background-color: var(--color-leftCV);
 	position: absolute;
 	top: var(--pseudo-TBLR); /*26*/
 	right: var(--pseudo-TBLR); /*26*/
 	width: 45px;
 	height: 45px;
 	transform: rotateZ(var(--pseudo-degreeB)); /*46*/
-	border-bottom: 3px solid #2ccdd7;
+	border-bottom: 3px solid var(--peusdoColor-leftCVboder);
 	z-index: 3;
 }
-.CV2 #thongTin {
-	border: 3px solid #2ccdd7;
+.CV2 .sectionTitleLeftCV1.C2 {
+	border: 3px solid var(--peusdoColor-leftCVboder);
 	width: 220px;
 	margin-right: 4px;
 	/* min-height:100%; */
@@ -79,16 +82,16 @@
 	/* border-top-right-radius: 45px;
     border-bottom-left-radius: 45px; */
 }
-.CV2 #thongTin::after {
+.CV2 .sectionTitleLeftCV1.C2::after {
 	content: "";
-	background-color: #041818;
+	background-color: var(--color-leftCV);
 	position: absolute;
 	bottom: var(--pseudo-B2); /*26*/
 	left: var(--pseudo-L2); /*26*/
 	width: 45px;
 	height: 45px;
 	transform: rotateZ(var(--pseudo-degreeA)); /*47*/
-	border-top: 3px solid #2ccdd7;
+	border-top: 3px solid var(--peusdoColor-leftCVboder);
 	z-index: 3;
 }
 .CV2 .wrapDotCV2 {
@@ -101,14 +104,14 @@
 	right: 7px;
 }
 .CV2 .dotLeftCV2 {
-	background-color: #2ccdd7;
+	background-color: var(--peusdoColor-leftCVboder) !important;
 	width: 7px;
 	height: 7px;
 	margin: 7px 0px;
 	border-radius: 100%;
 }
 /*                             thong tin */
-.CV2 #thongTin .sectionInfo {
+.CV2 .sectionTitleLeftCV1.C2 .sectionInfo {
 	background-color: red;
 	background-color: transparent;
 	width: auto;
@@ -141,7 +144,7 @@
 
 /*                         Right CV2 */
 .CV2 .rightCV {
-	background-color: #262626;
+	background-color: var(--color-rightCV);
 	position: relative;
 	z-index: 10;
 }
@@ -181,7 +184,7 @@
 	align-items: center;
 }
 .CV2 .twoDotHead {
-	background-color: #2ccdd7;
+	background-color: var(--peusdoColor-leftCVboder);
 	width: 7px;
 	height: 7px;
 	margin: 0px 7px;
@@ -197,7 +200,7 @@
 	background-color: transparent;
 	right: 0;
 	bottom: 0;
-	border-top: 6px solid #262626;
+	border-top: 6px solid var(--color-rightCV);
 }
 .CV2 .trapezoid {
 	position: absolute;
@@ -206,7 +209,7 @@
 	background-color: transparent;
 	right: calc(3% - 5px);
 	bottom: 17%;
-	border-top: 6px solid #262626;
+	border-top: 6px solid var(--color-rightCV);
 	transform: rotateZ(-45deg);
 }
 .CV2 .rectangularSmall {
@@ -216,7 +219,7 @@
 	background-color: transparent;
 	right: calc(12% + 2px);
 	bottom: 0;
-	border-top: 6px solid #262626;
+	border-top: 6px solid var(--color-rightCV);
 }
 .CV2 .triangle {
 	position: absolute;
@@ -225,7 +228,7 @@
 	background-color: transparent;
 	right: calc(15% - 3px);
 	bottom: -6%;
-	border-top: 6px solid #262626;
+	border-top: 6px solid var(--color-rightCV);
 	transform: rotateZ(-45deg);
 }
 .CV2 .sectionTitleBodyLeftCV h1 {
