@@ -266,6 +266,10 @@ setInterval(() => {
 		.getComputedStyle(activeElement, null)
 		.getPropertyValue("font-size")
 		.replace("px", "");
+		dynamicSize = window
+		.getComputedStyle(activeElement, null)
+		.getPropertyValue("font-size")
+		.replace("px", "");
 	document.getElementById("seclectFont").value = window
 		.getComputedStyle(activeElement, null)
 		.getPropertyValue("font-family")
@@ -1212,20 +1216,20 @@ function chinhnenCV1() {
 		document.querySelectorAll(".sectionBasicColors2").forEach(function (val) {
 			if (val == e.target) {
 				if (trynenphai == 1) {
-					document.querySelectorAll(".rightCV").forEach(function (a) {
-						a.style.backgroundColor = val.getAttribute("value");
+					document.querySelectorAll(".rightCV").forEach(function (a,b) {
+					 if (b%2==0)	a.style.backgroundColor = val.getAttribute("value");
 					});
 				} else if (trynentrai == 1) {
-					document.querySelectorAll(".leftCV").forEach(function (a) {
-						a.style.backgroundColor = val.getAttribute("value");
+					document.querySelectorAll(".leftCV").forEach(function (a,b) {
+					 if (b%2==0)	a.style.backgroundColor = val.getAttribute("value");
 					});
 				} else if (tryneninfo == 1) {
-					document.querySelectorAll(".sectionInfoTitle").forEach(function (a) {
-						a.style.backgroundColor = val.getAttribute("value");
+					document.querySelectorAll(".sectionInfoTitle").forEach(function (a,b) {
+					 if (b%2==0)	a.style.backgroundColor = val.getAttribute("value");
 					});
 				} else if (trytitle == 1) {
-					document.querySelectorAll(".headleftCV").forEach(function (a) {
-						a.style.backgroundColor = val.getAttribute("value");
+					document.querySelectorAll(".headleftCV").forEach(function (a,b) {
+						if (b%2==0) a.style.backgroundColor = val.getAttribute("value");
 					});
 					document
 						.querySelectorAll(".titleLeftCVsection hr")
@@ -1363,18 +1367,18 @@ function chinhnenCV2() {
 		document.querySelectorAll(".sectionBasicColors2").forEach(function (val) {
 			if (val == e.target) {
 				if (trynenphai == 1) {
-					document.querySelectorAll(".rightCV").forEach(function (a) {
-						rootStyle.setProperty("--color-rightCV", val.getAttribute("value"));
+					document.querySelectorAll(".rightCV").forEach(function (a,b) {
+						if (b%2!=0) rootStyle.setProperty("--color-rightCV", val.getAttribute("value"));
 					});
 				} else if (trynentrai == 1) {
-					document.querySelectorAll(".leftCV").forEach(function (a) {
-		 	 			rootStyle.setProperty("--color-leftCV", val.getAttribute("value"));
+					document.querySelectorAll(".leftCV").forEach(function (a,b) {
+		 	 			if (b%2!=0) rootStyle.setProperty("--color-leftCV", val.getAttribute("value"));
 					});
 				} else if (tryneninfo == 1) {
 					rootStyle.setProperty("--peusdoColor-leftCVboder", val.getAttribute("value"));
-					document.querySelectorAll(".CV2 hr").forEach(function (a) {
+					document.querySelectorAll(".CV2 hr").forEach(function (a,b) {
 						a.style.borderColor = val.getAttribute("value");
-						a.style.backgroundColor = val.getAttribute("value");
+						if (b%2!=0) a.style.backgroundColor = val.getAttribute("value");
 					});
 					document.querySelector(".CV2 .ava").style.borderColor =
 						val.getAttribute("value");

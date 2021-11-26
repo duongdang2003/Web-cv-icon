@@ -30,7 +30,7 @@
 	overflow: hidden;
 }
 .CV2 .leftCV {
-	background-color: var(--color-leftCV);
+	background-color: var(--color-leftCV) !important;
 }
 .CV2 .ava {
 	border: 3px solid #2ccdd7;
@@ -126,7 +126,7 @@
 	text-align: left;
 	text-transform: uppercase;
 	padding: 6px 10px;
-	background-color: #333;
+	background-color: var(--color-leftCV) !important;
 	background-color: transparent;
 	position: relative;
 	color: #fff;
@@ -144,11 +144,11 @@
 
 /*                         Right CV2 */
 .CV2 .rightCV {
-	background-color: var(--color-rightCV);
+	background-color: var(--color-rightCV) !important;
 	position: relative;
 	z-index: 10;
 }
-.CV2 .headleftCV {
+body .CV2 .headleftCV {
 	width: 100%;
 	height: 15%;
 	background-color: #2f4e50;
