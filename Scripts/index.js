@@ -1450,6 +1450,7 @@ function kiemtraSTTCV() {
 		document.querySelector(".miniCV2").classList.remove("closeCV2");
 		chinhnenCV2();
 		themHinhAnhNhieuCV(sttCV);
+        // Bỏ hàm vào đây
 	}
 }
 chinhnenCV1();
