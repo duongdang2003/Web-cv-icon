@@ -195,7 +195,7 @@ setInterval(() => {
 		cv.appendChild(ruler);
 		page++;
 	}
-}, 100);
+}, 1000);
 
 //SETTING
 // align
@@ -1248,7 +1248,7 @@ function chinhnenCV1() {
 					});
 				} else if (tryneninfo == 1) {
 					document.querySelectorAll(".sectionInfoTitle").forEach(function (a,b) {
-					 if (b%2==0)	a.style.backgroundColor = val.getAttribute("value");
+					 	a.style.backgroundColor = val.getAttribute("value");
 					});
 				} else if (trytitle == 1) {
 					document.querySelectorAll(".headleftCV").forEach(function (a,b) {
@@ -1503,3 +1503,16 @@ document.getElementById("download").onclick = function () {
 		}, 100);
 	}
 };
+let tryUL=0,tryOL=0;
+document.getElementById("AddlistUl").onclick = () =>{
+	var stringUOL = activeElement.innerHTML;
+	var stringUOL2 = stringUOL.replace('div', 'li');
+	console.log(stringUOL2);
+	activeElement.innerHTML = stringUOL2;
+}
+document.getElementById("AddlistOl").onclick = () =>{
+	var stringUOL = activeElement.innerHTML;
+	var stringUOL2 = stringUOL.replace('div', 'lo');
+	console.log(stringUOL2);
+	activeElement.innerHTML = stringUOL2;
+}

@@ -243,7 +243,7 @@ body .CV2 .headleftCV {
 .hexagon {
 	width: 100px;
 	height: 55px;
-	background: #6b3030;
+	background: #555;
 	position: absolute;
 	bottom: 24px;
 	right: 1px;
@@ -258,7 +258,7 @@ body .CV2 .headleftCV {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-bottom: 25px solid #6b3030;
+	border-bottom: 25px solid #555;
 }
 .hexagon:after {
 	content: "";
@@ -269,12 +269,12 @@ body .CV2 .headleftCV {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-top: 25px solid #6b3030;
+	border-top: 25px solid #555;
 }
 .hexagon2 {
 	width: 100px;
 	height: 55px;
-	background: #2e6adac0;
+	background: rgb(1, 0, 34);
 	position: absolute;
 	bottom: 49px;
 	right: 48px;
@@ -289,7 +289,7 @@ body .CV2 .headleftCV {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-bottom: 25px solid #2e6adac0;
+	border-bottom: 25px solid rgb(1, 0, 34);
 }
 .hexagon2:after {
 	content: "";
@@ -300,12 +300,12 @@ body .CV2 .headleftCV {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-top: 25px solid #2e6adac0;
+	border-top: 25px solid rgb(1, 0, 34);
 }
 .hexagon3 {
 	width: 100px;
 	height: 55px;
-	background: #c0ca2ab6;
+	background: #000;
 	position: absolute;
 	bottom: 74px;
 	right: 1px;
@@ -320,7 +320,7 @@ body .CV2 .headleftCV {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-bottom: 25px solid #c0ca2ab6;
+	border-bottom: 25px solid #000;
 }
 .hexagon3:after {
 	content: "";
@@ -331,5 +331,5 @@ body .CV2 .headleftCV {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-top: 25px solid #c0ca2ab6;
+	border-top: 25px solid #000;
 }
