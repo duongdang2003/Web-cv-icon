@@ -127,6 +127,23 @@ function displayAvailable() {
 		availableDisplay = true;
 	}
 }
+// dipsplay cv background review
+function CvBackground() {
+	let available = document.querySelector("#Cv-background > div");
+	let arrowDown = document.querySelector("#Cv-background i:first-child");
+	let arrowUp = document.querySelector("#Cv-background i:nth-child(2)");
+	if (availableDisplay === true) {
+		available.style.display = "grid";
+		availableDisplay = false;
+		arrowUp.style.display = "block";
+		arrowDown.style.display = "none";
+	} else {
+		available.style.display = "none";
+		arrowUp.style.display = "none";
+		arrowDown.style.display = "block";
+		availableDisplay = true;
+	}
+}
 
 function deleteButtonFunction(a) {
 	let deleteButton = document.createElement("div");
@@ -180,7 +197,6 @@ setInterval(() => {
 	}
 }, 100);
 
-function isOverlap(el) {}
 //SETTING
 // align
 let activeElement = document.getElementById("socialNetwork");
@@ -319,7 +335,6 @@ alignSection.addEventListener("click", function (e) {
 });
 
 // ADD SKILL
-console.log(document.querySelectorAll('div[name="kiNang"]')[parseInt(sttCV)]);
 let skillCount = 0;
 let skill = document.querySelectorAll('div[name="kiNang"]')[parseInt(sttCV)];
 let skillButton = document.querySelector("#addSkill");
@@ -658,7 +673,15 @@ document
 	});
 
 // Add certificate
-
+function getOffset(el) {
+	const rect = el.getBoundingClientRect();
+	console.log(
+		"top = " + rect.top,
+		"left = " + rect.left,
+		"right = " + rect.right,
+		"bottom = " + rect.bottom
+	);
+}
 function addCertificate() {
 	let wrapDiv = document.createElement("div");
 	let certificateName = document.createElement("div");
@@ -668,7 +691,6 @@ function addCertificate() {
 	let toDate = document.createElement("input");
 	let fromWrapper = document.createElement("div");
 	let toWrapper = document.createElement("div");
-
 	wrapDiv.style.marginTop = "10px";
 	wrapDiv.style.marginBottom = "10px";
 	wrapDiv.style.border = "1px solid transparent";
@@ -734,7 +756,8 @@ document
 			e.target.style.color = "grey";
 		}
 	});
-
+getOffset(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
+console.log(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
 //                                phan download CV 👆
 
 //                                khoa 👇

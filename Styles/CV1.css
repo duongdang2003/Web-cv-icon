@@ -12,6 +12,8 @@
 .wrapCanvas {
 	display: grid;
 	grid-template-columns: 35% 65%;
+	/* background: url("https://files.fm/thumb_show.php?i=nu3gyhqu8");
+	background-size: cover; */
 }
 /* .body .CV img {
 	position: relative;
@@ -141,6 +143,10 @@
 	flex-direction: column;
 	align-items: center;
 	margin: 0;
+
+	background-color: rgba(255, 255, 255, 0.5);
+	z-index: 1;
+	overflow: hidden;
 }
 .headleftCV {
 	width: 100%;
@@ -167,6 +173,7 @@
 	width: 100%;
 	height: fit-content;
 	padding-left: 5%;
+	background-color: transparent;
 }
 .sectionBodyLeftCV {
 	height: fit-content;
