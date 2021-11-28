@@ -9,6 +9,7 @@
 	border: 1px solid rgb(151, 151, 151);
 	display: flex;
     padding-left: 0 !important;
+	margin-top: 32px;
 }
 #minimapColor{
 	flex:1;

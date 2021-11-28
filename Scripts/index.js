@@ -190,16 +190,17 @@ setInterval(() => {
 	) {
 		// console.log((cv.offsetWidth * constHeight) / constWidth) * page;
 		ruler = document.createElement("p");
-		ruler.innerHTML = `---------- Trang ${page} ----------`;
+		ruler.innerHTML = `----------------------------------- Trang ${page} -----------------------------------`;
 		ruler.style.position = "absolute";
 		ruler.style.top = `${
 			((1 * cv.offsetWidth * constHeight) / constWidth) * page
 		}px`;
-		ruler.style.left = "-20%";
+		ruler.style.left = "-50%";
+		ruler.style.zIndex = "99999";
 		cv.appendChild(ruler);
 		page++;
 	}
-}, 100);
+}, 1000);
 
 //SETTING
 // align
@@ -1284,8 +1285,7 @@ function chinhnenCV1() {
 					document
 						.querySelectorAll(".sectionInfoTitle")
 						.forEach(function (a, b) {
-							if (b % 2 == 0)
-								a.style.backgroundColor = val.getAttribute("value");
+							a.style.backgroundColor = val.getAttribute("value");
 						});
 				} else if (trytitle == 1) {
 					document.querySelectorAll(".headleftCV").forEach(function (a, b) {
@@ -1521,6 +1521,7 @@ function kiemtraSTTCV() {
 		document.querySelector(".miniCV2").classList.remove("closeCV2");
 		chinhnenCV2();
 		themHinhAnhNhieuCV(sttCV);
+		// Bỏ hàm vào đây
 	}
 }
 chinhnenCV1();
@@ -1549,4 +1550,18 @@ document.getElementById("download").onclick = function () {
 			rootStyle.setProperty("--pseudo-L2", "-26px");
 		}, 100);
 	}
+};
+let tryUL = 0,
+	tryOL = 0;
+document.getElementById("AddlistUl").onclick = () => {
+	var stringUOL = activeElement.innerHTML;
+	var stringUOL2 = stringUOL.replace("div", "li");
+	console.log(stringUOL2);
+	activeElement.innerHTML = stringUOL2;
+};
+document.getElementById("AddlistOl").onclick = () => {
+	var stringUOL = activeElement.innerHTML;
+	var stringUOL2 = stringUOL.replace("div", "lo");
+	console.log(stringUOL2);
+	activeElement.innerHTML = stringUOL2;
 };

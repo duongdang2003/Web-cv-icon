@@ -121,6 +121,10 @@
 					<i id="dynamicAlignRight" class="fas fa-align-right"></i>
 					<i id="dynamicAlignJustify" class="fas fa-align-justify"></i>
 				</div>
+				<div class="sectionEdit" id="listEdit">
+					<i class="fas fa-list-ul" id="AddlistUl"></i>
+					<i class="fas fa-list-ol" id="AddlistOl"></i>
+				</div>
 			</div>
 			<!--                          chon font, co chu, mau sac,.... -->
 
@@ -196,7 +200,7 @@
 						<span id="minimapColor">
 							<!-- MINI CV -->
 							<div id="leftMiniColor">
-								<div>MiniMap Background</div>
+								<div>Chọn nền(có 4 nền)</div>
 								<div class="miniCV miniCV1">
 									<div class="wrapCanvas">
 										<span class="leftCV" id="miniLeftCV_js">
@@ -562,6 +566,11 @@
 									>
 										<div class="color-picker2"></div>
 									</div>
+									<div id="introColorNen" style="		font-family: Open Sans, -apple-system, BlinkMacSystemFont,
+									Segoe UI, Helvetica, Arial, sans-serif;
+								font-weight: 600;
+								font-size: 0.6rem;
+								color: rgba(14, 19, 24, 0.7);">(Hint: Chỉnh độ trong suốt cho màu để hiện nền tùy ý)</div>
 								</div>
 							</div>
 						</span>
@@ -710,7 +719,13 @@
 											class="editableDiv2"
 											contenteditable="true"
 											key="purpose"
-										></div>
+										>
+										<!-- <ul> -->
+											<li>khoa</li>
+											<li>đăng</li>
+											<li>mỗi lần nhập cái mới là nó reset hà</li>
+										<!-- </ul> -->
+									</div>
 									</div>
 									<div class="sectionBodyLeftCV">
 										<div class="sectionTitleBodyLeftCV">
@@ -1207,4 +1222,4 @@
 	<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 	<script src="./Scripts/colors.js"></script>
 	<script src="./Scripts/index.js"></script>
-</html>
+	</html>
