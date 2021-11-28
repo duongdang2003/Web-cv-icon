@@ -186,12 +186,13 @@ setInterval(() => {
 	) {
 		// console.log((cv.offsetWidth * constHeight) / constWidth) * page;
 		ruler = document.createElement("p");
-		ruler.innerHTML = `---------- Trang ${page} ----------`;
+		ruler.innerHTML = `----------------------------------- Trang ${page} -----------------------------------`;
 		ruler.style.position = "absolute";
 		ruler.style.top = `${
 			((1 * cv.offsetWidth * constHeight) / constWidth) * page
 		}px`;
-		ruler.style.left = "-20%";
+		ruler.style.left = "-50%";
+		ruler.style.zIndex = "99999";
 		cv.appendChild(ruler);
 		page++;
 	}
