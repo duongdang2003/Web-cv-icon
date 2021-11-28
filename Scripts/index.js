@@ -164,9 +164,13 @@ function deleteButtonFunction(a) {
 	deleteButton.addEventListener("click", function () {
 		a.remove();
 	});
+	let borderColor = a.getAttribute("bordercolor");
+	if (borderColor === null) {
+		borderColor = "black";
+	}
 	a.addEventListener("mouseover", function () {
 		deleteButton.style.display = "block";
-		a.style.border = "1px dashed black";
+		a.style.border = `1px dashed ${borderColor}`;
 	});
 	a.addEventListener("mouseout", function () {
 		deleteButton.style.display = "none";
@@ -282,7 +286,7 @@ setInterval(() => {
 		.getComputedStyle(activeElement, null)
 		.getPropertyValue("font-size")
 		.replace("px", "");
-		dynamicSize = window
+	dynamicSize = window
 		.getComputedStyle(activeElement, null)
 		.getPropertyValue("font-size")
 		.replace("px", "");
@@ -368,6 +372,7 @@ function addSkill() {
 	skillLevel.style.display = "flex";
 	skillWrap.style.position = "relative";
 	skillWrap.style.margin = "2px";
+	skillWrap.setAttribute("bordercolor", "white");
 	skillLevel.addEventListener("click", function (e) {
 		if (e.target.hasAttribute("index") === true) {
 			index = parseInt(e.target.getAttribute("index"));
@@ -522,10 +527,6 @@ document
 				case "Youtube":
 				case "youtube":
 					activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
-					activeElement.style.fontSize = "20px";
-					break;
-				default:
-					activeElement.innerHTML = `<i class="fas fa-link"></i>`;
 					activeElement.style.fontSize = "20px";
 					break;
 			}
@@ -698,6 +699,7 @@ function addCertificate() {
 	wrapDiv.style.marginTop = "10px";
 	wrapDiv.style.marginBottom = "10px";
 	wrapDiv.style.border = "1px solid transparent";
+	wrapDiv.setAttribute("borderColor", "white");
 	certificateName.contentEditable = "true";
 	certificateName.style.width = "90%";
 	certificateName.style.color = "grey";
@@ -721,6 +723,8 @@ function addCertificate() {
 	toWrapper.style.alignItems = "center";
 	toWrapper.style.justifyContent = "center";
 	toWrapper.style.marginLeft = "1px";
+	toWrapper.setAttribute("bordercolor", "white");
+
 	labelTo.innerHTML = "Đến";
 	labelTo.style.color = "grey";
 	labelTo.style.marginRight = "10px";
@@ -762,6 +766,36 @@ document
 	});
 getOffset(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
 console.log(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
+
+let CVbackground = document.querySelector("#backgroundOfCV");
+function getBackground(e) {
+	document
+		.querySelector(".backgroundContainer")
+		.addEventListener("click", function (e) {
+			backgroundID = e.target.getAttribute("id");
+			switch (backgroundID) {
+				case "1":
+					// CVbackground.src = "https://files.fm/thumb_show.php?i=truaf92w7";
+					CVbackground.src =
+						"/Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
+					break;
+				case "2":
+					CVbackground.src = "https://imgur.com/CE3gdP0";
+					break;
+				case "3":
+					CVbackground.src = "https://files.fm/thumb_show.php?i=ntee6brya";
+					break;
+				case "4":
+					CVbackground.src = "https://files.fm/thumb_show.php?i=x5nh8qeah";
+					break;
+				default:
+					break;
+			}
+			console.log(backgroundID);
+			console.log(CVbackground);
+		});
+}
+getBackground();
 //                                phan download CV 👆
 
 //                                khoa 👇
@@ -1239,20 +1273,23 @@ function chinhnenCV1() {
 		document.querySelectorAll(".sectionBasicColors2").forEach(function (val) {
 			if (val == e.target) {
 				if (trynenphai == 1) {
-					document.querySelectorAll(".rightCV").forEach(function (a,b) {
-					 if (b%2==0)	a.style.backgroundColor = val.getAttribute("value");
+					document.querySelectorAll(".rightCV").forEach(function (a, b) {
+						if (b % 2 == 0) a.style.backgroundColor = val.getAttribute("value");
 					});
 				} else if (trynentrai == 1) {
-					document.querySelectorAll(".leftCV").forEach(function (a,b) {
-					 if (b%2==0)	a.style.backgroundColor = val.getAttribute("value");
+					document.querySelectorAll(".leftCV").forEach(function (a, b) {
+						if (b % 2 == 0) a.style.backgroundColor = val.getAttribute("value");
 					});
 				} else if (tryneninfo == 1) {
-					document.querySelectorAll(".sectionInfoTitle").forEach(function (a,b) {
-					 if (b%2==0)	a.style.backgroundColor = val.getAttribute("value");
-					});
+					document
+						.querySelectorAll(".sectionInfoTitle")
+						.forEach(function (a, b) {
+							if (b % 2 == 0)
+								a.style.backgroundColor = val.getAttribute("value");
+						});
 				} else if (trytitle == 1) {
-					document.querySelectorAll(".headleftCV").forEach(function (a,b) {
-						if (b%2==0) a.style.backgroundColor = val.getAttribute("value");
+					document.querySelectorAll(".headleftCV").forEach(function (a, b) {
+						if (b % 2 == 0) a.style.backgroundColor = val.getAttribute("value");
 					});
 					document
 						.querySelectorAll(".titleLeftCVsection hr")
@@ -1390,18 +1427,29 @@ function chinhnenCV2() {
 		document.querySelectorAll(".sectionBasicColors2").forEach(function (val) {
 			if (val == e.target) {
 				if (trynenphai == 1) {
-					document.querySelectorAll(".rightCV").forEach(function (a,b) {
-						if (b%2!=0) rootStyle.setProperty("--color-rightCV", val.getAttribute("value"));
+					document.querySelectorAll(".rightCV").forEach(function (a, b) {
+						if (b % 2 != 0)
+							rootStyle.setProperty(
+								"--color-rightCV",
+								val.getAttribute("value")
+							);
 					});
 				} else if (trynentrai == 1) {
-					document.querySelectorAll(".leftCV").forEach(function (a,b) {
-		 	 			if (b%2!=0) rootStyle.setProperty("--color-leftCV", val.getAttribute("value"));
+					document.querySelectorAll(".leftCV").forEach(function (a, b) {
+						if (b % 2 != 0)
+							rootStyle.setProperty(
+								"--color-leftCV",
+								val.getAttribute("value")
+							);
 					});
 				} else if (tryneninfo == 1) {
-					rootStyle.setProperty("--peusdoColor-leftCVboder", val.getAttribute("value"));
-					document.querySelectorAll(".CV2 hr").forEach(function (a,b) {
+					rootStyle.setProperty(
+						"--peusdoColor-leftCVboder",
+						val.getAttribute("value")
+					);
+					document.querySelectorAll(".CV2 hr").forEach(function (a, b) {
 						a.style.borderColor = val.getAttribute("value");
-						if (b%2!=0) a.style.backgroundColor = val.getAttribute("value");
+						if (b % 2 != 0) a.style.backgroundColor = val.getAttribute("value");
 					});
 					document.querySelector(".CV2 .ava").style.borderColor =
 						val.getAttribute("value");
