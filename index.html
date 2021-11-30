@@ -166,16 +166,9 @@
 							<div id="3"></div>
 							<div id="4"></div>
 							<div id="5"></div>
-							<div id="6"></div>
-							<div id="7"></div>
-							<div id="8"></div>
-							<div id="9"></div>
-							<div id="10"></div>
-							<div id="11"></div>
-							<div id="12"></div>
+					
 						</div>
 					</div>
-
 					<div id="project" onclick="addProject()" style="user-select: none">
 						Dự án
 						<i class="fas fa-plus-circle"></i>
@@ -617,8 +610,8 @@
 									<div class="titleLeftCVsection">
 										<h3>Kĩ năng</h3>
 										<hr />
-										<span id="nothing" key="skill"></span>
-										<div id="addSkill" onclick="addSkill()">+</div>
+										<div class="nothing" key="skill"></div>
+										<div class="addSkill" onclick="addSkill()">+</div>
 									</div>
 								</div>
 								<div class="sectionTitleLeftCV1 C2" id="thongTin">
@@ -646,12 +639,12 @@
 											key="email"
 										></div>
 									</div>
-									<div class="sectionInfo" id="socialNetwork">
+									<div class="sectionInfo" name="socialNetwork">
 										<h3 class="sectionInfoTitle">mạng xã hội</h3>
 										<div
 											key="socialNetwork"
 											class="mangxahoi"
-											style="width: 100%; height: 100%"
+											style="width: 100%; height: 100%; margin-bottom: 10px;"
 										></div>
 										<div
 											id="addButton"
@@ -742,14 +735,14 @@
 									</div>
 									<div
 										class="sectionBodyLeftCV"
-										id="duanTitle"
+										key="duanTitle"
 										style="padding-bottom: 50px"
 									>
 										<div class="sectionTitleBodyLeftCV">
 											<h1>dự án</h1>
 											<hr />
 											<div key="project" id="duan"></div>
-											<div id="addButton" onclick="addProject()">+</div>
+											<div key="projectButton" id="addButton" onclick="addProject()">+</div>
 										</div>
 									</div>
 									<div class="sectionBodyLeftCV">
@@ -807,8 +800,8 @@
 							<div class="sectionTitleLeftCV1" name="kiNang">
 								<div class="titleLeftCVsection">
 									<h3>Kĩ năng</h3>
-									<span id="nothing" key="skill"></span>
-									<div id="addSkill" onclick="addSkill()">+</div>
+									<div class="nothing" key="skill"></div>
+									<div class="addSkill" onclick="addSkill()">+</div>
 								</div>
 							</div>
 
@@ -834,12 +827,12 @@
 											key="email"
 										></div>
 									</div>
-									<div class="sectionInfo" id="socialNetwork">
+									<div class="sectionInfo" name="socialNetwork">
 										<h3 class="sectionInfoTitle">mạng xã hội</h3>
 										<div
 											key="socialNetwork"
 											class="mangxahoi"
-											style="width: 100%; height: 100%"
+											style="width: 100%; height: 100%; margin-bottom: 10px;"
 										></div>
 										<div
 											id="addButton"
@@ -936,14 +929,15 @@
 								</div>
 								<div
 									class="sectionBodyLeftCV"
-									id="duanTitle"
+									key="duanTitle"
 									style="padding-bottom: 50px"
+
 								>
 									<div class="sectionTitleBodyLeftCV">
 										<h1>dự án</h1>
 										<hr />
 										<div key="project" id="duan"></div>
-										<div id="addButton" onclick="addProject()">+</div>
+										<div key="projectButton" id="addButton" onclick="addProject()">+</div>
 									</div>
 								</div>
 								<div class="sectionBodyLeftCV">

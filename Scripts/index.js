@@ -11,6 +11,32 @@ let italic = document.getElementById("italic");
 let underline = document.getElementById("underline");
 let statuss = document.querySelectorAll("#status i");
 let sta = ["boldjs", "italicjs", "underlinejs"];
+let wrapDivArray = [];
+// localStorage.setItem("stt", "0");
+
+// if (localStorage.getItem("stt") === "1") {
+// 	sttCV = 0;
+// 	localStorage.setItem("stt", "0");
+// 	kiemtraSTTCV();
+// }
+// function test() {
+// 	console.log(localStorage.getItem("stt"));
+// 	if (localStorage.getItem("stt") === "0") {
+// 		sttCV = 1;
+// 		localStorage.setItem("stt", "1");
+// 		kiemtraSTTCV();
+// 	} else if (localStorage.getItem("stt") === "1") {
+// 		sttCV = 0;
+// 		localStorage.setItem("stt", "0");
+// 		kiemtraSTTCV();
+// 	}
+
+// 	setTimeout(() => {
+// 		window.location.reload();
+// 		console.log("refresh");
+// 	}, 500);
+// }
+
 // Download
 function download(stringClassCV) {
 	const element = document.querySelector(stringClassCV); // Khỏi chỉnh lại
@@ -24,14 +50,26 @@ function download(stringClassCV) {
 	html2pdf().set(opt).from(element).save();
 }
 // Direct change on CV
+console.log(
+	document.querySelectorAll('div[key="projectButton"]')[parseInt(sttCV)]
+);
 let deleteElement;
-let projectButton = document.querySelector("#duanTitle");
-projectButton.addEventListener("mouseover", function () {
-	document.querySelector("#duan + #addButton").style.display = "block";
-});
-projectButton.addEventListener("mouseout", function () {
-	document.querySelector("#duan + #addButton").style.display = "none";
-});
+function addButtonProject() {
+	let projectButton = document.querySelectorAll('div[key="duanTitle"]')[
+		parseInt(sttCV)
+	];
+	projectButton.addEventListener("mouseover", function () {
+		document.querySelectorAll('div[key="projectButton"]')[
+			parseInt(sttCV)
+		].style.display = "block";
+	});
+	projectButton.addEventListener("mouseout", function () {
+		document.querySelectorAll('div[key="projectButton"]')[
+			parseInt(sttCV)
+		].style.display = "none";
+	});
+}
+addButtonProject();
 function addProject() {
 	let wrapDiv = document.createElement("div");
 	let projectName = document.createElement("h3");
@@ -88,22 +126,11 @@ function addProject() {
 	discription.setAttribute("class", "test");
 	discription.setAttribute("spellcheck", "false");
 
-	deleteButton.style.position = "absolute";
-	deleteButton.style.width = "30px";
-	deleteButton.style.height = "20px";
-	deleteButton.style.top = "-20px";
-	deleteButton.style.right = "-2px";
-	deleteButton.innerText = "X";
-	deleteButton.style.textAlign = "center";
-	deleteButton.style.color = "white";
-	deleteButton.style.backgroundColor = "red";
-	deleteButton.style.cursor = "pointer";
-	deleteButton.style.display = "none";
-	deleteButton.addEventListener("click", function () {
-		deleteElement.remove();
-	});
+	deleteButtonFunction(wrapDiv);
 
-	document.querySelector(".sectionTitleBodyLeftCV #duan").appendChild(wrapDiv);
+	document
+		.querySelectorAll('div[key="project"]')
+		[parseInt(sttCV)].appendChild(wrapDiv);
 	wrapDiv.appendChild(projectName);
 	wrapDiv.appendChild(project);
 	wrapDiv.appendChild(projectDiscription);
@@ -159,23 +186,25 @@ function deleteButtonFunction(a) {
 	deleteButton.style.cursor = "pointer";
 	deleteButton.style.display = "none";
 	deleteButton.style.zIndex = "9999";
-	a.style.position = "relative";
-	a.appendChild(deleteButton);
-	deleteButton.addEventListener("click", function () {
-		a.remove();
-	});
-	let borderColor = a.getAttribute("bordercolor");
-	if (borderColor === null) {
-		borderColor = "black";
+	if (a != undefined) {
+		a.style.position = "relative";
+		a.appendChild(deleteButton);
+		deleteButton.addEventListener("click", function () {
+			a.remove();
+		});
+		let borderColor = a.getAttribute("bordercolor");
+		if (borderColor === null) {
+			borderColor = "black";
+		}
+		a.addEventListener("mouseover", function () {
+			deleteButton.style.display = "block";
+			a.style.border = `1px dashed ${borderColor}`;
+		});
+		a.addEventListener("mouseout", function () {
+			deleteButton.style.display = "none";
+			a.style.border = "none";
+		});
 	}
-	a.addEventListener("mouseover", function () {
-		deleteButton.style.display = "block";
-		a.style.border = `1px dashed ${borderColor}`;
-	});
-	a.addEventListener("mouseout", function () {
-		deleteButton.style.display = "none";
-		a.style.border = "none";
-	});
 }
 
 // Add break
@@ -256,7 +285,8 @@ setInterval(() => {
 	}
 	if (
 		activeElement.getAttribute("class") !== "" &&
-		activeElement.getAttribute("class") !== null
+		activeElement.getAttribute("class") !== null &&
+		activeElement.getAttribute("class") !== undefined
 	) {
 		textStatus = activeElement.getAttribute("class");
 		if (textStatus.indexOf("boldjs") != -1) {
@@ -344,17 +374,26 @@ alignSection.addEventListener("click", function (e) {
 });
 
 // ADD SKILL
+
+function addButtonSkill() {
+	document
+		.querySelectorAll('div[name="kiNang"]')
+		[parseInt(sttCV)].addEventListener("mouseover", function () {
+			document.querySelectorAll(".addSkill")[parseInt(sttCV)].style.display =
+				"block";
+		});
+	document
+		.querySelectorAll('div[name="kiNang"]')
+		[parseInt(sttCV)].addEventListener("mouseout", function () {
+			document.querySelectorAll(".addSkill")[parseInt(sttCV)].style.display =
+				"none";
+		});
+}
 let skillCount = 0;
-let skill = document.querySelectorAll('div[name="kiNang"]')[parseInt(sttCV)];
-let skillButton = document.querySelector("#addSkill");
-let nothing = document.querySelector("#nothing");
-skill.addEventListener("mouseover", function () {
-	skillButton.style.display = "block";
-});
-skill.addEventListener("mouseout", function () {
-	skillButton.style.display = "none";
-});
+
+addButtonSkill();
 function addSkill() {
+	let nothing = document.querySelectorAll(".nothing")[parseInt(sttCV)];
 	let skillName = document.createElement("div");
 	let skillLevel = document.createElement("div");
 	let skillWrap = document.createElement("div");
@@ -373,6 +412,7 @@ function addSkill() {
 	skillLevel.style.display = "flex";
 	skillWrap.style.position = "relative";
 	skillWrap.style.margin = "2px";
+	skillWrap.style.zIndex = "4";
 	skillWrap.setAttribute("bordercolor", "white");
 	skillLevel.addEventListener("click", function (e) {
 		if (e.target.hasAttribute("index") === true) {
@@ -391,21 +431,7 @@ function addSkill() {
 			}
 		}
 	});
-	skillName.addEventListener("click", function (e) {
-		if (e.target.innerHTML == "") {
-			e.target.innerHTML = "Tên kỹ năng";
-			e.target.style.color = "grey";
-		} else if (e.target.innerHTML === "Tên kỹ năng") {
-			e.target.innerHTML = "";
-			e.target.style.color = "white";
-		}
-		skillName.addEventListener("focusout", function (e) {
-			if (e.target.innerHTML == "") {
-				e.target.innerHTML = "Tên kỹ năng";
-				e.target.style.color = "grey";
-			}
-		});
-	});
+	placeholderOfSkill();
 	nothing.appendChild(skillWrap);
 	skillWrap.appendChild(skillName);
 	skillWrap.appendChild(skillLevel);
@@ -422,14 +448,44 @@ function addSkill() {
 		skillLevel.appendChild(level);
 	}
 }
+function placeholderOfSkill() {
+	document
+		.querySelectorAll('div[key="skill"]')
+		[parseInt(sttCV)].addEventListener("click", function (e) {
+			if (e.target.innerHTML === "Tên kỹ năng") {
+				e.target.innerHTML = "";
+				e.target.style.color = "white";
+			}
+			document
+				.querySelectorAll('div[key="skill"]')
+				[parseInt(sttCV)].addEventListener("focusout", function (e) {
+					if (e.target.innerHTML == "") {
+						e.target.innerHTML = "Tên kỹ năng";
+						e.target.style.color = "grey";
+					}
+				});
+		});
+}
 // ADD SOCIAL NETWORK
-let socialNetwork = document.querySelector("#socialNetwork");
-socialNetwork.addEventListener("mouseover", function () {
-	document.querySelector("#socialNetwork #addButton").style.display = "block";
-});
-socialNetwork.addEventListener("mouseout", function () {
-	document.querySelector("#socialNetwork #addButton").style.display = "none";
-});
+
+console.log(document.querySelectorAll("div[name='socialNetwork'] #addButton"));
+function addButtonSocialNetwork() {
+	document
+		.querySelectorAll("div[name='socialNetwork']")
+		[parseInt(sttCV)].addEventListener("mouseover", function () {
+			document.querySelectorAll("div[name='socialNetwork'] #addButton")[
+				parseInt(sttCV)
+			].style.display = "block";
+		});
+	document
+		.querySelectorAll("div[name='socialNetwork']")
+		[parseInt(sttCV)].addEventListener("mouseout", function () {
+			document.querySelectorAll("div[name='socialNetwork'] #addButton")[
+				parseInt(sttCV)
+			].style.display = "none";
+		});
+}
+addButtonSocialNetwork();
 function addSocialNetwork() {
 	let wrapDiv = document.createElement("div");
 	let icon = document.createElement("div");
@@ -464,76 +520,78 @@ function addSocialNetwork() {
 	wrapDiv.appendChild(icon);
 	wrapDiv.appendChild(socialNetworkLink);
 }
-document
-	.querySelectorAll(".mangxahoi")
-	[parseInt(sttCV)].addEventListener("click", function () {
-		if (
-			activeElement.innerHTML === "Tên MXH" ||
-			activeElement.innerHTML === "Link"
-		) {
-			activeElement.innerHTML = "";
-			activeElement.style.color = "white";
-		}
-	});
-document
-	.querySelectorAll(".mangxahoi")
-	[parseInt(sttCV)].addEventListener("focusout", function () {
-		if (
-			activeElement.innerHTML === "" &&
-			activeElement.getAttribute("name") === "iconSocialNetwork"
-		) {
-			activeElement.innerHTML = "Tên MXH";
-			activeElement.style.color = "grey";
-		}
-		if (
-			activeElement.innerHTML === "" &&
-			activeElement.getAttribute("name") === "socialNetworkLink"
-		) {
-			activeElement.innerHTML = "Link";
-			activeElement.style.color = "grey";
-		}
-		if (
-			activeElement.getAttribute("name") === "iconSocialNetwork" &&
-			activeElement.innerHTML != ""
-		) {
-			value = activeElement.innerHTML;
-			activeElement.style.color = "white";
-
-			switch (value) {
-				case "Facebook":
-				case "facebook":
-					activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
-					activeElement.style.fontSize = "20px";
-					break;
-				case "Instagram":
-				case "instagram":
-					activeElement.innerHTML = `<i class="fab fa-instagram"></i>`;
-					activeElement.style.fontSize = "20px";
-					break;
-				case "Github":
-				case "github":
-					activeElement.innerHTML = `<i class="fab fa-github"></i>`;
-					activeElement.style.fontSize = "20px";
-					break;
-				case "Twitter":
-				case "twitter":
-					activeElement.innerHTML = `<i class="fab fa-twitter"></i>`;
-					activeElement.style.fontSize = "20px";
-					break;
-				case "Linkedin":
-				case "linkedin":
-					activeElement.innerHTML = `<i class="fab fa-linkedin-in"></i>`;
-					activeElement.style.fontSize = "20px";
-					break;
-				case "Youtube":
-				case "youtube":
-					activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
-					activeElement.style.fontSize = "20px";
-					break;
+function placeholderOfSocialNetwork() {
+	document
+		.querySelectorAll(".mangxahoi")
+		[parseInt(sttCV)].addEventListener("click", function () {
+			if (
+				activeElement.innerHTML === "Tên MXH" ||
+				activeElement.innerHTML === "Link"
+			) {
+				activeElement.innerHTML = "";
+				activeElement.style.color = "white";
 			}
-		}
-	});
-console.log(document.querySelectorAll(".thongtinkhac")[parseInt(sttCV)]);
+		});
+	document
+		.querySelectorAll(".mangxahoi")
+		[parseInt(sttCV)].addEventListener("focusout", function () {
+			if (
+				activeElement.innerHTML === "" &&
+				activeElement.getAttribute("name") === "iconSocialNetwork"
+			) {
+				activeElement.innerHTML = "Tên MXH";
+				activeElement.style.color = "grey";
+			}
+			if (
+				activeElement.innerHTML === "" &&
+				activeElement.getAttribute("name") === "socialNetworkLink"
+			) {
+				activeElement.innerHTML = "Link";
+				activeElement.style.color = "grey";
+			}
+			if (
+				activeElement.getAttribute("name") === "iconSocialNetwork" &&
+				activeElement.innerHTML != ""
+			) {
+				value = activeElement.innerHTML;
+				activeElement.style.color = "white";
+
+				switch (value) {
+					case "Facebook":
+					case "facebook":
+						activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
+						activeElement.style.fontSize = "20px";
+						break;
+					case "Instagram":
+					case "instagram":
+						activeElement.innerHTML = `<i class="fab fa-instagram"></i>`;
+						activeElement.style.fontSize = "20px";
+						break;
+					case "Github":
+					case "github":
+						activeElement.innerHTML = `<i class="fab fa-github"></i>`;
+						activeElement.style.fontSize = "20px";
+						break;
+					case "Twitter":
+					case "twitter":
+						activeElement.innerHTML = `<i class="fab fa-twitter"></i>`;
+						activeElement.style.fontSize = "20px";
+						break;
+					case "Linkedin":
+					case "linkedin":
+						activeElement.innerHTML = `<i class="fab fa-linkedin-in"></i>`;
+						activeElement.style.fontSize = "20px";
+						break;
+					case "Youtube":
+					case "youtube":
+						activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
+						activeElement.style.fontSize = "20px";
+						break;
+				}
+			}
+		});
+}
+placeholderOfSocialNetwork();
 function addAnotherInfor() {
 	let wrapDiv = document.createElement("div");
 	wrapDiv.style.marginTop = "10px";
@@ -575,6 +633,7 @@ function addAnotherInfor() {
 	ruler.style.borderColor = "black";
 	ruler.style.backgroundColor = "black";
 	wrapDiv.style.border = "1px solid transparent";
+	wrapDiv.style.zIndex = 10;
 	wrapDiv.appendChild(titleAI);
 	wrapDiv.appendChild(detail);
 	wrapDiv.appendChild(ruler);
@@ -639,45 +698,49 @@ function addIndex() {
 	wrapDiv.appendChild(ruler);
 	wrapDiv.appendChild(titleDiscription);
 	document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV)].scrollIntoView();
+	placeholderOfAddIndex();
 }
-document
-	.querySelectorAll(".divOfAddIndex")
-	[parseInt(sttCV)].addEventListener("focusin", function (e) {
-		if (e.target.innerHTML === "TÊN MỤC" || e.target.innerHTML === "Mô tả") {
-			e.target.innerHTML = "";
-			e.target.style.color = "black";
-		}
-	});
-document
-	.querySelectorAll(".divOfAddIndex")
-	[parseInt(sttCV)].addEventListener("focusout", function (e) {
-		if (
-			e.target.innerHTML === "" &&
-			e.target.getAttribute("class") === "titleDiscription"
-		) {
-			e.target.innerHTML = "Mô tả";
-			e.target.style.color = "grey";
-		} else if (e.target.innerHTML === "") {
-			e.target.innerHTML = "TÊN MỤC";
-			e.target.style.color = "grey";
-		}
-	});
-
-document
-	.querySelectorAll('div[name="chungChi"]')
-	[parseInt(sttCV)].addEventListener("mouseover", function () {
-		document.querySelectorAll('div[key="certificate"] #addButton')[
-			parseInt(sttCV)
-		].style.display = "block";
-	});
-document
-	.querySelectorAll('div[name="chungChi"]')
-	[parseInt(sttCV)].addEventListener("mouseout", function () {
-		document.querySelectorAll('div[key="certificate"] #addButton')[
-			parseInt(sttCV)
-		].style.display = "none";
-	});
-
+function placeholderOfAddIndex() {
+	document
+		.querySelectorAll(".divOfAddIndex")
+		[parseInt(sttCV)].addEventListener("focusin", function (e) {
+			if (e.target.innerHTML === "TÊN MỤC" || e.target.innerHTML === "Mô tả") {
+				e.target.innerHTML = "";
+				e.target.style.color = "black";
+			}
+		});
+	document
+		.querySelectorAll(".divOfAddIndex")
+		[parseInt(sttCV)].addEventListener("focusout", function (e) {
+			if (
+				e.target.innerHTML === "" &&
+				e.target.getAttribute("class") === "titleDiscription"
+			) {
+				e.target.innerHTML = "Mô tả";
+				e.target.style.color = "grey";
+			} else if (e.target.innerHTML === "") {
+				e.target.innerHTML = "TÊN MỤC";
+				e.target.style.color = "grey";
+			}
+		});
+}
+function addButtonOfCertificate() {
+	document
+		.querySelectorAll('div[name="chungChi"]')
+		[parseInt(sttCV)].addEventListener("mouseover", function () {
+			document.querySelectorAll('div[key="certificate"] #addButton')[
+				parseInt(sttCV)
+			].style.display = "block";
+		});
+	document
+		.querySelectorAll('div[name="chungChi"]')
+		[parseInt(sttCV)].addEventListener("mouseout", function () {
+			document.querySelectorAll('div[key="certificate"] #addButton')[
+				parseInt(sttCV)
+			].style.display = "none";
+		});
+}
+addButtonOfCertificate();
 // Add certificate
 function getOffset(el) {
 	const rect = el.getBoundingClientRect();
@@ -701,6 +764,7 @@ function addCertificate() {
 	wrapDiv.style.marginBottom = "10px";
 	wrapDiv.style.border = "1px solid transparent";
 	wrapDiv.setAttribute("borderColor", "white");
+	wrapDivArray.push(wrapDiv);
 	certificateName.contentEditable = "true";
 	certificateName.style.width = "90%";
 	certificateName.style.color = "grey";
@@ -749,24 +813,25 @@ function addCertificate() {
 	deleteButtonFunction(wrapDiv);
 	deleteButtonFunction(toWrapper);
 }
-document
-	.querySelectorAll(".certificate")
-	[parseInt(sttCV)].addEventListener("focusin", function (e) {
-		if (e.target.innerHTML === "Tên chứng chỉ") {
-			e.target.innerHTML = "";
-			e.target.style.color = "white";
-		}
-	});
-document
-	.querySelectorAll(".certificate")
-	[parseInt(sttCV)].addEventListener("focusout", function (e) {
-		if (e.target.innerHTML === "" && e.target.tagName !== "INPUT") {
-			e.target.innerHTML = "Tên chứng chỉ";
-			e.target.style.color = "grey";
-		}
-	});
+function placeholderOfAddCertificate() {
+	document
+		.querySelectorAll(".certificate")
+		[parseInt(sttCV)].addEventListener("focusin", function (e) {
+			if (e.target.innerHTML === "Tên chứng chỉ") {
+				e.target.innerHTML = "";
+				e.target.style.color = "white";
+			}
+		});
+	document
+		.querySelectorAll(".certificate")
+		[parseInt(sttCV)].addEventListener("focusout", function (e) {
+			if (e.target.innerHTML === "" && e.target.tagName !== "INPUT") {
+				e.target.innerHTML = "Tên chứng chỉ";
+				e.target.style.color = "grey";
+			}
+		});
+}
 getOffset(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
-console.log(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
 
 let CVbackground = document.querySelector("#backgroundOfCV");
 function getBackground(e) {
@@ -797,6 +862,7 @@ function getBackground(e) {
 		});
 }
 getBackground();
+
 //                                phan download CV 👆
 
 //                                khoa 👇
@@ -1050,7 +1116,7 @@ function save() {
 	);
 	localStorage.setItem(
 		"skill",
-		document.querySelectorAll('span[key="skill"]')[parseInt(sttCV)].outerHTML
+		document.querySelectorAll('div[key="skill"]')[parseInt(sttCV)].outerHTML
 	);
 	localStorage.setItem(
 		"social network",
@@ -1096,7 +1162,6 @@ function save() {
 		document.querySelector("#save i").style.animation = "none";
 	}, 1000);
 }
-console.log(document.querySelectorAll(".headleftCV"));
 function load() {
 	if (localStorage.getItem("lock load") === "false") {
 		document.getElementById("load").style.cursor = "pointer";
@@ -1121,8 +1186,11 @@ function load() {
 		document.querySelectorAll('div[key="activity"]')[
 			parseInt(sttCV)
 		].outerHTML = localStorage.getItem("activity");
-		document.querySelectorAll('span[key="skill"]')[parseInt(sttCV)].outerHTML =
+		document.querySelectorAll('div[key="skill"]')[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("skill");
+		document.querySelectorAll('div[key="socialNetwork"]')[
+			parseInt(sttCV)
+		].outerHTML = localStorage.getItem("social network");
 		document.querySelectorAll('div[key="project"]')[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("project");
 		document.querySelectorAll('div[key="title"]')[parseInt(sttCV)].outerHTML =
@@ -1158,6 +1226,17 @@ function load() {
 		}, 1000);
 	} else {
 		document.getElementById("load").style.cursor = "not-allowed";
+	}
+}
+function addDeleteButtoAgain(array) {
+	if (sttCV == 0) {
+		for (let i = 0; i < array.length / 2; i++) {
+			deleteButtonFunction(array[i]);
+		}
+	} else if (sttCV == 1) {
+		for (let i = array.length / 2; i <= array.length; i++) {
+			deleteButtonFunction(array[i]);
+		}
 	}
 }
 // setInterval(function () {
@@ -1491,19 +1570,24 @@ function chinhnenCV2() {
 		});
 	};
 }
-
 function chuyenCV() {
 	document.getElementById("CVchung").onclick = function () {
-		sttCV = 0;
+		save();
 		setTimeout(function () {
-			kiemtraSTTCV();
-		}, 100);
+			sttCV = 0;
+			setTimeout(function () {
+				kiemtraSTTCV();
+			}, 100);
+		}, 10);
 	};
 	document.getElementById("CVKTCN").onclick = function () {
-		sttCV = 1;
+		save();
 		setTimeout(function () {
-			kiemtraSTTCV();
-		}, 100);
+			sttCV = 1;
+			setTimeout(function () {
+				kiemtraSTTCV();
+			}, 100);
+		}, 10);
 	};
 }
 function kiemtraSTTCV() {
@@ -1521,8 +1605,23 @@ function kiemtraSTTCV() {
 		document.querySelector(".miniCV2").classList.remove("closeCV2");
 		chinhnenCV2();
 		themHinhAnhNhieuCV(sttCV);
-		// Bỏ hàm vào đây
 	}
+	load();
+	placeholderOfAddIndex();
+	placeholderOfAddCertificate();
+	addButtonOfCertificate();
+	addButtonProject();
+	placeholderOfSkill();
+	addButtonSkill();
+	console.log(document.querySelectorAll("div[key='socialNetwork'] > div"));
+	addDeleteButtoAgain(document.querySelectorAll("div[key='project'] > div"));
+	addDeleteButtoAgain(document.querySelectorAll(".nothing > div"));
+	addDeleteButtoAgain(document.querySelectorAll(".certificate > div"));
+	addDeleteButtoAgain(
+		document.querySelectorAll("div[key='socialNetwork'] > div")
+	);
+	addButtonSocialNetwork();
+	placeholderOfSocialNetwork();
 }
 chinhnenCV1();
 chuyenCV();
