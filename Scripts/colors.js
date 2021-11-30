@@ -41,6 +41,21 @@ pickr.on('change', (color, source, instance) => {
   dynamicColor = color.toRGBA().toString();
   activeElement.style.color =color.toRGBA().toString();
   console.log(dynamicColor)
+  if (chunao==0){
+    activeElementKhoa.style.color = color.toRGBA().toString();
+  } else if (chunao==1){
+    activeElementKhoa.forEach(function (a){
+      a.style.color = color.toRGBA().toString();
+    })
+  } else {
+    activeElementKhoa.forEach(function (a,b,c){
+      a.style.color = color.toRGBA().toString();
+      if (b>=c.length/2){
+        a.style.backgroundColor = color.toRGBA().toString();
+        a.style.borderColor = color.toRGBA().toString();
+      }
+    })
+  }
 })
 
 const pickr2 = Pickr.create({
