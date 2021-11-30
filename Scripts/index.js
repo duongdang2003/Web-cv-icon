@@ -11,6 +11,7 @@ let italic = document.getElementById("italic");
 let underline = document.getElementById("underline");
 let statuss = document.querySelectorAll("#status i");
 let sta = ["boldjs", "italicjs", "underlinejs"];
+let activeElementKhoa=[];
 // Download
 function download(stringClassCV) {
   const element = document.querySelector(stringClassCV); // Khỏi chỉnh lại
@@ -885,7 +886,8 @@ window.onload = function () {
 };
 //                          table color
 var tryTable = 0,
-  tableColor = document.getElementById("tableColor");
+  tableColor = document.getElementById("tableColor"),
+  chunao=0;
 document.getElementById("color").addEventListener("click", function () {
   if (tryTable == 0) {
     tableColor.classList.add("openTableColor");
@@ -899,6 +901,7 @@ document.getElementById("color").addEventListener("click", function () {
       tryTable = 0;
     }, 400);
     tableColor.classList.add("closeTableColor");
+    // chunao=0;
   }
 });
 document.body.onclick = function (e) {
@@ -908,6 +911,7 @@ document.body.onclick = function (e) {
       tryTable = 0;
     }, 400);
     tableColor.classList.add("closeTableColor");
+    chunao=0;
   }
 };
 //           choice color
@@ -922,7 +926,21 @@ inputColor.oninput = function (e) {
 
 //                     khoa -> đăng
 document.getElementById("useThisColor").onclick = function () {
-  activeElement.style.color = dynamicColor;
+  if (chunao==0){
+    activeElement.style.color = dynamicColor;
+  } else if (chunao==1){
+    activeElementKhoa.forEach(function (a){
+      a.style.color = dynamicColor;
+    })
+  } else {
+    activeElementKhoa.forEach(function (a,b,c){
+      a.style.color = dynamicColor;
+      if (b>=c.length/2){
+        a.style.backgroundColor = dynamicColor;
+        a.style.borderColor = dynamicColor;
+      }
+    })
+  }
 };
 saveColorDefaults();
 function saveColorDefaults() {
@@ -1518,9 +1536,9 @@ document.getElementById("download").onclick = function () {
   }
 };
 
+// ul ol
 let tryUOL = 0;
 let addlistul = document.getElementById("AddlistUl");
-
 document.getElementById("listEdit").onclick = (e) => {
   if (activeElement != null) {
     if (e.target == addlistul && tryUOL == 0) {
@@ -1554,3 +1572,182 @@ document.getElementById("listEdit").onclick = (e) => {
     }
   }
 };
+//    CV1
+//        title right Color 
+let titleRightCV1 = document.querySelectorAll(".CV .sectionTitleBodyLeftCV h1"),
+  hrRightCV1 = document.querySelectorAll(".CV .sectionTitleBodyLeftCV hr");
+titleRightCV1.forEach(function(a){
+  let nho;
+  a.onmouseover = function (){
+    nho=a.style.color;
+    titleRightCV1.forEach(function (a){
+      a.style.color ="#555";
+    })
+  }
+  a.onmouseleave = function (){
+      titleRightCV1.forEach(function (a){
+        a.style.color = nho;
+      })
+  }
+  a.onclick = function () {
+    chunao=2;
+    activeElementKhoa=[...titleRightCV1];
+    hrRightCV1.forEach(function (a){
+      activeElementKhoa.push(a);
+    })
+    console.log(activeElementKhoa)
+    tableColor.classList.add("openTableColor");
+    tableColor.classList.remove("closeTableColor");
+    setTimeout(function () {
+      tryTable = 1;
+    }, 400);
+  }
+})
+
+//                             title left 
+let titleLeftCV1 = document.querySelectorAll(".CV .titleLeftCVsection h3");
+titleLeftCV1.forEach(function(a){
+  let nho;
+  a.onmouseover = function (){
+    nho=a.style.color;
+    titleLeftCV1.forEach(function (a){
+      a.style.color ="#555";
+    })
+  }
+  a.onmouseleave = function (){
+    titleLeftCV1.forEach(function (a){
+        a.style.color = nho;
+      })
+  }
+  a.onclick = function () {
+    chunao=1;
+    activeElementKhoa=[...titleLeftCV1];
+    console.log(activeElementKhoa)
+    tableColor.classList.add("openTableColor");
+    tableColor.classList.remove("closeTableColor");
+    setTimeout(function () {
+      tryTable = 1;
+    }, 400);
+  }
+})
+
+//   title left bottom 
+let titleLeftBCV1 = document.querySelectorAll(".CV .sectionInfoTitle");
+titleLeftBCV1.forEach(function(a){
+  let nho;
+  a.onmouseover = function (){
+    nho=a.style.color;
+    titleLeftBCV1.forEach(function (a){
+      a.style.color ="#555";
+    })
+  }
+  a.onmouseleave = function (){
+    titleLeftBCV1.forEach(function (a){
+        a.style.color = nho;
+      })
+  }
+  a.onclick = function () {
+    chunao=1;
+    activeElementKhoa=[...titleLeftBCV1];
+    console.log(activeElementKhoa)
+    tableColor.classList.add("openTableColor");
+    tableColor.classList.remove("closeTableColor");
+    setTimeout(function () {
+      tryTable = 1;
+    }, 400);
+  }
+})
+
+//   CV2    
+//        title right Color 
+let titleRightCV2 = document.querySelectorAll(".CV2 .sectionTitleBodyLeftCV h1"),
+  hrRightCV2 = document.querySelectorAll(".CV2 .sectionTitleBodyLeftCV hr");
+titleRightCV2.forEach(function(a){
+  let nho;
+  a.onmouseover = function (){
+    nho=a.style.color;
+    titleRightCV2.forEach(function (a){
+      a.style.color ="#555";
+    })
+  }
+  a.onmouseleave = function (){
+      titleRightCV2.forEach(function (a){
+        a.style.color = nho;
+      })
+  }
+  a.onclick = function () {
+    chunao=2;
+    activeElementKhoa=[...titleRightCV2];
+    hrRightCV2.forEach(function (a){
+      activeElementKhoa.push(a);
+    })
+    console.log(activeElementKhoa)
+    tableColor.classList.add("openTableColor");
+    tableColor.classList.remove("closeTableColor");
+    setTimeout(function () {
+      tryTable = 1;
+    }, 400);
+  }
+})
+
+//                             title left 
+let titleLeftCV2 = document.querySelectorAll(".CV2 .titleLeftCVsection h3");
+titleLeftCV2.forEach(function(a){
+  let nho;
+  a.onmouseover = function (){
+    nho=a.style.color;
+    titleLeftCV2.forEach(function (a){
+      a.style.color ="#555";
+    })
+  }
+  a.onmouseleave = function (){
+    titleLeftCV2.forEach(function (a){
+        a.style.color = nho;
+      })
+  }
+  a.onclick = function () {
+    chunao=1;
+    activeElementKhoa=[...titleLeftCV2];
+    console.log(activeElementKhoa)
+    tableColor.classList.add("openTableColor");
+    tableColor.classList.remove("closeTableColor");
+    setTimeout(function () {
+      tryTable = 1;
+    }, 400);
+  }
+})
+
+//   title left bottom 
+let titleLeftBCV2 = document.querySelectorAll(".CV2 .sectionInfoTitle");
+titleLeftBCV2.forEach(function(a){
+  let nho;
+  a.onmouseover = function (){
+    nho=a.style.color;
+    titleLeftBCV2.forEach(function (a){
+      a.style.color ="#555";
+    })
+  }
+  a.onmouseleave = function (){
+    titleLeftBCV2.forEach(function (a){
+        a.style.color = nho;
+      })
+  }
+  a.onclick = function () {
+    chunao=1;
+    activeElementKhoa=[...titleLeftBCV2];
+    console.log(activeElementKhoa)
+    tableColor.classList.add("openTableColor");
+    tableColor.classList.remove("closeTableColor");
+    setTimeout(function () {
+      tryTable = 1;
+    }, 400);
+  }
+}) 
+
+//                them mau o nen va chu
+document.querySelector(".pickr-container.sectionBasicColors").onclick = function () {
+    rootStyle.setProperty("--leftPcr-","0");
+}
+document.querySelector(".pickr-container.sectionBasicColors2").onclick = function () {
+    rootStyle.setProperty("--leftPcr-","300px");
+}

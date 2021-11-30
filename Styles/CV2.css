@@ -7,6 +7,7 @@
 	--color-rightCV: #262626;
 	--color-leftCV: #041818;
 	--peusdoColor-leftCVboder: #2ccdd7;
+	--leftPcr-: 580px;
 }
 .body .CV2 {
 	width: 800px; /*cho gần đúng với tỉ lệ khi lưu về*/

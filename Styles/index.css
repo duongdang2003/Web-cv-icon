@@ -795,7 +795,12 @@ form #color-search {
 .pickr .pcr-button::after {
 	position: relative;
 }
-
+.pcr-app[data-theme='classic'] {
+	left: var(--leftPcr-) !important;
+    width: 23.5em;
+    max-width: 95vw;
+    padding: 0.8em;
+}
 /* keyframe */
 @keyframes slide {
 	from {
