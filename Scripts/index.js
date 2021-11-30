@@ -147,32 +147,36 @@ function CvBackground() {
 }
 
 function deleteButtonFunction(a) {
-  let deleteButton = document.createElement("div");
-  deleteButton.style.position = "absolute";
-  deleteButton.style.width = "30px";
-  deleteButton.style.height = "20px";
-  deleteButton.style.top = "-20px";
-  deleteButton.style.right = "-2px";
-  deleteButton.innerText = "X";
-  deleteButton.style.textAlign = "center";
-  deleteButton.style.color = "white";
-  deleteButton.style.backgroundColor = "red";
-  deleteButton.style.cursor = "pointer";
-  deleteButton.style.display = "none";
-  deleteButton.style.zIndex = "9999";
-  a.style.position = "relative";
-  a.appendChild(deleteButton);
-  deleteButton.addEventListener("click", function () {
-    a.remove();
-  });
-  a.addEventListener("mouseover", function () {
-    deleteButton.style.display = "block";
-    a.style.border = "1px dashed black";
-  });
-  a.addEventListener("mouseout", function () {
-    deleteButton.style.display = "none";
-    a.style.border = "none";
-  });
+	let deleteButton = document.createElement("div");
+	deleteButton.style.position = "absolute";
+	deleteButton.style.width = "30px";
+	deleteButton.style.height = "20px";
+	deleteButton.style.top = "-20px";
+	deleteButton.style.right = "-2px";
+	deleteButton.innerText = "X";
+	deleteButton.style.textAlign = "center";
+	deleteButton.style.color = "white";
+	deleteButton.style.backgroundColor = "red";
+	deleteButton.style.cursor = "pointer";
+	deleteButton.style.display = "none";
+	deleteButton.style.zIndex = "9999";
+	a.style.position = "relative";
+	a.appendChild(deleteButton);
+	deleteButton.addEventListener("click", function () {
+		a.remove();
+	});
+	let borderColor = a.getAttribute("bordercolor");
+	if (borderColor === null) {
+		borderColor = "black";
+	}
+	a.addEventListener("mouseover", function () {
+		deleteButton.style.display = "block";
+		a.style.border = `1px dashed ${borderColor}`;
+	});
+	a.addEventListener("mouseout", function () {
+		deleteButton.style.display = "none";
+		a.style.border = "none";
+	});
 }
 
 // Add break
@@ -280,20 +284,20 @@ setInterval(() => {
     bold.style.pointerEvents = "none";
   }
 
-  document.getElementById("showFont").innerHTML = window
-    .getComputedStyle(activeElement, null)
-    .getPropertyValue("font-size")
-    .replace("px", "");
-  dynamicSize = window
-    .getComputedStyle(activeElement, null)
-    .getPropertyValue("font-size")
-    .replace("px", "");
-  document.getElementById("seclectFont").value = window
-    .getComputedStyle(activeElement, null)
-    .getPropertyValue("font-family")
-    .split(", ")[0]
-    .replace(`"`, "")
-    .replace(`"`, "");
+	document.getElementById("showFont").innerHTML = window
+		.getComputedStyle(activeElement, null)
+		.getPropertyValue("font-size")
+		.replace("px", "");
+	dynamicSize = window
+		.getComputedStyle(activeElement, null)
+		.getPropertyValue("font-size")
+		.replace("px", "");
+	document.getElementById("seclectFont").value = window
+		.getComputedStyle(activeElement, null)
+		.getPropertyValue("font-family")
+		.split(", ")[0]
+		.replace(`"`, "")
+		.replace(`"`, "");
 }, 100);
 let right = document.getElementById("dynamicAlignRight");
 let left = document.getElementById("dynamicAlignLeft");
@@ -356,23 +360,24 @@ function addSkill() {
   let skillLevel = document.createElement("div");
   let skillWrap = document.createElement("div");
 
-  skillName.setAttribute("contenteditable", "true");
-  skillName.style.color = "grey";
-  skillName.style.border = "none";
-  skillName.style.backgroundColor = "transparent";
-  skillName.style.marginTop = "5px";
-  skillName.style.padding = "5px";
-  skillName.style.width = "90%";
-  skillName.setAttribute("class", "editableInput");
-  skillName.setAttribute("spellcheck", "false");
-  skillName.style.fontSize = "17px";
-  skillName.innerHTML = "Tên kỹ năng";
-  skillLevel.style.display = "flex";
-  skillWrap.style.position = "relative";
-  skillWrap.style.margin = "2px";
-  skillLevel.addEventListener("click", function (e) {
-    if (e.target.hasAttribute("index") === true) {
-      index = parseInt(e.target.getAttribute("index"));
+	skillName.setAttribute("contenteditable", "true");
+	skillName.style.color = "grey";
+	skillName.style.border = "none";
+	skillName.style.backgroundColor = "transparent";
+	skillName.style.marginTop = "5px";
+	skillName.style.padding = "5px";
+	skillName.style.width = "90%";
+	skillName.setAttribute("class", "editableInput");
+	skillName.setAttribute("spellcheck", "false");
+	skillName.style.fontSize = "17px";
+	skillName.innerHTML = "Tên kỹ năng";
+	skillLevel.style.display = "flex";
+	skillWrap.style.position = "relative";
+	skillWrap.style.margin = "2px";
+	skillWrap.setAttribute("bordercolor", "white");
+	skillLevel.addEventListener("click", function (e) {
+		if (e.target.hasAttribute("index") === true) {
+			index = parseInt(e.target.getAttribute("index"));
 
       divParent = e.target.parentElement;
       arrayLevel = divParent.childNodes;
@@ -495,44 +500,40 @@ document
       value = activeElement.innerHTML;
       activeElement.style.color = "white";
 
-      switch (value) {
-        case "Facebook":
-        case "facebook":
-          activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
-          activeElement.style.fontSize = "20px";
-          break;
-        case "Instagram":
-        case "instagram":
-          activeElement.innerHTML = `<i class="fab fa-instagram"></i>`;
-          activeElement.style.fontSize = "20px";
-          break;
-        case "Github":
-        case "github":
-          activeElement.innerHTML = `<i class="fab fa-github"></i>`;
-          activeElement.style.fontSize = "20px";
-          break;
-        case "Twitter":
-        case "twitter":
-          activeElement.innerHTML = `<i class="fab fa-twitter"></i>`;
-          activeElement.style.fontSize = "20px";
-          break;
-        case "Linkedin":
-        case "linkedin":
-          activeElement.innerHTML = `<i class="fab fa-linkedin-in"></i>`;
-          activeElement.style.fontSize = "20px";
-          break;
-        case "Youtube":
-        case "youtube":
-          activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
-          activeElement.style.fontSize = "20px";
-          break;
-        default:
-          activeElement.innerHTML = `<i class="fas fa-link"></i>`;
-          activeElement.style.fontSize = "20px";
-          break;
-      }
-    }
-  });
+			switch (value) {
+				case "Facebook":
+				case "facebook":
+					activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Instagram":
+				case "instagram":
+					activeElement.innerHTML = `<i class="fab fa-instagram"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Github":
+				case "github":
+					activeElement.innerHTML = `<i class="fab fa-github"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Twitter":
+				case "twitter":
+					activeElement.innerHTML = `<i class="fab fa-twitter"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Linkedin":
+				case "linkedin":
+					activeElement.innerHTML = `<i class="fab fa-linkedin-in"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+				case "Youtube":
+				case "youtube":
+					activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
+					activeElement.style.fontSize = "20px";
+					break;
+			}
+		}
+	});
 console.log(document.querySelectorAll(".thongtinkhac")[parseInt(sttCV)]);
 function addAnotherInfor() {
   let wrapDiv = document.createElement("div");
@@ -689,24 +690,25 @@ function getOffset(el) {
   );
 }
 function addCertificate() {
-  let wrapDiv = document.createElement("div");
-  let certificateName = document.createElement("div");
-  let labelFrom = document.createElement("div");
-  let fromDate = document.createElement("input");
-  let labelTo = document.createElement("div");
-  let toDate = document.createElement("input");
-  let fromWrapper = document.createElement("div");
-  let toWrapper = document.createElement("div");
-  wrapDiv.style.marginTop = "10px";
-  wrapDiv.style.marginBottom = "10px";
-  wrapDiv.style.border = "1px solid transparent";
-  certificateName.contentEditable = "true";
-  certificateName.style.width = "90%";
-  certificateName.style.color = "grey";
-  certificateName.spellcheck = "false";
-  certificateName.style.padding = "5px";
-  certificateName.setAttribute("spellcheck", "false");
-  certificateName.innerHTML = "Tên chứng chỉ";
+	let wrapDiv = document.createElement("div");
+	let certificateName = document.createElement("div");
+	let labelFrom = document.createElement("div");
+	let fromDate = document.createElement("input");
+	let labelTo = document.createElement("div");
+	let toDate = document.createElement("input");
+	let fromWrapper = document.createElement("div");
+	let toWrapper = document.createElement("div");
+	wrapDiv.style.marginTop = "10px";
+	wrapDiv.style.marginBottom = "10px";
+	wrapDiv.style.border = "1px solid transparent";
+	wrapDiv.setAttribute("borderColor", "white");
+	certificateName.contentEditable = "true";
+	certificateName.style.width = "90%";
+	certificateName.style.color = "grey";
+	certificateName.spellcheck = "false";
+	certificateName.style.padding = "5px";
+	certificateName.setAttribute("spellcheck", "false");
+	certificateName.innerHTML = "Tên chứng chỉ";
 
   labelFrom.innerHTML = "Từ";
   labelFrom.style.color = "grey";
@@ -716,22 +718,24 @@ function addCertificate() {
   fromWrapper.style.justifyContent = "center";
   fromWrapper.style.marginBottom = "5px";
 
-  fromDate.type = "date";
-  fromDate.style.backgroundColor = "transparent";
-  fromDate.style.color = "white";
-  fromDate.style.padding = "5px";
-  toWrapper.style.alignItems = "center";
-  toWrapper.style.justifyContent = "center";
-  toWrapper.style.marginLeft = "1px";
-  labelTo.innerHTML = "Đến";
-  labelTo.style.color = "grey";
-  labelTo.style.marginRight = "10px";
-  toDate.type = "date";
-  toDate.style.backgroundColor = "transparent";
-  toDate.style.color = "white";
-  toDate.style.padding = "5px";
-  fromWrapper.style.display = "flex";
-  toWrapper.style.display = "flex";
+	fromDate.type = "date";
+	fromDate.style.backgroundColor = "transparent";
+	fromDate.style.color = "white";
+	fromDate.style.padding = "5px";
+	toWrapper.style.alignItems = "center";
+	toWrapper.style.justifyContent = "center";
+	toWrapper.style.marginLeft = "1px";
+	toWrapper.setAttribute("bordercolor", "white");
+
+	labelTo.innerHTML = "Đến";
+	labelTo.style.color = "grey";
+	labelTo.style.marginRight = "10px";
+	toDate.type = "date";
+	toDate.style.backgroundColor = "transparent";
+	toDate.style.color = "white";
+	toDate.style.padding = "5px";
+	fromWrapper.style.display = "flex";
+	toWrapper.style.display = "flex";
 
   document
     .querySelectorAll(".certificate")
@@ -764,6 +768,36 @@ document
   });
 getOffset(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
 console.log(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
+
+let CVbackground = document.querySelector("#backgroundOfCV");
+function getBackground(e) {
+	document
+		.querySelector(".backgroundContainer")
+		.addEventListener("click", function (e) {
+			backgroundID = e.target.getAttribute("id");
+			switch (backgroundID) {
+				case "1":
+					// CVbackground.src = "https://files.fm/thumb_show.php?i=truaf92w7";
+					CVbackground.src =
+						"/Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
+					break;
+				case "2":
+					CVbackground.src = "https://imgur.com/CE3gdP0";
+					break;
+				case "3":
+					CVbackground.src = "https://files.fm/thumb_show.php?i=ntee6brya";
+					break;
+				case "4":
+					CVbackground.src = "https://files.fm/thumb_show.php?i=x5nh8qeah";
+					break;
+				default:
+					break;
+			}
+			console.log(backgroundID);
+			console.log(CVbackground);
+		});
+}
+getBackground();
 //                                phan download CV 👆
 
 //                                khoa 👇

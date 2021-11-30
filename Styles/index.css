@@ -94,7 +94,7 @@ body {
 	margin: 10px;
 	position: relative;
 }
-#testdown {
+#backgroundOfCV {
 	position: absolute;
 	z-index: 0;
 	/* opacity: 0.7; */
@@ -113,6 +113,57 @@ body {
 	background-color: #5976ffd1;
 	border-collapse: collapse;
 	margin-top: 1px;
+}
+.backgroundContainer {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	grid-template-rows: auto auto auto;
+	margin-top: 20px;
+	row-gap: 25px;
+}
+.backgroundContainer div {
+	width: 50px;
+	height: 50px;
+	box-shadow: 8px 8px 15px rgb(99, 99, 99);
+}
+.backgroundContainer div:hover {
+	box-shadow: 3px 3px 15px rgb(61, 61, 61);
+}
+.backgroundContainer div:first-child {
+	background-image: url(/Images/test.png);
+	background-position: top left;
+}
+.backgroundContainer div:nth-child(2) {
+	background-image: url(/Images/test.png);
+	background-position: center top;
+}
+.backgroundContainer div:nth-child(3) {
+	background-image: url(/Images/test.png);
+	background-position: right top;
+}
+.backgroundContainer div:nth-child(4) {
+	background-image: url(/Images/test.png);
+	background-position: left center;
+}
+.backgroundContainer div:nth-child(5) {
+	background-image: url(/Images/test.png);
+	background-position: center center;
+}
+.backgroundContainer div:nth-child(6) {
+	background-image: url(/Images/test.png);
+	background-position: right center;
+}
+.backgroundContainer div:nth-child(7) {
+	background-image: url(/Images/test.png);
+	background-position: left bottom;
+}
+.backgroundContainer div:nth-child(8) {
+	background-image: url(/Images/test.png);
+	background-position: center bottom;
+}
+.backgroundContainer div:nth-child(9) {
+	background-image: url(/Images/test.png);
+	background-position: right bottom;
 }
 .information > div:first-child {
 	display: flex;
@@ -455,7 +506,7 @@ form[action=""] input[type="file"] {
 	background-color: #ddd;
 	cursor: pointer;
 }
-                       /* ul ol */
+/* ul ol */
 #listEdit {
 	width: 6%;
 	border-top-right-radius: 4px;
