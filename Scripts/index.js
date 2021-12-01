@@ -177,7 +177,7 @@ function deleteButtonFunction(a) {
 		});
 		a.addEventListener("mouseout", function () {
 			deleteButton.style.display = "none";
-			a.style.border = "none";
+			a.style.border = "1px solid transparent";
 		});
 	}
 }
@@ -208,7 +208,7 @@ setInterval(() => {
 
 //SETTING
 // align
-let activeElement = document.getElementById("socialNetwork");
+let activeElement = document.getElementById("hocVan");
 let activeElementContainNull;
 let activeElement2;
 let tempActiveElement;
@@ -259,6 +259,7 @@ setInterval(() => {
 		activeElementContainNull = null;
 	}
 	if (
+		activeElement != null &&
 		activeElement.getAttribute("class") !== "" &&
 		activeElement.getAttribute("class") !== null &&
 		activeElement.getAttribute("class") !== undefined
@@ -287,7 +288,6 @@ setInterval(() => {
 		italic.style.pointerEvents = "none";
 		bold.style.pointerEvents = "none";
 	}
-
 	document.getElementById("showFont").innerHTML = window
 		.getComputedStyle(activeElement, null)
 		.getPropertyValue("font-size")
@@ -385,10 +385,12 @@ function addSkill() {
 	skillName.style.fontSize = "17px";
 	skillName.innerHTML = "Tên kỹ năng";
 	skillLevel.style.display = "flex";
+	skillLevel.setAttribute("class", "skillLevel");
 	skillWrap.style.position = "relative";
 	skillWrap.style.margin = "2px";
 	skillWrap.style.zIndex = "4";
 	skillWrap.setAttribute("bordercolor", "white");
+
 	skillLevel.addEventListener("click", function (e) {
 		if (e.target.hasAttribute("index") === true) {
 			index = parseInt(e.target.getAttribute("index"));
@@ -423,6 +425,27 @@ function addSkill() {
 		skillLevel.appendChild(level);
 	}
 }
+function skillLevel() {
+	document.querySelectorAll(".skillLevel").forEach(function (item, index) {
+		item.addEventListener("click", function (e) {
+			if (e.target.hasAttribute("index") === true) {
+				index = parseInt(e.target.getAttribute("index"));
+
+				divParent = e.target.parentElement;
+				arrayLevel = divParent.childNodes;
+				for (let i = 0; i <= 9; i++) {
+					if (i <= index && arrayLevel[i].getAttribute("index") != null) {
+						arrayLevel[i].style.backgroundColor = window.getComputedStyle(
+							document.querySelectorAll(".headleftCV")[0]
+						).backgroundColor;
+					} else if (arrayLevel[i].getAttribute("index") != null) {
+						arrayLevel[i].style.backgroundColor = "white";
+					}
+				}
+			}
+		});
+	});
+}
 function placeholderOfSkill() {
 	document
 		.querySelectorAll('div[key="skill"]')
@@ -442,8 +465,6 @@ function placeholderOfSkill() {
 		});
 }
 // ADD SOCIAL NETWORK
-
-console.log(document.querySelectorAll("div[name='socialNetwork'] #addButton"));
 function addButtonSocialNetwork() {
 	document
 		.querySelectorAll("div[name='socialNetwork']")
@@ -471,6 +492,7 @@ function addSocialNetwork() {
 	wrapDiv.style.marginTop = "10px";
 	wrapDiv.style.position = "relative";
 	wrapDiv.style.marginLeft = "-15%";
+	wrapDiv.setAttribute("bordercolor", "white");
 	icon.style.width = "27%";
 	icon.setAttribute("contenteditable", "true");
 	icon.setAttribute("name", "iconSocialNetwork");
@@ -1604,7 +1626,6 @@ function kiemtraSTTCV() {
 	addButtonProject();
 	placeholderOfSkill();
 	addButtonSkill();
-	console.log(document.querySelectorAll("div[key='socialNetwork'] > div"));
 	addDeleteButtoAgain(document.querySelectorAll("div[key='project'] > div"));
 	addDeleteButtoAgain(document.querySelectorAll(".nothing > div"));
 	addDeleteButtoAgain(document.querySelectorAll(".certificate > div"));
@@ -1613,6 +1634,7 @@ function kiemtraSTTCV() {
 	);
 	addButtonSocialNetwork();
 	placeholderOfSocialNetwork();
+	skillLevel();
 }
 chinhnenCV1();
 chuyenCV();
