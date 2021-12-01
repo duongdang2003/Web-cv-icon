@@ -18,7 +18,7 @@ body {
 	position: relative;
 	font-family: "Roboto", Courier, monospace;
 	/* background: linear-gradient(to right,#6495a6, #a6bcd8, #e8e8e7);*/
-	background-color: #f8edeb;
+	background-color: #2f2a33;
 }
 #wrapBody {
 	width: 100%;
@@ -59,7 +59,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 20px;
-	background-color: #2f2a33;
+	/* background-color: #2f2a33; */
+	background: linear-gradient(to bottom, black, #2f2a33);
 	color: #e8e8e7;
 	/* background: url(/Images/headerBackground.jpg); */
 	background-size: cover;
@@ -110,14 +111,13 @@ body {
 	padding: 15px;
 	color: black;
 	border: 1px solid #ece4db;
-	background-color: #5976ffd1;
+	background-color: white;
 	border-collapse: collapse;
 	margin-top: 1px;
 }
 .backgroundContainer {
 	display: grid;
-	grid-template-columns: auto auto auto auto;
-	grid-template-rows: auto auto auto;
+	grid-template-columns: auto auto auto auto auto;
 	margin-top: 20px;
 	row-gap: 25px;
 }
@@ -179,7 +179,7 @@ body {
 	text-align: center;
 	font-size: 30px;
 	padding: 10px;
-	background-color: #5976ffd1;
+	background-color: white;
 	margin: 2px 2px 5px 5px;
 	border-radius: 5px;
 }
@@ -239,7 +239,7 @@ body {
 	border: 2px solid #c26b32;
 	cursor: pointer;
 }
-#addSkill {
+.addSkill {
 	border: 1px solid white;
 	color: white;
 	width: fit-content;
@@ -401,7 +401,7 @@ form[action=""] input[type="file"] {
 	height: 60px;
 	margin: auto;
 	margin-bottom: 10px;
-	background: linear-gradient(45deg, #5976ffd1, #e38edb);
+	background: linear-gradient(45deg, rgb(0, 240, 252), #f757f5);
 	box-shadow: 0px 5px 5px rgba(122, 122, 122, 0.562);
 	border-radius: 10px;
 	display: flex;
@@ -426,7 +426,7 @@ form[action=""] input[type="file"] {
 .sectionEdit {
 	height: 76%;
 	width: 12%;
-	background-color: #ece1db;
+	background-color: white;
 	box-shadow: 5px 0px 5px rgba(122, 122, 122, 0.562);
 	position: relative;
 	padding: 0 10px;
@@ -523,7 +523,7 @@ form[action=""] input[type="file"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color:rgb(148, 148, 148);
+	color: rgb(148, 148, 148);
 }
 #listEdit i:hover {
 	background-color: #ddd;
@@ -846,11 +846,11 @@ form #color-search {
 .pickr .pcr-button::after {
 	position: relative;
 }
-.pcr-app[data-theme='classic'] {
+.pcr-app[data-theme="classic"] {
 	left: var(--leftPcr-) !important;
-    width: 23.5em;
-    max-width: 95vw;
-    padding: 0.8em;
+	width: 23.5em;
+	max-width: 95vw;
+	padding: 0.8em;
 }
 /* keyframe */
 @keyframes slide {

@@ -73,13 +73,13 @@
 	font-size: 130%;
 	font-weight: bold;
 }
-.titleLeftCVsection h3:hover{
+.titleLeftCVsection h3:hover {
 	cursor: pointer;
 }
 .titleLeftCVsection hr {
 	border-color: purple;
-    border: 2px solid purple;
-    background-color: purple;
+	border: 2px solid purple;
+	background-color: purple;
 }
 
 .sectionTitleLeftCV1.C2 {
@@ -109,7 +109,7 @@
 	position: relative;
 	color: #fff;
 }
-.sectionInfoTitle:hover{
+.sectionInfoTitle:hover {
 	cursor: pointer;
 }
 .sectionInfoTitle::after {
@@ -200,7 +200,7 @@
 	font-size: 180%;
 	font-weight: bold;
 }
-.sectionTitleBodyLeftCV h1{
+.sectionTitleBodyLeftCV h1 {
 	cursor: pointer;
 }
 .sectionTitleBodyLeftCV hr {
