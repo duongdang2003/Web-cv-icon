@@ -496,7 +496,6 @@ function addSocialNetwork() {
 	wrapDiv.style.position = "relative";
 	wrapDiv.style.marginLeft = "-15%";
 	wrapDiv.setAttribute("bordercolor", "white");
-	icon.style.width = "27%";
 	icon.setAttribute("contenteditable", "true");
 	icon.setAttribute("name", "iconSocialNetwork");
 	icon.style.padding = "5px";
@@ -515,7 +514,14 @@ function addSocialNetwork() {
 	socialNetworkLink.setAttribute("contenteditable", "true");
 	socialNetworkLink.setAttribute("spellcheck", "false");
 	socialNetworkLink.setAttribute("class", "test");
-	socialNetworkLink.style.width = "70%";
+	if (sttCV == 0) {
+		icon.style.width = "27%";
+		socialNetworkLink.style.width = "70%";
+	} else if (sttCV == 1) {
+		icon.style.width = "30%";
+		socialNetworkLink.style.width = "50%";
+		wrapDiv.style.marginLeft = "20px";
+	}
 	document.querySelectorAll(".mangxahoi")[parseInt(sttCV)].appendChild(wrapDiv);
 	wrapDiv.appendChild(icon);
 	wrapDiv.appendChild(socialNetworkLink);
@@ -639,31 +645,34 @@ function addAnotherInfor() {
 	wrapDiv.appendChild(ruler);
 	deleteButtonFunction(wrapDiv);
 }
-document
-	.querySelectorAll(".thongtinkhac")
-	[parseInt(sttCV)].addEventListener("focusin", function (e) {
-		if (
-			e.target.innerHTML === "Tiêu đề thông tin" ||
-			e.target.innerHTML === "Chi tiết"
-		) {
-			e.target.innerHTML = "";
-			e.target.style.color = "black";
-		}
-	});
-document
-	.querySelectorAll(".thongtinkhac")
-	[parseInt(sttCV)].addEventListener("focusout", function (e) {
-		if (
-			e.target.innerHTML === "" &&
-			e.target.getAttribute("class") === "titleAI"
-		) {
-			e.target.innerHTML = "Tiêu đề thông tin";
-			e.target.style.color = "grey";
-		} else if (e.target.innerHTML === "") {
-			e.target.innerHTML = "Chi tiết";
-			e.target.style.color = "grey";
-		}
-	});
+function placeholderAnotherInfor() {
+	document
+		.querySelectorAll(".thongtinkhac")
+		[parseInt(sttCV)].addEventListener("focusin", function (e) {
+			if (
+				e.target.innerHTML === "Tiêu đề thông tin" ||
+				e.target.innerHTML === "Chi tiết"
+			) {
+				e.target.innerHTML = "";
+				e.target.style.color = "black";
+			}
+		});
+	document
+		.querySelectorAll(".thongtinkhac")
+		[parseInt(sttCV)].addEventListener("focusout", function (e) {
+			if (
+				e.target.innerHTML === "" &&
+				e.target.getAttribute("class") === "titleAI"
+			) {
+				e.target.innerHTML = "Tiêu đề thông tin";
+				e.target.style.color = "grey";
+			} else if (e.target.innerHTML === "") {
+				e.target.innerHTML = "Chi tiết";
+				e.target.style.color = "grey";
+			}
+		});
+}
+placeholderAnotherInfor();
 function addIndex() {
 	let bigDiv = document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV)];
 	let wrapDiv = document.createElement("div");
@@ -832,7 +841,8 @@ function placeholderOfAddCertificate() {
 }
 getOffset(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
 
-let CVbackground = document.querySelector("#backgroundOfCV");
+let CVbackground = document.querySelectorAll(".backgroundOfCV");
+console.log(CVbackground);
 function getBackground(e) {
 	document
 		.querySelector(".backgroundContainer")
@@ -841,17 +851,26 @@ function getBackground(e) {
 			switch (backgroundID) {
 				case "1":
 					// CVbackground.src = "https://files.fm/thumb_show.php?i=truaf92w7";
-					CVbackground.src =
-						"/Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
+					CVbackground[parseInt(sttCV)].src =
+						"./Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
+					CVbackground[parseInt(sttCV) + 2].src =
+						"./Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
 					break;
 				case "2":
-					CVbackground.src = "https://imgur.com/CE3gdP0";
+					CVbackground[parseInt(sttCV)].src = "https://imgur.com/CE3gdP0";
+					CVbackground[parseInt(sttCV) + 2].src = "https://imgur.com/CE3gdP0";
 					break;
 				case "3":
-					CVbackground.src = "https://files.fm/thumb_show.php?i=ntee6brya";
+					CVbackground[parseInt(sttCV)].src =
+						"https://files.fm/thumb_show.php?i=ntee6brya";
+					CVbackground[parseInt(sttCV) + 2].src =
+						"https://files.fm/thumb_show.php?i=ntee6brya";
 					break;
 				case "4":
-					CVbackground.src = "https://files.fm/thumb_show.php?i=x5nh8qeah";
+					CVbackground[parseInt(sttCV)].src =
+						"https://files.fm/thumb_show.php?i=x5nh8qeah";
+					CVbackground[parseInt(sttCV) + 2].src =
+						"https://files.fm/thumb_show.php?i=x5nh8qeah";
 					break;
 				default:
 					break;
@@ -861,7 +880,13 @@ function getBackground(e) {
 		});
 }
 getBackground();
-
+function deleteBackground() {
+	CVbackground[parseInt(sttCV)].src = "";
+	CVbackground[parseInt(sttCV) + 2].src = "";
+}
+function addBackground() {
+	alert("Chưa có thêm click làm gì :))");
+}
 //                                phan download CV 👆
 
 //                                khoa 👇
@@ -1151,11 +1176,43 @@ function save() {
 		"sub title",
 		document.querySelectorAll('div[key="subTitle"]')[parseInt(sttCV)].outerHTML
 	);
-	localStorage.setItem(
-		"header left color",
-		window.getComputedStyle(document.querySelector(".headleftCV"))
-			.backgroundColor
-	);
+	// header color
+	if (
+		window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
+			.backgroundColor !== "rgb(170, 9, 170)" &&
+		sttCV == 0
+	) {
+		localStorage.setItem(
+			"header left color",
+			window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
+				.backgroundColor
+		);
+	} else if (
+		window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
+			.backgroundColor == "rgb(170, 9, 170)" &&
+		sttCV == 0
+	) {
+		localStorage.setItem("header left color", "#2f4e50");
+	}
+	if (
+		window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
+			.backgroundColor == "rgb(47, 78, 80)" &&
+		sttCV == 1
+	) {
+		localStorage.setItem("header left color", "rgb(170, 9, 170)");
+	} else if (
+		window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
+			.backgroundColor !== "rgb(47, 78, 80)" &&
+		sttCV == 1
+	) {
+		localStorage.setItem(
+			"header left color",
+			window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
+				.backgroundColor
+		);
+	}
+	console.log(sttCV);
+	//
 	localStorage.setItem(
 		"left color",
 		window.getComputedStyle(document.querySelector(".leftCV")).backgroundColor
@@ -1178,6 +1235,7 @@ function save() {
 		document.querySelector("#save i").style.animation = "none";
 	}, 1000);
 }
+console.log(document.querySelectorAll(".headleftCV")[0]);
 function load() {
 	if (localStorage.getItem("lock load") === "false") {
 		document.getElementById("load").style.cursor = "pointer";
@@ -1259,17 +1317,6 @@ function addDeleteButtoAgain(array) {
 // 	console.log(activeElement)
 // 	console.log(activeElementContainNull)
 // },1000)
-
-// Code luu du lieu save lai de xem dung xóa nha
-
-// function load() {
-// 	saveValue = localStorage.getItem("saveValue");
-// 	document.getElementById("saveField").value = saveValue;
-// }
-// function save() {
-// 	saveValue = document.getElementById("saveField").value;
-// 	localStorage.setItem("saveValue", saveValue);
-// }
 var trynenphai = 0,
 	trynentrai = 0,
 	tryneninfo = 0,
@@ -1635,9 +1682,14 @@ function kiemtraSTTCV() {
 	addDeleteButtoAgain(
 		document.querySelectorAll("div[key='socialNetwork'] > div")
 	);
+	addDeleteButtoAgain(
+		document.querySelectorAll("div[key='divOfAddIndex'] > div")
+	);
+	addDeleteButtoAgain(document.querySelectorAll(".thongtinkhac > div"));
 	addButtonSocialNetwork();
 	placeholderOfSocialNetwork();
 	skillLevel();
+	placeholderAnotherInfor();
 }
 chinhnenCV1();
 chuyenCV();

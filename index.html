@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#9d4edd">
 		<title>Auri</title>
 		<link
 			rel="stylesheet"
@@ -165,19 +166,26 @@
 							<div id="3"></div>
 							<div id="4"></div>
 							<div id="5"></div>
-					
+							<div id="6"></div>
 						</div>
+						<div id="custom">
+							<div onclick="addBackground()"  id="addBackground">Thêm nền</div>
+							<div onclick="deleteBackground()" id="deleteBackground">Xóa nền</div>
+						</div>
+						<div id="userBackground">
+						</div>
+
 					</div>
 					<div id="project" onclick="addProject()" style="user-select: none">
 						Dự án
 						<i class="fas fa-plus-circle"></i>
 					</div>
 					<div id="language" onclick="addIndex()" style="user-select: none">
-						Thêm mục
+						Thêm mục phải
 						<i class="fas fa-plus-circle"> </i>
 					</div>
 					<div id="project" style="user-select: none">
-						Mạng xã hội
+						Thêm mục trái
 						<i class="fas fa-plus-circle"></i>
 					</div>
 					<div
@@ -194,6 +202,8 @@
 							<div id="leftMiniColor">
 								<div>Chọn nền(có 4 nền)</div>
 								<div class="miniCV miniCV1">
+						<img class="backgroundOfCV" src="https://imgur.com/Qy3fWx80"></img>
+
 									<div class="wrapCanvas">
 										<span class="leftCV" id="miniLeftCV_js">
 											<img class="Miniava" src="./Images/no_avatar.jpg" />
@@ -287,12 +297,14 @@
 								</div>
 								<!-- miniCV2 -->
 								<div class="miniCV miniCV2 CV2 closeCV2">
+						<img class="backgroundOfCV" src="https://imgur.com/Qy3fWx80"></img>
+
 									<div class="wrapCanvas">
 										<span class="leftCV" id="miniLeftCV2_js">
 											<img class="Miniava" src="./Images/no_avatar.jpg" />
 											<div class="sectionTitleLeftCV1" id="hocVan">
 												<div class="titleLeftCVsection">
-													<h3>Học vấn</h3>
+													<h3 contenteditable="true">Học vấn</h3>
 												</div>
 											</div>
 											<div class="sectionTitleLeftCV1">
@@ -575,7 +587,7 @@
 
 				<div class="CV jsCV" style="position: relative;">
 					<div style="width: 100%; height: 100%">
-						<img id="backgroundOfCV" src="https://imgur.com/Qy3fWx80"></img>
+						<img class="backgroundOfCV" src="https://imgur.com/Qy3fWx80"></img>
 						
 						<div class="wrapCanvas">
 							<span class="leftCV">
@@ -777,6 +789,8 @@
 					</div>
 
 				<div class="CV2 main closeCV2 jsCV">
+					<img class="backgroundOfCV" src="https://imgur.com/Qy3fWx80"></img>
+
 					<div class="wrapCanvas">
 						<span class="leftCV">
 							<img class="ava" src="./Images/no_avatar.jpg" />

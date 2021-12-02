@@ -95,7 +95,7 @@ body {
 	margin: 10px;
 	position: relative;
 }
-#backgroundOfCV {
+.backgroundOfCV {
 	position: absolute;
 	z-index: 0;
 	/* opacity: 0.7; */
@@ -103,21 +103,19 @@ body {
 	height: 100%;
 	top: 0;
 }
-.body .information > div {
+.body .information > div:not(:first-child) {
 	width: 90%;
 	height: fit-content;
 	position: relative;
 	font-size: 20px;
 	padding: 15px;
 	color: black;
-	border: 1px solid #ece4db;
-	background-color: white;
+	background: linear-gradient(45deg, rgb(0, 240, 252), #f757f5);
 	border-collapse: collapse;
-	margin-top: 1px;
 }
 .backgroundContainer {
 	display: grid;
-	grid-template-columns: auto auto auto auto auto;
+	grid-template-columns: auto auto auto auto auto auto;
 	margin-top: 20px;
 	row-gap: 25px;
 }
@@ -130,58 +128,81 @@ body {
 	box-shadow: 3px 3px 15px rgb(61, 61, 61);
 }
 .backgroundContainer div:first-child {
-	background-image: url(/Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: top left;
 }
 .backgroundContainer div:nth-child(2) {
-	background-image: url(/Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: center top;
 }
 .backgroundContainer div:nth-child(3) {
-	background-image: url(/Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: right top;
 }
 .backgroundContainer div:nth-child(4) {
-	background-image: url(/Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: left center;
 }
 .backgroundContainer div:nth-child(5) {
-	background-image: url(/Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: center center;
 }
 .backgroundContainer div:nth-child(6) {
-	background-image: url(/Images/test.png);
+	background-image: url(.g./Images/test.png);
 	background-position: right center;
 }
-.backgroundContainer div:nth-child(7) {
-	background-image: url(/Images/test.png);
-	background-position: left bottom;
-}
-.backgroundContainer div:nth-child(8) {
-	background-image: url(/Images/test.png);
-	background-position: center bottom;
-}
-.backgroundContainer div:nth-child(9) {
-	background-image: url(/Images/test.png);
-	background-position: right bottom;
-}
-.information > div:first-child {
+#custom {
 	display: flex;
-	width: fit-content;
-	border: none;
-	background-color: transparent;
-	padding: 0;
-	margin-left: auto;
-	margin-right: 10%;
+	margin-top: 20px;
+	font-size: 15px;
+	justify-content: center;
+}
+
+#custom > div {
+	margin-left: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #2f2a33;
+	color: white;
+	cursor: pointer;
+}
+#userBackground {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	margin-top: 20px;
+	grid-row-gap: 10px;
+}
+#userBackground div {
+	background-color: white;
+	width: 50px;
+	height: 50px;
 }
 .information .data div {
 	width: min-content;
 	text-align: center;
 	font-size: 30px;
 	padding: 10px;
-	background-color: white;
+	/* background-color: white; */
+	background: linear-gradient(45deg, rgb(0, 240, 252), #f757f5);
+
 	margin: 2px 2px 5px 5px;
 	border-radius: 5px;
+}
+.information > div:first-child {
+	display: flex;
+	width: fit-content;
+	border: none;
+	background-color: transparent !important;
+	padding: 0;
+	margin-left: auto;
+	margin-right: 10%;
+	border-radius: 5px 5px 0 0;
+}
+.information > div:nth-child(2) {
+	border-radius: 10px 10px 0 0;
+}
+#anotherInfor {
+	border-radius: 0 0 10px 10px;
 }
 #available {
 	display: flex;
