@@ -838,7 +838,8 @@ function placeholderOfAddCertificate() {
 }
 getOffset(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
 
-let CVbackground = document.querySelector("#backgroundOfCV");
+let CVbackground = document.querySelectorAll(".backgroundOfCV");
+console.log(CVbackground);
 function getBackground(e) {
 	document
 		.querySelector(".backgroundContainer")
@@ -847,17 +848,26 @@ function getBackground(e) {
 			switch (backgroundID) {
 				case "1":
 					// CVbackground.src = "https://files.fm/thumb_show.php?i=truaf92w7";
-					CVbackground.src =
-						"/Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
+					CVbackground[parseInt(sttCV)].src =
+						"./Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
+					CVbackground[parseInt(sttCV) + 2].src =
+						"./Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
 					break;
 				case "2":
-					CVbackground.src = "https://imgur.com/CE3gdP0";
+					CVbackground[parseInt(sttCV)].src = "https://imgur.com/CE3gdP0";
+					CVbackground[parseInt(sttCV) + 2].src = "https://imgur.com/CE3gdP0";
 					break;
 				case "3":
-					CVbackground.src = "https://files.fm/thumb_show.php?i=ntee6brya";
+					CVbackground[parseInt(sttCV)].src =
+						"https://files.fm/thumb_show.php?i=ntee6brya";
+					CVbackground[parseInt(sttCV) + 2].src =
+						"https://files.fm/thumb_show.php?i=ntee6brya";
 					break;
 				case "4":
-					CVbackground.src = "https://files.fm/thumb_show.php?i=x5nh8qeah";
+					CVbackground[parseInt(sttCV)].src =
+						"https://files.fm/thumb_show.php?i=x5nh8qeah";
+					CVbackground[parseInt(sttCV) + 2].src =
+						"https://files.fm/thumb_show.php?i=x5nh8qeah";
 					break;
 				default:
 					break;
@@ -868,7 +878,8 @@ function getBackground(e) {
 }
 getBackground();
 function deleteBackground() {
-	CVbackground.src = "";
+	CVbackground[parseInt(sttCV)].src = "";
+	CVbackground[parseInt(sttCV) + 2].src = "";
 }
 function addBackground() {
 	alert("Chưa có thêm click làm gì :))");

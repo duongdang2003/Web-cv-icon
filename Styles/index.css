@@ -95,7 +95,7 @@ body {
 	margin: 10px;
 	position: relative;
 }
-#backgroundOfCV {
+.backgroundOfCV {
 	position: absolute;
 	z-index: 0;
 	/* opacity: 0.7; */
@@ -148,7 +148,7 @@ body {
 	background-position: center center;
 }
 .backgroundContainer div:nth-child(6) {
-	background-image: url(../Images/test.png);
+	background-image: url(.g./Images/test.png);
 	background-position: right center;
 }
 #custom {
