@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#9d4edd">
 		<title>Auri</title>
 		<link
 			rel="stylesheet"
@@ -165,8 +166,15 @@
 							<div id="3"></div>
 							<div id="4"></div>
 							<div id="5"></div>
-					
+							<div id="6"></div>
 						</div>
+						<div id="custom">
+							<div onclick="addBackground()"  id="addBackground">Thêm nền</div>
+							<div onclick="deleteBackground()" id="deleteBackground">Xóa nền</div>
+						</div>
+						<div id="userBackground">
+						</div>
+
 					</div>
 					<div id="project" onclick="addProject()" style="user-select: none">
 						Dự án
@@ -292,7 +300,7 @@
 											<img class="Miniava" src="./Images/no_avatar.jpg" />
 											<div class="sectionTitleLeftCV1" id="hocVan">
 												<div class="titleLeftCVsection">
-													<h3>Học vấn</h3>
+													<h3 contenteditable="true">Học vấn</h3>
 												</div>
 											</div>
 											<div class="sectionTitleLeftCV1">
