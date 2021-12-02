@@ -118,8 +118,8 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	outline: 1px solid purple;
-	background-color: purple;
+	outline: 1px solid var(--pseudo-color);
+	background-color: var(--pseudo-color);
 	transform: translateY(-100%);
 }
 .sectionInfoTitle::before {

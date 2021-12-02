@@ -231,6 +231,22 @@ body .CV2 .headleftCV {
 	bottom: -6%;
 	border-top: 6px solid var(--color-rightCV);
 	transform: rotateZ(-45deg);
+	z-index: 5;
+}
+.CV2 .triangle.extra{
+	border-top: 0.35rem solid white;
+}
+.CV2 .rectangularSmall.extra{
+    border-top: 6px solid white;
+
+}
+.CV2 .trapezoid.extra{
+    border-top: 6px solid white;
+
+}
+.CV2 .rectangularLarge.extra{
+    border-top: 6px solid white;
+
 }
 .CV2 .sectionTitleBodyLeftCV h1 {
 	color: #ffffff;

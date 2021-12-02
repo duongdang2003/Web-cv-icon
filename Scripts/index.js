@@ -194,10 +194,13 @@ setInterval(() => {
 	) {
 		// console.log((cv.offsetWidth * constHeight) / constWidth) * page;
 		ruler = document.createElement("p");
-		ruler.innerHTML = `----------------------------------- Trang ${page} -----------------------------------`;
+		ruler.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
 		ruler.style.position = "absolute";
+		ruler.style.color = "#ddd";
+		ruler.style.overflow = "hidden";
+		ruler.style.height="20px";
 		ruler.style.top = `${
-			((1 * cv.offsetWidth * constHeight) / constWidth) * page
+			((1 * cv.offsetWidth * constHeight) / constWidth) * page +1
 		}px`;
 		ruler.style.left = "-50%";
 		ruler.style.zIndex = "99999";
@@ -1789,9 +1792,9 @@ titleLeftBCV1.forEach(function (a) {
 //   CV2
 //        title right Color
 let titleRightCV2 = document.querySelectorAll(
-		".CV2 .sectionTitleBodyLeftCV h1"
+		".CV2.main .sectionTitleBodyLeftCV h1"
 	),
-	hrRightCV2 = document.querySelectorAll(".CV2 .sectionTitleBodyLeftCV hr");
+	hrRightCV2 = document.querySelectorAll(".CV2.main .sectionTitleBodyLeftCV hr");
 titleRightCV2.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
@@ -1821,7 +1824,7 @@ titleRightCV2.forEach(function (a) {
 });
 
 //                             title left
-let titleLeftCV2 = document.querySelectorAll(".CV2 .titleLeftCVsection h3");
+let titleLeftCV2 = document.querySelectorAll(".CV2.main .titleLeftCVsection h3");
 titleLeftCV2.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
@@ -1848,7 +1851,7 @@ titleLeftCV2.forEach(function (a) {
 });
 
 //   title left bottom
-let titleLeftBCV2 = document.querySelectorAll(".CV2 .sectionInfoTitle");
+let titleLeftBCV2 = document.querySelectorAll(".CV2.main .sectionInfoTitle");
 titleLeftBCV2.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {

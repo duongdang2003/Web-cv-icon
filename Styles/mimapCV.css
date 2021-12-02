@@ -94,6 +94,8 @@ body .body .miniCV{
 }
 .addBorderColorForHr{
 	border-color: #02ebfc !important;
+	background-color: #02ebfc !important;
+	color: #02ebfc !important;
 }
 .Miniava{
 	position: relative;

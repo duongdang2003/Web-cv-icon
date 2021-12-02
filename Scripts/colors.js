@@ -116,6 +116,8 @@ pickr2.on('change', (color, source, instance) => {
       })
       document.querySelectorAll(".titleLeftCVsection hr").forEach(function(a){
         a.style.borderColor = color.toRGBA().toString();
+        a.style.backgroundColor = color.toRGBA().toString();
+        // a.style.border ="2px "
         rootStyle.setProperty('--pseudo-color', color.toRGBA().toString());
       })
     }
