@@ -128,27 +128,27 @@ body {
 	box-shadow: 3px 3px 15px rgb(61, 61, 61);
 }
 .backgroundContainer div:first-child {
-	background-image: url(./Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: top left;
 }
 .backgroundContainer div:nth-child(2) {
-	background-image: url(./Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: center top;
 }
 .backgroundContainer div:nth-child(3) {
-	background-image: url(./Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: right top;
 }
 .backgroundContainer div:nth-child(4) {
-	background-image: url(./Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: left center;
 }
 .backgroundContainer div:nth-child(5) {
-	background-image: url(./Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: center center;
 }
 .backgroundContainer div:nth-child(6) {
-	background-image: url(./Images/test.png);
+	background-image: url(../Images/test.png);
 	background-position: right center;
 }
 #custom {
