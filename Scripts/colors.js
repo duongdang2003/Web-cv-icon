@@ -54,7 +54,10 @@ pickr.on('change', (color, source, instance) => {
         a.style.backgroundColor = color.toRGBA().toString();
         a.style.borderColor = color.toRGBA().toString();
       }
-    })
+    });
+    duanTitle.forEach(function (a) {
+			a.style.color = dynamicColor;
+		});
   }
 })
 
