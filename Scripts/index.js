@@ -2142,5 +2142,5 @@ setTimeout(function () {
 		document.querySelector("#video video").pause();
 		document.querySelector("#Modalvideo").style.display = "none";
 	},5500)
-},2100)
+},2500)
 	}
