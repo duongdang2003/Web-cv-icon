@@ -1,6 +1,7 @@
 let cv = document.querySelector(".CV");
 let availableDisplay = true;
 let page = 1;
+let pageFull=1;
 let dynamicAlignRight = document.getElementById("dynamicAlignRight");
 let dynamicAlignCenter = document.getElementById("dynamicAlignCenter");
 let dynamicAlignLeft = document.getElementById("dynamicAlignRight");
@@ -12,6 +13,7 @@ let underline = document.getElementById("underline");
 let statuss = document.querySelectorAll("#status i");
 let sta = ["boldjs", "italicjs", "underlinejs"];
 let activeElementKhoa = [];
+let duanTitle;
 // Download
 function download(stringClassCV) {
 	const element = document.querySelector(stringClassCV); // Khỏi chỉnh lại
@@ -76,6 +78,7 @@ function addProject() {
 	projectName.innerHTML = "Tên dự án:";
 	projectName.style.color = "black";
 	projectName.style.paddingLeft = "10px";
+	projectName.style.color = dynamicColor;
 	project.setAttribute("contenteditable", "true");
 	project.style.width = "98%";
 	project.style.height = "fit-content";
@@ -90,6 +93,7 @@ function addProject() {
 	projectDiscription.innerHTML = "Mô tả dự án:";
 	projectDiscription.style.color = "black";
 	projectDiscription.style.paddingLeft = "10px";
+	projectDiscription.style.color = dynamicColor;
 	discription.setAttribute("contenteditable", "true");
 	discription.style.width = "98%";
 	discription.style.height = "fit-content";
@@ -111,6 +115,8 @@ function addProject() {
 	wrapDiv.appendChild(projectDiscription);
 	wrapDiv.appendChild(discription);
 	wrapDiv.appendChild(deleteButton);
+
+	duanTitle = document.querySelectorAll(".wrapDiv h3");
 }
 // display available
 function displayAvailable() {
@@ -188,6 +194,7 @@ let constHeight = 1111;
 let scale = 210 / 297;
 setInterval(() => {
 	console.log(cv.offsetWidth, cv.offsetHeight, page);
+	if (pageFull>=2) constHeight = 1117;
 	if (
 		cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
 		cv.offsetHeight >= constWidth * page
@@ -1056,7 +1063,7 @@ function addFile() {
 	saveFile = [];
 	console.log(src);
 	avatarCVs[sttCV].src = src;
-	if (sttCV == 1) {
+	if (sttCV == 0) {
 		avatarCVs[sttCV].style.border = "none";
 	}
 	document.getElementById("OCModal").classList.remove("OpenModal");
@@ -1176,10 +1183,14 @@ document.getElementById("useThisColor").onclick = function () {
 	} else {
 		activeElementKhoa.forEach(function (a, b, c) {
 			a.style.color = dynamicColor;
+			bienmauRightCV1=dynamicColor;
 			if (b >= c.length / 2) {
 				a.style.backgroundColor = dynamicColor;
 				a.style.borderColor = dynamicColor;
 			}
+		});
+		duanTitle.forEach(function (a) {
+			a.style.color = dynamicColor;
 		});
 	}
 };
@@ -1820,6 +1831,17 @@ function kiemtraSTTCV() {
 	placeholderAnotherInfor();
 	placeholderOfAddLeftIndex();
 	addOrRemoveRuler();
+
+			//   đổi màu title duan khi chuyen CV1 CV2
+			duanTitle = document.querySelectorAll(".wrapDiv h3");
+			var mau;
+			if (sttCV == 0)
+ 				mau =window.getComputedStyle(document.querySelector(".CV.jsCV .sectionTitleBodyLeftCV h1")).color;
+ 			else
+			    mau =window.getComputedStyle(document.querySelector(".CV2.main .sectionTitleBodyLeftCV h1")).color;
+			duanTitle.forEach(function (a){
+				a.style.color = mau;
+			})
 }
 chinhnenCV1();
 chuyenCV();
@@ -1888,17 +1910,25 @@ document.getElementById("listEdit").onclick = (e) => {
 //    CV1
 //        title right Color
 let titleRightCV1 = document.querySelectorAll(".CV .sectionTitleBodyLeftCV h1"),
-	hrRightCV1 = document.querySelectorAll(".CV .sectionTitleBodyLeftCV hr");
+	hrRightCV1 = document.querySelectorAll(".CV .sectionTitleBodyLeftCV hr"),
+	bienmauRightCV1;
 titleRightCV1.forEach(function (a) {
 	let nho;
+	console.log(duanTitle)
 	a.onmouseover = function () {
-		nho = a.style.color;
+		nho = window.getComputedStyle(a).color;
 		titleRightCV1.forEach(function (a) {
+			a.style.color = "#555";
+		});
+		duanTitle.forEach(function (a) {
 			a.style.color = "#555";
 		});
 	};
 	a.onmouseleave = function () {
 		titleRightCV1.forEach(function (a) {
+			a.style.color = nho;
+		});
+		duanTitle.forEach(function (a) {
 			a.style.color = nho;
 		});
 	};
@@ -1922,7 +1952,7 @@ let titleLeftCV1 = document.querySelectorAll(".CV .titleLeftCVsection h3");
 titleLeftCV1.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
-		nho = a.style.color;
+		nho = window.getComputedStyle(a).color;
 		titleLeftCV1.forEach(function (a) {
 			a.style.color = "#555";
 		});
@@ -1949,7 +1979,7 @@ let titleLeftBCV1 = document.querySelectorAll(".CV .sectionInfoTitle");
 titleLeftBCV1.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
-		nho = a.style.color;
+		nho = window.getComputedStyle(a).color;
 		titleLeftBCV1.forEach(function (a) {
 			a.style.color = "#555";
 		});
@@ -1982,13 +2012,19 @@ let titleRightCV2 = document.querySelectorAll(
 titleRightCV2.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
-		nho = a.style.color;
+		nho = window.getComputedStyle(a).color;
 		titleRightCV2.forEach(function (a) {
+			a.style.color = "#555";
+		});
+		duanTitle.forEach(function (a) {
 			a.style.color = "#555";
 		});
 	};
 	a.onmouseleave = function () {
 		titleRightCV2.forEach(function (a) {
+			a.style.color = nho;
+		});
+		duanTitle.forEach(function (a) {
 			a.style.color = nho;
 		});
 	};
@@ -2014,7 +2050,7 @@ let titleLeftCV2 = document.querySelectorAll(
 titleLeftCV2.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
-		nho = a.style.color;
+		nho = window.getComputedStyle(a).color;
 		titleLeftCV2.forEach(function (a) {
 			a.style.color = "#555";
 		});
@@ -2041,7 +2077,7 @@ let titleLeftBCV2 = document.querySelectorAll(".CV2.main .sectionInfoTitle");
 titleLeftBCV2.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
-		nho = a.style.color;
+		nho = window.getComputedStyle(a).color;
 		titleLeftBCV2.forEach(function (a) {
 			a.style.color = "#555";
 		});
@@ -2072,3 +2108,28 @@ document.querySelector(".pickr-container.sectionBasicColors2").onclick =
 	function () {
 		rootStyle.setProperty("--leftPcr-", "300px");
 	};
+
+	setInterval(function () {
+		let heightCV1 = window.getComputedStyle(document.querySelector(".jsCV .wrapCanvas")).height;
+		let heightCV2 = window.getComputedStyle(document.querySelectorAll(".jsCV .wrapCanvas")[1]).height;
+		heightCV1 = parseInt(heightCV1, 10);
+		heightCV2 = parseInt(heightCV2, 10);
+		var orgHeight = 1122;
+		if (sttCV == 0){
+			if (heightCV1>(orgHeight*pageFull+0.6*pageFull)) {
+				orgHeight*=(pageFull+1);
+				document.querySelectorAll(".body .jsCV .wrapCanvas").forEach(function (a){
+					a.style.minHeight = orgHeight+"px";
+				})
+				pageFull++;
+			} 
+		} else if (sttCV == 1){
+			if (heightCV2>(orgHeight*pageFull+0.6*pageFull)) {
+				orgHeight*=(pageFull+1);
+				document.querySelectorAll(".body .jsCV .wrapCanvas").forEach(function (a){
+					a.style.minHeight = orgHeight+"px";
+				})
+				pageFull++;
+			} 
+		}
+	},2500)

@@ -1,3 +1,6 @@
+:root{
+	--HeightCanvas-: 1122.6px;
+}
 .body .CV {
 	width: 800px; /*cho gần đúng với tỉ lệ khi lưu về*/
 	height: fit-content;
@@ -14,6 +17,7 @@
 	grid-template-columns: 35% 65%;
 	/* background: url("https://files.fm/thumb_show.php?i=nu3gyhqu8");
 	background-size: cover; */
+	min-height: 1122.6px;
 }
 /* .body .CV img {
 	position: relative;

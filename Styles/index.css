@@ -544,7 +544,7 @@ form[action=""] input[type="file"] {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: rgb(148, 148, 148);
+	/* color: rgb(148, 148, 148); */
 }
 #listEdit i:hover {
 	background-color: #ddd;
@@ -873,6 +873,10 @@ form #color-search {
 	max-width: 95vw;
 	padding: 0.8em;
 }
+.editableDiv2 ul li{
+	margin-left: 0.7rem;
+}
+
 /* keyframe */
 @keyframes slide {
 	from {

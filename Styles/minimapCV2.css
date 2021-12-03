@@ -30,23 +30,23 @@
 #miniLeftCV2_js:hover{
     border: 3px dashed rgb(0, 255, 0) !important;
 }
-.Miniava:hover{
+.miniCV2 .Miniava:hover{
     cursor: pointer;
     border: 3px dashed rgb(255, 0, 0) !important;
 }
-.Miniava:hover ~ .sectionTitleLeftCV1 h3{
+.miniCV2 .Miniava:hover ~ .sectionTitleLeftCV1 h3{
     border-left: 3px dashed rgb(255, 0, 0) !important;
 }
-.Miniava:hover ~.wrapInfo .thongTinCV2{
+.miniCV2 .Miniava:hover ~.wrapInfo .thongTinCV2{
     border: 3px dashed rgb(255, 0, 0) !important;
 }
-.Miniava:hover ~.wrapInfo .thongTinCV2::after{
+.miniCV2 .Miniava:hover ~.wrapInfo .thongTinCV2::after{
     border-top: 4px dashed rgb(255, 0, 0) !important;
 }
-.Miniava:hover ~.wrapInfo .thongTinCV2::before{
+.miniCV2 .Miniava:hover ~.wrapInfo .thongTinCV2::before{
     border-bottom: 4px dashed rgb(255, 0, 0) !important;
 }
-.Miniava:hover ~.wrapInfo .dotLeftCV2{
+.miniCV2 .Miniava:hover ~.wrapInfo .dotLeftCV2{
     border: 3px dashed rgb(255, 0, 0) !important;
 }
 #MiniRightCV2_js:hover{
