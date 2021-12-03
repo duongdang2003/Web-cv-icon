@@ -2140,4 +2140,4 @@ setTimeout(function () {
 		document.querySelector("#video").style.display = "none";
 		document.querySelector("#Modalvideo").style.display = "none";
 	},5500)
-},2000)
+},2500)
