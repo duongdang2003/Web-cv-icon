@@ -42,7 +42,7 @@
 }
 
 .CV2 .sectionTitleLeftCV1 {
-	/* width: 224px; */
+	width: 224px;
 	margin-left: 0;
 	/* height:fit-content; */
 }
@@ -77,7 +77,7 @@
 	border: 3px solid var(--peusdoColor-leftCVboder);
 	width: 220px;
 	margin-right: 4px;
-	/* min-height:100%; */
+	min-height:100%;
 	height: 100%;
 	padding: 14px 8px;
 	/* border-top-right-radius: 45px;
@@ -152,7 +152,7 @@
 body .CV2 .headleftCV {
 	width: 100%;
 	height: 15%;
-	background-color: #2f4e50;
+	background:linear-gradient(to right,#2f4e50 65%,transparent 35%);
 	margin: 8% 0 5% 0;
 	padding-left: 5%;
 	display: flex;
@@ -238,15 +238,12 @@ body .CV2 .headleftCV {
 }
 .CV2 .rectangularSmall.extra{
     border-top: 6px solid white;
-
 }
 .CV2 .trapezoid.extra{
     border-top: 6px solid white;
-
 }
 .CV2 .rectangularLarge.extra{
     border-top: 6px solid white;
-
 }
 .CV2 .sectionTitleBodyLeftCV h1 {
 	color: #ffffff;
