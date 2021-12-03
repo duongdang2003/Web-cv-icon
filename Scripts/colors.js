@@ -160,7 +160,7 @@ pickr2.on('change', (color, source, instance) => {
 
       } else if (trytitle==1){
         document.querySelectorAll(".headleftCV").forEach(function(a){
-          a.style.backgroundColor = color.toRGBA().toString();
+          rootStyle.setProperty("--TitleHeadRCV2-",color.toRGBA().toString());
         })
 			document.querySelectorAll(".CV2 .titleLeftCVsection h3").forEach(function (a){
 				a.style.backgroundColor = color.toRGBA().toString();
