@@ -1,7 +1,7 @@
 let cv = document.querySelector(".CV");
 let availableDisplay = true;
 let page = 1;
-let pageFull=1;
+let pageFull = 1;
 let dynamicAlignRight = document.getElementById("dynamicAlignRight");
 let dynamicAlignCenter = document.getElementById("dynamicAlignCenter");
 let dynamicAlignLeft = document.getElementById("dynamicAlignRight");
@@ -14,6 +14,13 @@ let statuss = document.querySelectorAll("#status i");
 let sta = ["boldjs", "italicjs", "underlinejs"];
 let activeElementKhoa = [];
 let duanTitle;
+let testt = "a";
+if (sessionStorage.getItem("playVideo") === null) {
+	playVideo();
+} else {
+	document.querySelector("#video").style.display = "none";
+	document.querySelector("#Modalvideo").style.display = "none";
+}
 // Download
 function download(stringClassCV) {
 	const element = document.querySelector(stringClassCV); // Khỏi chỉnh lại
@@ -194,7 +201,7 @@ let constHeight = 1111;
 let scale = 210 / 297;
 setInterval(() => {
 	console.log(cv.offsetWidth, cv.offsetHeight, page);
-	if (pageFull>=2) constHeight = 1117;
+	if (pageFull >= 2) constHeight = 1117;
 	if (
 		cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
 		cv.offsetHeight >= constWidth * page
@@ -411,7 +418,7 @@ function addSkill() {
 			for (let i = 0; i <= 9; i++) {
 				if (i <= index && arrayLevel[i].getAttribute("index") != null) {
 					arrayLevel[i].style.backgroundColor = window.getComputedStyle(
-						document.querySelectorAll(".headleftCV")[0]
+						document.querySelectorAll(".headleftCV")[parseInt(sttCV)]
 					).backgroundColor;
 				} else if (arrayLevel[i].getAttribute("index") != null) {
 					arrayLevel[i].style.backgroundColor = "white";
@@ -419,6 +426,7 @@ function addSkill() {
 			}
 		}
 	});
+
 	placeholderOfSkill();
 	nothing.appendChild(skillWrap);
 	skillWrap.appendChild(skillName);
@@ -1183,7 +1191,7 @@ document.getElementById("useThisColor").onclick = function () {
 	} else {
 		activeElementKhoa.forEach(function (a, b, c) {
 			a.style.color = dynamicColor;
-			bienmauRightCV1=dynamicColor;
+			bienmauRightCV1 = dynamicColor;
 			if (b >= c.length / 2) {
 				a.style.backgroundColor = dynamicColor;
 				a.style.borderColor = dynamicColor;
@@ -1832,16 +1840,20 @@ function kiemtraSTTCV() {
 	placeholderOfAddLeftIndex();
 	addOrRemoveRuler();
 
-			//   đổi màu title duan khi chuyen CV1 CV2
-			duanTitle = document.querySelectorAll(".wrapDiv h3");
-			var mau;
-			if (sttCV == 0)
- 				mau =window.getComputedStyle(document.querySelector(".CV.jsCV .sectionTitleBodyLeftCV h1")).color;
- 			else
-			    mau =window.getComputedStyle(document.querySelector(".CV2.main .sectionTitleBodyLeftCV h1")).color;
-			duanTitle.forEach(function (a){
-				a.style.color = mau;
-			})
+	//   đổi màu title duan khi chuyen CV1 CV2
+	duanTitle = document.querySelectorAll(".wrapDiv h3");
+	var mau;
+	if (sttCV == 0)
+		mau = window.getComputedStyle(
+			document.querySelector(".CV.jsCV .sectionTitleBodyLeftCV h1")
+		).color;
+	else
+		mau = window.getComputedStyle(
+			document.querySelector(".CV2.main .sectionTitleBodyLeftCV h1")
+		).color;
+	duanTitle.forEach(function (a) {
+		a.style.color = mau;
+	});
 }
 chinhnenCV1();
 chuyenCV();
@@ -1914,7 +1926,7 @@ let titleRightCV1 = document.querySelectorAll(".CV .sectionTitleBodyLeftCV h1"),
 	bienmauRightCV1;
 titleRightCV1.forEach(function (a) {
 	let nho;
-	console.log(duanTitle)
+	console.log(duanTitle);
 	a.onmouseover = function () {
 		nho = window.getComputedStyle(a).color;
 		titleRightCV1.forEach(function (a) {
@@ -2109,38 +2121,50 @@ document.querySelector(".pickr-container.sectionBasicColors2").onclick =
 		rootStyle.setProperty("--leftPcr-", "300px");
 	};
 
-	setInterval(function () {
-		let heightCV1 = window.getComputedStyle(document.querySelector(".jsCV .wrapCanvas")).height;
-		let heightCV2 = window.getComputedStyle(document.querySelectorAll(".jsCV .wrapCanvas")[1]).height;
-		heightCV1 = parseInt(heightCV1, 10);
-		heightCV2 = parseInt(heightCV2, 10);
-		var orgHeight = 1122;
-		if (sttCV == 0){
-			if (heightCV1>(orgHeight*pageFull+0.6*pageFull)) {
-				orgHeight*=(pageFull+1);
-				document.querySelectorAll(".body .jsCV .wrapCanvas").forEach(function (a){
-					a.style.minHeight = orgHeight+"px";
-				})
-				pageFull++;
-			} 
-		} else if (sttCV == 1){
-			if (heightCV2>(orgHeight*pageFull)) {
-				orgHeight*=(pageFull+1);
-				document.querySelectorAll(".body .jsCV .wrapCanvas").forEach(function (a){
-					a.style.minHeight = orgHeight+"px";
-				})
-				pageFull++;
-			} 
+setInterval(function () {
+	let heightCV1 = window.getComputedStyle(
+		document.querySelector(".jsCV .wrapCanvas")
+	).height;
+	let heightCV2 = window.getComputedStyle(
+		document.querySelectorAll(".jsCV .wrapCanvas")[1]
+	).height;
+	heightCV1 = parseInt(heightCV1, 10);
+	heightCV2 = parseInt(heightCV2, 10);
+	var orgHeight = 1122;
+	if (sttCV == 0) {
+		if (heightCV1 > orgHeight * pageFull + 0.6 * pageFull) {
+			orgHeight *= pageFull + 1;
+			document
+				.querySelectorAll(".body .jsCV .wrapCanvas")
+				.forEach(function (a) {
+					a.style.minHeight = orgHeight + "px";
+				});
+			pageFull++;
 		}
-	},2500)
+	} else if (sttCV == 1) {
+		if (heightCV2 > orgHeight * pageFull) {
+			orgHeight *= pageFull + 1;
+			document
+				.querySelectorAll(".body .jsCV .wrapCanvas")
+				.forEach(function (a) {
+					a.style.minHeight = orgHeight + "px";
+				});
+			pageFull++;
+		}
+	}
+}, 2500);
 
+function playVideo() {
 	setTimeout(function () {
 		document.querySelector("#video video").play();
-		console.log("run")
-	},1500)
+		console.log("run");
+	}, 1500);
 	setTimeout(function () {
 		document.querySelector("#video").style.display = "none";
 		document.querySelector("#video video").pause();
 		document.querySelector("#Modalvideo").style.display = "none";
-		console.log("pause")
-	},7500)
+		console.log("pause");
+	}, 7500);
+	sessionStorage.setItem("playVideo", "false");
+	disableScroll();
+}
