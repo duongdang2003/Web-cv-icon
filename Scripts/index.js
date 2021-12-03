@@ -1037,7 +1037,7 @@ function addFile() {
 	saveFile = [];
 	console.log(src);
 	avatarCVs[sttCV].src = src;
-	if (sttCV == 1) {
+	if (sttCV == 0) {
 		avatarCVs[sttCV].style.border = "none";
 	}
 	document.getElementById("OCModal").classList.remove("OpenModal");
@@ -2084,14 +2084,26 @@ document.querySelector(".pickr-container.sectionBasicColors2").onclick =
 	};
 
 	setInterval(function () {
-		let height = window.getComputedStyle(document.querySelector(".CV.jsCV .wrapCanvas")).height;
-		height = parseInt(height, 10);
+		let heightCV1 = window.getComputedStyle(document.querySelector(".jsCV .wrapCanvas")).height;
+		let heightCV2 = window.getComputedStyle(document.querySelectorAll(".jsCV .wrapCanvas")[1]).height;
+		heightCV1 = parseInt(heightCV1, 10);
+		heightCV2 = parseInt(heightCV2, 10);
 		var orgHeight = 1122;
-		console.log(height);
-			if (height>(orgHeight*pageFull+0.6*pageFull)) {
+		if (sttCV == 0){
+			if (heightCV1>(orgHeight*pageFull+0.6*pageFull)) {
 				orgHeight*=(pageFull+1);
-				document.querySelector(".body .CV .wrapCanvas").style.minHeight = orgHeight+"px";
+				document.querySelectorAll(".body .jsCV .wrapCanvas").forEach(function (a){
+					a.style.minHeight = orgHeight+"px";
+				})
 				pageFull++;
 			} 
-			console.log(pageFull)
-	},1000)
+		} else if (sttCV == 1){
+			if (heightCV2>(orgHeight*pageFull+0.6*pageFull)) {
+				orgHeight*=(pageFull+1);
+				document.querySelectorAll(".body .jsCV .wrapCanvas").forEach(function (a){
+					a.style.minHeight = orgHeight+"px";
+				})
+				pageFull++;
+			} 
+		}
+	},2500)
