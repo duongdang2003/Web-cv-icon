@@ -2134,7 +2134,7 @@ document.querySelector(".pickr-container.sectionBasicColors2").onclick =
 		}
 	},2500)
 
-	window.onload = function(){
+
 setTimeout(function () {
 	document.querySelector("#video video").play();
 	setTimeout(function () {
@@ -2143,4 +2143,4 @@ setTimeout(function () {
 		document.querySelector("#Modalvideo").style.display = "none";
 	},5500)
 },2500)
-	}
+	
