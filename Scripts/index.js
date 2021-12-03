@@ -840,6 +840,7 @@ function placeholderOfAddCertificate() {
 			}
 		});
 }
+placeholderOfAddCertificate();
 getOffset(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
 
 let CVbackground = document.querySelectorAll(".backgroundOfCV");
@@ -881,14 +882,38 @@ function getBackground(e) {
 		});
 }
 getBackground();
-console.log(document.querySelectorAll(".addLeftIndex"));
 function deleteBackground() {
 	CVbackground[parseInt(sttCV)].src = "";
 	CVbackground[parseInt(sttCV) + 2].src = "";
 }
 function addBackground() {
-	alert("Chưa có thêm click làm gì :))");
+	let preview = document.createElement("img");
+	preview.style.cursor = "pointer";
+	let file = document.querySelector("input[type=file]").files[0];
+
+	let reader = new FileReader();
+
+	reader.onloadend = function () {
+		preview.src = reader.result;
+	};
+
+	if (file) {
+		reader.readAsDataURL(file);
+	} else {
+		preview.src = "";
+	}
+	reader.onload = function () {
+		document.getElementById("userBackground").appendChild(preview);
+	};
 }
+document
+	.querySelector("#userBackground")
+	.addEventListener("click", function (e) {
+		if (e.target.tagName == "IMG") {
+			CVbackground[parseInt(sttCV)].src = e.target.src;
+			CVbackground[parseInt(sttCV) + 2].src = e.target.src;
+		}
+	});
 function addLeftIndex() {
 	let wrapDiv = document.createElement("div");
 	let title = document.createElement("h3");
@@ -980,6 +1005,7 @@ function addDeleteButtonForAll() {
 	}
 }
 addDeleteButtonForAll();
+
 //                                phan download CV 👆
 //                                khoa 👇
 var saveFile = [];
