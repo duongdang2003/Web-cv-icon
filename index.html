@@ -184,7 +184,7 @@
 						Thêm mục phải
 						<i class="fas fa-plus-circle"> </i>
 					</div>
-					<div id="project" style="user-select: none">
+					<div id="project" onclick="addLeftIndex()" style="user-select: none">
 						Thêm mục trái
 						<i class="fas fa-plus-circle"></i>
 					</div>
@@ -594,7 +594,7 @@
 								<img class="ava" src="./Images/no_avatar.jpg" />
 								<div class="sectionTitleLeftCV1" id="hocVan">
 									<div class="titleLeftCVsection">
-										<h3>Học vấn</h3>
+										<h3 contenteditable="true">Học vấn</h3>
 										<hr />
 										<div
 											style="height: 20%"
@@ -607,7 +607,7 @@
 								</div>
 								<div class="sectionTitleLeftCV1" name="chungChi">
 									<div class="titleLeftCVsection">
-										<h3>Chứng chỉ</h3>
+										<h3 contenteditable="true">Chứng chỉ</h3>
 										<hr />
 									</div>
 									<div key="certificate">
@@ -623,11 +623,14 @@
 								</div>
 								<div class="sectionTitleLeftCV1" name="kiNang">
 									<div class="titleLeftCVsection">
-										<h3>Kĩ năng</h3>
+										<h3 contenteditable="true">Kĩ năng</h3>
 										<hr />
 										<div class="nothing" key="skill"></div>
 										<div class="addSkill" onclick="addSkill()">+</div>
 									</div>
+								</div>
+								<div class="sectionTitleLeftCV1" name="addLeftIndex">
+									
 								</div>
 								<div class="sectionTitleLeftCV1 C2" id="thongTin">
 									<!-- khoa đưa đăng                                 mấy cái nội dung nhỏ trong mục email, sdt đồ á 
@@ -821,6 +824,7 @@
 									<div class="addSkill" onclick="addSkill()">+</div>
 								</div>
 							</div>
+							<div class="sectionTitleLeftCV1" name="addLeftIndex"></div>
 
 							<div class="wrapInfo">
 								<div class="sectionTitleLeftCV1 C2" id="thongTin">
