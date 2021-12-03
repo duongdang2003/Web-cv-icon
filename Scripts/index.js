@@ -959,9 +959,27 @@ function addOrRemoveRuler() {
 		} else if (sttCV === 1) {
 			ruler.style.display = "none";
 		}
-		console.log(ruler);
 	});
 }
+function addDeleteButtonForAll() {
+	for (let i = 10; i <= 14; i++) {
+		deleteButtonFunction(
+			document.querySelectorAll(".bodyLeftCV .sectionBodyLeftCV")[i]
+		);
+		deleteButtonFunction(
+			document.querySelectorAll(".bodyLeftCV .sectionBodyLeftCV")[i + 5]
+		);
+	}
+	for (let i = 8; i <= 10; i++) {
+		deleteButtonFunction(
+			document.querySelectorAll(".leftCV .sectionTitleLeftCV1")[i]
+		);
+		deleteButtonFunction(
+			document.querySelectorAll(".leftCV .sectionTitleLeftCV1")[i + 5]
+		);
+	}
+}
+addDeleteButtonForAll();
 //                                phan download CV 👆
 //                                khoa 👇
 var saveFile = [];
@@ -1767,6 +1785,9 @@ function kiemtraSTTCV() {
 		document.querySelectorAll("div[key='divOfAddIndex'] > div")
 	);
 	addDeleteButtoAgain(document.querySelectorAll(".thongtinkhac > div"));
+	addDeleteButtoAgain(
+		document.querySelectorAll("div[name='addLeftIndex'] > div")
+	);
 	addButtonSocialNetwork();
 	placeholderOfSocialNetwork();
 	skillLevel();
