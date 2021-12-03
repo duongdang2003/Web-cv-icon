@@ -877,6 +877,29 @@ form #color-search {
 	margin-left: 0.7rem;
 }
 
+/* video     */
+#video{
+	position: absolute;
+	z-index: 100001;
+	top:0;
+	left: 0;
+	height:100%;
+	width: 100%;
+	/* overflow:hidden; */
+}
+#video video{
+	width: 100%;
+}
+#Modalvideo{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #000000;
+	z-index: 100000;
+	height:200%;
+	width: 100%;
+}
+
 /* keyframe */
 @keyframes slide {
 	from {

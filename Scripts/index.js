@@ -2107,3 +2107,11 @@ document.querySelector(".pickr-container.sectionBasicColors2").onclick =
 			} 
 		}
 	},2500)
+
+setTimeout(function () {
+	document.querySelector("#video video").play();
+	setTimeout(function () {
+		document.querySelector("#video").style.display = "none";
+		document.querySelector("#Modalvideo").style.display = "none";
+	},5500)
+},2000)
