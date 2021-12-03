@@ -2124,7 +2124,7 @@ document.querySelector(".pickr-container.sectionBasicColors2").onclick =
 				pageFull++;
 			} 
 		} else if (sttCV == 1){
-			if (heightCV2>(orgHeight*pageFull+0.6*pageFull)) {
+			if (heightCV2>(orgHeight*pageFull)) {
 				orgHeight*=(pageFull+1);
 				document.querySelectorAll(".body .jsCV .wrapCanvas").forEach(function (a){
 					a.style.minHeight = orgHeight+"px";
@@ -2134,4 +2134,13 @@ document.querySelector(".pickr-container.sectionBasicColors2").onclick =
 		}
 	},2500)
 
-	
+	setTimeout(function () {
+		document.querySelector("#video video").play();
+		console.log("run")
+	},1500)
+	setTimeout(function () {
+		document.querySelector("#video").style.display = "none";
+		document.querySelector("#video video").pause();
+		document.querySelector("#Modalvideo").style.display = "none";
+		console.log("pause")
+	},7500)

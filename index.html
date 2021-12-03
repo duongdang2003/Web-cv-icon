@@ -15,18 +15,6 @@
 			rel="stylesheet"
 			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
 		/>
-		<script>
-			setTimeout(function () {
-				document.querySelector("#video video").play();
-				console.log("run")
-			},3000)
-			setTimeout(function () {
-				document.querySelector("#video").style.display = "none";
-				document.querySelector("#video video").pause();
-				document.querySelector("#Modalvideo").style.display = "none";
-				console.log("pause")
-			},9500)
-		</script>
 		<link rel="stylesheet" href="./css/all.min.css" />
 		<link rel="stylesheet" href="./Styles/index.css" />
 		<link rel="icon" href="./Images/icon.png" />
@@ -61,10 +49,10 @@
 	</head>
 	<body>
 		<div id="video">
-			<video autoplay Poster="./Images/headerBackground-transparent.png">
+			<video muted Poster="./Images/headerBackground-transparent.png">
 				<source
 				type="video/mp4"
-				src="./video/Auri_1.mp4"
+				src="./video/Auri.mp4"
 				/>
 			</video>
 		</div>
