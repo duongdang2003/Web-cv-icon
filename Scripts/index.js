@@ -205,16 +205,17 @@ setInterval(() => {
 		ruler.style.position = "absolute";
 		ruler.style.color = "#ddd";
 		ruler.style.overflow = "hidden";
-		ruler.style.height="20px";
+		ruler.style.height = "20px";
 		ruler.style.top = `${
-			((1 * cv.offsetWidth * constHeight) / constWidth) * page +1
+			((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
 		}px`;
 		ruler.style.left = "-50%";
 		ruler.style.zIndex = "99999";
-		cv.appendChild(ruler);
+		document.querySelectorAll(".jsCV")[parseInt(sttCV)].appendChild(ruler);
 		page++;
 	}
 }, 1000);
+console.log(document.querySelectorAll(".jsCV"));
 
 //SETTING
 // align
@@ -887,6 +888,7 @@ function getBackground(e) {
 		});
 }
 getBackground();
+console.log(document.querySelectorAll(".addLeftIndex"));
 function deleteBackground() {
 	CVbackground[parseInt(sttCV)].src = "";
 	CVbackground[parseInt(sttCV) + 2].src = "";
@@ -894,8 +896,98 @@ function deleteBackground() {
 function addBackground() {
 	alert("Chưa có thêm click làm gì :))");
 }
+function addLeftIndex() {
+	let wrapDiv = document.createElement("div");
+	let title = document.createElement("h3");
+	let ruler = document.createElement("hr");
+	let content = document.createElement("div");
+	let rulerColor = window.getComputedStyle(
+		document.querySelectorAll(".titleLeftCVsection hr")[0]
+	).backgroundColor;
+	wrapDiv.setAttribute("class", "titleLeftCVsection");
+	title.contentEditable = "true";
+	title.innerHTML = "Tiêu đề";
+	title.spellcheck = false;
+	title.style.color = "grey";
+	title.setAttribute("name", "titelLeftIndex");
+	ruler.style.display = "block";
+	ruler.style.backgroundColor = rulerColor;
+	content.contentEditable = "true";
+	content.style.margin = "10px 0 10px 0";
+	content.style.color = "grey";
+	content.style.padding = "5px";
+	content.style.width = "95%";
+	content.spellcheck = false;
+	content.innerHTML = "Nội dung";
+	if (sttCV == 1) {
+		ruler.style.display = "none";
+	}
+	document
+		.querySelectorAll("div[name='addLeftIndex']")
+		[parseInt(sttCV)].appendChild(wrapDiv);
+	wrapDiv.appendChild(title);
+	wrapDiv.appendChild(ruler);
+	wrapDiv.appendChild(content);
+	deleteButtonFunction(wrapDiv);
+}
+function placeholderOfAddLeftIndex() {
+	document
+		.querySelectorAll("div[name='addLeftIndex']")
+		[parseInt(sttCV)].addEventListener("focusin", function (e) {
+			if (
+				e.target.innerHTML === "Tiêu đề" ||
+				e.target.innerHTML === "Nội dung"
+			) {
+				e.target.innerHTML = "";
+				e.target.style.color = "white";
+			}
+		});
+	document
+		.querySelectorAll("div[name='addLeftIndex']")
+		[parseInt(sttCV)].addEventListener("focusout", function (e) {
+			if (
+				e.target.innerHTML === "" &&
+				e.target.getAttribute("name") === "titelLeftIndex"
+			) {
+				e.target.innerHTML = "Tiêu đề";
+				e.target.style.color = "grey";
+			} else if (e.target.innerHTML === "") {
+				e.target.innerHTML = "Nội dung";
+				e.target.style.color = "grey";
+			}
+		});
+}
+placeholderOfAddLeftIndex();
+function addOrRemoveRuler() {
+	rulerArray = document.querySelectorAll("div[name='addLeftIndex'] hr");
+	rulerArray.forEach(function (ruler) {
+		if (sttCV === 0) {
+			ruler.style.display = "block";
+		} else if (sttCV === 1) {
+			ruler.style.display = "none";
+		}
+	});
+}
+function addDeleteButtonForAll() {
+	for (let i = 10; i <= 14; i++) {
+		deleteButtonFunction(
+			document.querySelectorAll(".bodyLeftCV .sectionBodyLeftCV")[i]
+		);
+		deleteButtonFunction(
+			document.querySelectorAll(".bodyLeftCV .sectionBodyLeftCV")[i + 5]
+		);
+	}
+	for (let i = 8; i <= 10; i++) {
+		deleteButtonFunction(
+			document.querySelectorAll(".leftCV .sectionTitleLeftCV1")[i]
+		);
+		deleteButtonFunction(
+			document.querySelectorAll(".leftCV .sectionTitleLeftCV1")[i + 5]
+		);
+	}
+}
+addDeleteButtonForAll();
 //                                phan download CV 👆
-
 //                                khoa 👇
 var saveFile = [];
 document.getElementById("files").onchange = function () {
@@ -1222,7 +1314,6 @@ function save() {
 				.backgroundColor
 		);
 	}
-	console.log(sttCV);
 	//
 	localStorage.setItem(
 		"left color",
@@ -1239,6 +1330,11 @@ function save() {
 	localStorage.setItem(
 		"new index",
 		document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV)].outerHTML
+	);
+	localStorage.setItem(
+		"left index",
+		document.querySelectorAll("div[name='addLeftIndex']")[parseInt(sttCV)]
+			.outerHTML
 	);
 	localStorage.setItem("lock load", "false");
 	document.querySelector("#save i").style.animation = "saved 1s linear 1";
@@ -1305,6 +1401,9 @@ function load() {
 		].style.backgroundColor = localStorage.getItem("right color");
 		document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV)].outerHTML =
 			localStorage.getItem("new index");
+		document.querySelectorAll("div[name='addLeftIndex']")[
+			parseInt(sttCV)
+		].outerHTML = localStorage.getItem("left index");
 		document.querySelector("#load i").style.animation = "load 1s linear 1";
 		setTimeout(function () {
 			document.querySelector("#load i").style.animation = "none";
@@ -1697,10 +1796,15 @@ function kiemtraSTTCV() {
 		document.querySelectorAll("div[key='divOfAddIndex'] > div")
 	);
 	addDeleteButtoAgain(document.querySelectorAll(".thongtinkhac > div"));
+	addDeleteButtoAgain(
+		document.querySelectorAll("div[name='addLeftIndex'] > div")
+	);
 	addButtonSocialNetwork();
 	placeholderOfSocialNetwork();
 	skillLevel();
 	placeholderAnotherInfor();
+	placeholderOfAddLeftIndex();
+	addOrRemoveRuler();
 
 			//   đổi màu title duan khi chuyen CV1 CV2
 			duanTitle = document.querySelectorAll(".wrapDiv h3");
@@ -1876,7 +1980,9 @@ titleLeftBCV1.forEach(function (a) {
 let titleRightCV2 = document.querySelectorAll(
 		".CV2.main .sectionTitleBodyLeftCV h1"
 	),
-	hrRightCV2 = document.querySelectorAll(".CV2.main .sectionTitleBodyLeftCV hr");
+	hrRightCV2 = document.querySelectorAll(
+		".CV2.main .sectionTitleBodyLeftCV hr"
+	);
 titleRightCV2.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
@@ -1912,7 +2018,9 @@ titleRightCV2.forEach(function (a) {
 });
 
 //                             title left
-let titleLeftCV2 = document.querySelectorAll(".CV2.main .titleLeftCVsection h3");
+let titleLeftCV2 = document.querySelectorAll(
+	".CV2.main .titleLeftCVsection h3"
+);
 titleLeftCV2.forEach(function (a) {
 	let nho;
 	a.onmouseover = function () {
