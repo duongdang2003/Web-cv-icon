@@ -47,7 +47,7 @@
 	/* height:fit-content; */
 }
 .CV2 .titleLeftCVsection h3 {
-	background-color:  var(--TitleHeadRCV2-);
+	background-color: var(--TitleHeadRCV2-);
 	padding: 12px 0;
 	border-left: 3px solid #2ccdd7;
 	text-align: center;
@@ -152,11 +152,11 @@
 body .CV2 .headleftCV {
 	width: 100%;
 	height: 15%;
-<<<<<<< HEAD
-	background: linear-gradient(to right, #2f4e50 65%, transparent 35%);
-=======
-	background:linear-gradient(to right, var(--TitleHeadRCV2-) 74%,transparent 26%);
->>>>>>> d170c65235a8d076454ece72948811b9dfda8eeb
+	background: linear-gradient(
+		to right,
+		var(--TitleHeadRCV2-) 74%,
+		transparent 26%
+	);
 	margin: 8% 0 5% 0;
 	padding-left: 5%;
 	display: flex;
@@ -167,7 +167,7 @@ body .CV2 .headleftCV {
 	position: relative;
 	background-color: transparent !important;
 }
-.CV2 .tieude{
+.CV2 .tieude {
 	position: relative;
 	z-index: 3;
 }
@@ -204,7 +204,7 @@ body .CV2 .headleftCV {
 	background-color: #ddd;
 }
 
-.wrapBlock{
+.wrapBlock {
 	position: absolute;
 	right: 0;
 	width: 26%;
@@ -217,92 +217,78 @@ body .CV2 .headleftCV {
 	height: 127.9px;
 	background-color: var(--TitleHeadRCV2-);
 }
-.CV2 .rectangular2{
+.CV2 .rectangular2 {
 	position: absolute;
 	left: 40px;
 	width: 31px;
 	height: 127.9px;
 	background-color: var(--TitleHeadRCV2-);
 }
-.CV2 .rectangular3{
+.CV2 .rectangular3 {
 	position: absolute;
 	left: 71px;
 	width: 40px;
 	height: 85.9px;
-	background-color:var(--TitleHeadRCV2-);
+	background-color: var(--TitleHeadRCV2-);
 }
-.CV2 .rectangular4{
+.CV2 .rectangular4 {
 	position: absolute;
 	left: 111px;
 	width: 31px;
 	height: 85.9px;
-	background-color:var(--TitleHeadRCV2-);
+	background-color: var(--TitleHeadRCV2-);
 }
-<<<<<<< HEAD
-.CV2 .triangle.extra {
-	border-top: 0.35rem solid white;
-}
-.CV2 .rectangularSmall.extra {
-	border-top: 6px solid white;
-}
-.CV2 .trapezoid.extra {
-	border-top: 6px solid white;
-}
-.CV2 .rectangularLarge.extra {
-	border-top: 6px solid white;
-=======
-.CV2 .rectangular5{
+.CV2 .rectangular5 {
 	position: absolute;
 	right: 0;
-	bottom:0;
+	bottom: 0;
 	width: 29px;
 	height: 77px;
-	background-color:var(--TitleHeadRCV2-);
+	background-color: var(--TitleHeadRCV2-);
 }
-.CV2 .rectangular6{
+.CV2 .rectangular6 {
 	position: absolute;
 	right: 29px;
-	bottom:0;
+	bottom: 0;
 	width: 70px;
 	height: 35px;
-	background-color:var(--TitleHeadRCV2-);
+	background-color: var(--TitleHeadRCV2-);
 }
-.CV2 .triangle1{
-    position: absolute;
-    top: 127.9px;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-top: 42px solid  var(--TitleHeadRCV2-);
-    border-right: 40px solid transparent;
-}
-.CV2 .triangle2{
+.CV2 .triangle1 {
 	position: absolute;
-	top:85.9px;
-	left:71px;
+	top: 127.9px;
+	left: 0;
 	width: 0;
 	height: 0;
-	border-top: 42px solid  var(--TitleHeadRCV2-);
+	border-top: 42px solid var(--TitleHeadRCV2-);
 	border-right: 40px solid transparent;
 }
-.CV2 .triangle3{
+.CV2 .triangle2 {
+	position: absolute;
+	top: 85.9px;
+	left: 71px;
+	width: 0;
+	height: 0;
+	border-top: 42px solid var(--TitleHeadRCV2-);
+	border-right: 40px solid transparent;
+}
+.CV2 .triangle3 {
 	position: absolute;
 	bottom: 35px;
-	right:29px;
+	right: 29px;
 	width: 0;
 	height: 0;
-	border-bottom: 43px solid  var(--TitleHeadRCV2-);
+	border-bottom: 43px solid var(--TitleHeadRCV2-);
 	border-left: 40px solid transparent;
 }
-.CV2 .triangle4{
+.CV2 .triangle4 {
 	position: absolute;
 	bottom: 0px;
-	right:99px;
+	right: 99px;
 	width: 0;
 	height: 0;
-	border-bottom: 35px solid  var(--TitleHeadRCV2-);
+	border-bottom: 35px solid var(--TitleHeadRCV2-);
 	border-left: 34px solid transparent;
->>>>>>> d170c65235a8d076454ece72948811b9dfda8eeb
 }
 
 .CV2 .sectionTitleBodyLeftCV h1 {

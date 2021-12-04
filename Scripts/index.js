@@ -15,11 +15,14 @@ let sta = ["boldjs", "italicjs", "underlinejs"];
 let activeElementKhoa = [];
 let duanTitle;
 let globalIndex = [];
+let glass = document.getElementById("glass");
+let turtorialModal = document.getElementById("turtorial");
 if (sessionStorage.getItem("playVideo") === null) {
 	playVideo();
 } else {
 	document.querySelector("#video").style.display = "none";
 	document.querySelector("#Modalvideo").style.display = "none";
+	turtorialModal.style.display = "block";
 }
 // Download
 function download(stringClassCV) {
@@ -470,13 +473,12 @@ function skillLevel() {
 		item.addEventListener("click", function (e) {
 			if (e.target.hasAttribute("index") === true) {
 				index = parseInt(e.target.getAttribute("index"));
-
 				divParent = e.target.parentElement;
 				arrayLevel = divParent.childNodes;
 				for (let i = 0; i <= 9; i++) {
 					if (i <= index && arrayLevel[i].getAttribute("index") != null) {
 						arrayLevel[i].style.backgroundColor = window.getComputedStyle(
-							document.querySelectorAll(".headleftCV")[parseInt(sttCV)]
+							document.querySelectorAll(".headleftCV")[parseInt(sttCV) + 2]
 						).backgroundColor;
 					} else if (arrayLevel[i].getAttribute("index") != null) {
 						arrayLevel[i].style.backgroundColor = "white";
@@ -889,26 +891,28 @@ function getBackground(e) {
 			switch (backgroundID) {
 				case "1":
 					// CVbackground.src = "https://files.fm/thumb_show.php?i=truaf92w7";
-					CVbackground[parseInt(sttCV)].src =
-						"./Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
-					CVbackground[parseInt(sttCV) + 2].src =
-						"./Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
+					CVbackground[parseInt(sttCV)].src = "../Images/1.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/1.jpg";
 					break;
 				case "2":
-					CVbackground[parseInt(sttCV)].src = "https://imgur.com/CE3gdP0";
-					CVbackground[parseInt(sttCV) + 2].src = "https://imgur.com/CE3gdP0";
+					CVbackground[parseInt(sttCV)].src = "../Images/2.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/2.jpg";
 					break;
 				case "3":
-					CVbackground[parseInt(sttCV)].src =
-						"https://files.fm/thumb_show.php?i=ntee6brya";
-					CVbackground[parseInt(sttCV) + 2].src =
-						"https://files.fm/thumb_show.php?i=ntee6brya";
+					CVbackground[parseInt(sttCV)].src = "../Images/3.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/3.jpg";
 					break;
 				case "4":
-					CVbackground[parseInt(sttCV)].src =
-						"https://files.fm/thumb_show.php?i=x5nh8qeah";
-					CVbackground[parseInt(sttCV) + 2].src =
-						"https://files.fm/thumb_show.php?i=x5nh8qeah";
+					CVbackground[parseInt(sttCV)].src = "../Images/4.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/4.jpg";
+					break;
+				case "5":
+					CVbackground[parseInt(sttCV)].src = "../Images/5.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/5.jpg";
+					break;
+				case "6":
+					CVbackground[parseInt(sttCV)].src = "../Images/6.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/6.jpg";
 					break;
 				default:
 					break;
@@ -2189,6 +2193,10 @@ setInterval(function () {
 
 function playVideo() {
 	setTimeout(function () {
+		glass.style.display = "none";
+		turtorialModal.style.transform = "translate(-120%)";
+	}, 0);
+	setTimeout(function () {
 		document.querySelector("#video video").play();
 		console.log("run");
 	}, 1500);
@@ -2197,6 +2205,27 @@ function playVideo() {
 		document.querySelector("#video video").pause();
 		document.querySelector("#Modalvideo").style.display = "none";
 		console.log("pause");
+		glass.style.display = "block";
+		turtorialModal.style.display = "block";
 	}, 7500);
 	sessionStorage.setItem("playVideo", "false");
 }
+function closeTurtorialModal() {
+	glass.addEventListener("click", function () {
+		turtorialModal.style.animation = "closeModal 0.5s linear 1";
+		setTimeout(function () {
+			turtorialModal.style.transform = "translate(-120%)";
+			glass.style.display = "none";
+		}, 485);
+	});
+}
+function openTurtorialModal() {
+	turtorialModal.style.animation = "openModal 0.5s linear 1";
+	glass.style.display = "block";
+
+	setTimeout(function () {
+		turtorialModal.style.transform = "translate(0)";
+	}, 485);
+}
+closeTurtorialModal();
+openTurtorialModal();
