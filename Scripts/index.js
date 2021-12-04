@@ -14,6 +14,7 @@ let statuss = document.querySelectorAll("#status i");
 let sta = ["boldjs", "italicjs", "underlinejs"];
 let activeElementKhoa = [];
 let duanTitle;
+let globalIndex = [];
 if (sessionStorage.getItem("playVideo") === null) {
 	playVideo();
 } else {
@@ -444,6 +445,7 @@ function addSkill() {
 				}
 			}
 		}
+		globalIndex.push(index);
 	});
 
 	placeholderOfSkill();
@@ -1605,6 +1607,13 @@ function chinhnenCV1() {
 								val.getAttribute("value")
 							);
 						});
+					document.querySelectorAll(".skillLevel").forEach(function (a, b) {
+						a.querySelectorAll("div").forEach(function (a1, b1) {
+							if (b1 <= globalIndex[b]) {
+								a1.style.backgroundColor = val.getAttribute("value");
+							}
+						});
+					});
 				}
 			}
 		});
@@ -1784,7 +1793,12 @@ function chinhnenCV2() {
 					});
 				} else if (trytitle == 1) {
 					document.querySelectorAll(".headleftCV").forEach(function (a) {
-						a.style.backgroundColor = val.getAttribute("value");
+						// let bien = val.getAttribute("value");
+						// a.style.background = `linear-gradient(to right,${bien} 74%,transparent 26%)`;
+						rootStyle.setProperty(
+							"--TitleHeadRCV2-",
+							val.getAttribute("value")
+						);
 					});
 					document
 						.querySelectorAll(".CV2 .titleLeftCVsection h3")
