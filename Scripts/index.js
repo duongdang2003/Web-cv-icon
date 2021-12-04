@@ -426,6 +426,7 @@ function addSkill() {
 			}
 		}
 		globalIndex.push(index);
+		
 	});
 
 	placeholderOfSkill();
@@ -725,6 +726,7 @@ function addIndex() {
 	wrapDiv.appendChild(titleDiscription);
 	document.querySelectorAll(".divOfAddIndex")[parseInt(sttCV)].scrollIntoView();
 	placeholderOfAddIndex();
+	RightCv1Themmucphai();
 }
 function placeholderOfAddIndex() {
 	document
@@ -792,14 +794,14 @@ function addCertificate() {
 	wrapDiv.setAttribute("borderColor", "white");
 	certificateName.contentEditable = "true";
 	certificateName.style.width = "90%";
-	certificateName.style.color = "grey";
+	certificateName.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
 	certificateName.spellcheck = "false";
 	certificateName.style.padding = "5px";
 	certificateName.setAttribute("spellcheck", "false");
 	certificateName.innerHTML = "Tên chứng chỉ";
 
 	labelFrom.innerHTML = "Từ";
-	labelFrom.style.color = "grey";
+	labelFrom.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
 	labelFrom.style.marginRight = "10px";
 	labelFrom.style.width = "30px";
 	fromWrapper.style.alignItems = "center";
@@ -808,19 +810,19 @@ function addCertificate() {
 
 	fromDate.type = "date";
 	fromDate.style.backgroundColor = "transparent";
-	fromDate.style.color = "white";
+	fromDate.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
 	fromDate.style.padding = "5px";
 	toWrapper.style.alignItems = "center";
 	toWrapper.style.justifyContent = "center";
 	toWrapper.style.marginLeft = "1px";
-	toWrapper.setAttribute("bordercolor", "white");
+	toWrapper.setAttribute("bordercolor", window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color);
 
 	labelTo.innerHTML = "Đến";
-	labelTo.style.color = "grey";
+	labelTo.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
 	labelTo.style.marginRight = "10px";
 	toDate.type = "date";
 	toDate.style.backgroundColor = "transparent";
-	toDate.style.color = "white";
+	toDate.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
 	toDate.style.padding = "5px";
 	fromWrapper.style.display = "flex";
 	toWrapper.style.display = "flex";
@@ -942,13 +944,13 @@ function addLeftIndex() {
 	title.contentEditable = "true";
 	title.innerHTML = "Tiêu đề";
 	title.spellcheck = false;
-	title.style.color = "grey";
+	title.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
 	title.setAttribute("name", "titelLeftIndex");
 	ruler.style.display = "block";
 	ruler.style.backgroundColor = rulerColor;
 	content.contentEditable = "true";
 	content.style.margin = "10px 0 10px 0";
-	content.style.color = "grey";
+	content.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
 	content.style.padding = "5px";
 	content.style.width = "95%";
 	content.spellcheck = false;
@@ -963,6 +965,7 @@ function addLeftIndex() {
 	wrapDiv.appendChild(ruler);
 	wrapDiv.appendChild(content);
 	deleteButtonFunction(wrapDiv);
+	LeftCv1Themmuctrai();
 }
 function placeholderOfAddLeftIndex() {
 	document
@@ -1587,7 +1590,7 @@ function chinhnenCV1() {
 								val.getAttribute("value")
 							);
 						});
-					document.querySelectorAll(".skillLevel").forEach(function (a,b) {
+					document.querySelectorAll(".CV.jsCV .skillLevel").forEach(function (a,b) {
 						a.querySelectorAll("div").forEach(function (a1,b1){
 							if (b1<=globalIndex[b]){
 								a1.style.backgroundColor = val.getAttribute("value");
@@ -1782,6 +1785,13 @@ function chinhnenCV2() {
 						.forEach(function (a) {
 							a.style.backgroundColor = val.getAttribute("value");
 						});
+						document.querySelectorAll(".CV2.main .skillLevel").forEach(function (a,b) {
+							a.querySelectorAll("div").forEach(function (a1,b1){
+								if (b1<=globalIndex[b]){
+									a1.style.backgroundColor = val.getAttribute("value");
+								}
+							})
+						})
 				}
 			}
 		});
@@ -1854,13 +1864,35 @@ function kiemtraSTTCV() {
 	duanTitle = document.querySelectorAll(".wrapDiv h3");
 	var mau;
 	if (sttCV == 0)
-		mau = window.getComputedStyle(
+		{mau = window.getComputedStyle(
 			document.querySelector(".CV.jsCV .sectionTitleBodyLeftCV h1")
 		).color;
+		// document.querySelectorAll(".CV.jsCV .skillLevel").forEach(function (a,b) {
+		// 	a.querySelectorAll("div").forEach(function (a1,b1){
+		// 		if (b1<=globalIndex[b]){
+		// 			a1.style.backgroundColor = window.getComputedStyle(
+		// 				document.querySelector(".CV.jsCV .headleftCV")
+		// 			).backgroundColor;
+		// 		}
+		// 	})
+		// })
+	}
 	else
-		mau = window.getComputedStyle(
+		{mau = window.getComputedStyle(
 			document.querySelector(".CV2.main .sectionTitleBodyLeftCV h1")
 		).color;
+		// document.querySelectorAll(".CV2.main .skillLevel").forEach(function (a) {
+		// 	let b=0;
+		// 	a.querySelectorAll("div").forEach(function (a1,b1){
+		// 		if (b1<=globalIndex[b]){
+		// 			a1.style.backgroundColor = window.getComputedStyle(
+		// 				document.querySelector(".CV2 .titleLeftCVsection h3")
+		// 			).backgroundColor;
+		// 		}
+		// 		b++;
+		// 	})
+		// })
+	}
 	duanTitle.forEach(function (a) {
 		a.style.color = mau;
 	});
@@ -1934,12 +1966,19 @@ document.getElementById("listEdit").onclick = (e) => {
 let titleRightCV1 = document.querySelectorAll(".CV .sectionTitleBodyLeftCV h1"),
 	hrRightCV1 = document.querySelectorAll(".CV .sectionTitleBodyLeftCV hr"),
 	bienmauRightCV1;
+	RightCv1Themmucphai();
+function RightCv1Themmucphai(){
+	let	titleRightCV1Add = document.querySelectorAll(".divOfAddIndex div div:nth-child(2)"),
+	hrRightCV1Add = document.querySelectorAll(".divOfAddIndex div hr");
 titleRightCV1.forEach(function (a) {
 	let nho;
 	console.log(duanTitle);
 	a.onmouseover = function () {
 		nho = window.getComputedStyle(a).color;
 		titleRightCV1.forEach(function (a) {
+			a.style.color = "#555";
+		});
+		titleRightCV1Add.forEach(function (a) {
 			a.style.color = "#555";
 		});
 		duanTitle.forEach(function (a) {
@@ -1950,6 +1989,9 @@ titleRightCV1.forEach(function (a) {
 		titleRightCV1.forEach(function (a) {
 			a.style.color = nho;
 		});
+		titleRightCV1Add.forEach(function (a) {
+			a.style.color = nho;
+		});
 		duanTitle.forEach(function (a) {
 			a.style.color = nho;
 		});
@@ -1957,7 +1999,13 @@ titleRightCV1.forEach(function (a) {
 	a.onclick = function () {
 		chunao = 2;
 		activeElementKhoa = [...titleRightCV1];
+		titleRightCV1Add.forEach(function (a) {
+			activeElementKhoa.push(a);
+		});
 		hrRightCV1.forEach(function (a) {
+			activeElementKhoa.push(a);
+		});
+		hrRightCV1Add.forEach(function (a) {
 			activeElementKhoa.push(a);
 		});
 		console.log(activeElementKhoa);
@@ -1968,25 +2016,44 @@ titleRightCV1.forEach(function (a) {
 		}, 400);
 	};
 });
-
-//                             title left
-let titleLeftCV1 = document.querySelectorAll(".CV .titleLeftCVsection h3");
-titleLeftCV1.forEach(function (a) {
+titleRightCV1Add.forEach(function (a) {
 	let nho;
+	console.log(duanTitle);
 	a.onmouseover = function () {
 		nho = window.getComputedStyle(a).color;
-		titleLeftCV1.forEach(function (a) {
+		titleRightCV1.forEach(function (a) {
+			a.style.color = "#555";
+		});
+		titleRightCV1Add.forEach(function (a) {
+			a.style.color = "#555";
+		});
+		duanTitle.forEach(function (a) {
 			a.style.color = "#555";
 		});
 	};
 	a.onmouseleave = function () {
-		titleLeftCV1.forEach(function (a) {
+		titleRightCV1.forEach(function (a) {
+			a.style.color = nho;
+		});
+		titleRightCV1Add.forEach(function (a) {
+			a.style.color = nho;
+		});
+		duanTitle.forEach(function (a) {
 			a.style.color = nho;
 		});
 	};
 	a.onclick = function () {
-		chunao = 1;
-		activeElementKhoa = [...titleLeftCV1];
+		chunao = 2;
+		activeElementKhoa = [...titleRightCV1];
+		titleRightCV1Add.forEach(function (a) {
+			activeElementKhoa.push(a);
+		});
+		hrRightCV1.forEach(function (a) {
+			activeElementKhoa.push(a);
+		});
+		hrRightCV1Add.forEach(function (a) {
+			activeElementKhoa.push(a);
+		});
 		console.log(activeElementKhoa);
 		tableColor.classList.add("openTableColor");
 		tableColor.classList.remove("closeTableColor");
@@ -1995,6 +2062,101 @@ titleLeftCV1.forEach(function (a) {
 		}, 400);
 	};
 });
+}
+
+//                             title left
+let titleLeftCV1 = document.querySelectorAll(".CV .sectionTitleLeftCV1 .titleLeftCVsection h3");
+LeftCv1Themmuctrai();
+function LeftCv1Themmuctrai(){
+let titleLeftCV1 = document.querySelectorAll(".CV .sectionTitleLeftCV1 .titleLeftCVsection h3");
+titleLeftCV1.forEach(function (a) {
+	let nho;
+	a.onmouseover = function () {
+		console.log(titleLeftCV1)
+		nho = window.getComputedStyle(a).color;
+		titleLeftCV1.forEach(function (a) {
+			a.style.color = "#555";
+		});
+		document.querySelectorAll(".nothing>div>div[contenteditable='true']").forEach(function (a) {
+			a.style.color = "#555";
+		});
+		document.querySelectorAll(".certificate div div:not(:last-child)").forEach(function (a) {
+			a.style.color = "#555";
+		});
+		document.querySelectorAll(".certificate div div input").forEach(function (a) {
+			a.style.color = "#555";
+		});
+		document.querySelector(".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']").style.color = "#555";
+		document.querySelector(".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']").style.borderColor = "#555";
+		document.querySelector(".CV.jsCV  .titleLeftCVsection .addSkill").style.color = "#555";
+		document.querySelector(".CV.jsCV  .titleLeftCVsection .addSkill").style.borderColor = "#555";
+		document.querySelector(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']").style.color = "#555";
+		document.querySelector(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']").style.borderColor = "#555";
+	};
+	a.onmouseleave = function () {
+		titleLeftCV1.forEach(function (a) {
+			a.style.color = nho;
+		});
+		document.querySelectorAll(".nothing>div>div[contenteditable='true']").forEach(function (a) {
+			a.style.color = nho;
+		});
+		document.querySelectorAll(".certificate div div:not(:last-child)").forEach(function (a) {
+			a.style.color = nho;
+		});
+		document.querySelectorAll(".certificate div div input").forEach(function (a) {
+			a.style.color = nho;
+		});
+		document.querySelector(".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']").style.color = nho;
+		document.querySelector(".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']").style.borderColor = nho;
+		document.querySelector(".CV.jsCV  .titleLeftCVsection .addSkill").style.color = nho;
+		document.querySelector(".CV.jsCV  .titleLeftCVsection .addSkill").style.borderColor = nho;
+		document.querySelector(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']").style.color = nho;
+		document.querySelector(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']").style.borderColor = nho;
+	};
+	a.onclick = function () {
+		let pushke = [...document.querySelectorAll(".nothing>div>div[contenteditable='true']")];
+		chunao = 1;
+		activeElementKhoa = [...titleLeftCV1];
+		pushke.forEach((a)=>{
+			activeElementKhoa.push(a);
+		})
+		pushke = [...document.querySelectorAll(".CV.jsCV .certificate div div:not(:last-child)")]
+		pushke.forEach((a)=>{
+			activeElementKhoa.push(a);
+		})
+		pushke = [...document.querySelectorAll(".CV.jsCV .certificate div div input")]
+		pushke.forEach((a)=>{
+			activeElementKhoa.push(a);
+		})
+		pushke = [...document.querySelectorAll(".CV.jsCV .titleLeftCVsection>div>div ")]
+		pushke.forEach((a)=>{
+			activeElementKhoa.push(a);
+		})
+		pushke = [...document.querySelectorAll(".CV.jsCV .titleLeftCVsection .addSkill")]
+		pushke.forEach((a)=>{
+			activeElementKhoa.push(a);
+		})
+		pushke = [...document.querySelectorAll(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']")]
+		pushke.forEach((a)=>{
+			activeElementKhoa.push(a);
+		})
+		// pushke = [...document.querySelectorAll(".CV.jsCV .titleLeftCVsection .editableDiv2")]
+		// pushke.forEach((a)=>{
+		// 	activeElementKhoa.push(a);
+		// })
+		// pushke = [...document.querySelectorAll(".CV.jsCV .sectionInfo .editableDiv2")]
+		// pushke.forEach((a)=>{
+		// 	activeElementKhoa.push(a);
+		// })
+		console.log(activeElementKhoa);
+		tableColor.classList.add("openTableColor");
+		tableColor.classList.remove("closeTableColor");
+		setTimeout(function () {
+			tryTable = 1;
+		}, 400);
+	};
+});
+} 
 
 //   title left bottom
 let titleLeftBCV1 = document.querySelectorAll(".CV .sectionInfoTitle");

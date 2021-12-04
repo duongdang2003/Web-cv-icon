@@ -6,10 +6,12 @@
 	scroll-behavior: smooth;
 }
 :root {
-	--calendar-color: invert(100%);
+	--calendar-color: invert(1);
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
-	filter: var(--calendar-color);
+	filter: var(--calendar-color) !important;
+	backdrop-filter: invert(.7);
+	border-radius: 6px;
 }
 html,
 body {
