@@ -153,15 +153,11 @@
 body .CV2 .headleftCV {
 	width: 100%;
 	height: 15%;
-<<<<<<< HEAD
 	background: linear-gradient(
 		to right,
 		var(--TitleHeadRCV2-) 74%,
 		transparent 26%
 	);
-=======
-	background:linear-gradient(to right, var(--TitleHeadRCV2-) 74%,transparent 26%);
->>>>>>> 2222531bfbcc496c7d9d42a9125982bcc3ff7430
 	margin: 8% 0 5% 0;
 	padding-left: 5%;
 	display: flex;
@@ -241,15 +237,9 @@ body .CV2 .headleftCV {
 	left: 111px;
 	width: 31px;
 	height: 85.9px;
-<<<<<<< HEAD
 	background-color: var(--TitleHeadRCV2-);
 }
 .CV2 .rectangular5 {
-=======
-	background-color:var(--TitleHeadRCV2-);
-}
-.CV2 .rectangular5{
->>>>>>> 2222531bfbcc496c7d9d42a9125982bcc3ff7430
 	position: absolute;
 	right: 0;
 	bottom: 0;

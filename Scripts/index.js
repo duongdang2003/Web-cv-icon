@@ -981,6 +981,7 @@ function addLeftIndex() {
 		document.querySelectorAll(".titleLeftCVsection hr")[0]
 	).backgroundColor;
 	wrapDiv.setAttribute("class", "titleLeftCVsection");
+	wrapDiv.style.margin = "auto";
 	title.contentEditable = "true";
 	title.innerHTML = "Tiêu đề";
 	title.spellcheck = false;
