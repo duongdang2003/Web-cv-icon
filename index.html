@@ -58,6 +58,76 @@
 		</div>
 		<div id="Modalvideo"></div>
 		<div id="wrapBody">
+
+		<!-- turtorial -->
+		<div id="turtorial">
+			<div id="title">Welcome to AURI</div>
+			<div>
+			<div style="text-align:center; margin-bottom: 10px">Dưới dây là một vài hướng dẫn và lưu ý khi sử dụng web</div>
+
+				<div id="aboutData">
+					<div style="font-size:25px; font-weight:bold">Lưu dữ liệu</div>
+					<div style="display:flex" id="turtorialDownload">
+						<div style="background-image: url(./Images/aboutData.png); width: 41px; height: 41px; border-radius: 5px"></div>
+						<div style="display: flex; align-items: center"><b>Download</b>: tải về CV của bằng bạn bằng định dạng pdf.</div>
+					</div>
+					<div id="turtorialSave" style="display:flex">
+						<div style="background-image: url(./Images/aboutData.png); width: 41px; height: 41px; background-position: center;  border-radius: 5px"></div>
+						<div style="display: flex; align-items: center"><b>Save</b>: lưu CV (CV sẽ tự động lưu mỗi 30s). 
+							Trước khi rời web hãy bấm save để đảm bảo CV được lưu đầy đủ nhất nhá. </div>
+					</div>
+					<div id="turtorialLoad" style="display:flex">
+						<div style="background-image: url(./Images/aboutData.png); width: 41px; height: 41px; background-position:right;  border-radius: 5px"></div>
+						
+						<div style="display: flex; align-items: center"><b>Load</b>: bạn bỗng nhiên bị một sự cố nào đó và mất hết dữ liệu trên CV?
+							Đừng lo nút Load thần kì này sẽ cứu bạn. Bấm để tải lại toàn bộ dữ liệu CV trước đó của bạn.</div>
+					</div>
+				</div>
+				<div>Auri khuyến khích bạn điền đầy đủ thông tin sau đó mới chỉnh màu để tránh bị trùng màu một vài chỗ nha.</div>
+				<div id="aboutBackground">
+					<div style="font-size:25px; font-weight:bold; margin: 20px 0 10px 0;">Màu nền CV</div>
+					<div style="display: flex;">
+						<div style="background-image: url(./Images/miniCV.png); width: 450px; height:307px;"></div>
+						<div style="display: flex; align-items: center">
+							Đây là bản đồ nhỏ của CV nơi bạn có thể review tổng quát và chỉnh màu nền của CV. 
+							<br> 
+							<br>
+							Bản đồ nhỏ có 4 phần riêng để bạn có thể chỉnh màu nền. Click vào phần bạn muốn chỉnh để đổi màu nền.</div>
+					</div>
+					<div style="font-size:25px; font-weight:bold; margin: 20px 0 10px 0;">Kết hợp hình nền và màu nền</div>
+					<div>	
+						Ngoài chỉnh riêng lẻ màu nền và hình nền bạn có thể kết hợp cả màu nền và hình nền bằng cách làm mờ màu nền đi.
+						(Lưu ý để chỉnh được hình nền CV 2 bạn cần phải tăng độ trong suốt của phần bạn muốn hiển thị ảnh nền).
+						<div style="display: flex; justify-content: space-between; margin-top: 20px">
+							<div>
+								<div style="background-image: url(./Images/b1.jpg); width: 200px; height:184px; margin: auto;"></div>
+								<div style="margin-top: 9%">Chọn ảnh nền tùy ý của bạn</div>
+							</div>
+							<div style="margin: 30px">
+								<i class="fas fa-arrow-right" style="font-size:50px; display: flex; margin-top: 100%"></i></div>
+							<div>
+								<div style="background-image: url(./Images/b2.jpg); width: 200px; height:166px;margin: auto;"></div>
+								<div style="margin-top: 10%">Chọn vùng CV muốn chỉnh sau đó bấm vào biểu tượng chọn màu</div>
+							</div>
+							<div style="margin: 30px">
+								<i class="fas fa-arrow-right" style="font-size:50px; display: flex; margin-top: 100%"></i></div>
+							<div>
+								<div style="background-image: url(./Images/b3.jpg); width: 200px; height:182px;margin: auto;"></div>
+								<div style="margin-top: 4%">Chọn màu tùy thích trong bảng màu và dùng thanh bên phải để chỉnh độ trong suốt</div>
+
+							</div>
+						</div>
+					</div>
+					<div>
+						<div style="text-align:center; margin: 50px 0 20px 0">Chỉnh thêm màu chữ và đây là kết quả</div>
+						<div style="background-image: url(./Images/result.jpg); width: 300px; height:425px;margin: auto;"></div>
+					</div>
+				</div>
+				<div>
+				</div>
+						</div>
+			</div>
+		<div id="glass" style="display: none"></div>
 			<!-- header -->
 			<div class="header">
 				<h1 id="logo"></h1>
@@ -134,6 +204,8 @@
 				<div class="sectionEdit" id="listEdit">
 					<i class="fas fa-list-ul" id="AddlistUl"></i>
 				</div>
+				<div style="position: absolute; right: 5%; color: white; background-color: #2f2a33; padding: 10px; border-radius: 10px; cursor: pointer"
+				onclick="openTurtorialModal()">Mở hướng dẫn</div>
 			</div>
 			<!--                          chon font, co chu, mau sac,.... -->
 

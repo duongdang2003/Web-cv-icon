@@ -14,11 +14,16 @@ let statuss = document.querySelectorAll("#status i");
 let sta = ["boldjs", "italicjs", "underlinejs"];
 let activeElementKhoa = [];
 let duanTitle;
+let glass = document.getElementById("glass");
+let turtorialModal = document.getElementById("turtorial");
 if (sessionStorage.getItem("playVideo") === null) {
 	playVideo();
+	turtorialModal.style.display = "block";
 } else {
 	document.querySelector("#video").style.display = "none";
 	document.querySelector("#Modalvideo").style.display = "none";
+	turtorialModal.style.transform = "translate(-120%)";
+	glass.style.display = "none";
 }
 // Download
 function download(stringClassCV) {
@@ -475,13 +480,13 @@ function skillLevel() {
 		item.addEventListener("click", function (e) {
 			if (e.target.hasAttribute("index") === true) {
 				index = parseInt(e.target.getAttribute("index"));
-
 				divParent = e.target.parentElement;
 				arrayLevel = divParent.childNodes;
 				for (let i = 0; i <= 9; i++) {
 					if (i <= index && arrayLevel[i].getAttribute("index") != null) {
 						arrayLevel[i].style.backgroundColor = window.getComputedStyle(
-							document.querySelectorAll(".jsCV .headleftCV")[parseInt(sttCV)]
+							// document.querySelectorAll(".jsCV .headleftCV")[parseInt(sttCV)]
+							document.querySelectorAll(".headleftCV")[parseInt(sttCV) + 2]
 						).backgroundColor;
 					} else if (arrayLevel[i].getAttribute("index") != null) {
 						arrayLevel[i].style.backgroundColor = "white";
@@ -828,14 +833,18 @@ function addCertificate() {
 	wrapDiv.setAttribute("borderColor", "white");
 	certificateName.contentEditable = "true";
 	certificateName.style.width = "90%";
-	certificateName.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
+	certificateName.style.color = window.getComputedStyle(
+		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
+	).color;
 	certificateName.spellcheck = "false";
 	certificateName.style.padding = "5px";
 	certificateName.setAttribute("spellcheck", "false");
 	certificateName.innerHTML = "Tên chứng chỉ";
 
 	labelFrom.innerHTML = "Từ";
-	labelFrom.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
+	labelFrom.style.color = window.getComputedStyle(
+		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
+	).color;
 	labelFrom.style.marginRight = "10px";
 	labelFrom.style.width = "30px";
 	fromWrapper.style.alignItems = "center";
@@ -844,19 +853,30 @@ function addCertificate() {
 
 	fromDate.type = "date";
 	fromDate.style.backgroundColor = "transparent";
-	fromDate.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
+	fromDate.style.color = window.getComputedStyle(
+		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
+	).color;
 	fromDate.style.padding = "5px";
 	toWrapper.style.alignItems = "center";
 	toWrapper.style.justifyContent = "center";
 	toWrapper.style.marginLeft = "1px";
-	toWrapper.setAttribute("bordercolor", window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color);
+	toWrapper.setAttribute(
+		"bordercolor",
+		window.getComputedStyle(
+			document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
+		).color
+	);
 
 	labelTo.innerHTML = "Đến";
-	labelTo.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
+	labelTo.style.color = window.getComputedStyle(
+		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
+	).color;
 	labelTo.style.marginRight = "10px";
 	toDate.type = "date";
 	toDate.style.backgroundColor = "transparent";
-	toDate.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
+	toDate.style.color = window.getComputedStyle(
+		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
+	).color;
 	toDate.style.padding = "5px";
 	fromWrapper.style.display = "flex";
 	toWrapper.style.display = "flex";
@@ -905,26 +925,28 @@ function getBackground(e) {
 			switch (backgroundID) {
 				case "1":
 					// CVbackground.src = "https://files.fm/thumb_show.php?i=truaf92w7";
-					CVbackground[parseInt(sttCV)].src =
-						"./Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
-					CVbackground[parseInt(sttCV) + 2].src =
-						"./Images/pawel-czerwinski-Qiy4hr18aGs-unsplash.jpg";
+					CVbackground[parseInt(sttCV)].src = "../Images/1.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/1.jpg";
 					break;
 				case "2":
-					CVbackground[parseInt(sttCV)].src = "https://imgur.com/CE3gdP0";
-					CVbackground[parseInt(sttCV) + 2].src = "https://imgur.com/CE3gdP0";
+					CVbackground[parseInt(sttCV)].src = "../Images/2.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/2.jpg";
 					break;
 				case "3":
-					CVbackground[parseInt(sttCV)].src =
-						"https://files.fm/thumb_show.php?i=ntee6brya";
-					CVbackground[parseInt(sttCV) + 2].src =
-						"https://files.fm/thumb_show.php?i=ntee6brya";
+					CVbackground[parseInt(sttCV)].src = "../Images/3.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/3.jpg";
 					break;
 				case "4":
-					CVbackground[parseInt(sttCV)].src =
-						"https://files.fm/thumb_show.php?i=x5nh8qeah";
-					CVbackground[parseInt(sttCV) + 2].src =
-						"https://files.fm/thumb_show.php?i=x5nh8qeah";
+					CVbackground[parseInt(sttCV)].src = "../Images/4.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/4.jpg";
+					break;
+				case "5":
+					CVbackground[parseInt(sttCV)].src = "../Images/5.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/5.jpg";
+					break;
+				case "6":
+					CVbackground[parseInt(sttCV)].src = "../Images/6.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "../Images/6.jpg";
 					break;
 				default:
 					break;
@@ -975,16 +997,21 @@ function addLeftIndex() {
 		document.querySelectorAll(".titleLeftCVsection hr")[0]
 	).backgroundColor;
 	wrapDiv.setAttribute("class", "titleLeftCVsection");
+	wrapDiv.style.margin = "auto";
 	title.contentEditable = "true";
 	title.innerHTML = "Tiêu đề";
 	title.spellcheck = false;
-	title.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
+	title.style.color = window.getComputedStyle(
+		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
+	).color;
 	title.setAttribute("name", "titelLeftIndex");
 	ruler.style.display = "block";
 	ruler.style.backgroundColor = rulerColor;
 	content.contentEditable = "true";
 	content.style.margin = "10px 0 10px 0";
-	content.style.color = window.getComputedStyle(document.querySelectorAll(".CV .titleLeftCVsection h3")[0]).color;
+	content.style.color = window.getComputedStyle(
+		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
+	).color;
 	content.style.padding = "5px";
 	content.style.width = "95%";
 	content.spellcheck = false;
@@ -1638,11 +1665,11 @@ function chinhnenCV1() {
 								a1.style.backgroundColor = val.getAttribute("value");
 							} else if (dung==1) return;
 						});
-					});
-				}
+				});
 			}
-		});
-	};
+		};
+	});
+}
 }
 //                                  chinh nen CV 2
 function chinhnenCV2() {
@@ -2184,98 +2211,156 @@ titleRightCV1Add.forEach(function (a) {
 }
 
 //                             title left
-let titleLeftCV1 = document.querySelectorAll(".CV .sectionTitleLeftCV1 .titleLeftCVsection h3");
+let titleLeftCV1 = document.querySelectorAll(
+	".CV .sectionTitleLeftCV1 .titleLeftCVsection h3"
+);
 LeftCv1Themmuctrai();
-function LeftCv1Themmuctrai(){
-let titleLeftCV1 = document.querySelectorAll(".CV .sectionTitleLeftCV1 .titleLeftCVsection h3");
-titleLeftCV1.forEach(function (a) {
-	let nho;
-	a.onmouseover = function () {
-		console.log(titleLeftCV1)
-		nho = window.getComputedStyle(a).color;
-		titleLeftCV1.forEach(function (a) {
-			a.style.color = "#555";
-		});
-		document.querySelectorAll(".nothing>div>div[contenteditable='true']").forEach(function (a) {
-			a.style.color = "#555";
-		});
-		document.querySelectorAll(".certificate div div:not(:last-child)").forEach(function (a) {
-			a.style.color = "#555";
-		});
-		document.querySelectorAll(".certificate div div input").forEach(function (a) {
-			a.style.color = "#555";
-		});
-		document.querySelector(".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']").style.color = "#555";
-		document.querySelector(".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']").style.borderColor = "#555";
-		document.querySelector(".CV.jsCV  .titleLeftCVsection .addSkill").style.color = "#555";
-		document.querySelector(".CV.jsCV  .titleLeftCVsection .addSkill").style.borderColor = "#555";
-		document.querySelector(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']").style.color = "#555";
-		document.querySelector(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']").style.borderColor = "#555";
-	};
-	a.onmouseleave = function () {
-		titleLeftCV1.forEach(function (a) {
-			a.style.color = nho;
-		});
-		document.querySelectorAll(".nothing>div>div[contenteditable='true']").forEach(function (a) {
-			a.style.color = nho;
-		});
-		document.querySelectorAll(".certificate div div:not(:last-child)").forEach(function (a) {
-			a.style.color = nho;
-		});
-		document.querySelectorAll(".certificate div div input").forEach(function (a) {
-			a.style.color = nho;
-		});
-		document.querySelector(".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']").style.color = nho;
-		document.querySelector(".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']").style.borderColor = nho;
-		document.querySelector(".CV.jsCV  .titleLeftCVsection .addSkill").style.color = nho;
-		document.querySelector(".CV.jsCV  .titleLeftCVsection .addSkill").style.borderColor = nho;
-		document.querySelector(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']").style.color = nho;
-		document.querySelector(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']").style.borderColor = nho;
-	};
-	a.onclick = function () {
-		let pushke = [...document.querySelectorAll(".nothing>div>div[contenteditable='true']")];
-		chunao = 1;
-		activeElementKhoa = [...titleLeftCV1];
-		pushke.forEach((a)=>{
-			activeElementKhoa.push(a);
-		})
-		pushke = [...document.querySelectorAll(".CV.jsCV .certificate div div:not(:last-child)")]
-		pushke.forEach((a)=>{
-			activeElementKhoa.push(a);
-		})
-		pushke = [...document.querySelectorAll(".CV.jsCV .certificate div div input")]
-		pushke.forEach((a)=>{
-			activeElementKhoa.push(a);
-		})
-		pushke = [...document.querySelectorAll(".CV.jsCV .titleLeftCVsection>div>div ")]
-		pushke.forEach((a)=>{
-			activeElementKhoa.push(a);
-		})
-		pushke = [...document.querySelectorAll(".CV.jsCV .titleLeftCVsection .addSkill")]
-		pushke.forEach((a)=>{
-			activeElementKhoa.push(a);
-		})
-		pushke = [...document.querySelectorAll(".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']")]
-		pushke.forEach((a)=>{
-			activeElementKhoa.push(a);
-		})
-		// pushke = [...document.querySelectorAll(".CV.jsCV .titleLeftCVsection .editableDiv2")]
-		// pushke.forEach((a)=>{
-		// 	activeElementKhoa.push(a);
-		// })
-		// pushke = [...document.querySelectorAll(".CV.jsCV .sectionInfo .editableDiv2")]
-		// pushke.forEach((a)=>{
-		// 	activeElementKhoa.push(a);
-		// })
-		console.log(activeElementKhoa);
-		tableColor.classList.add("openTableColor");
-		tableColor.classList.remove("closeTableColor");
-		setTimeout(function () {
-			tryTable = 1;
-		}, 400);
-	};
-});
-} 
+function LeftCv1Themmuctrai() {
+	let titleLeftCV1 = document.querySelectorAll(
+		".CV .sectionTitleLeftCV1 .titleLeftCVsection h3"
+	);
+	titleLeftCV1.forEach(function (a) {
+		let nho;
+		a.onmouseover = function () {
+			console.log(titleLeftCV1);
+			nho = window.getComputedStyle(a).color;
+			titleLeftCV1.forEach(function (a) {
+				a.style.color = "#555";
+			});
+			document
+				.querySelectorAll(".nothing>div>div[contenteditable='true']")
+				.forEach(function (a) {
+					a.style.color = "#555";
+				});
+			document
+				.querySelectorAll(".certificate div div:not(:last-child)")
+				.forEach(function (a) {
+					a.style.color = "#555";
+				});
+			document
+				.querySelectorAll(".certificate div div input")
+				.forEach(function (a) {
+					a.style.color = "#555";
+				});
+			document.querySelector(
+				".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']"
+			).style.color = "#555";
+			document.querySelector(
+				".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']"
+			).style.borderColor = "#555";
+			document.querySelector(
+				".CV.jsCV  .titleLeftCVsection .addSkill"
+			).style.color = "#555";
+			document.querySelector(
+				".CV.jsCV  .titleLeftCVsection .addSkill"
+			).style.borderColor = "#555";
+			document.querySelector(
+				".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']"
+			).style.color = "#555";
+			document.querySelector(
+				".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']"
+			).style.borderColor = "#555";
+		};
+		a.onmouseleave = function () {
+			titleLeftCV1.forEach(function (a) {
+				a.style.color = nho;
+			});
+			document
+				.querySelectorAll(".nothing>div>div[contenteditable='true']")
+				.forEach(function (a) {
+					a.style.color = nho;
+				});
+			document
+				.querySelectorAll(".certificate div div:not(:last-child)")
+				.forEach(function (a) {
+					a.style.color = nho;
+				});
+			document
+				.querySelectorAll(".certificate div div input")
+				.forEach(function (a) {
+					a.style.color = nho;
+				});
+			document.querySelector(
+				".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']"
+			).style.color = nho;
+			document.querySelector(
+				".CV.jsCV .sectionTitleLeftCV1>div[key='certificate']>div[id='addButton']"
+			).style.borderColor = nho;
+			document.querySelector(
+				".CV.jsCV  .titleLeftCVsection .addSkill"
+			).style.color = nho;
+			document.querySelector(
+				".CV.jsCV  .titleLeftCVsection .addSkill"
+			).style.borderColor = nho;
+			document.querySelector(
+				".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']"
+			).style.color = nho;
+			document.querySelector(
+				".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']"
+			).style.borderColor = nho;
+		};
+		a.onclick = function () {
+			let pushke = [
+				...document.querySelectorAll(
+					".nothing>div>div[contenteditable='true']"
+				),
+			];
+			chunao = 1;
+			activeElementKhoa = [...titleLeftCV1];
+			pushke.forEach((a) => {
+				activeElementKhoa.push(a);
+			});
+			pushke = [
+				...document.querySelectorAll(
+					".CV.jsCV .certificate div div:not(:last-child)"
+				),
+			];
+			pushke.forEach((a) => {
+				activeElementKhoa.push(a);
+			});
+			pushke = [
+				...document.querySelectorAll(".CV.jsCV .certificate div div input"),
+			];
+			pushke.forEach((a) => {
+				activeElementKhoa.push(a);
+			});
+			pushke = [
+				...document.querySelectorAll(".CV.jsCV .titleLeftCVsection>div>div "),
+			];
+			pushke.forEach((a) => {
+				activeElementKhoa.push(a);
+			});
+			pushke = [
+				...document.querySelectorAll(".CV.jsCV .titleLeftCVsection .addSkill"),
+			];
+			pushke.forEach((a) => {
+				activeElementKhoa.push(a);
+			});
+			pushke = [
+				...document.querySelectorAll(
+					".CV.jsCV .sectionInfo[name='socialNetwork'] div[id='addButton']"
+				),
+			];
+			pushke.forEach((a) => {
+				activeElementKhoa.push(a);
+			});
+			// pushke = [...document.querySelectorAll(".CV.jsCV .titleLeftCVsection .editableDiv2")]
+			// pushke.forEach((a)=>{
+			// 	activeElementKhoa.push(a);
+			// })
+			// pushke = [...document.querySelectorAll(".CV.jsCV .sectionInfo .editableDiv2")]
+			// pushke.forEach((a)=>{
+			// 	activeElementKhoa.push(a);
+			// })
+			console.log(activeElementKhoa);
+			tableColor.classList.add("openTableColor");
+			tableColor.classList.remove("closeTableColor");
+			setTimeout(function () {
+				tryTable = 1;
+			}, 400);
+		};
+	});
+}
 
 //   title left bottom
 let titleLeftBCV1 = document.querySelectorAll(".CV .sectionInfoTitle");
@@ -2549,6 +2634,10 @@ setInterval(function () {
 
 function playVideo() {
 	setTimeout(function () {
+		glass.style.display = "none";
+		turtorialModal.style.transform = "translate(-120%)";
+	}, 0);
+	setTimeout(function () {
 		document.querySelector("#video video").play();
 		console.log("run");
 	}, 1500);
@@ -2557,6 +2646,28 @@ function playVideo() {
 		document.querySelector("#video video").pause();
 		document.querySelector("#Modalvideo").style.display = "none";
 		console.log("pause");
+		glass.style.display = "block";
+		turtorialModal.style.display = "block";
+		openTurtorialModal();
 	}, 7500);
 	sessionStorage.setItem("playVideo", "false");
 }
+function closeTurtorialModal() {
+	glass.addEventListener("click", function () {
+		turtorialModal.style.animation = "closeModal 0.5s linear 1";
+		setTimeout(function () {
+			turtorialModal.style.transform = "translate(-120%)";
+			glass.style.display = "none";
+		}, 485);
+	});
+}
+function openTurtorialModal() {
+	turtorialModal.style.display = "block";
+	turtorialModal.style.animation = "openModal 0.5s linear 1";
+	glass.style.display = "block";
+
+	setTimeout(function () {
+		turtorialModal.style.transform = "translate(0)";
+	}, 485);
+}
+closeTurtorialModal();
