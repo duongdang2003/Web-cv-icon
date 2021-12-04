@@ -14,7 +14,6 @@ let statuss = document.querySelectorAll("#status i");
 let sta = ["boldjs", "italicjs", "underlinejs"];
 let activeElementKhoa = [];
 let duanTitle;
-let testt = "a";
 if (sessionStorage.getItem("playVideo") === null) {
 	playVideo();
 } else {
@@ -206,7 +205,6 @@ setInterval(() => {
 		cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
 		cv.offsetHeight >= constWidth * page
 	) {
-		// console.log((cv.offsetWidth * constHeight) / constWidth) * page;
 		ruler = document.createElement("p");
 		ruler.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
 		ruler.style.position = "absolute";
@@ -219,6 +217,22 @@ setInterval(() => {
 		ruler.style.left = "-50%";
 		ruler.style.zIndex = "99999";
 		document.querySelectorAll(".jsCV")[parseInt(sttCV)].appendChild(ruler);
+
+		//ruler 2
+		ruler2 = document.createElement("p");
+		ruler2.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
+		ruler2.style.position = "absolute";
+		ruler2.style.color = "#ddd";
+		ruler2.style.overflow = "hidden";
+		ruler2.style.height = "20px";
+		ruler2.style.top = `${
+			((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
+		}px`;
+		ruler2.style.left = "-50%";
+		ruler2.style.zIndex = "99999";
+		//
+		document.querySelectorAll(".jsCV")[parseInt(sttCV) + 1].appendChild(ruler2);
+
 		page++;
 	}
 }, 1000);
@@ -420,6 +434,11 @@ function addSkill() {
 					arrayLevel[i].style.backgroundColor = window.getComputedStyle(
 						document.querySelectorAll(".headleftCV")[parseInt(sttCV)]
 					).backgroundColor;
+					if (i === index) {
+						arrayLevel[i].setAttribute("isEnd", "yes");
+					} else {
+						arrayLevel[i].setAttribute("isEnd", "no");
+					}
 				} else if (arrayLevel[i].getAttribute("index") != null) {
 					arrayLevel[i].style.backgroundColor = "white";
 				}
@@ -455,7 +474,7 @@ function skillLevel() {
 				for (let i = 0; i <= 9; i++) {
 					if (i <= index && arrayLevel[i].getAttribute("index") != null) {
 						arrayLevel[i].style.backgroundColor = window.getComputedStyle(
-							document.querySelectorAll(".headleftCV")[0]
+							document.querySelectorAll(".headleftCV")[parseInt(sttCV)]
 						).backgroundColor;
 					} else if (arrayLevel[i].getAttribute("index") != null) {
 						arrayLevel[i].style.backgroundColor = "white";
@@ -2166,5 +2185,4 @@ function playVideo() {
 		console.log("pause");
 	}, 7500);
 	sessionStorage.setItem("playVideo", "false");
-	disableScroll();
 }
