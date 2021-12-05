@@ -39,7 +39,7 @@ function download(stringClassCV) {
 	const element = document.querySelector(stringClassCV); // Khỏi chỉnh lại
 	var opt = {
 		margin: 0,
-		filename: "CV.pdf",
+		filename: "AuriCV.pdf",
 		image: { type: "jpeg", quality: 1 },
 		html2canvas: { scale: 3 },
 		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
@@ -2855,13 +2855,14 @@ function closeTurtorialModalByButton() {
 	}, 485);
 }
 closeTurtorialModal();
-// function autoSave() {
-// 	let saveClock = setInterval(alert("hi"), 3000);
-// 	if (document.querySelector("#autoSave input").checked === false) {
-// 		clearInterval(saveClock);
-// 	} else {
-// 		saveClock = setInterval("hi", 3000);
-// 	}
-// }
-// autoSave();
-// console.log(document.querySelector("#autoSave input").checked);
+function autoSave() {
+	let saveClock;
+	if (document.querySelector("#autoSave input").checked === true) {
+		saveClock = setInterval(function () {
+			save();
+		}, 2000);
+	} else {
+		clearInterval(saveClock);
+	}
+}
+autoSave();
