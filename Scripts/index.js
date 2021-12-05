@@ -13,7 +13,8 @@ let underline = document.getElementById("underline");
 let statuss = document.querySelectorAll("#status i");
 let sta = ["boldjs", "italicjs", "underlinejs"];
 let activeElementKhoa = [];
-let duanTitle;
+let duanTitle = [];
+let duanTitleCV2 = [];
 let glass = document.getElementById("glass");
 let turtorialModal = document.getElementById("turtorial");
 if (sessionStorage.getItem("playVideo") === null) {
@@ -127,8 +128,14 @@ function addProject() {
 	wrapDiv.appendChild(discription);
 	wrapDiv.appendChild(deleteButton);
 
-	duanTitle = document.querySelectorAll(".CV.jsCV .wrapDiv h3");
-	duanTitleCV2 = document.querySelectorAll(".CV2.main .wrapDiv h3");
+	if (sttCV == 0)
+		document.querySelectorAll(".CV.jsCV .wrapDiv h3").forEach(function (a) {
+			duanTitle.push(a);
+		});
+	else
+		document.querySelectorAll(".CV2.main .wrapDiv h3").forEach(function (a) {
+			duanTitleCV2.push(a);
+		});
 }
 // display available
 function displayAvailable() {
@@ -941,28 +948,28 @@ function getBackground(e) {
 			switch (backgroundID) {
 				case "1":
 					// CVbackground.src = "https://files.fm/thumb_show.php?i=truaf92w7";
-					CVbackground[parseInt(sttCV)].src = "../Images/1.jpg";
-					CVbackground[parseInt(sttCV) + 2].src = "../Images/1.jpg";
+					CVbackground[parseInt(sttCV)].src = "./Images/1.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "./Images/1.jpg";
 					break;
 				case "2":
-					CVbackground[parseInt(sttCV)].src = "../Images/2.jpg";
-					CVbackground[parseInt(sttCV) + 2].src = "../Images/2.jpg";
+					CVbackground[parseInt(sttCV)].src = "./Images/2.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "./Images/2.jpg";
 					break;
 				case "3":
-					CVbackground[parseInt(sttCV)].src = "../Images/3.jpg";
-					CVbackground[parseInt(sttCV) + 2].src = "../Images/3.jpg";
+					CVbackground[parseInt(sttCV)].src = "./Images/3.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "./Images/3.jpg";
 					break;
 				case "4":
-					CVbackground[parseInt(sttCV)].src = "../Images/4.jpg";
-					CVbackground[parseInt(sttCV) + 2].src = "../Images/4.jpg";
+					CVbackground[parseInt(sttCV)].src = "./Images/4.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "./Images/4.jpg";
 					break;
 				case "5":
-					CVbackground[parseInt(sttCV)].src = "../Images/5.jpg";
-					CVbackground[parseInt(sttCV) + 2].src = "../Images/5.jpg";
+					CVbackground[parseInt(sttCV)].src = "./Images/5.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "./Images/5.jpg";
 					break;
 				case "6":
-					CVbackground[parseInt(sttCV)].src = "../Images/6.jpg";
-					CVbackground[parseInt(sttCV) + 2].src = "../Images/6.jpg";
+					CVbackground[parseInt(sttCV)].src = "./Images/6.jpg";
+					CVbackground[parseInt(sttCV) + 2].src = "./Images/6.jpg";
 					break;
 				default:
 					break;
@@ -1290,6 +1297,10 @@ document.getElementById("useThisColor").onclick = function () {
 		activeElementKhoa.forEach(function (a) {
 			a.style.color = dynamicColor;
 		});
+		if (sttCV == 1)
+			duanTitleCV2.forEach(function (a) {
+				a.style.color = dynamicColor;
+			});
 	} else {
 		activeElementKhoa.forEach(function (a, b, c) {
 			if (b >= c.length / 2) {
@@ -1300,12 +1311,10 @@ document.getElementById("useThisColor").onclick = function () {
 				// bienmauRightCV1 = dynamicColor;
 			}
 		});
-		duanTitle.forEach(function (a) {
-			a.style.color = dynamicColor;
-		});
-		duanTitleCV2.forEach(function (a) {
-			a.style.color = dynamicColor;
-		});
+		if (sttCV == 0)
+			duanTitle.forEach(function (a) {
+				a.style.color = dynamicColor;
+			});
 	}
 };
 saveColorDefaults();
@@ -1981,9 +1990,7 @@ function kiemtraSTTCV() {
 	addOrRemoveRuler();
 
 	//   đổi màu title duan khi chuyen CV1 CV2
-	let duanTitle = document.querySelectorAll(".CV.jsCV .wrapDiv h3"),
-		duanTitleCV2 = document.querySelectorAll(".CV2.main .wrapDiv h3"),
-		titleRightCV2Add = document.querySelectorAll(
+	let titleRightCV2Add = document.querySelectorAll(
 			".CV2.main  .divOfAddIndex div div:nth-child(2)"
 		),
 		hrRightCV2Add = document.querySelectorAll(
@@ -1996,10 +2003,12 @@ function kiemtraSTTCV() {
 			".CV.jsCV  .divOfAddIndex div hr"
 		);
 	var mau;
+	duanTitle = [];
+	duanTitleCV2 = [];
 	if (sttCV == 0) {
 		RightCv1Themmucphai();
 		mau = window.getComputedStyle(
-			document.querySelector(".CV.jsCV .sectionTitleBodyLeftCV h1")
+			document.querySelectorAll(".CV.jsCV .sectionTitleBodyLeftCV h1")[0]
 		).color;
 		document.querySelectorAll(".CV.jsCV .skillLevel").forEach(function (a, b) {
 			let dung = 0;
@@ -2027,10 +2036,14 @@ function kiemtraSTTCV() {
 				document.querySelectorAll(".CV.jsCV .sectionTitleBodyLeftCV hr")[0]
 			).backgroundColor;
 		});
+		//   kiemtra tilte du an
+		document.querySelectorAll(".CV.jsCV .wrapDiv h3").forEach(function (a) {
+			duanTitle.push(a);
+		});
 	} else {
 		RightCv2Themmucphai();
 		mau = window.getComputedStyle(
-			document.querySelector(".CV2.main .sectionTitleBodyLeftCV h1")
+			document.querySelectorAll(".CV2.main .sectionTitleBodyLeftCV h1")[0]
 		).color;
 		document.querySelectorAll(".CV2.main .skillLevel").forEach(function (a, b) {
 			let dung = 0;
@@ -2058,13 +2071,19 @@ function kiemtraSTTCV() {
 				document.querySelectorAll(".CV2.main .sectionTitleBodyLeftCV hr")[0]
 			).backgroundColor;
 		});
+		// kiem tra title du an
+		document.querySelectorAll(".CV2.main .wrapDiv h3").forEach(function (a) {
+			duanTitleCV2.push(a);
+		});
 	}
-	duanTitle.forEach(function (a) {
-		a.style.color = mau;
-	});
-	duanTitleCV2.forEach(function (a) {
-		a.style.color = mau;
-	});
+	if (sttCV == 0)
+		duanTitle.forEach(function (a) {
+			a.style.color = mau;
+		});
+	else
+		duanTitleCV2.forEach(function (a) {
+			a.style.color = mau;
+		});
 }
 chinhnenCV1();
 chuyenCV();
@@ -2149,12 +2168,11 @@ function RightCv1Themmucphai() {
 		),
 		ButtonDuan = document.querySelector(
 			".CV.jsCV .sectionTitleBodyLeftCV #addButton"
-		),
-		duanTitle = document.querySelectorAll(".CV.jsCV .wrapDiv h3");
+		);
 	titleRightCV1.forEach(function (a) {
 		let nho;
-		console.log(duanTitle);
 		a.onmouseover = function () {
+			console.log(duanTitle);
 			nho = window.getComputedStyle(a).color;
 			titleRightCV1.forEach(function (a) {
 				a.style.color = "#555";
@@ -2174,9 +2192,10 @@ function RightCv1Themmucphai() {
 				});
 			ButtonDuan.style.color = "#555";
 			ButtonDuan.style.borderColor = "#555";
-			duanTitle.forEach(function (a) {
-				a.style.color = "#555";
-			});
+			if (duanTitle.length != 0)
+				duanTitle.forEach(function (a) {
+					a.style.color = "#555";
+				});
 		};
 		a.onmouseleave = function () {
 			titleRightCV1.forEach(function (a) {
@@ -2197,9 +2216,10 @@ function RightCv1Themmucphai() {
 				});
 			ButtonDuan.style.color = nho;
 			ButtonDuan.style.borderColor = nho;
-			duanTitle.forEach(function (a) {
-				a.style.color = nho;
-			});
+			if (duanTitle.length != 0)
+				duanTitle.forEach(function (a) {
+					a.style.color = nho;
+				});
 		};
 		a.onclick = function () {
 			chunao = 2;
@@ -2225,8 +2245,8 @@ function RightCv1Themmucphai() {
 	});
 	titleRightCV1Add.forEach(function (a) {
 		let nho;
-		console.log(duanTitle);
 		a.onmouseover = function () {
+			console.log(duanTitle);
 			nho = window.getComputedStyle(a).color;
 			titleRightCV1.forEach(function (a) {
 				a.style.color = "#555";
@@ -2246,9 +2266,10 @@ function RightCv1Themmucphai() {
 				});
 			ButtonDuan.style.color = "#555";
 			ButtonDuan.style.borderColor = "#555";
-			duanTitle.forEach(function (a) {
-				a.style.color = "#555";
-			});
+			if (duanTitle.length != 0)
+				duanTitle.forEach(function (a) {
+					a.style.color = "#555";
+				});
 		};
 		a.onmouseleave = function () {
 			titleRightCV1.forEach(function (a) {
@@ -2269,9 +2290,10 @@ function RightCv1Themmucphai() {
 				});
 			ButtonDuan.style.color = nho;
 			ButtonDuan.style.borderColor = nho;
-			duanTitle.forEach(function (a) {
-				a.style.color = nho;
-			});
+			if (duanTitle.length != 0)
+				duanTitle.forEach(function (a) {
+					a.style.color = nho;
+				});
 		};
 		a.onclick = function () {
 			chunao = 2;
@@ -2490,12 +2512,12 @@ function RightCv2Themmucphai() {
 		),
 		ButtonDuan = document.querySelector(
 			".CV2.main .sectionTitleBodyLeftCV #addButton"
-		),
-		duanTitleCV2 = document.querySelectorAll(".CV2.jsCV .wrapDiv h3");
-	// hrRightCV2Add = document.querySelectorAll(".CV2.jsCV .divOfAddIndex div hr");
+		);
+
 	titleRightCV2.forEach(function (a) {
 		let nho;
 		a.onmouseover = function () {
+			console.log(duanTitleCV2);
 			nho = window.getComputedStyle(a).color;
 			titleRightCV2.forEach(function (a) {
 				a.style.color = "#555";
@@ -2514,9 +2536,10 @@ function RightCv2Themmucphai() {
 			// });
 			ButtonDuan.style.color = "#555";
 			ButtonDuan.style.borderColor = "#555";
-			duanTitleCV2.forEach(function (a) {
-				a.style.color = "#555";
-			});
+			if (duanTitleCV2.length != 0)
+				duanTitleCV2.forEach(function (a) {
+					a.style.color = "#555";
+				});
 		};
 		a.onmouseleave = function () {
 			titleRightCV2.forEach(function (a) {
@@ -2536,9 +2559,10 @@ function RightCv2Themmucphai() {
 			// });
 			ButtonDuan.style.color = nho;
 			ButtonDuan.style.borderColor = nho;
-			duanTitleCV2.forEach(function (a) {
-				a.style.color = nho;
-			});
+			if (duanTitleCV2.length != 0)
+				duanTitleCV2.forEach(function (a) {
+					a.style.color = nho;
+				});
 		};
 		a.onclick = function () {
 			chunao = 1;
@@ -2582,9 +2606,10 @@ function RightCv2Themmucphai() {
 			// });
 			ButtonDuan.style.color = "#555";
 			ButtonDuan.style.borderColor = "#555";
-			duanTitleCV2.forEach(function (a) {
-				a.style.color = "#555";
-			});
+			if (duanTitleCV2.length != 0)
+				duanTitleCV2.forEach(function (a) {
+					a.style.color = "#555";
+				});
 		};
 		a.onmouseleave = function () {
 			titleRightCV2.forEach(function (a) {
@@ -2604,9 +2629,10 @@ function RightCv2Themmucphai() {
 			// });
 			ButtonDuan.style.color = nho;
 			ButtonDuan.style.borderColor = nho;
-			duanTitleCV2.forEach(function (a) {
-				a.style.color = nho;
-			});
+			if (duanTitleCV2.length != 0)
+				duanTitleCV2.forEach(function (a) {
+					a.style.color = nho;
+				});
 		};
 		a.onclick = function () {
 			chunao = 1;
