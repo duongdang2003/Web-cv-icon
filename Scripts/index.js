@@ -47,9 +47,9 @@ function download(stringClassCV) {
 	html2pdf().set(opt).from(element).save();
 }
 // Direct change on CV
-console.log(
-	document.querySelectorAll('div[key="projectButton"]')[parseInt(sttCV)]
-);
+// console.log(
+// 	document.querySelectorAll('div[key="projectButton"]')[parseInt(sttCV)]
+// );
 let deleteElement;
 function addButtonProject() {
 	let projectButton = document.querySelectorAll('div[key="duanTitle"]')[
@@ -151,7 +151,7 @@ function addProject() {
 			duanTitleCV2.push(a);
 		});
 }
-console.log(document.querySelectorAll("div[key='duanTitle']"));
+// console.log(document.querySelectorAll("div[key='duanTitle']"));
 function placeholderOfProject() {
 	document
 		.querySelectorAll("div[key='duanTitle']")
@@ -256,7 +256,7 @@ setInterval(() => {
 	} else if (sttCV == 1) {
 		currenCV = document.querySelectorAll(".CV2")[1];
 	}
-	console.log(currenCV.offsetWidth, currenCV.offsetHeight, page);
+	// console.log(currenCV.offsetWidth, currenCV.offsetHeight, page);
 
 	if (
 		currenCV.offsetWidth / currenCV.offsetHeight <=
@@ -331,7 +331,7 @@ setInterval(() => {
 		page++;
 	}
 }, 1000);
-console.log(document.querySelectorAll(".CV2"));
+// console.log(document.querySelectorAll(".CV2"));
 
 //SETTING
 // align
@@ -696,7 +696,7 @@ function placeholderOfSocialNetwork() {
 				value = value.replaceAll("</div>", "");
 				value = value.replaceAll("<br>", "");
 
-				console.log(value);
+				// console.log(value);
 				for (let i = 0; i < value.length; i++) {
 					let code = value[i].charCodeAt(0);
 					if (
@@ -712,7 +712,7 @@ function placeholderOfSocialNetwork() {
 				}
 				value = value.toLowerCase();
 				activeElement.style.color = "white";
-				console.log(value);
+				// console.log(value);
 				switch (value) {
 					case "facebook":
 						activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
@@ -917,12 +917,12 @@ addButtonOfCertificate();
 // Add certificate
 function getOffset(el) {
 	const rect = el.getBoundingClientRect();
-	console.log(
-		"top = " + rect.top,
-		"left = " + rect.left,
-		"right = " + rect.right,
-		"bottom = " + rect.bottom
-	);
+	// console.log(
+	// 	"top = " + rect.top,
+	// 	"left = " + rect.left,
+	// 	"right = " + rect.right,
+	// 	"bottom = " + rect.bottom
+	// );
 }
 function addCertificate() {
 	let wrapDiv = document.createElement("div");
@@ -1019,7 +1019,7 @@ placeholderOfAddCertificate();
 getOffset(document.querySelectorAll(".certificate")[parseInt(sttCV)]);
 
 let CVbackground = document.querySelectorAll(".backgroundOfCV");
-console.log(CVbackground);
+// console.log(CVbackground);
 function getBackground(e) {
 	document
 		.querySelector(".backgroundContainer")
@@ -1264,7 +1264,7 @@ function addFile() {
 	var src;
 	src = saveFile;
 	saveFile = [];
-	console.log(src);
+	// console.log(src);
 	avatarCVs[sttCV].src = src;
 	if (sttCV == 0) {
 		avatarCVs[sttCV].style.border = "none";
@@ -1372,7 +1372,7 @@ var inputColor = document.getElementById("color-search"),
 inputColor.oninput = function (e) {
 	dynamicColor = e.target.value;
 	document.getElementById("demoColor").style.color = e.target.value;
-	console.log(dynamicColor);
+	// console.log(dynamicColor);
 };
 
 //                     khoa -> đăng
@@ -1443,7 +1443,7 @@ document.querySelector("#seclectFont").onclick = function () {
 	} else {
 		activeElement.style.fontFamily = this.value;
 	}
-	console.log(this.value);
+	// console.log(this.value);
 };
 
 //              style status
@@ -1580,7 +1580,7 @@ function save() {
 		document.querySelector("#save i").style.animation = "none";
 	}, 1000);
 }
-console.log(document.querySelectorAll(".headleftCV")[0]);
+// console.log(document.querySelectorAll(".headleftCV")[0]);
 function load() {
 	if (localStorage.getItem("lock load") === "false") {
 		document.getElementById("load").style.cursor = "pointer";
@@ -1662,8 +1662,8 @@ function addDeleteButtoAgain(array) {
 	}
 }
 // setInterval(function () {
-// 	console.log(activeElement)
-// 	console.log(activeElementContainNull)
+	// console.log(activeElement)
+	// console.log(activeElementContainNull)
 // },1000)
 var trynenphai = 0,
 	trynentrai = 0,
@@ -2221,31 +2221,31 @@ document.getElementById("listEdit").onclick = (e) => {
 	if (activeElement != null) {
 		if (e.target == addlistul && tryUOL == 0) {
 			tryUOL = 1;
-			console.log(activeElement.innerText);
+			// console.log(activeElement.innerText);
 			var string = activeElement.innerText;
 			string = string.replaceAll("\n", "</li><li>");
 			string = "<ul><li>" + string + "</li></ul>";
 			activeElement.innerHTML = string;
-			console.log(string);
+			// console.log(string);
 			e.target.style.color = "black";
 		} else if (e.target == addlistul && tryUOL == 1) {
 			tryUOL = 2;
-			console.log(activeElement.innerText);
+			// console.log(activeElement.innerText);
 			var string = activeElement.innerText;
 			string = string.replaceAll("\n", "</li><li>");
 			string = "<ol><li>" + string + "</li></ol>";
 			activeElement.innerHTML = string;
-			console.log(string);
+			// console.log(string);
 			e.target.style.color = "black";
 		} else if (e.target == addlistul && tryUOL == 2) {
 			tryUOL = 0;
-			console.log(activeElement.innerText);
+			// console.log(activeElement.innerText);
 			var string = activeElement.innerText;
 			string = string.replaceAll("<ol><li>", "<div>");
 			string = string.replaceAll("</li></ol>", "</div>");
 			string = string.replaceAll("</li><li>", "</div><div>");
 			activeElement.innerText = string;
-			console.log(string);
+			// console.log(string);
 			e.target.style.color = "black";
 		}
 	}
@@ -2273,7 +2273,7 @@ function RightCv1Themmucphai() {
 	titleRightCV1.forEach(function (a) {
 		let nho;
 		a.onmouseover = function () {
-			console.log(duanTitle);
+			// console.log(duanTitle);
 			nho = window.getComputedStyle(a).color;
 			titleRightCV1.forEach(function (a) {
 				a.style.color = "#555";
@@ -2336,7 +2336,7 @@ function RightCv1Themmucphai() {
 				hrRightCV1Add.forEach(function (a) {
 					activeElementKhoa.push(a);
 				});
-			console.log(activeElementKhoa);
+			// console.log(activeElementKhoa);
 			tableColor.classList.add("openTableColor");
 			tableColor.classList.remove("closeTableColor");
 			setTimeout(function () {
@@ -2347,7 +2347,7 @@ function RightCv1Themmucphai() {
 	titleRightCV1Add.forEach(function (a) {
 		let nho;
 		a.onmouseover = function () {
-			console.log(duanTitle);
+			// console.log(duanTitle);
 			nho = window.getComputedStyle(a).color;
 			titleRightCV1.forEach(function (a) {
 				a.style.color = "#555";
@@ -2410,7 +2410,7 @@ function RightCv1Themmucphai() {
 				hrRightCV1Add.forEach(function (a) {
 					activeElementKhoa.push(a);
 				});
-			console.log(activeElementKhoa);
+			// console.log(activeElementKhoa);
 			tableColor.classList.add("openTableColor");
 			tableColor.classList.remove("closeTableColor");
 			setTimeout(function () {
@@ -2429,7 +2429,7 @@ function LeftCv1Themmuctrai() {
 	titleLeftCV1.forEach(function (a) {
 		let nho;
 		a.onmouseover = function () {
-			console.log(titleLeftCV1);
+			// console.log(titleLeftCV1);
 			nho = window.getComputedStyle(a).color;
 			titleLeftCV1.forEach(function (a) {
 				a.style.color = "#555";
@@ -2559,7 +2559,7 @@ function LeftCv1Themmuctrai() {
 			// pushke.forEach((a)=>{
 			// 	activeElementKhoa.push(a);
 			// })
-			console.log(activeElementKhoa);
+			// console.log(activeElementKhoa);
 			tableColor.classList.add("openTableColor");
 			tableColor.classList.remove("closeTableColor");
 			setTimeout(function () {
@@ -2587,7 +2587,7 @@ titleLeftBCV1.forEach(function (a) {
 	a.onclick = function () {
 		chunao = 1;
 		activeElementKhoa = [...titleLeftBCV1];
-		console.log(activeElementKhoa);
+		// console.log(activeElementKhoa);
 		tableColor.classList.add("openTableColor");
 		tableColor.classList.remove("closeTableColor");
 		setTimeout(function () {
@@ -2612,7 +2612,7 @@ function RightCv2Themmucphai() {
 	titleRightCV2.forEach(function (a) {
 		let nho;
 		a.onmouseover = function () {
-			console.log(duanTitleCV2);
+			// console.log(duanTitleCV2);
 			nho = window.getComputedStyle(a).color;
 			titleRightCV2.forEach(function (a) {
 				a.style.color = "#555";
@@ -2650,7 +2650,7 @@ function RightCv2Themmucphai() {
 				titleRightCV2Add.forEach(function (a) {
 					activeElementKhoa.push(a);
 				});
-			console.log(activeElementKhoa);
+			// console.log(activeElementKhoa);
 			tableColor.classList.add("openTableColor");
 			tableColor.classList.remove("closeTableColor");
 			setTimeout(function () {
@@ -2698,7 +2698,7 @@ function RightCv2Themmucphai() {
 				titleRightCV2Add.forEach(function (a) {
 					activeElementKhoa.push(a);
 				});
-			console.log(activeElementKhoa);
+			// console.log(activeElementKhoa);
 			tableColor.classList.add("openTableColor");
 			tableColor.classList.remove("closeTableColor");
 			setTimeout(function () {
@@ -2729,7 +2729,7 @@ function LeftCv2Themmuctrai() {
 		a.onclick = function () {
 			chunao = 1;
 			activeElementKhoa = [...titleLeftCV2];
-			console.log(activeElementKhoa);
+			// console.log(activeElementKhoa);
 			tableColor.classList.add("openTableColor");
 			tableColor.classList.remove("closeTableColor");
 			setTimeout(function () {
@@ -2756,7 +2756,7 @@ titleLeftBCV2.forEach(function (a) {
 	a.onclick = function () {
 		chunao = 1;
 		activeElementKhoa = [...titleLeftBCV2];
-		console.log(activeElementKhoa);
+		// console.log(activeElementKhoa);
 		tableColor.classList.add("openTableColor");
 		tableColor.classList.remove("closeTableColor");
 		setTimeout(function () {
@@ -2816,13 +2816,13 @@ function playVideo() {
 	setTimeout(function () {
 		document.querySelector("#video video").play();
 
-		console.log("run");
+		// console.log("run");
 	}, 1500);
 	setTimeout(function () {
 		document.querySelector("#video").style.display = "none";
 		document.querySelector("#video video").pause();
 		document.querySelector("#Modalvideo").style.display = "none";
-		console.log("pause");
+		// console.log("pause");
 		glass.style.display = "block";
 		turtorialModal.style.display = "block";
 		openTurtorialModal();
