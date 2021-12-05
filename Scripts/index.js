@@ -2855,13 +2855,14 @@ function closeTurtorialModalByButton() {
 	}, 485);
 }
 closeTurtorialModal();
-// function autoSave() {
-// 	let saveClock = setInterval(alert("hi"), 3000);
-// 	if (document.querySelector("#autoSave input").checked === false) {
-// 		clearInterval(saveClock);
-// 	} else {
-// 		saveClock = setInterval("hi", 3000);
-// 	}
-// }
-// autoSave();
-// console.log(document.querySelector("#autoSave input").checked);
+function autoSave() {
+	let saveClock;
+	if (document.querySelector("#autoSave input").checked === true) {
+		saveClock = setInterval(function () {
+			save();
+		}, 2000);
+	} else {
+		clearInterval(saveClock);
+	}
+}
+autoSave();
