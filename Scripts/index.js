@@ -1,4 +1,3 @@
-let cv = document.querySelector(".CV");
 let availableDisplay = true;
 let page = 1;
 let pageFull = 1;
@@ -211,46 +210,54 @@ function deleteButtonFunction(a) {
 let constWidth = 800;
 let constHeight = 1111;
 let scale = 210 / 297;
-setInterval(() => {
-	console.log(cv.offsetWidth, cv.offsetHeight, page);
-	if (pageFull >= 2) constHeight = 1117;
-	if (
-		cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
-		cv.offsetHeight >= constWidth * page
-	) {
-		ruler = document.createElement("p");
-		ruler.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
-		ruler.style.position = "absolute";
-		ruler.style.color = "#ddd";
-		ruler.style.overflow = "hidden";
-		ruler.style.height = "20px";
-		ruler.style.top = `${
-			((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
-		}px`;
-		ruler.style.left = "-50%";
-		ruler.style.zIndex = "99999";
-		document.querySelectorAll(".jsCV")[parseInt(sttCV)].appendChild(ruler);
+let cv = document.querySelectorAll(".jsCV")[parseInt(sttCV)];
 
-		//ruler 2
-		ruler2 = document.createElement("p");
-		ruler2.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
-		ruler2.style.position = "absolute";
-		ruler2.style.color = "#ddd";
-		ruler2.style.overflow = "hidden";
-		ruler2.style.height = "20px";
-		ruler2.style.top = `${
-			((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
-		}px`;
-		ruler2.style.left = "-50%";
-		ruler2.style.zIndex = "99999";
-		//
-		document.querySelectorAll(".jsCV")[parseInt(sttCV) + 1].appendChild(ruler2);
+function pageNumber() {
+	pageCounter = setInterval(() => {
+		console.log(cv.offsetWidth, cv.offsetHeight, page, cv);
+		if (sttCV == 0) {
+			cv = document.querySelectorAll(".jsCV")[parseInt(sttCV)];
+		} else {
+			cv = document.querySelectorAll(".CV2")[1];
+		}
+		if (pageFull >= 2) constHeight = 1117;
+		if (
+			cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
+			cv.offsetHeight >= constWidth * page
+		) {
+			ruler = document.createElement("p");
+			ruler.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
+			ruler.style.position = "absolute";
+			ruler.style.color = "#ddd";
+			ruler.style.overflow = "hidden";
+			ruler.style.height = "20px";
+			ruler.style.top = `${
+				((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
+			}px`;
+			ruler.style.left = "-50%";
+			ruler.style.zIndex = "99999";
+			document.querySelectorAll(".jsCV")[0].appendChild(ruler);
 
-		page++;
-	}
-}, 1000);
-console.log(document.querySelectorAll(".jsCV"));
-
+			//ruler 2
+			ruler2 = document.createElement("p");
+			ruler2.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
+			ruler2.style.position = "absolute";
+			ruler2.style.color = "#ddd";
+			ruler2.style.overflow = "hidden";
+			ruler2.style.height = "20px";
+			ruler2.style.top = `${
+				((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
+			}px`;
+			ruler2.style.left = "-50%";
+			ruler2.style.zIndex = "99999";
+			//
+			document.querySelectorAll(".jsCV")[1].appendChild(ruler2);
+			page++;
+		}
+	}, 1000);
+}
+pageNumber();
+console.log(document.querySelectorAll(".CV2"));
 //SETTING
 // align
 let activeElement = document.getElementById("hocVan");
@@ -1988,7 +1995,6 @@ function kiemtraSTTCV() {
 	placeholderAnotherInfor();
 	placeholderOfAddLeftIndex();
 	addOrRemoveRuler();
-
 	//   đổi màu title duan khi chuyen CV1 CV2
 	let titleRightCV2Add = document.querySelectorAll(
 			".CV2.main  .divOfAddIndex div div:nth-child(2)"
