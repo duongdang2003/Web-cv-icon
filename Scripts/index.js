@@ -99,6 +99,7 @@ function addProject() {
 	projectName.style.color = "black";
 	projectName.style.paddingLeft = "10px";
 	projectName.style.color = dynamicColor;
+	project.innerHTML = "Nhập vào đây";
 	project.setAttribute("contenteditable", "true");
 	project.style.width = "98%";
 	project.style.height = "fit-content";
@@ -108,7 +109,8 @@ function addProject() {
 	project.style.fontSize = "15px";
 	project.style.color = "black";
 	project.setAttribute("class", "test");
-	project.setAttribute("spellcheck", "false");
+	project.setAttribute("isProject", true);
+	project.setAttribute("spellcheck", false);
 
 	projectDiscription.innerHTML = "Mô tả dự án:";
 	projectDiscription.style.color = "black";
@@ -121,9 +123,13 @@ function addProject() {
 	discription.style.margin = "5px 10px 10px 10px";
 	discription.style.padding = "10px";
 	discription.style.fontSize = "15px";
+	discription.setAttribute("isProject", true);
+
+	discription.innerHTML = "Nhập vào đây";
+
 	discription.style.color = "black";
 	discription.setAttribute("class", "test");
-	discription.setAttribute("spellcheck", "false");
+	discription.setAttribute("spellcheck", false);
 
 	deleteButtonFunction(wrapDiv);
 
@@ -145,6 +151,30 @@ function addProject() {
 			duanTitleCV2.push(a);
 		});
 }
+console.log(document.querySelectorAll("div[key='duanTitle']"));
+function placeholderOfProject() {
+	document
+		.querySelectorAll("div[key='duanTitle']")
+		[parseInt(sttCV)].addEventListener("focusin", function (e) {
+			if (
+				e.target.getAttribute("isProject") === "true" &&
+				e.target.innerHTML === "Nhập vào đây"
+			) {
+				e.target.innerHTML = "";
+			}
+		});
+	document
+		.querySelectorAll("div[key='duanTitle']")
+		[parseInt(sttCV)].addEventListener("focusout", function (e) {
+			if (
+				e.target.getAttribute("isProject") === "true" &&
+				e.target.innerHTML === ""
+			) {
+				e.target.innerHTML = "Nhập vào đây";
+			}
+		});
+}
+placeholderOfProject();
 // display available
 function displayAvailable() {
 	let available = document.querySelector("#available > div");
@@ -2019,6 +2049,7 @@ function kiemtraSTTCV() {
 		themHinhAnhNhieuCV(sttCV);
 	}
 	load();
+	placeholderOfProject();
 	placeholderOfAddIndex();
 	placeholderOfAddCertificate();
 	addButtonOfCertificate();
@@ -2044,7 +2075,6 @@ function kiemtraSTTCV() {
 	placeholderAnotherInfor();
 	placeholderOfAddLeftIndex();
 	addOrRemoveRuler();
-
 	//   đổi màu title duan khi chuyen CV1 CV2
 	let titleRightCV2Add = document.querySelectorAll(
 			".CV2.main  .divOfAddIndex div div:nth-child(2)"
