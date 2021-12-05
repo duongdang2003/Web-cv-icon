@@ -218,11 +218,18 @@ let constWidth = 800;
 let constHeight = 1111;
 let scale = 210 / 297;
 setInterval(() => {
-	console.log(cv.offsetWidth, cv.offsetHeight, page);
 	if (pageFull >= 2) constHeight = 1117;
+	if (sttCV == 0) {
+		currenCV = cv;
+	} else if (sttCV == 1) {
+		currenCV = document.querySelectorAll(".CV2")[1];
+	}
+	console.log(currenCV.offsetWidth, currenCV.offsetHeight, page);
+
 	if (
-		cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
-		cv.offsetHeight >= constWidth * page
+		currenCV.offsetWidth / currenCV.offsetHeight <=
+			constWidth / (constHeight * page) &&
+		currenCV.offsetHeight >= constWidth * page
 	) {
 		ruler = document.createElement("p");
 		ruler.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
@@ -231,11 +238,11 @@ setInterval(() => {
 		ruler.style.overflow = "hidden";
 		ruler.style.height = "20px";
 		ruler.style.top = `${
-			((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
+			((1 * currenCV.offsetWidth * constHeight) / constWidth) * page + 1
 		}px`;
 		ruler.style.left = "-50%";
 		ruler.style.zIndex = "99999";
-		document.querySelectorAll(".jsCV")[parseInt(sttCV)].appendChild(ruler);
+		cv.appendChild(ruler);
 
 		//ruler 2
 		ruler2 = document.createElement("p");
@@ -245,17 +252,17 @@ setInterval(() => {
 		ruler2.style.overflow = "hidden";
 		ruler2.style.height = "20px";
 		ruler2.style.top = `${
-			((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
+			((1 * currenCV.offsetWidth * constHeight) / constWidth) * page + 1
 		}px`;
 		ruler2.style.left = "-50%";
 		ruler2.style.zIndex = "99999";
 		//
-		document.querySelectorAll(".jsCV")[parseInt(sttCV) + 1].appendChild(ruler2);
+		document.querySelectorAll(".CV2")[1].appendChild(ruler2);
 
 		page++;
 	}
 }, 1000);
-console.log(document.querySelectorAll(".jsCV"));
+console.log(document.querySelectorAll(".CV2"));
 
 //SETTING
 // align
@@ -893,10 +900,7 @@ function addCertificate() {
 	toWrapper.style.alignItems = "center";
 	toWrapper.style.justifyContent = "center";
 	toWrapper.style.marginLeft = "1px";
-	toWrapper.setAttribute(
-		"bordercolor",
-		mau
-	);
+	toWrapper.setAttribute("bordercolor", mau);
 
 	labelTo.innerHTML = "Đến";
 	labelTo.style.color = mau;
@@ -1022,12 +1026,12 @@ function addLeftIndex() {
 		document.querySelectorAll(".titleLeftCVsection hr")[0]
 	).backgroundColor;
 	let mau;
-	if (sttCV==0) {
-		mau=window.getComputedStyle(
+	if (sttCV == 0) {
+		mau = window.getComputedStyle(
 			document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
 		).color;
 	} else {
-		mau=window.getComputedStyle(
+		mau = window.getComputedStyle(
 			document.querySelectorAll(".CV2.main .titleLeftCVsection h3")[0]
 		).color;
 	}
@@ -1058,7 +1062,7 @@ function addLeftIndex() {
 	wrapDiv.appendChild(ruler);
 	wrapDiv.appendChild(content);
 	deleteButtonFunction(wrapDiv);
-	if(sttCV == 0)LeftCv1Themmuctrai();
+	if (sttCV == 0) LeftCv1Themmuctrai();
 	else LeftCv2Themmuctrai();
 	document
 		.querySelectorAll("div[name='addLeftIndex']")
@@ -2088,29 +2092,26 @@ function kiemtraSTTCV() {
 		});
 		LeftCv2Themmuctrai();
 	}
-	if (sttCV == 0)
-	{
+	if (sttCV == 0) {
 		let titleLeftCV1 = document.querySelectorAll(
 			".CV.jsCV .sectionTitleLeftCV1 .titleLeftCVsection h3"
 		);
 		duanTitle.forEach(function (a) {
 			a.style.color = mau;
 		});
-		titleLeftCV1.forEach(function (a,b,c) {
+		titleLeftCV1.forEach(function (a, b, c) {
 			a.style.color = window.getComputedStyle(c[0]).color;
-		})
-	}
-	else
-	{
+		});
+	} else {
 		let titleLeftCV2 = document.querySelectorAll(
 			".CV2.main .titleLeftCVsection h3"
 		);
 		duanTitleCV2.forEach(function (a) {
 			a.style.color = mau;
 		});
-		titleLeftCV2.forEach(function (a,b,c) {
+		titleLeftCV2.forEach(function (a, b, c) {
 			a.style.color = window.getComputedStyle(c[0]).color;
-		})
+		});
 	}
 }
 chinhnenCV1();
@@ -2640,30 +2641,30 @@ function LeftCv2Themmuctrai() {
 	let titleLeftCV2 = document.querySelectorAll(
 		".CV2.main .titleLeftCVsection h3"
 	);
-titleLeftCV2.forEach(function (a) {
-	let nho;
-	a.onmouseover = function () {
-		nho = window.getComputedStyle(a).color;
-		titleLeftCV2.forEach(function (a) {
-			a.style.color = "#555";
-		});
-	};
-	a.onmouseleave = function () {
-		titleLeftCV2.forEach(function (a) {
-			a.style.color = nho;
-		});
-	};
-	a.onclick = function () {
-		chunao = 1;
-		activeElementKhoa = [...titleLeftCV2];
-		console.log(activeElementKhoa);
-		tableColor.classList.add("openTableColor");
-		tableColor.classList.remove("closeTableColor");
-		setTimeout(function () {
-			tryTable = 1;
-		}, 400);
-	};
-});
+	titleLeftCV2.forEach(function (a) {
+		let nho;
+		a.onmouseover = function () {
+			nho = window.getComputedStyle(a).color;
+			titleLeftCV2.forEach(function (a) {
+				a.style.color = "#555";
+			});
+		};
+		a.onmouseleave = function () {
+			titleLeftCV2.forEach(function (a) {
+				a.style.color = nho;
+			});
+		};
+		a.onclick = function () {
+			chunao = 1;
+			activeElementKhoa = [...titleLeftCV2];
+			console.log(activeElementKhoa);
+			tableColor.classList.add("openTableColor");
+			tableColor.classList.remove("closeTableColor");
+			setTimeout(function () {
+				tryTable = 1;
+			}, 400);
+		};
+	});
 }
 //   title left bottom
 let titleLeftBCV2 = document.querySelectorAll(".CV2.main .sectionInfoTitle");
