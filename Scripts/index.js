@@ -1059,7 +1059,6 @@ document
 			CVbackground[parseInt(sttCV) + 2].src = e.target.src;
 		}
 	});
-addLeftIndex();
 function addLeftIndex() {
 	let wrapDiv = document.createElement("div");
 	let title = document.createElement("h3");
