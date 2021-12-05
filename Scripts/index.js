@@ -555,14 +555,9 @@ function addSocialNetwork() {
 	socialNetworkLink.setAttribute("contenteditable", "true");
 	socialNetworkLink.setAttribute("spellcheck", "false");
 	socialNetworkLink.setAttribute("class", "test");
-	if (sttCV == 0) {
-		icon.style.width = "27%";
-		socialNetworkLink.style.width = "70%";
-	} else if (sttCV == 1) {
-		icon.style.width = "30%";
-		socialNetworkLink.style.width = "50%";
-		wrapDiv.style.marginLeft = "20px";
-	}
+
+	icon.style.width = "27%";
+	socialNetworkLink.style.width = "70%";
 	document.querySelectorAll(".mangxahoi")[parseInt(sttCV)].appendChild(wrapDiv);
 	wrapDiv.appendChild(icon);
 	wrapDiv.appendChild(socialNetworkLink);
@@ -601,35 +596,49 @@ function placeholderOfSocialNetwork() {
 				activeElement.innerHTML != ""
 			) {
 				value = activeElement.innerHTML;
-				activeElement.style.color = "white";
+				value = value.replaceAll("\n", "");
+				value = value.replaceAll("<div>", "");
+				value = value.replaceAll("</div>", "");
+				value = value.replaceAll("<br>", "");
 
+				console.log(value);
+				for (let i = 0; i < value.length; i++) {
+					let code = value[i].charCodeAt(0);
+					if (
+						code < 65 ||
+						(code > 90 && code < 97) ||
+						code > 122 ||
+						value[i] === "\n" ||
+						value[i] === "\r"
+					) {
+						value = value.replace(value[i], "");
+						i--;
+					}
+				}
+				value = value.toLowerCase();
+				activeElement.style.color = "white";
+				console.log(value);
 				switch (value) {
-					case "Facebook":
 					case "facebook":
 						activeElement.innerHTML = `<i class="fab fa-facebook"><i>`;
 						activeElement.style.fontSize = "20px";
 						break;
-					case "Instagram":
 					case "instagram":
 						activeElement.innerHTML = `<i class="fab fa-instagram"></i>`;
 						activeElement.style.fontSize = "20px";
 						break;
-					case "Github":
 					case "github":
 						activeElement.innerHTML = `<i class="fab fa-github"></i>`;
 						activeElement.style.fontSize = "20px";
 						break;
-					case "Twitter":
 					case "twitter":
 						activeElement.innerHTML = `<i class="fab fa-twitter"></i>`;
 						activeElement.style.fontSize = "20px";
 						break;
-					case "Linkedin":
 					case "linkedin":
 						activeElement.innerHTML = `<i class="fab fa-linkedin-in"></i>`;
 						activeElement.style.fontSize = "20px";
 						break;
-					case "Youtube":
 					case "youtube":
 						activeElement.innerHTML = `<i class="fab fa-youtube"></i>`;
 						activeElement.style.fontSize = "20px";
@@ -985,6 +994,7 @@ function addLeftIndex() {
 	title.contentEditable = "true";
 	title.innerHTML = "Tiêu đề";
 	title.spellcheck = false;
+	title.style.color = "grey";
 	title.style.color = window.getComputedStyle(
 		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
 	).color;
@@ -992,6 +1002,7 @@ function addLeftIndex() {
 	ruler.style.display = "block";
 	ruler.style.backgroundColor = rulerColor;
 	content.contentEditable = "true";
+	content.style.color = "grey";
 	content.style.margin = "10px 0 10px 0";
 	content.style.color = window.getComputedStyle(
 		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
@@ -1011,6 +1022,9 @@ function addLeftIndex() {
 	wrapDiv.appendChild(content);
 	deleteButtonFunction(wrapDiv);
 	LeftCv1Themmuctrai();
+	document
+		.querySelectorAll("div[name='addLeftIndex']")
+		[parseInt(sttCV)].scrollIntoView();
 }
 function placeholderOfAddLeftIndex() {
 	document
@@ -1069,7 +1083,25 @@ function addDeleteButtonForAll() {
 	}
 }
 addDeleteButtonForAll();
+let backgroundSetting = true;
+function displayBackgroundSetting() {
+	if (backgroundSetting === true) {
+		document.getElementById("isDisplay").style.display = "block";
+		document.querySelector("#Cv-background i:nth-child(1)").style.display =
+			"none";
+		document.querySelector("#Cv-background i:nth-child(2)").style.display =
+			"block";
 
+		backgroundSetting = false;
+	} else {
+		document.getElementById("isDisplay").style.display = "none";
+		document.querySelector("#Cv-background i:nth-child(1)").style.display =
+			"block";
+		document.querySelector("#Cv-background i:nth-child(2)").style.display =
+			"none";
+		backgroundSetting = true;
+	}
+}
 //                                phan download CV 👆
 //                                khoa 👇
 var saveFile = [];
@@ -1364,18 +1396,21 @@ function save() {
 	);
 	// header color
 	if (
-		window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
-			.backgroundColor !== "rgb(170, 9, 170)" &&
+		window.getComputedStyle(
+			document.querySelectorAll(".headleftCV")[parseInt(sttCV)]
+		).backgroundColor !== "rgb(170, 9, 170)" &&
 		sttCV == 0
 	) {
 		localStorage.setItem(
 			"header left color",
-			window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
-				.backgroundColor
+			window.getComputedStyle(
+				document.querySelectorAll(".headleftCV")[parseInt(sttCV)]
+			).backgroundColor
 		);
 	} else if (
-		window.getComputedStyle(document.querySelectorAll(".headleftCV")[0])
-			.backgroundColor == "rgb(170, 9, 170)" &&
+		window.getComputedStyle(
+			document.querySelectorAll(".headleftCV")[parseInt(sttCV)]
+		).backgroundColor == "rgb(170, 9, 170)" &&
 		sttCV == 0
 	) {
 		localStorage.setItem("header left color", "#2f4e50");
@@ -2476,3 +2511,6 @@ function openTurtorialModal() {
 	}, 485);
 }
 closeTurtorialModal();
+setInterval(function () {
+	save();
+}, 30000);
