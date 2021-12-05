@@ -157,6 +157,10 @@ body {
 	height: 1122px;
 	top: 0;
 }
+#notice div {
+	font-size: 18px;
+	margin-top: 5px;
+}
 .body .information > div:not(:first-child) {
 	width: 90%;
 	height: fit-content;

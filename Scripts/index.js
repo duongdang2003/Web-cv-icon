@@ -102,7 +102,7 @@ function addProject() {
 	project.setAttribute("contenteditable", "true");
 	project.style.width = "98%";
 	project.style.height = "fit-content";
-	project.style.border = "1px solid #F8EDEB";
+	project.style.border = "none";
 	project.style.margin = "5px 10px 10px 10px";
 	project.style.padding = "10px";
 	project.style.fontSize = "15px";
@@ -117,7 +117,7 @@ function addProject() {
 	discription.setAttribute("contenteditable", "true");
 	discription.style.width = "98%";
 	discription.style.height = "fit-content";
-	discription.style.border = "1px solid #F8EDEB";
+	discription.style.border = "none";
 	discription.style.margin = "5px 10px 10px 10px";
 	discription.style.padding = "10px";
 	discription.style.fontSize = "15px";
@@ -727,7 +727,7 @@ function addAnotherInfor() {
 	titleAI.setAttribute("contenteditable", "true");
 	titleAI.style.width = "93%";
 	titleAI.style.height = "fit-content";
-	titleAI.style.border = "1px solid #F8EDEB";
+	titleAI.style.border = "none";
 	titleAI.style.margin = "5px 10px 10px 10px";
 	titleAI.style.padding = "10px";
 	titleAI.style.fontSize = "1.17em";
@@ -741,7 +741,7 @@ function addAnotherInfor() {
 	detail.style.width = "93%";
 	detail.innerHTML = "Chi tiết";
 	detail.style.height = "fit-content";
-	detail.style.border = "1px solid #F8EDEB";
+	detail.style.border = "none";
 	detail.style.margin = "5px 10px 10px 10px";
 	detail.style.padding = "10px";
 	detail.style.fontSize = "15px";
@@ -939,6 +939,7 @@ function addCertificate() {
 	toWrapper.style.alignItems = "center";
 	toWrapper.style.justifyContent = "center";
 	toWrapper.style.marginLeft = "1px";
+	fromDate.style.border = "none";
 	toWrapper.setAttribute("bordercolor", mau);
 
 	labelTo.innerHTML = "Đến";
@@ -948,6 +949,7 @@ function addCertificate() {
 	toDate.style.backgroundColor = "transparent";
 	toDate.style.color = mau;
 	toDate.style.padding = "5px";
+	toDate.style.border = "none";
 	fromWrapper.style.display = "flex";
 	toWrapper.style.display = "flex";
 
@@ -2824,4 +2826,4 @@ function closeTurtorialModalByButton() {
 closeTurtorialModal();
 setInterval(function () {
 	save();
-}, 30000);
+}, 60000);

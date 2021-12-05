@@ -72,7 +72,7 @@
 					</div>
 					<div id="turtorialSave" style="display:flex">
 						<div style="background-image: url(./Images/aboutData.png); width: 41px; height: 41px; background-position: center;  border-radius: 5px"></div>
-						<div style="display: flex; align-items: center"><b>Save</b>: lưu CV (CV sẽ tự động lưu mỗi 30s). 
+						<div style="display: flex; align-items: center"><b>Save</b>: lưu CV (CV sẽ tự động lưu mỗi 60s). 
 							Trước khi rời web hãy bấm save để đảm bảo CV được lưu đầy đủ nhất nhá. </div>
 					</div>
 					<div id="turtorialLoad" style="display:flex">
@@ -96,7 +96,6 @@
 					<div style="font-size:25px; font-weight:bold; margin: 20px 0 10px 0;">Kết hợp hình nền và màu nền</div>
 					<div>	
 						Ngoài chỉnh riêng lẻ màu nền và hình nền bạn có thể kết hợp cả màu nền và hình nền bằng cách làm mờ màu nền đi.
-						(Lưu ý để chỉnh được hình nền CV 2 bạn cần phải tăng độ trong suốt của phần bạn muốn hiển thị ảnh nền).
 						<div style="display: flex; justify-content: space-between; margin-top: 20px">
 							<div>
 								<div style="background-image: url(./Images/b1.jpg); width: 200px; height:184px; margin: auto;"></div>
@@ -122,6 +121,11 @@
 						<div style="background-image: url(./Images/result.jpg); width: 300px; height:425px;margin: auto;"></div>
 					</div>
 				</div>
+				<div id="notice" style="font-size:25px; font-weight:bold; margin: 50px 0 10px 0;">Lưu ý:
+					<div>- Không resize trình duyệt khi đang tạo CV vì sẽ làm sai thanh thông báo kết thúc trang.</div>
+					<div>- Lưu ý để chỉnh được hình nền CV 2 bạn cần phải tăng độ trong suốt của phần bạn muốn hiển thị ảnh nền.</div>
+					<div>- Web hoạt động tốt nhất trên trình duyệt Chrome.</div>
+				</div>
 				</div>
 				<div id="footerTurtorial" style="height:15%; background: linear-gradient(45deg, rgb(0, 240, 252), #f757f5)">
 					<div onclick="closeTurtorialModalByButton()">Đóng hướng dẫn</div>
@@ -138,6 +142,7 @@
 
 			<!-- Body -->
 			<div id="editContent">
+				<div></div>
 				<div title="Phông chữ" class="sectionEdit" id="font">
 					<i class="fas fa-font"></i>
 					<select name="font" id="seclectFont">
