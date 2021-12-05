@@ -1,3 +1,4 @@
+let cv = document.querySelector(".CV");
 let availableDisplay = true;
 let page = 1;
 let pageFull = 1;
@@ -216,54 +217,46 @@ function deleteButtonFunction(a) {
 let constWidth = 800;
 let constHeight = 1111;
 let scale = 210 / 297;
-let cv = document.querySelectorAll(".jsCV")[parseInt(sttCV)];
+setInterval(() => {
+	console.log(cv.offsetWidth, cv.offsetHeight, page);
+	if (pageFull >= 2) constHeight = 1117;
+	if (
+		cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
+		cv.offsetHeight >= constWidth * page
+	) {
+		ruler = document.createElement("p");
+		ruler.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
+		ruler.style.position = "absolute";
+		ruler.style.color = "#ddd";
+		ruler.style.overflow = "hidden";
+		ruler.style.height = "20px";
+		ruler.style.top = `${
+			((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
+		}px`;
+		ruler.style.left = "-50%";
+		ruler.style.zIndex = "99999";
+		document.querySelectorAll(".jsCV")[parseInt(sttCV)].appendChild(ruler);
 
-function pageNumber() {
-	pageCounter = setInterval(() => {
-		console.log(cv.offsetWidth, cv.offsetHeight, page, cv);
-		if (sttCV == 0) {
-			cv = document.querySelectorAll(".jsCV")[parseInt(sttCV)];
-		} else {
-			cv = document.querySelectorAll(".CV2")[1];
-		}
-		if (pageFull >= 2) constHeight = 1117;
-		if (
-			cv.offsetWidth / cv.offsetHeight <= constWidth / (constHeight * page) &&
-			cv.offsetHeight >= constWidth * page
-		) {
-			ruler = document.createElement("p");
-			ruler.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
-			ruler.style.position = "absolute";
-			ruler.style.color = "#ddd";
-			ruler.style.overflow = "hidden";
-			ruler.style.height = "20px";
-			ruler.style.top = `${
-				((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
-			}px`;
-			ruler.style.left = "-50%";
-			ruler.style.zIndex = "99999";
-			document.querySelectorAll(".jsCV")[0].appendChild(ruler);
+		//ruler 2
+		ruler2 = document.createElement("p");
+		ruler2.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
+		ruler2.style.position = "absolute";
+		ruler2.style.color = "#ddd";
+		ruler2.style.overflow = "hidden";
+		ruler2.style.height = "20px";
+		ruler2.style.top = `${
+			((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
+		}px`;
+		ruler2.style.left = "-50%";
+		ruler2.style.zIndex = "99999";
+		//
+		document.querySelectorAll(".jsCV")[parseInt(sttCV) + 1].appendChild(ruler2);
 
-			//ruler 2
-			ruler2 = document.createElement("p");
-			ruler2.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
-			ruler2.style.position = "absolute";
-			ruler2.style.color = "#ddd";
-			ruler2.style.overflow = "hidden";
-			ruler2.style.height = "20px";
-			ruler2.style.top = `${
-				((1 * cv.offsetWidth * constHeight) / constWidth) * page + 1
-			}px`;
-			ruler2.style.left = "-50%";
-			ruler2.style.zIndex = "99999";
-			//
-			document.querySelectorAll(".jsCV")[1].appendChild(ruler2);
-			page++;
-		}
-	}, 1000);
-}
-pageNumber();
-console.log(document.querySelectorAll(".CV2"));
+		page++;
+	}
+}, 1000);
+console.log(document.querySelectorAll(".jsCV"));
+
 //SETTING
 // align
 let activeElement = document.getElementById("hocVan");
@@ -863,24 +856,30 @@ function addCertificate() {
 	let toDate = document.createElement("input");
 	let fromWrapper = document.createElement("div");
 	let toWrapper = document.createElement("div");
+	let mau;
+	if (sttCV == 0) {
+		window.getComputedStyle(
+			document.querySelectorAll(".CV.jsCV .titleLeftCVsection h3")[0]
+		).color;
+	} else {
+		mau = window.getComputedStyle(
+			document.querySelectorAll(".CV2.main .sectionInfo .sectionInfoTitle")[0]
+		).color;
+	}
 	wrapDiv.style.marginTop = "10px";
 	wrapDiv.style.marginBottom = "10px";
 	wrapDiv.style.border = "1px solid transparent";
 	wrapDiv.setAttribute("borderColor", "white");
 	certificateName.contentEditable = "true";
 	certificateName.style.width = "90%";
-	certificateName.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	certificateName.style.color = mau;
 	certificateName.spellcheck = "false";
 	certificateName.style.padding = "5px";
 	certificateName.setAttribute("spellcheck", "false");
 	certificateName.innerHTML = "Tên chứng chỉ";
 
 	labelFrom.innerHTML = "Từ";
-	labelFrom.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	labelFrom.style.color = mau;
 	labelFrom.style.marginRight = "10px";
 	labelFrom.style.width = "30px";
 	fromWrapper.style.alignItems = "center";
@@ -889,30 +888,19 @@ function addCertificate() {
 
 	fromDate.type = "date";
 	fromDate.style.backgroundColor = "transparent";
-	fromDate.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	fromDate.style.color = mau;
 	fromDate.style.padding = "5px";
 	toWrapper.style.alignItems = "center";
 	toWrapper.style.justifyContent = "center";
 	toWrapper.style.marginLeft = "1px";
-	toWrapper.setAttribute(
-		"bordercolor",
-		window.getComputedStyle(
-			document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-		).color
-	);
+	toWrapper.setAttribute("bordercolor", mau);
 
 	labelTo.innerHTML = "Đến";
-	labelTo.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	labelTo.style.color = mau;
 	labelTo.style.marginRight = "10px";
 	toDate.type = "date";
 	toDate.style.backgroundColor = "transparent";
-	toDate.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	toDate.style.color = mau;
 	toDate.style.padding = "5px";
 	fromWrapper.style.display = "flex";
 	toWrapper.style.display = "flex";
@@ -2007,6 +1995,7 @@ function kiemtraSTTCV() {
 	placeholderAnotherInfor();
 	placeholderOfAddLeftIndex();
 	addOrRemoveRuler();
+
 	//   đổi màu title duan khi chuyen CV1 CV2
 	let titleRightCV2Add = document.querySelectorAll(
 			".CV2.main  .divOfAddIndex div div:nth-child(2)"
