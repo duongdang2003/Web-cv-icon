@@ -1031,12 +1031,12 @@ function addLeftIndex() {
 		document.querySelectorAll(".titleLeftCVsection hr")[0]
 	).backgroundColor;
 	let mau;
-	if (sttCV==0) {
-		mau=window.getComputedStyle(
+	if (sttCV == 0) {
+		mau = window.getComputedStyle(
 			document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
 		).color;
 	} else {
-		mau=window.getComputedStyle(
+		mau = window.getComputedStyle(
 			document.querySelectorAll(".CV2.main .titleLeftCVsection h3")[0]
 		).color;
 	}
@@ -1067,7 +1067,7 @@ function addLeftIndex() {
 	wrapDiv.appendChild(ruler);
 	wrapDiv.appendChild(content);
 	deleteButtonFunction(wrapDiv);
-	if(sttCV == 0)LeftCv1Themmuctrai();
+	if (sttCV == 0) LeftCv1Themmuctrai();
 	else LeftCv2Themmuctrai();
 	document
 		.querySelectorAll("div[name='addLeftIndex']")
@@ -2096,29 +2096,26 @@ function kiemtraSTTCV() {
 		});
 		LeftCv2Themmuctrai();
 	}
-	if (sttCV == 0)
-	{
+	if (sttCV == 0) {
 		let titleLeftCV1 = document.querySelectorAll(
 			".CV.jsCV .sectionTitleLeftCV1 .titleLeftCVsection h3"
 		);
 		duanTitle.forEach(function (a) {
 			a.style.color = mau;
 		});
-		titleLeftCV1.forEach(function (a,b,c) {
+		titleLeftCV1.forEach(function (a, b, c) {
 			a.style.color = window.getComputedStyle(c[0]).color;
-		})
-	}
-	else
-	{
+		});
+	} else {
 		let titleLeftCV2 = document.querySelectorAll(
 			".CV2.main .titleLeftCVsection h3"
 		);
 		duanTitleCV2.forEach(function (a) {
 			a.style.color = mau;
 		});
-		titleLeftCV2.forEach(function (a,b,c) {
+		titleLeftCV2.forEach(function (a, b, c) {
 			a.style.color = window.getComputedStyle(c[0]).color;
-		})
+		});
 	}
 }
 chinhnenCV1();
@@ -2648,30 +2645,30 @@ function LeftCv2Themmuctrai() {
 	let titleLeftCV2 = document.querySelectorAll(
 		".CV2.main .titleLeftCVsection h3"
 	);
-titleLeftCV2.forEach(function (a) {
-	let nho;
-	a.onmouseover = function () {
-		nho = window.getComputedStyle(a).color;
-		titleLeftCV2.forEach(function (a) {
-			a.style.color = "#555";
-		});
-	};
-	a.onmouseleave = function () {
-		titleLeftCV2.forEach(function (a) {
-			a.style.color = nho;
-		});
-	};
-	a.onclick = function () {
-		chunao = 1;
-		activeElementKhoa = [...titleLeftCV2];
-		console.log(activeElementKhoa);
-		tableColor.classList.add("openTableColor");
-		tableColor.classList.remove("closeTableColor");
-		setTimeout(function () {
-			tryTable = 1;
-		}, 400);
-	};
-});
+	titleLeftCV2.forEach(function (a) {
+		let nho;
+		a.onmouseover = function () {
+			nho = window.getComputedStyle(a).color;
+			titleLeftCV2.forEach(function (a) {
+				a.style.color = "#555";
+			});
+		};
+		a.onmouseleave = function () {
+			titleLeftCV2.forEach(function (a) {
+				a.style.color = nho;
+			});
+		};
+		a.onclick = function () {
+			chunao = 1;
+			activeElementKhoa = [...titleLeftCV2];
+			console.log(activeElementKhoa);
+			tableColor.classList.add("openTableColor");
+			tableColor.classList.remove("closeTableColor");
+			setTimeout(function () {
+				tryTable = 1;
+			}, 400);
+		};
+	});
 }
 //   title left bottom
 let titleLeftBCV2 = document.querySelectorAll(".CV2.main .sectionInfoTitle");
