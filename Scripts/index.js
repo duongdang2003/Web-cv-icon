@@ -2855,6 +2855,13 @@ function closeTurtorialModalByButton() {
 	}, 485);
 }
 closeTurtorialModal();
-setInterval(function () {
-	save();
-}, 60000);
+// function autoSave() {
+// 	let saveClock = setInterval(alert("hi"), 3000);
+// 	if (document.querySelector("#autoSave input").checked === false) {
+// 		clearInterval(saveClock);
+// 	} else {
+// 		saveClock = setInterval("hi", 3000);
+// 	}
+// }
+// autoSave();
+// console.log(document.querySelector("#autoSave input").checked);
