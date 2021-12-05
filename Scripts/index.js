@@ -700,6 +700,7 @@ function placeholderOfSocialNetwork() {
 		});
 }
 placeholderOfSocialNetwork();
+addAnotherInfor()
 function addAnotherInfor() {
 	let wrapDiv = document.createElement("div");
 	wrapDiv.style.marginTop = "10px";
@@ -1043,6 +1044,7 @@ document
 			CVbackground[parseInt(sttCV) + 2].src = e.target.src;
 		}
 	});
+	addLeftIndex();
 function addLeftIndex() {
 	let wrapDiv = document.createElement("div");
 	let title = document.createElement("h3");
@@ -2812,3 +2814,4 @@ closeTurtorialModal();
 setInterval(function () {
 	save();
 }, 30000);
+addIndex();
