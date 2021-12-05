@@ -856,24 +856,30 @@ function addCertificate() {
 	let toDate = document.createElement("input");
 	let fromWrapper = document.createElement("div");
 	let toWrapper = document.createElement("div");
+	let mau;
+	if (sttCV == 0){
+		window.getComputedStyle(
+			document.querySelectorAll(".CV.jsCV .titleLeftCVsection h3")[0]
+		).color;
+	} else {
+		mau=window.getComputedStyle(
+			document.querySelectorAll(".CV2.main .sectionInfo .sectionInfoTitle")[0]
+		).color;
+	}
 	wrapDiv.style.marginTop = "10px";
 	wrapDiv.style.marginBottom = "10px";
 	wrapDiv.style.border = "1px solid transparent";
 	wrapDiv.setAttribute("borderColor", "white");
 	certificateName.contentEditable = "true";
 	certificateName.style.width = "90%";
-	certificateName.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	certificateName.style.color = mau;
 	certificateName.spellcheck = "false";
 	certificateName.style.padding = "5px";
 	certificateName.setAttribute("spellcheck", "false");
 	certificateName.innerHTML = "Tên chứng chỉ";
 
 	labelFrom.innerHTML = "Từ";
-	labelFrom.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	labelFrom.style.color = mau;
 	labelFrom.style.marginRight = "10px";
 	labelFrom.style.width = "30px";
 	fromWrapper.style.alignItems = "center";
@@ -882,30 +888,22 @@ function addCertificate() {
 
 	fromDate.type = "date";
 	fromDate.style.backgroundColor = "transparent";
-	fromDate.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	fromDate.style.color = mau;
 	fromDate.style.padding = "5px";
 	toWrapper.style.alignItems = "center";
 	toWrapper.style.justifyContent = "center";
 	toWrapper.style.marginLeft = "1px";
 	toWrapper.setAttribute(
 		"bordercolor",
-		window.getComputedStyle(
-			document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-		).color
+		mau
 	);
 
 	labelTo.innerHTML = "Đến";
-	labelTo.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	labelTo.style.color = mau;
 	labelTo.style.marginRight = "10px";
 	toDate.type = "date";
 	toDate.style.backgroundColor = "transparent";
-	toDate.style.color = window.getComputedStyle(
-		document.querySelectorAll(".CV .titleLeftCVsection h3")[0]
-	).color;
+	toDate.style.color = mau;
 	toDate.style.padding = "5px";
 	fromWrapper.style.display = "flex";
 	toWrapper.style.display = "flex";
