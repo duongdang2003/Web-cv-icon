@@ -154,7 +154,7 @@ function addProject() {
 console.log(document.querySelectorAll("div[key='duanTitle']"));
 function placeholderOfProject() {
 	document
-		.querySelectorAll("div[key='duanTitle'] > div")
+		.querySelectorAll("div[key='duanTitle']")
 		[parseInt(sttCV)].addEventListener("focusin", function (e) {
 			if (
 				e.target.getAttribute("isProject") === "true" &&
@@ -164,7 +164,7 @@ function placeholderOfProject() {
 			}
 		});
 	document
-		.querySelectorAll("div[key='duanTitle'] > div")
+		.querySelectorAll("div[key='duanTitle']")
 		[parseInt(sttCV)].addEventListener("focusout", function (e) {
 			if (
 				e.target.getAttribute("isProject") === "true" &&
@@ -2050,6 +2050,7 @@ function kiemtraSTTCV() {
 		themHinhAnhNhieuCV(sttCV);
 	}
 	load();
+	placeholderOfProject();
 	placeholderOfAddIndex();
 	placeholderOfAddCertificate();
 	addButtonOfCertificate();
@@ -2075,7 +2076,6 @@ function kiemtraSTTCV() {
 	placeholderAnotherInfor();
 	placeholderOfAddLeftIndex();
 	addOrRemoveRuler();
-	placeholderOfProject();
 	//   đổi màu title duan khi chuyen CV1 CV2
 	let titleRightCV2Add = document.querySelectorAll(
 			".CV2.main  .divOfAddIndex div div:nth-child(2)"
