@@ -2860,7 +2860,7 @@ function autoSave() {
 	if (document.querySelector("#autoSave input").checked === true) {
 		saveClock = setInterval(function () {
 			save();
-		}, 2000);
+		}, 60000);
 	} else {
 		clearInterval(saveClock);
 	}
