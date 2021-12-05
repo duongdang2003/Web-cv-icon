@@ -39,7 +39,7 @@ function download(stringClassCV) {
 	const element = document.querySelector(stringClassCV); // Khỏi chỉnh lại
 	var opt = {
 		margin: 0,
-		filename: "CV.pdf",
+		filename: "AuriCV.pdf",
 		image: { type: "jpeg", quality: 1 },
 		html2canvas: { scale: 3 },
 		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
