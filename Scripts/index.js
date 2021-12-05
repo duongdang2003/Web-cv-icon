@@ -2262,12 +2262,12 @@ titleRightCV1Add.forEach(function (a) {
 
 //                             title left
 let titleLeftCV1 = document.querySelectorAll(
-	".CV .sectionTitleLeftCV1 .titleLeftCVsection h3"
+	".CV.jsCV .sectionTitleLeftCV1 .titleLeftCVsection h3"
 );
 LeftCv1Themmuctrai();
 function LeftCv1Themmuctrai() {
 	let titleLeftCV1 = document.querySelectorAll(
-		".CV .sectionTitleLeftCV1 .titleLeftCVsection h3"
+		".CV.jsCV .sectionTitleLeftCV1 .titleLeftCVsection h3"
 	);
 	titleLeftCV1.forEach(function (a) {
 		let nho;
@@ -2278,17 +2278,17 @@ function LeftCv1Themmuctrai() {
 				a.style.color = "#555";
 			});
 			document
-				.querySelectorAll(".nothing>div>div[contenteditable='true']")
+				.querySelectorAll(".CV.jsCV .nothing>div>div[contenteditable='true']")
 				.forEach(function (a) {
 					a.style.color = "#555";
 				});
 			document
-				.querySelectorAll(".certificate div div:not(:last-child)")
+				.querySelectorAll(".CV.jsCV .certificate div div:not(:last-child)")
 				.forEach(function (a) {
 					a.style.color = "#555";
 				});
 			document
-				.querySelectorAll(".certificate div div input")
+				.querySelectorAll(".CV.jsCV .certificate div div input")
 				.forEach(function (a) {
 					a.style.color = "#555";
 				});
@@ -2316,17 +2316,17 @@ function LeftCv1Themmuctrai() {
 				a.style.color = nho;
 			});
 			document
-				.querySelectorAll(".nothing>div>div[contenteditable='true']")
+				.querySelectorAll(".CV.jsCV .nothing>div>div[contenteditable='true']")
 				.forEach(function (a) {
 					a.style.color = nho;
 				});
 			document
-				.querySelectorAll(".certificate div div:not(:last-child)")
+				.querySelectorAll(".CV.jsCV .certificate div div:not(:last-child)")
 				.forEach(function (a) {
 					a.style.color = nho;
 				});
 			document
-				.querySelectorAll(".certificate div div input")
+				.querySelectorAll(".CV.jsCV .certificate div div input")
 				.forEach(function (a) {
 					a.style.color = nho;
 				});
@@ -2352,7 +2352,7 @@ function LeftCv1Themmuctrai() {
 		a.onclick = function () {
 			let pushke = [
 				...document.querySelectorAll(
-					".nothing>div>div[contenteditable='true']"
+					".CV.jsCV .nothing>div>div[contenteditable='true']"
 				),
 			];
 			chunao = 1;
@@ -2689,6 +2689,7 @@ function playVideo() {
 	}, 0);
 	setTimeout(function () {
 		document.querySelector("#video video").play();
+
 		console.log("run");
 	}, 1500);
 	setTimeout(function () {
