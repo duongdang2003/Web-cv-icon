@@ -15,6 +15,7 @@ let sta = ["boldjs", "italicjs", "underlinejs"];
 let activeElementKhoa = [];
 let duanTitle = [];
 let duanTitleCV2 = [];
+let ruler=[],ruler2=[];
 // let titleLeftCV1 = document.querySelectorAll(
 // 	".CV.jsCV .sectionTitleLeftCV1 .titleLeftCVsection h3"
 // );
@@ -231,34 +232,59 @@ setInterval(() => {
 			constWidth / (constHeight * page) &&
 		currenCV.offsetHeight >= constWidth * page
 	) {
-		ruler = document.createElement("p");
-		ruler.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
-		ruler.style.position = "absolute";
-		ruler.style.color = "#ddd";
-		ruler.style.overflow = "hidden";
-		ruler.style.height = "20px";
-		ruler.style.top = `${
+		ruler.push(document.createElement("p"));
+		ruler[pageFull-1].innerHTML = ` Hết trang ${page} ở đây -----------------------------------------------------------`;
+		ruler[pageFull-1].style.position = "absolute";
+		ruler[pageFull-1].style.color = "rgba(200, 200, 200, 0.8)";
+		ruler[pageFull-1].style.overflow = "hidden";
+		ruler[pageFull-1].style.height = "20px";
+		ruler[pageFull-1].style.cursor = "pointer";
+		ruler[pageFull-1].style.top = `${
 			((1 * currenCV.offsetWidth * constHeight) / constWidth) * page + 1
 		}px`;
-		ruler.style.left = "-50%";
-		ruler.style.zIndex = "99999";
-		cv.appendChild(ruler);
+		ruler[pageFull-1].style.left = "-50%";
+		ruler[pageFull-1].style.zIndex = "99999";
+		cv.appendChild(ruler[pageFull-1]);
+		ruler.forEach(function(a,b){
+			a.onmouseover = function () {
+				this.style.color = "#ffffff";
+				this.innerHTML = ` Hết trang ${b+1} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
+			}
+		})
+		ruler.forEach(function(a,b){
+			a.onmouseleave = function () {
+				this.style.color = "rgba(200, 200, 200, 0.8)";
+				this.innerHTML = ` Hết trang ${b+1} ở đây -----------------------------------------------------------`;
+			}
+		})
 
 		//ruler 2
-		ruler2 = document.createElement("p");
-		ruler2.innerHTML = ` Hết trang ${page} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
-		ruler2.style.position = "absolute";
-		ruler2.style.color = "#ddd";
-		ruler2.style.overflow = "hidden";
-		ruler2.style.height = "20px";
-		ruler2.style.top = `${
+		ruler2[pageFull-1] = document.createElement("p");
+		ruler2[pageFull-1].innerHTML = ` Hết trang ${page} ở đây --------------------------------------------------------------`;
+		ruler2[pageFull-1].style.position = "absolute";
+		ruler2[pageFull-1].style.color = "rgba(200, 200, 200, 0.8)";
+		ruler2[pageFull-1].style.overflow = "hidden";
+		ruler2[pageFull-1].style.height = "20px";
+		ruler2[pageFull-1].style.cursor = "pointer";
+		ruler2[pageFull-1].style.top = `${
 			((1 * currenCV.offsetWidth * constHeight) / constWidth) * page + 1
 		}px`;
-		ruler2.style.left = "-50%";
-		ruler2.style.zIndex = "99999";
+		ruler2[pageFull-1].style.left = "-50%";
+		ruler2[pageFull-1].style.zIndex = "99999";
 		//
-		document.querySelectorAll(".CV2")[1].appendChild(ruler2);
-
+		document.querySelectorAll(".CV2")[1].appendChild(ruler2[pageFull-1]);
+		ruler2.forEach(function(a,b){
+			a.onmouseover = function () {
+				this.style.color = "#ffffff";
+				this.innerHTML = ` Hết trang ${b+1} ở đây ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------`;
+			}
+		})
+		ruler2.forEach(function(a,b){
+			a.onmouseleave = function () {
+				this.style.color = "rgba(200, 200, 200, 0.8)";
+				this.innerHTML = ` Hết trang ${b+1} ở đây -----------------------------------------------------------`;
+			}
+		})
 		page++;
 	}
 }, 1000);
