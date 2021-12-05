@@ -397,3 +397,7 @@ body .CV2 .headleftCV {
 	border-right: 50px solid transparent;
 	border-top: 25px solid #000;
 }
+.CV2.main #addButton{
+	color: #ffffff!important;
+	border-color: #ffffff!important;
+}
