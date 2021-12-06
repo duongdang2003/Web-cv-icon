@@ -2855,14 +2855,36 @@ function closeTurtorialModalByButton() {
 	}, 485);
 }
 closeTurtorialModal();
-function autoSave() {
-	let saveClock;
-	if (document.querySelector("#autoSave input").checked === true) {
-		saveClock = setInterval(function () {
+
+
+
+
+// if (document.querySelector("#autoSave input").checked === true) {
+// 	saveClock = setInterval(function () {
+// 		save();
+// 		console.log("true")
+// 	}, 2000);
+// } else {
+// 	clearInterval(saveClock);
+// }
+
+var time;
+		function saveClock(){ time =setInterval(function () {
 			save();
-		}, 60000);
+			console.log("runTime")
+		}, 2000);
+		// clearInterval(saveClock);
+	}
+	function Stopsave(){
+		clearInterval(time);
+	}
+function autoSave() {
+	if(document.querySelector("#autoSave input").checked){
+		saveClock();
+		console.log("true")
 	} else {
-		clearInterval(saveClock);
+		clearInterval(Stopsave());
+		console.log("false")
 	}
 }
-autoSave();
+autoSave()
