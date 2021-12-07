@@ -23,7 +23,7 @@ body {
 	background-color: #2f2a33;
 }
 #turtorial {
-	position: absolute;
+	position: fixed;
 	background-color: white;
 	width: 84%;
 	height: 85%;

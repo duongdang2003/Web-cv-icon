@@ -2872,7 +2872,7 @@ var time;
 		function saveClock(){ time =setInterval(function () {
 			save();
 			console.log("runTime")
-		}, 2000);
+		}, 60000);
 		// clearInterval(saveClock);
 	}
 	function Stopsave(){
